@@ -1,0 +1,47 @@
+name: build
+
+on:
+  push:
+    branches: [ master, develop ]
+  pull_request:
+    branches: [ master, develop ]
+
+jobs:
+  build:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Switch to Xcode 11.7
+      run: sudo xcode-select --switch /Applications/Xcode_11.7.app
+
+    # Compile project and run tests
+    - name: Compile and run tests
+      run: fastlane scan --scheme "Debug"
+
+  build_release_prod:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Switch to Xcode 11.7
+      run: sudo xcode-select --switch /Applications/Xcode_11.7.app
+    
+    # Compile "Release-Prod" for iOS Simulator (no signing)
+    - name: Compile and run tests
+      run: fastlane gym --scheme "Release-Prod" --skip_package_ipa true --destination "generic/platform=iOS Simulator"
+
+  build_release_dev:
+    runs-on: macOS-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Switch to Xcode 11.7
+      run: sudo xcode-select --switch /Applications/Xcode_11.7.app
+
+    # Compile "Release-Dev" for iOS Simulator (no signing)
+    - name: Compile and run tests
+      run: fastlane gym --scheme "Release-Dev" --skip_package_ipa true --destination "generic/platform=iOS Simulator"

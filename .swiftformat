@@ -1,0 +1,3 @@
+--disable wrapMultilineStatementBraces
+--disable initCoderUnavailable
+--disable redundantType
