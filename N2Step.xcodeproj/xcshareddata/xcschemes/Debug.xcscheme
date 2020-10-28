@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E81CC94241FCC7D006F2437"
-               BuildableName = "CrowdNotifierApp.app"
-               BlueprintName = "CrowdNotifierApp"
-               ReferencedContainer = "container:CrowdNotifierApp.xcodeproj">
+               BuildableName = "N2Step.app"
+               BlueprintName = "N2Step"
+               ReferencedContainer = "container:N2Step.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "8E81CCAA241FCC7F006F2437"
-               BuildableName = "CrowdNotifierAppTests.xctest"
-               BlueprintName = "CrowdNotifierAppTests"
-               ReferencedContainer = "container:CrowdNotifierApp.xcodeproj">
+               BuildableName = "N2StepTests.xctest"
+               BlueprintName = "N2StepTests"
+               ReferencedContainer = "container:N2Step.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -59,9 +59,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E81CC94241FCC7D006F2437"
-            BuildableName = "CrowdNotifierApp.app"
-            BlueprintName = "CrowdNotifierApp"
-            ReferencedContainer = "container:CrowdNotifierApp.xcodeproj">
+            BuildableName = "N2Step.app"
+            BlueprintName = "N2Step"
+            ReferencedContainer = "container:N2Step.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "8E81CC94241FCC7D006F2437"
-            BuildableName = "CrowdNotifierApp.app"
-            BlueprintName = "CrowdNotifierApp"
-            ReferencedContainer = "container:CrowdNotifierApp.xcodeproj">
+            BuildableName = "N2Step.app"
+            BlueprintName = "N2Step"
+            ReferencedContainer = "container:N2Step.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -75,7 +75,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2411CA9E2462ADBE002FB5A9 /* Entitlements.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Entitlements.entitlements; sourceTree = "<group>"; };
 		242D227A245D6557005DAEA8 /* Backend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Backend.swift; sourceTree = "<group>"; };
 		242D227C245D6581005DAEA8 /* Endpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoint.swift; sourceTree = "<group>"; };
 		242D227F245D7362005DAEA8 /* distribute.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; name = distribute.yml; path = .github/workflows/distribute.yml; sourceTree = SOURCE_ROOT; };
@@ -98,18 +97,18 @@
 		6E7C0D2C242D04290017C4F9 /* Inter-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-Medium.ttf"; sourceTree = "<group>"; };
 		6E7C0D2D242D04290017C4F9 /* Inter-ExtraLight.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraLight.ttf"; sourceTree = "<group>"; };
 		6E7C0D38242E02A20017C4F9 /* NSLayoutConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLayoutConstants.swift; sourceTree = "<group>"; };
-		6E8FC0F524518BF1002AB1E5 /* CrowdNotifierApp-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CrowdNotifierApp-Bridging-Header.h"; sourceTree = "<group>"; };
+		6E8FC0F524518BF1002AB1E5 /* N2Step-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "N2Step-Bridging-Header.h"; sourceTree = "<group>"; };
 		6E8FC0F624518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+UBKeyboardObserver.h"; sourceTree = "<group>"; };
 		6E8FC0F724518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UBKeyboardObserver.m"; sourceTree = "<group>"; };
 		6E8FC0F824518BF2002AB1E5 /* UBKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBKeyboardObserver.h; sourceTree = "<group>"; };
 		6E8FC0F924518BF2002AB1E5 /* UBKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBKeyboardObserver.m; sourceTree = "<group>"; };
 		6EFF9AE1245AAFC800C98FF3 /* UIImage+UBHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+UBHelpers.h"; sourceTree = "<group>"; };
 		6EFF9AE2245AAFC800C98FF3 /* UIImage+UBHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+UBHelpers.m"; sourceTree = "<group>"; };
-		8E81CC95241FCC7D006F2437 /* CrowdNotifierApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CrowdNotifierApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E81CC95241FCC7D006F2437 /* N2Step.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = N2Step.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E81CC98241FCC7D006F2437 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8E81CCA1241FCC7F006F2437 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8E81CCA6241FCC7F006F2437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8E81CCAB241FCC7F006F2437 /* CrowdNotifierAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CrowdNotifierAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		8E81CCAB241FCC7F006F2437 /* N2StepTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = N2StepTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E81CCB1241FCC7F006F2437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAF73667242F3D030051E34A /* UIStackView+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+NS.swift"; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
@@ -132,7 +131,6 @@
 		DC9A81A9242CE5E000AD1548 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
-		F8ABFC712474337000D621FF /* Entitlements_Calibration.entitlements */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.entitlements; path = Entitlements_Calibration.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -276,8 +274,8 @@
 			children = (
 				2443947D2445F8A1003ED582 /* README.md */,
 				2443947C2445F8A1003ED582 /* LICENSE */,
-				8E81CC97241FCC7D006F2437 /* CrowdNotifierApp */,
-				8E81CCAE241FCC7F006F2437 /* CrowdNotifierAppTests */,
+				8E81CC97241FCC7D006F2437 /* N2Step */,
+				8E81CCAE241FCC7F006F2437 /* N2StepTests */,
 				8E81CC96241FCC7D006F2437 /* Products */,
 				24780B3B2430BC00003BB26C /* Frameworks */,
 			);
@@ -286,13 +284,13 @@
 		8E81CC96241FCC7D006F2437 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				8E81CC95241FCC7D006F2437 /* CrowdNotifierApp.app */,
-				8E81CCAB241FCC7F006F2437 /* CrowdNotifierAppTests.xctest */,
+				8E81CC95241FCC7D006F2437 /* N2Step.app */,
+				8E81CCAB241FCC7F006F2437 /* N2StepTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		8E81CC97241FCC7D006F2437 /* CrowdNotifierApp */ = {
+		8E81CC97241FCC7D006F2437 /* N2Step */ = {
 			isa = PBXGroup;
 			children = (
 				DC286A24242CE0AD001D5344 /* Logic */,
@@ -301,15 +299,15 @@
 				DC9A8196242CE44200AD1548 /* Resources */,
 				DC9A8197242CE46F00AD1548 /* Supporting Files */,
 			);
-			path = CrowdNotifierApp;
+			path = N2Step;
 			sourceTree = "<group>";
 		};
-		8E81CCAE241FCC7F006F2437 /* CrowdNotifierAppTests */ = {
+		8E81CCAE241FCC7F006F2437 /* N2StepTests */ = {
 			isa = PBXGroup;
 			children = (
 				8E81CCB1241FCC7F006F2437 /* Info.plist */,
 			);
-			path = CrowdNotifierAppTests;
+			path = N2StepTests;
 			sourceTree = "<group>";
 		};
 		DC286A24242CE0AD001D5344 /* Logic */ = {
@@ -373,9 +371,7 @@
 		DC9A8197242CE46F00AD1548 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				2411CA9E2462ADBE002FB5A9 /* Entitlements.entitlements */,
-				F8ABFC712474337000D621FF /* Entitlements_Calibration.entitlements */,
-				6E8FC0F524518BF1002AB1E5 /* CrowdNotifierApp-Bridging-Header.h */,
+				6E8FC0F524518BF1002AB1E5 /* N2Step-Bridging-Header.h */,
 				8E81CCA6241FCC7F006F2437 /* Info.plist */,
 				242D2280245D7363005DAEA8 /* build.yml */,
 				242D227F245D7362005DAEA8 /* distribute.yml */,
@@ -402,9 +398,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		8E81CC94241FCC7D006F2437 /* CrowdNotifierApp */ = {
+		8E81CC94241FCC7D006F2437 /* N2Step */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E81CCB4241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "CrowdNotifierApp" */;
+			buildConfigurationList = 8E81CCB4241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "N2Step" */;
 			buildPhases = (
 				8E81CCC0241FD2BC006F2437 /* Swift Format */,
 				8E81CCC1241FD2EE006F2437 /* Swift Lint */,
@@ -417,17 +413,17 @@
 			);
 			dependencies = (
 			);
-			name = CrowdNotifierApp;
+			name = N2Step;
 			packageProductDependencies = (
 				8E81CCCE241FD813006F2437 /* SnapKit */,
 			);
 			productName = IVC;
-			productReference = 8E81CC95241FCC7D006F2437 /* CrowdNotifierApp.app */;
+			productReference = 8E81CC95241FCC7D006F2437 /* N2Step.app */;
 			productType = "com.apple.product-type.application";
 		};
-		8E81CCAA241FCC7F006F2437 /* CrowdNotifierAppTests */ = {
+		8E81CCAA241FCC7F006F2437 /* N2StepTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 8E81CCB7241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "CrowdNotifierAppTests" */;
+			buildConfigurationList = 8E81CCB7241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "N2StepTests" */;
 			buildPhases = (
 				8E81CCA7241FCC7F006F2437 /* Sources */,
 				8E81CCA8241FCC7F006F2437 /* Frameworks */,
@@ -438,9 +434,9 @@
 			dependencies = (
 				8E81CCAD241FCC7F006F2437 /* PBXTargetDependency */,
 			);
-			name = CrowdNotifierAppTests;
+			name = N2StepTests;
 			productName = IVCTests;
-			productReference = 8E81CCAB241FCC7F006F2437 /* CrowdNotifierAppTests.xctest */;
+			productReference = 8E81CCAB241FCC7F006F2437 /* N2StepTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -467,7 +463,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 8E81CC90241FCC7D006F2437 /* Build configuration list for PBXProject "CrowdNotifierApp" */;
+			buildConfigurationList = 8E81CC90241FCC7D006F2437 /* Build configuration list for PBXProject "N2Step" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = de;
 			hasScannedForEncodings = 0;
@@ -486,8 +482,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				8E81CC94241FCC7D006F2437 /* CrowdNotifierApp */,
-				8E81CCAA241FCC7F006F2437 /* CrowdNotifierAppTests */,
+				8E81CC94241FCC7D006F2437 /* N2Step */,
+				8E81CCAA241FCC7F006F2437 /* N2StepTests */,
 				8E81CCC2241FD475006F2437 /* Translation */,
 			);
 		};
@@ -644,7 +640,7 @@
 /* Begin PBXTargetDependency section */
 		8E81CCAD241FCC7F006F2437 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 8E81CC94241FCC7D006F2437 /* CrowdNotifierApp */;
+			target = 8E81CC94241FCC7D006F2437 /* N2Step */;
 			targetProxy = 8E81CCAC241FCC7F006F2437 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -704,7 +700,6 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EN_DEVELOPER_REGION = TEST_CH_2;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE_DEV=1";
@@ -719,7 +714,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_DEV";
-				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.crowdnotifier.dev;
+				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.n2step.dev;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE_DEV;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -733,12 +728,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CrowdNotifierApp/Supporting Files/Entitlements.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "${BUILD_NUMBER}";
-				DEVELOPMENT_TEAM = XPL89PTG92;
-				INFOPLIST_FILE = "CrowdNotifierApp/Supporting Files/Info.plist";
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				INFOPLIST_FILE = "N2Step/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -748,7 +742,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "RELEASE_DEV ENABLE_TESTING ENABLE_SYNC_LOGGING ENABLE_STATUS_OVERRIDE ENABLE_OS_LOG";
-				SWIFT_OBJC_BRIDGING_HEADER = "CrowdNotifierApp/Supporting Files/CrowdNotifierApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "N2Step/Supporting Files/N2Step-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -761,17 +755,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH7CQD4MLU;
-				INFOPLIST_FILE = CrowdNotifierAppTests/Info.plist;
+				INFOPLIST_FILE = N2StepTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.ubique.crowdnotifier.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ubique.n2step.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrowdNotifierApp.app/CrowdNotifierApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/N2Step.app/N2Step";
 			};
 			name = "Release-Dev";
 		};
@@ -825,7 +819,6 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				EN_DEVELOPER_REGION = TEST_CH_2;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -846,7 +839,7 @@
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
-				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.crowdnotifier.dev;
+				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.n2step.dev;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -858,12 +851,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CrowdNotifierApp/Supporting Files/Entitlements_Calibration.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "${BUILD_NUMBER}";
-				DEVELOPMENT_TEAM = XPL89PTG92;
-				INFOPLIST_FILE = "CrowdNotifierApp/Supporting Files/Info.plist";
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				INFOPLIST_FILE = "N2Step/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -871,9 +863,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRIMARY_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "dep-3t DEV Deveopment";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG ENABLE_TESTING ENABLE_SYNC_LOGGING ENABLE_STATUS_OVERRIDE ENABLE_OS_LOG";
-				SWIFT_OBJC_BRIDGING_HEADER = "CrowdNotifierApp/Supporting Files/CrowdNotifierApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "N2Step/Supporting Files/N2Step-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -887,17 +879,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH7CQD4MLU;
-				INFOPLIST_FILE = CrowdNotifierAppTests/Info.plist;
+				INFOPLIST_FILE = N2StepTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.ubique.crowdnotifier.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ubique.n2step.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrowdNotifierApp.app/CrowdNotifierApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/N2Step.app/N2Step";
 			};
 			name = Debug;
 		};
@@ -941,7 +933,6 @@
 				ENABLE_BITCODE = NO;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EN_DEVELOPER_REGION = CH;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE_PROD=1";
@@ -956,7 +947,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_SWIFT_FLAGS = "-D RELEASE_PROD";
-				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.crowdnotifier.dev;
+				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.n2step.dev;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE_PROD;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -970,12 +961,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "CrowdNotifierApp/Supporting Files/Entitlements.entitlements";
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = "${BUILD_NUMBER}";
-				DEVELOPMENT_TEAM = XPL89PTG92;
-				INFOPLIST_FILE = "CrowdNotifierApp/Supporting Files/Info.plist";
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				INFOPLIST_FILE = "N2Step/Supporting Files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -984,7 +974,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRIMARY_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "CrowdNotifierApp/Supporting Files/CrowdNotifierApp-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "N2Step/Supporting Files/N2Step-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -997,17 +987,17 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JH7CQD4MLU;
-				INFOPLIST_FILE = CrowdNotifierAppTests/Info.plist;
+				INFOPLIST_FILE = N2StepTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = ch.ubique.crowdnotifier.tests;
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ubique.n2step.tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CrowdNotifierApp.app/CrowdNotifierApp";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/N2Step.app/N2Step";
 			};
 			name = "Release-Prod";
 		};
@@ -1034,7 +1024,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		8E81CC90241FCC7D006F2437 /* Build configuration list for PBXProject "CrowdNotifierApp" */ = {
+		8E81CC90241FCC7D006F2437 /* Build configuration list for PBXProject "N2Step" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E81CCB2241FCC7F006F2437 /* Debug */,
@@ -1044,7 +1034,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		8E81CCB4241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "CrowdNotifierApp" */ = {
+		8E81CCB4241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "N2Step" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E81CCB5241FCC7F006F2437 /* Debug */,
@@ -1054,7 +1044,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		8E81CCB7241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "CrowdNotifierAppTests" */ = {
+		8E81CCB7241FCC7F006F2437 /* Build configuration list for PBXNativeTarget "N2StepTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				8E81CCB8241FCC7F006F2437 /* Debug */,

@@ -39,19 +39,19 @@ jobs:
       run: bundle exec fastlane build_and_sign
 
     - name: SHA256
-      run: shasum -a 256 build/CrowdNotifier.ipa
+      run: shasum -a 256 build/N2Step.ipa
 
     - name: Archive ipa file
       uses: actions/upload-artifact@v2
       with:
-        name: AppStore_DEV_CrowdNotifier.ipa
-        path: build/CrowdNotifier.ipa
+        name: AppStore_DEV_N2Step.ipa
+        path: build/N2Step.ipa
     
     - name: Archive xcarchive (incl symbols) files
       uses: actions/upload-artifact@v2
       with:
-        name: AppStore_DEV_CrowdNotifier.xcarchive
-        path: "build/CrowdNotifier.xcarchive"
+        name: AppStore_DEV_N2Step.xcarchive
+        path: "build/N2Step.xcarchive"
     
     - name: Archive log file
       if: ${{ always() }}
@@ -87,19 +87,19 @@ jobs:
       run: bundle exec fastlane build_and_sign
 
     - name: SHA256
-      run: shasum -a 256 build/CrowdNotifier.ipa
+      run: shasum -a 256 build/N2Step.ipa
 
     - name: Archive ipa file
       uses: actions/upload-artifact@v2
       with:
-        name: AppStore_PROD_CrowdNotifier.ipa
-        path: build/CrowdNotifier.ipa
+        name: AppStore_PROD_N2Step.ipa
+        path: build/N2Step.ipa
     
     - name: Archive xcarchive (incl symbols) files
       uses: actions/upload-artifact@v2
       with:
-        name: AppStore_PROD_CrowdNotifier.xcarchive
-        path: "build/CrowdNotifier.xcarchive"
+        name: AppStore_PROD_N2Step.xcarchive
+        path: "build/N2Step.xcarchive"
     
     - name: Archive log file
       if: ${{ always() }}
