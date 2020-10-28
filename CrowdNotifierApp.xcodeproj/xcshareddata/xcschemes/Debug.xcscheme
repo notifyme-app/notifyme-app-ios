@@ -20,6 +20,20 @@
                ReferencedContainer = "container:CrowdNotifierApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "8E81CCAA241FCC7F006F2437"
+               BuildableName = "CrowdNotifierAppTests.xctest"
+               BlueprintName = "CrowdNotifierAppTests"
+               ReferencedContainer = "container:CrowdNotifierApp.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
