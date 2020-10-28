@@ -39,6 +39,7 @@
 		AAF73668242F3D030051E34A /* UIStackView+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+NS.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
 		DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8C22549B08300C2145A /* BaseViewController.swift */; };
+		DC4DD8EA2549E7A200C2145A /* DummyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8E92549E7A200C2145A /* DummyTests.swift */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
 		DC702AFD243F6E410066C773 /* UBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFC243F6E410066C773 /* UBButton.swift */; };
 		DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFE243F6ED90066C773 /* UIColor+HEX.swift */; };
@@ -113,6 +114,7 @@
 		AAF73667242F3D030051E34A /* UIStackView+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+NS.swift"; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DC4DD8C22549B08300C2145A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		DC4DD8E92549E7A200C2145A /* DummyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTests.swift; sourceTree = "<group>"; };
 		DC702AFA243F6D870066C773 /* UBLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBLabelType.swift; sourceTree = "<group>"; };
 		DC702AFC243F6E410066C773 /* UBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBButton.swift; sourceTree = "<group>"; };
 		DC702AFE243F6ED90066C773 /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
@@ -306,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				8E81CCB1241FCC7F006F2437 /* Info.plist */,
+				DC4DD8E92549E7A200C2145A /* DummyTests.swift */,
 			);
 			path = N2StepTests;
 			sourceTree = "<group>";
@@ -456,6 +459,7 @@
 					};
 					8E81CCAA241FCC7F006F2437 = {
 						CreatedOnToolsVersion = 11.3.1;
+						LastSwiftMigration = 1200;
 						TestTargetID = 8E81CC94241FCC7D006F2437;
 					};
 					8E81CCC2241FD475006F2437 = {
@@ -632,6 +636,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC4DD8EA2549E7A200C2145A /* DummyTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
