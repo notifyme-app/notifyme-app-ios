@@ -1,1 +1,2 @@
 "NSCameraUsageDescription" = "";
+"NSFaceIDUsageDescription" = "Enabling Face ID allows you to securely access your diary.";

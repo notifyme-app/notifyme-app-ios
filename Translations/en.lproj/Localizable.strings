@@ -18,3 +18,10 @@
 
 /*iOS: Text bei Berechtigung für Kamera*/
 "NSCameraUsageDescription" = "";
+
+/*iOS Permission: Text to show for FaceID*/
+"NSFaceIDUsageDescription" = "Enabling Face ID allows you to securely access your diary.";
+
+/*iOS FaceID: Text that is shown as reason for Face ID*/
+/*Fuzzy*/
+"face_id_reason_text" = "Scan your face to see your diary";
