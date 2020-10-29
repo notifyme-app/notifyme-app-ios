@@ -13,8 +13,10 @@ import Foundation
 
 class HomescreenViewController : BaseViewController
 {
-    private let checkInButton = BigButton(text: "Check-In")
+    private let checkInButton = BigButton(text: "checkin_button_title".ub_localized)
     private let diaryButton = BigButton(icon: nil)
+
+    // MARK: - Init
 
     override init()
     {
@@ -25,11 +27,18 @@ class HomescreenViewController : BaseViewController
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - View
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.addOval()
         self.setupLayout()
         self.setupButtons()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Setup

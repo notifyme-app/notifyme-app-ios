@@ -27,6 +27,12 @@ class BaseViewController: UIViewController {
         view.backgroundColor = .white
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+    }
+
     public func addOval()
     {
         let view = UIView()

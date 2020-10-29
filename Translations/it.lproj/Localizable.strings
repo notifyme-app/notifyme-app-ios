@@ -1,2 +1,20 @@
 "language_code" = "it";
 "app_name" = "N2Step";
+
+/*Title of Checkin Screen*/
+"checkin_title" = "Check-In";
+
+/*Title of diary screen*/
+"diary_title" = "Diary";
+
+/*Homescreen: Title of checkin button*/
+"checkin_button_title" = "Check-In";
+
+/*Homescreen: No Reports title*/
+"no_report_title" = "No report";
+
+/*Check-In: scan code*/
+"checkin_scan_code" = "Scan QR code to check in";
+
+/*iOS: Text bei Berechtigung für Kamera*/
+"NSCameraUsageDescription" = "";

@@ -13,5 +13,15 @@ import Foundation
 
 class DiaryViewController : BaseViewController
 {
-    
+    // MARK: - Init
+
+    override init()
+    {
+        super.init()
+        self.title = "diary_title".ub_localized
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 }
