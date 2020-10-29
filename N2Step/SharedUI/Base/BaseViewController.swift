@@ -12,9 +12,35 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    init()
+    {
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+    }
+
+    public func addOval()
+    {
+        let view = UIView()
+        view.backgroundColor = UIColor(white: 0.92, alpha: 1.0)
+        self.view.insertSubview(view, at: 0)
+
+        let size : CGFloat = 1188.0
+
+        view.snp.makeConstraints { (make) in
+            make.top.equalToSuperview().offset(421)
+            make.left.equalToSuperview().offset(-114)
+            make.height.width.equalTo(size)
+        }
+
+        view.layer.cornerRadius = size * 0.5
     }
 }

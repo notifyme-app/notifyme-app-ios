@@ -1,3 +1,4 @@
+//
 /*
  * Copyright (c) 2020 Ubique Innovation AG <https://www.ubique.ch>
  *
@@ -8,10 +9,4 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import UIKit
-
-class Padding {
-    public static let small: CGFloat = 10.0
-    public static let medium: CGFloat = 25.0
-    public static let large: CGFloat = 40.0
-}
+import Foundation

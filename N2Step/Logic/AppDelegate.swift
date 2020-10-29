@@ -20,7 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
 
         window?.makeKey()
-        window?.rootViewController = BaseViewController()
+        window?.rootViewController = UINavigationController(rootViewController: HomescreenViewController())
         window?.makeKeyAndVisible()
 
         return true
