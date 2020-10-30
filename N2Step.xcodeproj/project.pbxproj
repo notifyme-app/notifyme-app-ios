@@ -49,6 +49,9 @@
 		6E662974254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662973254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift */; };
 		6E662979254C024F00347F06 /* UICollection+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662978254C024F00347F06 /* UICollection+NS.swift */; };
 		6E66297E254C029700347F06 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66297D254C029700347F06 /* ReusableView.swift */; };
+		6E662985254C397800347F06 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662984254C397800347F06 /* ReminderManager.swift */; };
+		6E662996254C422500347F06 /* CenterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662995254C422500347F06 /* CenterContentView.swift */; };
+		6E6629A2254C43AD00347F06 /* CenterContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629A1254C43AD00347F06 /* CenterContentViewController.swift */; };
 		6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */; };
 		6E7C0D20242CE1190017C4F9 /* UIColor+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */; };
 		6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D38242E02A20017C4F9 /* NSLayoutConstants.swift */; };
@@ -132,6 +135,9 @@
 		6E662973254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyDateSectionHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		6E662978254C024F00347F06 /* UICollection+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollection+NS.swift"; sourceTree = "<group>"; };
 		6E66297D254C029700347F06 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
+		6E662984254C397800347F06 /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
+		6E662995254C422500347F06 /* CenterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterContentView.swift; sourceTree = "<group>"; };
+		6E6629A1254C43AD00347F06 /* CenterContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterContentViewController.swift; sourceTree = "<group>"; };
 		6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLabelType.swift; sourceTree = "<group>"; };
 		6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NS.swift"; sourceTree = "<group>"; };
 		6E7C0D26242D04280017C4F9 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -342,6 +348,23 @@
 			path = CollectionView;
 			sourceTree = "<group>";
 		};
+		6E662983254C395700347F06 /* ReminderManager */ = {
+			isa = PBXGroup;
+			children = (
+				6E662984254C397800347F06 /* ReminderManager.swift */,
+			);
+			path = ReminderManager;
+			sourceTree = "<group>";
+		};
+		6E66299A254C422A00347F06 /* RoundView */ = {
+			isa = PBXGroup;
+			children = (
+				6E662995254C422500347F06 /* CenterContentView.swift */,
+				6E6629A1254C43AD00347F06 /* CenterContentViewController.swift */,
+			);
+			path = RoundView;
+			sourceTree = "<group>";
+		};
 		6E7C0D23242D01860017C4F9 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -435,6 +458,7 @@
 			isa = PBXGroup;
 			children = (
 				8E81CC98241FCC7D006F2437 /* AppDelegate.swift */,
+				6E662983254C395700347F06 /* ReminderManager */,
 				24780AFF242DF970003BB26C /* Networking */,
 				DC8B5D8F2549675600B922DB /* Helpers */,
 			);
@@ -516,6 +540,7 @@
 		DCA3FFB224502D0F0003F5AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6E66299A254C422A00347F06 /* RoundView */,
 				6E66292A254AF7BF00347F06 /* Button */,
 				6E662929254AF7B500347F06 /* QRScanner */,
 			);
@@ -743,7 +768,9 @@
 				DC702B0E243F6FAE0066C773 /* UBRawRepresentable.swift in Sources */,
 				6E8FC0FA24518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
+				6E662985254C397800347F06 /* ReminderManager.swift in Sources */,
 				DC702B17243F70060066C773 /* UIView+NS.swift in Sources */,
+				6E6629A2254C43AD00347F06 /* CenterContentViewController.swift in Sources */,
 				6E66297E254C029700347F06 /* ReusableView.swift in Sources */,
 				6EFF9AE3245AAFC800C98FF3 /* UIImage+UBHelpers.m in Sources */,
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
@@ -775,6 +802,7 @@
 				6E66296F254C012A00347F06 /* DairyEntryCollectionViewCell.swift in Sources */,
 				6E662925254AF63400347F06 /* QRScannerOverlay.swift in Sources */,
 				6E66294C254B2CF500347F06 /* CheckInConfirmViewController.swift in Sources */,
+				6E662996254C422500347F06 /* CenterContentView.swift in Sources */,
 				2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */,
 				DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */,
 			);

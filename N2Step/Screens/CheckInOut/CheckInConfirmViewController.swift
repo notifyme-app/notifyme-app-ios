@@ -11,8 +11,10 @@
 
 import Foundation
 
-class CheckInConfirmViewController: BaseViewController {
+class CheckInConfirmViewController: CenterContentViewController {
     private let qrCode: String
+
+    private let checkInButton = BigButton(text: "check_in_now_button_title".ub_localized)
 
     // MARK: - Init
 
@@ -32,44 +34,24 @@ class CheckInConfirmViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        setup()
-    }
-
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-
-        UIView.animate(withDuration: 0.8) {
-            self.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
-        }
+        self.setup()
     }
 
     // MARK: - Setup
 
     private func setup() {
-        self.view.backgroundColor = UIColor.clear
-
-        let view = UIView()
-        self.view.addSubview(view)
-
-        view.snp.makeConstraints { make in
-            make.center.equalToSuperview()
-            make.height.equalTo(450)
-            make.left.right.equalToSuperview().inset(Padding.medium)
-        }
-
-        view.backgroundColor = UIColor.white
 
         let label = UILabel()
         label.text = qrCode
         label.textAlignment = .center
         label.textColor = .black
 
-        view.addSubview(label)
+        self.contentView.addArrangedView(label)
 
-        label.snp.makeConstraints { make in
-            make.centerY.equalToSuperview()
-            make.left.right.equalToSuperview().inset(Padding.medium)
-        }
+        self.contentView.addSpacerView(Padding.medium)
+
+        let button = BigButton(text: "Check-in now")
+
+        self.contentView.addArrangedView(button)
     }
 }

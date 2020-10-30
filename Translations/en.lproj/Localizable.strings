@@ -31,3 +31,6 @@
 
 /*Homescreen: Text with no report*/
 "no_report_hero_text" = "Enjoy your day and stay healthy";
+
+/*Check In: Button title*/
+"check_in_now_button_title" = "Check In Now";
