@@ -11,20 +11,19 @@
 
 import Foundation
 
-class DairyEntryCollectionViewCell : UICollectionViewCell
-{
+class DairyEntryCollectionViewCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        self.snp.makeConstraints { (make) in
+        snp.makeConstraints { make in
             make.height.equalTo(80.0)
         }
 
-        self.backgroundColor = UIColor.green
-        self.layer.cornerRadius = 5.0
+        backgroundColor = UIColor.green
+        layer.cornerRadius = 5.0
     }
-    
-    required init?(coder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 }

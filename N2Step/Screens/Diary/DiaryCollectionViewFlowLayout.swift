@@ -11,7 +11,4 @@
 
 import Foundation
 
-class DiaryCollectionViewFlowLayout : UICollectionViewFlowLayout
-{
-    
-}
+class DiaryCollectionViewFlowLayout: UICollectionViewFlowLayout {}

@@ -12,26 +12,23 @@
 import Foundation
 import SnapKit
 
-class BigButton : UBButton
-{
-    init(icon: UIImage? = nil)
-    {
+class BigButton: UBButton {
+    init(icon _: UIImage? = nil) {
         super.init()
-        self.setup()
+        setup()
 
-        self.snp.makeConstraints { (make) in
+        snp.makeConstraints { make in
             make.width.equalTo(72.0)
         }
 
-        self.backgroundColor = UIColor.blue
+        backgroundColor = UIColor.blue
     }
 
-    init(icon: UIImage? = nil, text: String? = nil, color : UIColor? = nil)
-    {
+    init(icon _: UIImage? = nil, text: String? = nil, color _: UIColor? = nil) {
         super.init()
-        self.setup()
-        self.setTitle(text, for: .normal)
-        self.backgroundColor = UIColor.green
+        setup()
+        setTitle(text, for: .normal)
+        backgroundColor = UIColor.green
     }
 
     required init?(coder _: NSCoder) {
@@ -40,12 +37,11 @@ class BigButton : UBButton
 
     // MARK: - Setup
 
-    private func setup()
-    {
-        self.snp.makeConstraints { (make) in
+    private func setup() {
+        snp.makeConstraints { make in
             make.height.equalTo(72.0)
         }
 
-        self.layer.cornerRadius = 36.0
+        layer.cornerRadius = 36.0
     }
 }

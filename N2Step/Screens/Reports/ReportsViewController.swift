@@ -11,7 +11,4 @@
 
 import Foundation
 
-class ReportsViewController : BaseViewController
-{
-    
-}
+class ReportsViewController: BaseViewController {}

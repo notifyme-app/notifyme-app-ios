@@ -30,7 +30,6 @@ class NSFontSize {
 }
 
 public enum LabelType: UBLabelType {
-
     case navigationBarTitle
     case heroTitle
     case title

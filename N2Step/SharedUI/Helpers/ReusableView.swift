@@ -13,16 +13,13 @@ import Foundation
 
 /// A view that can be reused.
 protocol ReusableView: AnyObject {
-
     /// The reuse identifier of a view.
     ///
     /// The default implementation returns the name of the class.
     static var reuseIdentifier: String { get }
-
 }
 
 extension ReusableView where Self: UIView {
-
     static var reuseIdentifier: String {
         return String(describing: self)
     }

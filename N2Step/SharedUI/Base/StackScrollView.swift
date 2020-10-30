@@ -115,7 +115,6 @@ class StackScrollView: UIView {
         scrollView.scrollRectToVisible(rect, animated: animated)
     }
 
-    
     override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
         if hitTestDelegate?.overrideHitTest(point, with: event) ?? false {
             return nil

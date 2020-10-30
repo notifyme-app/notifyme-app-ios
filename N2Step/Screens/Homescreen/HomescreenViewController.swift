@@ -11,8 +11,7 @@
 
 import Foundation
 
-class HomescreenViewController : BaseViewController
-{
+class HomescreenViewController: BaseViewController {
     private let stackScrollView = StackScrollView(axis: .vertical)
 
     private let reportViewController = HomescreenReportViewController()
@@ -22,12 +21,11 @@ class HomescreenViewController : BaseViewController
 
     // MARK: - Init
 
-    override init()
-    {
+    override init() {
         super.init()
     }
-    
-    required init?(coder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -35,53 +33,51 @@ class HomescreenViewController : BaseViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
 
-        self.addOval()
-        self.setupLayout()
-        self.setupButtons()
+        addOval()
+        setupLayout()
+        setupButtons()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = true
+        navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Setup
 
-    private func setupLayout()
-    {
-        self.view.addSubview(self.stackScrollView)
-        self.stackScrollView.snp.makeConstraints { (make) in
+    private func setupLayout() {
+        view.addSubview(stackScrollView)
+        stackScrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
-        self.stackScrollView.addArrangedViewController(self.reportViewController, parent: self)
+        stackScrollView.addArrangedViewController(reportViewController, parent: self)
 
         // Bottom buttons
-        let stackView = UIStackView(arrangedSubviews: [self.checkInButton, self.diaryButton])
+        let stackView = UIStackView(arrangedSubviews: [checkInButton, diaryButton])
         stackView.spacing = Padding.small
-        self.view.addSubview(stackView)
+        view.addSubview(stackView)
 
-        stackView.snp.makeConstraints { (make) in
+        stackView.snp.makeConstraints { make in
             make.bottom.equalTo(self.view.snp_bottomMargin).inset(Padding.medium)
             make.left.right.equalToSuperview().inset(Padding.medium)
         }
     }
 
-    private func setupButtons()
-    {
-        self.diaryButton.touchUpCallback = { [weak self] in
+    private func setupButtons() {
+        diaryButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.pushViewController(DiaryViewController(), animated: true)
         }
 
-        self.checkInButton.touchUpCallback = { [weak self] in
+        checkInButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.pushViewController(CheckInViewController(), animated: true)
         }
 
-        self.reportViewController.reportsTouchUpCallback = { [weak self] in
+        reportViewController.reportsTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.pushViewController(ReportsViewController(), animated: true)
         }

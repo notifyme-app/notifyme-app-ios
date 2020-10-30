@@ -11,8 +11,7 @@
 
 import Foundation
 
-class HomescreenReportViewController : BaseSubViewController
-{
+class HomescreenReportViewController: BaseSubViewController {
     // MARK: - Private parts
 
     let noReportsView = BigButton(text: "no_report_title".ub_localized)
@@ -20,19 +19,17 @@ class HomescreenReportViewController : BaseSubViewController
 
     // MARK: - API
 
-    public var reportsTouchUpCallback : (() -> ())? = nil
-    {
+    public var reportsTouchUpCallback: (() -> Void)? {
         didSet { self.noReportsView.touchUpCallback = self.reportsTouchUpCallback }
     }
 
     // MARK: - Init
 
-    override init()
-    {
+    override init() {
         super.init()
     }
 
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -40,18 +37,17 @@ class HomescreenReportViewController : BaseSubViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
+        setup()
     }
 
     // MARK: - Setup
 
-    private func setup()
-    {
+    private func setup() {
         let stackView = UIStackView()
         stackView.axis = .vertical
 
-        self.view.addSubview(stackView)
-        stackView.snp.makeConstraints { (make) in
+        view.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview().inset(Padding.medium)
         }
 
@@ -59,6 +55,6 @@ class HomescreenReportViewController : BaseSubViewController
         stackView.addSpacerView(Padding.medium)
         stackView.addArrangedView(noReportLabel)
 
-        self.noReportLabel.text = "no_report_hero_text".ub_localized
+        noReportLabel.text = "no_report_hero_text".ub_localized
     }
 }

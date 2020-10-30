@@ -11,7 +11,4 @@
 
 import Foundation
 
-class CheckOutViewController : BaseViewController
-{
-    
-}
+class CheckOutViewController: BaseViewController {}

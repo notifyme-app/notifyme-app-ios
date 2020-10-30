@@ -12,12 +12,11 @@
 import UIKit
 
 class BaseViewController: UIViewController {
-    init()
-    {
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
 
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -29,19 +28,18 @@ class BaseViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.isNavigationBarHidden = false
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.isNavigationBarHidden = false
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
 
-    public func addOval()
-    {
+    public func addOval() {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.92, alpha: 1.0)
         self.view.insertSubview(view, at: 0)
 
-        let size : CGFloat = 1188.0
+        let size: CGFloat = 1188.0
 
-        view.snp.makeConstraints { (make) in
+        view.snp.makeConstraints { make in
             make.top.equalTo(self.view.snp.bottom).offset(-390)
             make.left.equalToSuperview().offset(-114)
             make.height.width.equalTo(size)

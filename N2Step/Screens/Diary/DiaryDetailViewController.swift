@@ -11,6 +11,4 @@
 
 import Foundation
 
-class DiaryDetailViewController : BaseViewController
-{
-}
+class DiaryDetailViewController: BaseViewController {}

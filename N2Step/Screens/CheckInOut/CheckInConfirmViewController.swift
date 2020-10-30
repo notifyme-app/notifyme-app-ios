@@ -11,22 +11,20 @@
 
 import Foundation
 
-class CheckInConfirmViewController : BaseViewController
-{
-    private let qrCode : String
+class CheckInConfirmViewController: BaseViewController {
+    private let qrCode: String
 
     // MARK: - Init
 
-    init(qrCode: String)
-    {
+    init(qrCode: String) {
         self.qrCode = qrCode
         super.init()
 
-        self.title = qrCode
-        self.modalPresentationStyle = .overCurrentContext
+        title = qrCode
+        modalPresentationStyle = .overCurrentContext
     }
-    
-    required init?(coder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -35,7 +33,7 @@ class CheckInConfirmViewController : BaseViewController
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.setup()
+        setup()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -48,14 +46,13 @@ class CheckInConfirmViewController : BaseViewController
 
     // MARK: - Setup
 
-    private func setup()
-    {
+    private func setup() {
         self.view.backgroundColor = UIColor.clear
 
         let view = UIView()
         self.view.addSubview(view)
 
-        view.snp.makeConstraints { (make) in
+        view.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.height.equalTo(450)
             make.left.right.equalToSuperview().inset(Padding.medium)
@@ -64,14 +61,13 @@ class CheckInConfirmViewController : BaseViewController
         view.backgroundColor = UIColor.white
 
         let label = UILabel()
-        label.text = self.qrCode
+        label.text = qrCode
         label.textAlignment = .center
         label.textColor = .black
 
         view.addSubview(label)
 
-
-        label.snp.makeConstraints { (make) in
+        label.snp.makeConstraints { make in
             make.centerY.equalToSuperview()
             make.left.right.equalToSuperview().inset(Padding.medium)
         }

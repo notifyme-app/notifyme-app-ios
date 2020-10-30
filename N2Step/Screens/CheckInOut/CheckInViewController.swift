@@ -11,20 +11,18 @@
 
 import Foundation
 
-class CheckInViewController : BaseViewController
-{
-    var qrView : QRScannerView?
+class CheckInViewController: BaseViewController {
+    var qrView: QRScannerView?
 
     // MARK: - Init
 
-    override init()
-    {
+    override init() {
         super.init()
-        self.title = "checkin_title".ub_localized
-        self.qrView = QRScannerView(delegate: self)
+        title = "checkin_title".ub_localized
+        qrView = QRScannerView(delegate: self)
     }
-    
-    required init?(coder: NSCoder) {
+
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
@@ -32,27 +30,25 @@ class CheckInViewController : BaseViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupQRView()
+        setupQRView()
     }
 
     // MARK: - Setup
 
-    private func setupQRView()
-    {
+    private func setupQRView() {
         guard let qrView = self.qrView else { return }
 
-        self.view.addSubview(qrView)
+        view.addSubview(qrView)
 
-        qrView.snp.makeConstraints({ (make) in
+        qrView.snp.makeConstraints { make in
             make.height.equalTo(qrView.snp.width)
             make.center.equalToSuperview()
             make.left.right.equalToSuperview().inset(Padding.medium)
-        })
+        }
     }
 }
 
-extension CheckInViewController : QRScannerViewDelegate
-{
+extension CheckInViewController: QRScannerViewDelegate {
     func qrScanningDidFail() {
         // TODO: Show error
     }
@@ -60,7 +56,7 @@ extension CheckInViewController : QRScannerViewDelegate
     func qrScanningSucceededWithCode(_ str: String?) {
         guard let str = str else { return }
         let vc = CheckInConfirmViewController(qrCode: str)
-        self.present(vc, animated: true, completion: nil)
+        present(vc, animated: true, completion: nil)
     }
 
     func qrScanningDidStop() {
