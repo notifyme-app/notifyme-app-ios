@@ -42,7 +42,7 @@ class BaseViewController: UIViewController {
         let size : CGFloat = 1188.0
 
         view.snp.makeConstraints { (make) in
-            make.top.equalToSuperview().offset(421)
+            make.top.equalTo(self.view.snp.bottom).offset(-390)
             make.left.equalToSuperview().offset(-114)
             make.height.width.equalTo(size)
         }

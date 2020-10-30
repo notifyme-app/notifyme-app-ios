@@ -29,22 +29,16 @@ class NSFontSize {
     }()
 }
 
-public enum NSLabelType: UBLabelType {
+public enum LabelType: UBLabelType {
+
+    case navigationBarTitle
+    case heroTitle
     case title
-    case splashTitle
-    case textLight
-    case smallLight
+    case subtitle
+    case text
+    case textSemiBold
     case textBold
-    case smallBold
-    case ultraSmallBold
-    case button // used for button
-    case smallButton // used for button
-    case uppercaseBold
-    case date
-    case smallRegular
-    case interRegular
-    case interBold
-    case statsCounter
+    case boldUppercase
 
     public var font: UIFont {
         let bfs = NSFontSize.bodyFontSize()
@@ -65,30 +59,30 @@ public enum NSLabelType: UBLabelType {
         }
 
         switch self {
-        case .title: return UIFont(name: boldFontName, size: bfs + 6.0)!
-        case .splashTitle: return UIFont(name: boldFontName, size: bfs + 11.0)!
-        case .textLight: return UIFont(name: lightFontName, size: bfs)!
-        case .smallLight: return UIFont(name: lightFontName, size: bfs - 3.0)!
-        case .textBold: return UIFont(name: boldFontName, size: bfs)!
-        case .smallBold: return UIFont(name: boldFontName, size: bfs - 3.0)!
-        case .ultraSmallBold: return UIFont(name: boldFontName, size: bfs - 5.0)!
-        case .button: return UIFont(name: boldFontName, size: bfs)!
-        case .smallButton: return UIFont(name: boldFontName, size: bfs - 3.0)!
-        case .uppercaseBold: return UIFont(name: boldFontName, size: bfs)!
-        case .date: return UIFont(name: boldFontName, size: bfs - 3.0)!
-        case .smallRegular: return UIFont(name: regularFontName, size: bfs - 3.0)!
-        case .interRegular: return UIFont(name: regularFontName, size: bfs - 3.0)!
-        case .interBold: return UIFont(name: boldFontName, size: bfs - 3.0)!
-        case .statsCounter: return UIFont(name: boldFontName, size: bfs + 23.0)!
+        case .navigationBarTitle:
+            return UIFont(name: boldFontName, size: bfs + 10.0)!
+        case .heroTitle:
+            return UIFont(name: boldFontName, size: bfs + 25.0)!
+        case .title:
+            return UIFont(name: boldFontName, size: bfs + 15.0)!
+        case .subtitle:
+            return UIFont(name: boldFontName, size: bfs + 4.0)!
+        case .text:
+            return UIFont(name: regularFontName, size: bfs)!
+        case .textSemiBold:
+            // TODO: fix
+            return UIFont(name: boldFontName, size: bfs)!
+        case .textBold:
+            return UIFont(name: boldFontName, size: bfs)!
+        case .boldUppercase:
+            return UIFont(name: boldFontName, size: bfs)!
         }
     }
 
     public var textColor: UIColor {
         switch self {
-        case .button, .splashTitle:
+        case .boldUppercase:
             return .white
-        case .smallRegular:
-            return UIColor.ns_text.withAlphaComponent(0.28).withHighContrastColor(color: UIColor.black.withAlphaComponent(0.7))
         default:
             return .ns_text
         }
@@ -96,42 +90,35 @@ public enum NSLabelType: UBLabelType {
 
     public var lineSpacing: CGFloat {
         switch self {
-        case .title: return 30.0 / 22.0
-        case .splashTitle: return 30.0 / 22.0
-        case .textBold: return 24.0 / 16.0
-        case .smallBold: return 24.0 / 16.0
-        case .ultraSmallBold: return 24.0 / 16.0
-        case .button: return 1.0
-        case .smallButton: return 24.0 / 16.0
-        case .uppercaseBold: return 26.0 / 16.0
-        case .textLight: return 24.0 / 16.0
-        case .smallLight: return 24.0 / 16.0
-        case .date: return 2.0
-        case .smallRegular: return 26.0 / 13.0
-        case .interRegular: return 24.0 / 16.0
-        case .interBold: return 24.0 / 16.0
-        case .statsCounter: return 30.0 / 22.0
+        case .navigationBarTitle:
+            return 1.0
+        case .heroTitle:
+            return 45.0 / 41.0
+        case .title:
+            return 37.0 / 31.0
+        case .subtitle:
+            return 24.0 / 20.0
+        case .text:
+            return 20.0 / 16.0
+        case .textSemiBold:
+            return 20.0 / 16.0
+        case .textBold:
+            return 20.0 / 16.0
+        case .boldUppercase:
+            return 26.0 / 16.0
         }
     }
 
     public var letterSpacing: CGFloat? {
-        if self == .uppercaseBold {
+        if self == .boldUppercase {
             return 1.0
-        }
-
-        if self == .date {
-            return 0.5
-        }
-
-        if self == .smallRegular || self == .smallLight || self == .smallBold {
-            return 0.3
         }
 
         return nil
     }
 
     public var isUppercased: Bool {
-        if self == .uppercaseBold {
+        if self == .boldUppercase {
             return true
         }
 
@@ -143,15 +130,15 @@ public enum NSLabelType: UBLabelType {
     }
 
     public var lineBreakMode: NSLineBreakMode {
-        if self == .splashTitle { return .byWordWrapping }
+        if self == .heroTitle { return .byWordWrapping }
         return .byTruncatingTail
     }
 }
 
-class NSLabel: UBLabel<NSLabelType> {
-    private var labelType: NSLabelType
+class Label: UBLabel<LabelType> {
+    private var labelType: LabelType
 
-    override init(_ type: NSLabelType, textColor: UIColor? = nil, numberOfLines: Int = 0, textAlignment: NSTextAlignment = .left) {
+    override init(_ type: LabelType, textColor: UIColor? = nil, numberOfLines: Int = 0, textAlignment: NSTextAlignment = .left) {
         labelType = type
         super.init(type, textColor: textColor, numberOfLines: numberOfLines, textAlignment: textAlignment)
     }

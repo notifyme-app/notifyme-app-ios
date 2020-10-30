@@ -11,7 +11,7 @@
 
 import Foundation
 
-class ReportsViewController : BaseViewController
+class DiaryCollectionViewFlowLayout : UICollectionViewFlowLayout
 {
     
 }

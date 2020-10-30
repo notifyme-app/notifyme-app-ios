@@ -13,6 +13,10 @@ import Foundation
 
 class HomescreenViewController : BaseViewController
 {
+    private let stackScrollView = StackScrollView(axis: .vertical)
+
+    private let reportViewController = HomescreenReportViewController()
+
     private let checkInButton = BigButton(text: "checkin_button_title".ub_localized)
     private let diaryButton = BigButton(icon: nil)
 
@@ -31,6 +35,8 @@ class HomescreenViewController : BaseViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.isNavigationBarHidden = true
+
         self.addOval()
         self.setupLayout()
         self.setupButtons()
@@ -45,12 +51,20 @@ class HomescreenViewController : BaseViewController
 
     private func setupLayout()
     {
+        self.view.addSubview(self.stackScrollView)
+        self.stackScrollView.snp.makeConstraints { (make) in
+            make.edges.equalToSuperview()
+        }
+
+        self.stackScrollView.addArrangedViewController(self.reportViewController, parent: self)
+
+        // Bottom buttons
         let stackView = UIStackView(arrangedSubviews: [self.checkInButton, self.diaryButton])
         stackView.spacing = Padding.small
         self.view.addSubview(stackView)
 
         stackView.snp.makeConstraints { (make) in
-            make.bottom.equalTo(self.view.snp_bottomMargin).inset(Padding.large)
+            make.bottom.equalTo(self.view.snp_bottomMargin).inset(Padding.medium)
             make.left.right.equalToSuperview().inset(Padding.medium)
         }
     }
@@ -65,6 +79,11 @@ class HomescreenViewController : BaseViewController
         self.checkInButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.pushViewController(CheckInViewController(), animated: true)
+        }
+
+        self.reportViewController.reportsTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.navigationController?.pushViewController(ReportsViewController(), animated: true)
         }
     }
 }

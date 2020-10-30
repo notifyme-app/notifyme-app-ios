@@ -25,3 +25,9 @@
 /*iOS FaceID: Text that is shown as reason for Face ID*/
 /*Fuzzy*/
 "face_id_reason_text" = "Scan your face to see your diary";
+
+/*Homescreen/Reports: No report*/
+"no_report_title" = "No report";
+
+/*Homescreen: Text with no report*/
+"no_report_hero_text" = "Enjoy your day and stay healthy";
