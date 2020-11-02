@@ -52,6 +52,14 @@
 		6E662985254C397800347F06 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662984254C397800347F06 /* ReminderManager.swift */; };
 		6E662996254C422500347F06 /* CenterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662995254C422500347F06 /* CenterContentView.swift */; };
 		6E6629A2254C43AD00347F06 /* CenterContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629A1254C43AD00347F06 /* CenterContentViewController.swift */; };
+		6E6629B625500C8400347F06 /* CurrentCheckinManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629B525500C8400347F06 /* CurrentCheckinManager.swift */; };
+		6E6629BB255017A700347F06 /* CheckIn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629BA255017A700347F06 /* CheckIn.swift */; };
+		6E6629CA2550376400347F06 /* QRCodeScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629C92550376400347F06 /* QRCodeScannerViewController.swift */; };
+		6E6629CF2550377200347F06 /* CurrentCheckinViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629CE2550377200347F06 /* CurrentCheckinViewController.swift */; };
+		6E6629D52550482600347F06 /* UIStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629D42550482600347F06 /* UIStateManager.swift */; };
+		6E6629DA255048AE00347F06 /* UIStateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629D9255048AE00347F06 /* UIStateModel.swift */; };
+		6E6629DF255050DE00347F06 /* UIStateLogic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629DE255050DE00347F06 /* UIStateLogic.swift */; };
+		6E6629E62550606400347F06 /* VenueView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629E52550606400347F06 /* VenueView.swift */; };
 		6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */; };
 		6E7C0D20242CE1190017C4F9 /* UIColor+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */; };
 		6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D38242E02A20017C4F9 /* NSLayoutConstants.swift */; };
@@ -138,6 +146,14 @@
 		6E662984254C397800347F06 /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
 		6E662995254C422500347F06 /* CenterContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterContentView.swift; sourceTree = "<group>"; };
 		6E6629A1254C43AD00347F06 /* CenterContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CenterContentViewController.swift; sourceTree = "<group>"; };
+		6E6629B525500C8400347F06 /* CurrentCheckinManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCheckinManager.swift; sourceTree = "<group>"; };
+		6E6629BA255017A700347F06 /* CheckIn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckIn.swift; sourceTree = "<group>"; };
+		6E6629C92550376400347F06 /* QRCodeScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeScannerViewController.swift; sourceTree = "<group>"; };
+		6E6629CE2550377200347F06 /* CurrentCheckinViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentCheckinViewController.swift; sourceTree = "<group>"; };
+		6E6629D42550482600347F06 /* UIStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateManager.swift; sourceTree = "<group>"; };
+		6E6629D9255048AE00347F06 /* UIStateModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateModel.swift; sourceTree = "<group>"; };
+		6E6629DE255050DE00347F06 /* UIStateLogic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIStateLogic.swift; sourceTree = "<group>"; };
+		6E6629E52550606400347F06 /* VenueView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueView.swift; sourceTree = "<group>"; };
 		6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLabelType.swift; sourceTree = "<group>"; };
 		6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NS.swift"; sourceTree = "<group>"; };
 		6E7C0D26242D04280017C4F9 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -295,6 +311,8 @@
 				6E6628DD254AF1F100347F06 /* CheckInViewController.swift */,
 				6E6628E8254AF21D00347F06 /* CheckOutViewController.swift */,
 				6E66294B254B2CF500347F06 /* CheckInConfirmViewController.swift */,
+				6E6629C92550376400347F06 /* QRCodeScannerViewController.swift */,
+				6E6629CE2550377200347F06 /* CurrentCheckinViewController.swift */,
 			);
 			path = CheckInOut;
 			sourceTree = "<group>";
@@ -363,6 +381,33 @@
 				6E6629A1254C43AD00347F06 /* CenterContentViewController.swift */,
 			);
 			path = RoundView;
+			sourceTree = "<group>";
+		};
+		6E6629B425500B3100347F06 /* CurrentCheckinManager */ = {
+			isa = PBXGroup;
+			children = (
+				6E6629B525500C8400347F06 /* CurrentCheckinManager.swift */,
+				6E6629BA255017A700347F06 /* CheckIn.swift */,
+			);
+			path = CurrentCheckinManager;
+			sourceTree = "<group>";
+		};
+		6E6629D32550481A00347F06 /* UIStateManager */ = {
+			isa = PBXGroup;
+			children = (
+				6E6629D42550482600347F06 /* UIStateManager.swift */,
+				6E6629D9255048AE00347F06 /* UIStateModel.swift */,
+				6E6629DE255050DE00347F06 /* UIStateLogic.swift */,
+			);
+			path = UIStateManager;
+			sourceTree = "<group>";
+		};
+		6E6629E42550605A00347F06 /* VenueView */ = {
+			isa = PBXGroup;
+			children = (
+				6E6629E52550606400347F06 /* VenueView.swift */,
+			);
+			path = VenueView;
 			sourceTree = "<group>";
 		};
 		6E7C0D23242D01860017C4F9 /* Font */ = {
@@ -457,6 +502,8 @@
 		DC286A24242CE0AD001D5344 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				6E6629D32550481A00347F06 /* UIStateManager */,
+				6E6629B425500B3100347F06 /* CurrentCheckinManager */,
 				8E81CC98241FCC7D006F2437 /* AppDelegate.swift */,
 				6E662983254C395700347F06 /* ReminderManager */,
 				24780AFF242DF970003BB26C /* Networking */,
@@ -540,6 +587,7 @@
 		DCA3FFB224502D0F0003F5AD /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				6E6629E42550605A00347F06 /* VenueView */,
 				6E66299A254C422A00347F06 /* RoundView */,
 				6E66292A254AF7BF00347F06 /* Button */,
 				6E662929254AF7B500347F06 /* QRScanner */,
@@ -756,6 +804,8 @@
 				DC702AFD243F6E410066C773 /* UBButton.swift in Sources */,
 				AAF73668242F3D030051E34A /* UIStackView+NS.swift in Sources */,
 				6E662964254BF7FD00347F06 /* BaseSubViewController.swift in Sources */,
+				6E6629BB255017A700347F06 /* CheckIn.swift in Sources */,
+				6E6629CF2550377200347F06 /* CurrentCheckinViewController.swift in Sources */,
 				6E662917254AF3FD00347F06 /* DiaryDetailViewController.swift in Sources */,
 				6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */,
 				DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */,
@@ -763,6 +813,7 @@
 				6E66290D254AF3B600347F06 /* ContactDetailsViewController.swift in Sources */,
 				6E662912254AF3CE00347F06 /* ThankYouViewController.swift in Sources */,
 				6E6628E9254AF21D00347F06 /* CheckOutViewController.swift in Sources */,
+				6E6629E62550606400347F06 /* VenueView.swift in Sources */,
 				6E662979254C024F00347F06 /* UICollection+NS.swift in Sources */,
 				6E66295C254BF4FF00347F06 /* StackScrollView.swift in Sources */,
 				DC702B0E243F6FAE0066C773 /* UBRawRepresentable.swift in Sources */,
@@ -774,8 +825,10 @@
 				6E66297E254C029700347F06 /* ReusableView.swift in Sources */,
 				6EFF9AE3245AAFC800C98FF3 /* UIImage+UBHelpers.m in Sources */,
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
+				6E6629DF255050DE00347F06 /* UIStateLogic.swift in Sources */,
 				6E662903254AF38500347F06 /* PotentialInfectionViewController.swift in Sources */,
 				DC702B0B243F6FAE0066C773 /* UBPListValue.swift in Sources */,
+				6E6629CA2550376400347F06 /* QRCodeScannerViewController.swift in Sources */,
 				242D227D245D6581005DAEA8 /* Endpoint.swift in Sources */,
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+NS.swift in Sources */,
@@ -787,7 +840,9 @@
 				DC8B5D912549676100B922DB /* Bundle+BuildInfo.swift in Sources */,
 				6E66292C254AF7CC00347F06 /* BigButton.swift in Sources */,
 				6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */,
+				6E6629B625500C8400347F06 /* CurrentCheckinManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
+				6E6629DA255048AE00347F06 /* UIStateModel.swift in Sources */,
 				6E662908254AF39E00347F06 /* PotentialInfectionWhatToDoViewController.swift in Sources */,
 				DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */,
 				6E662920254AF61500347F06 /* QRScanningView.swift in Sources */,
@@ -805,6 +860,7 @@
 				6E662996254C422500347F06 /* CenterContentView.swift in Sources */,
 				2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */,
 				DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */,
+				6E6629D52550482600347F06 /* UIStateManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

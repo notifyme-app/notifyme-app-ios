@@ -56,8 +56,6 @@ class CenterContentViewController : BaseViewController
 
         self.centerView.snp.makeConstraints { make in
             make.center.equalToSuperview()
-         //  make.height.greaterThanOrEqualTo(150)
-//            make.height.lessThanOrEqualTo(450)
             make.left.right.equalToSuperview().inset(Padding.medium)
         }
 

@@ -41,18 +41,18 @@ class CenterContentView : UIView
         self.dismissButton.title = "X"
         self.dismissButton.backgroundColor = .green
 
-        self.addSubview(self.dismissButton)
-
-        self.dismissButton.snp.makeConstraints { (make) in
-            make.right.top.equalToSuperview().inset(Padding.medium)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
-        }
-
         self.addSubview(self.contentView)
         self.contentView.snp.makeConstraints { (make) in
             make.top.equalToSuperview().inset(Padding.large)
             make.left.right.bottom.equalToSuperview().inset(Padding.medium)
+        }
+
+        self.addSubview(self.dismissButton)
+
+        self.dismissButton.snp.makeConstraints { (make) in
+            make.right.top.equalToSuperview().inset(Padding.small)
+            make.height.equalTo(40)
+            make.width.equalTo(40)
         }
 
         self.contentView.scrollView.alwaysBounceVertical = false

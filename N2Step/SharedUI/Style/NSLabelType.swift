@@ -35,7 +35,6 @@ public enum LabelType: UBLabelType {
     case title
     case subtitle
     case text
-    case textSemiBold
     case textBold
     case boldUppercase
 
@@ -61,16 +60,13 @@ public enum LabelType: UBLabelType {
         case .navigationBarTitle:
             return UIFont(name: boldFontName, size: bfs + 10.0)!
         case .heroTitle:
-            return UIFont(name: boldFontName, size: bfs + 25.0)!
+            return UIFont(name: boldFontName, size: bfs + 24.0)!
         case .title:
-            return UIFont(name: boldFontName, size: bfs + 15.0)!
+            return UIFont(name: boldFontName, size: bfs + 12.0)!
         case .subtitle:
-            return UIFont(name: boldFontName, size: bfs + 4.0)!
-        case .text:
-            return UIFont(name: regularFontName, size: bfs)!
-        case .textSemiBold:
-            // TODO: fix
             return UIFont(name: boldFontName, size: bfs)!
+        case .text:
+            return UIFont(name: lightFontName, size: bfs)!
         case .textBold:
             return UIFont(name: boldFontName, size: bfs)!
         case .boldUppercase:
@@ -92,17 +88,15 @@ public enum LabelType: UBLabelType {
         case .navigationBarTitle:
             return 1.0
         case .heroTitle:
-            return 45.0 / 41.0
+            return 45.0 / 40.0
         case .title:
-            return 37.0 / 31.0
+            return 28.0 / 30.0
         case .subtitle:
-            return 24.0 / 20.0
+            return 22.0 / 16.0
         case .text:
-            return 20.0 / 16.0
-        case .textSemiBold:
-            return 20.0 / 16.0
+            return 22.0 / 16.0
         case .textBold:
-            return 20.0 / 16.0
+            return 22.0 / 16.0
         case .boldUppercase:
             return 26.0 / 16.0
         }
