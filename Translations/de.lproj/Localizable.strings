@@ -33,3 +33,9 @@
 
 /*Check In: Button title*/
 "check_in_now_button_title" = "Check In Now";
+
+/*Reminder Notification Title*/
+"checkout_reminder_title" = "Checkout Reminder";
+
+/*Reminder Checkout Text*/
+"checkout_reminder_text" = "Do you want to check out?";

@@ -17,7 +17,7 @@
 "checkin_scan_code" = "Scan QR code to check in";
 
 /*iOS: Text bei Berechtigung für Kamera*/
-"NSCameraUsageDescription" = "";
+"NSCameraUsageDescription" = "Your camera is used to scan the QR code.";
 
 /*iOS Permission: Text to show for FaceID*/
 "NSFaceIDUsageDescription" = "Enabling Face ID allows you to securely access your diary.";
@@ -33,3 +33,9 @@
 
 /*Check In: Button title*/
 "check_in_now_button_title" = "Check In Now";
+
+/*Reminder Notification Title*/
+"checkout_reminder_title" = "Checkout Reminder";
+
+/*Reminder Checkout Text*/
+"checkout_reminder_text" = "Do you want to check out?";
