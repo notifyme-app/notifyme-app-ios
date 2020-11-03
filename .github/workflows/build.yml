@@ -18,7 +18,7 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Setup Github SSH fingerprints
-      run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      run: for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
 
     - name: Switch to Xcode 12.1
       run: sudo xcode-select --switch /Applications/Xcode_12.1.app
@@ -38,7 +38,7 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Setup Github SSH fingerprints
-      run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      run: for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
 
     - name: Switch to Xcode 12.1
       run: sudo xcode-select --switch /Applications/Xcode_12.1.app
@@ -58,7 +58,7 @@ jobs:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
     - name: Setup Github SSH fingerprints
-      run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+      run: for ip in $(dig @8.8.8.8 github.com +short); do ssh-keyscan github.com,$ip; ssh-keyscan $ip; done 2>/dev/null >> ~/.ssh/known_hosts
 
     - name: Switch to Xcode 12.1
       run: sudo xcode-select --switch /Applications/Xcode_12.1.app
