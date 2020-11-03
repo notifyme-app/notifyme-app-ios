@@ -17,6 +17,9 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+    - name: Setup Github SSH fingerprints
+      run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+
     - name: Switch to Xcode 12.1
       run: sudo xcode-select --switch /Applications/Xcode_12.1.app
 
@@ -34,6 +37,9 @@ jobs:
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+    - name: Setup Github SSH fingerprints
+      run: ssh-keyscan github.com >> ~/.ssh/known_hosts
+
     - name: Switch to Xcode 12.1
       run: sudo xcode-select --switch /Applications/Xcode_12.1.app
     
@@ -50,6 +56,9 @@ jobs:
     - uses: webfactory/ssh-agent@v0.4.1
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Setup Github SSH fingerprints
+      run: ssh-keyscan github.com >> ~/.ssh/known_hosts
 
     - name: Switch to Xcode 12.1
       run: sudo xcode-select --switch /Applications/Xcode_12.1.app
