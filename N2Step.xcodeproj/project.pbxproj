@@ -70,8 +70,8 @@
 		8E81CCA2241FCC7F006F2437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E81CCA1241FCC7F006F2437 /* Assets.xcassets */; };
 		8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8E81CCCE241FD813006F2437 /* SnapKit */; };
 		AAF73668242F3D030051E34A /* UIStackView+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+NS.swift */; };
-		DC13C5242549FBB7001B443C /* N2StepSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DC13C5232549FBB7001B443C /* N2StepSDK */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
+		DC3F373325513B2B00B709D3 /* N2StepSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DC3F373225513B2B00B709D3 /* N2StepSDK */; };
 		DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8C22549B08300C2145A /* BaseViewController.swift */; };
 		DC4DD8EA2549E7A200C2145A /* DummyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8E92549E7A200C2145A /* DummyTests.swift */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
@@ -208,7 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
-				DC13C5242549FBB7001B443C /* N2StepSDK in Frameworks */,
+				DC3F373325513B2B00B709D3 /* N2StepSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,7 +616,7 @@
 			name = N2Step;
 			packageProductDependencies = (
 				8E81CCCE241FD813006F2437 /* SnapKit */,
-				DC13C5232549FBB7001B443C /* N2StepSDK */,
+				DC3F373225513B2B00B709D3 /* N2StepSDK */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* N2Step.app */;
@@ -679,7 +679,7 @@
 			mainGroup = 8E81CC8C241FCC7D006F2437;
 			packageReferences = (
 				8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				DC13C5222549FBB7001B443C /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */,
+				DC3F373125513B2B00B709D3 /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */,
 			);
 			productRefGroup = 8E81CC96241FCC7D006F2437 /* Products */;
 			projectDirPath = "";
@@ -1312,9 +1312,9 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		DC13C5222549FBB7001B443C /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */ = {
+		DC3F373125513B2B00B709D3 /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/UbiqueInnovation/n2step-sdk-ios";
+			repositoryURL = "ssh://git@github.com/UbiqueInnovation/n2step-sdk-ios.git";
 			requirement = {
 				branch = develop;
 				kind = branch;
@@ -1328,9 +1328,9 @@
 			package = 8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		DC13C5232549FBB7001B443C /* N2StepSDK */ = {
+		DC3F373225513B2B00B709D3 /* N2StepSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DC13C5222549FBB7001B443C /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */;
+			package = DC3F373125513B2B00B709D3 /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */;
 			productName = N2StepSDK;
 		};
 /* End XCSwiftPackageProductDependency section */

@@ -12,17 +12,15 @@
 import Foundation
 import N2StepSDK
 
-struct CheckIn : UBCodable, Equatable
-{
-    init(identifier: Int, checkInTime: Date, venue: VenueInfo?)
-    {
+struct CheckIn: UBCodable, Equatable {
+    init(identifier: Int, checkInTime: Date, venue: VenueInfo?) {
         self.identifier = identifier
         self.venue = venue
         self.checkInTime = checkInTime
     }
 
     public let identifier: Int
-    public let venue : VenueInfo?
+    public let venue: VenueInfo?
     public let checkInTime: Date
 
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {

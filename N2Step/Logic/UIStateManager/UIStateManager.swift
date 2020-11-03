@@ -20,7 +20,7 @@ class UIStateManager: NSObject {
 
         NotificationCenter.default.addObserver(self, selector: #selector(updatePush), name: UIApplication.didBecomeActiveNotification, object: nil)
 
-        self.refresh()
+        refresh()
     }
 
     deinit {
@@ -29,9 +29,8 @@ class UIStateManager: NSObject {
 
     // MARK: - Refresh triggers
 
-    public func userCheckinStateChanged()
-    {
-        self.refresh()
+    public func userCheckinStateChanged() {
+        refresh()
     }
 
     // MARK: - UI State Update

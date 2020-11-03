@@ -12,28 +12,25 @@
 import Foundation
 import N2StepSDK
 
-class VenueView : UIView
-{
+class VenueView: UIView {
     private let stackView = UIStackView()
 
-    init(venue: VenueInfo? = nil)
-    {
+    init(venue _: VenueInfo? = nil) {
         super.init(frame: .zero)
-        self.setup()
+        setup()
     }
 
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Setup
 
-    private func setup()
-    {
-        self.stackView.axis = .vertical
+    private func setup() {
+        stackView.axis = .vertical
 
-        self.addSubview(self.stackView)
-        self.stackView.snp.makeConstraints { (make) in
+        addSubview(stackView)
+        stackView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
@@ -42,27 +39,25 @@ class VenueView : UIView
         imageView.ub_setContentPriorityRequired()
         view.addSubview(imageView)
 
-        imageView.snp.makeConstraints { (make) in
+        imageView.snp.makeConstraints { make in
             make.top.bottom.centerX.equalToSuperview()
         }
 
-        self.stackView.addArrangedSubview(view)
+        stackView.addArrangedSubview(view)
 
         let titleLabel = Label(.title, textAlignment: .center)
         titleLabel.text = "Cybercafe SV"
 
-        self.stackView.addArrangedSubview(titleLabel)
+        stackView.addArrangedSubview(titleLabel)
 
         let subtitleLabel = Label(.subtitle, textAlignment: .center)
         subtitleLabel.text = "EPFL Campus"
 
-        self.stackView.addArrangedSubview(subtitleLabel)
+        stackView.addArrangedSubview(subtitleLabel)
 
         let textLabel = Label(.text, textAlignment: .center)
         textLabel.text = "Lausanne"
 
-        self.stackView.addArrangedSubview(textLabel)
+        stackView.addArrangedSubview(textLabel)
     }
-
-
 }

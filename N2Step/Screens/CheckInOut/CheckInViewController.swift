@@ -12,9 +12,8 @@
 import Foundation
 
 class CheckInViewController: BaseViewController {
-
-    private var qrCodeViewController : QRCodeScannerViewController?
-    private var currentCheckinViewController : CurrentCheckinViewController?
+    private var qrCodeViewController: QRCodeScannerViewController?
+    private var currentCheckinViewController: CurrentCheckinViewController?
 
     // MARK: - Init
 
@@ -34,7 +33,7 @@ class CheckInViewController: BaseViewController {
         setupQRView()
         setupCheckinView()
 
-        UIStateManager.shared.addObserver(self) { [weak self] (state) in
+        UIStateManager.shared.addObserver(self) { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.update(state)
         }
@@ -42,19 +41,17 @@ class CheckInViewController: BaseViewController {
 
     // MARK: - Update
 
-    private func update(_ state: UIStateModel)
-    {
-        switch state.checkInState
-        {
+    private func update(_ state: UIStateModel) {
+        switch state.checkInState {
         case .noCheckIn:
-            self.currentCheckinViewController?.view.isHidden = true
-            self.qrCodeViewController?.view.isHidden = false
+            currentCheckinViewController?.view.isHidden = true
+            qrCodeViewController?.view.isHidden = false
 
-        case .checkIn(let checkIn):
-            self.currentCheckinViewController?.view.isHidden = false
-            self.qrCodeViewController?.view.isHidden = true
+        case let .checkIn(checkIn):
+            currentCheckinViewController?.view.isHidden = false
+            qrCodeViewController?.view.isHidden = true
 
-            self.currentCheckinViewController?.checkIn = checkIn
+            currentCheckinViewController?.checkIn = checkIn
         }
     }
 
@@ -62,28 +59,27 @@ class CheckInViewController: BaseViewController {
 
     private func setupQRView() {
         let vc = QRCodeScannerViewController()
-        self.addChild(vc)
-        self.view.addSubview(vc.view)
+        addChild(vc)
+        view.addSubview(vc.view)
 
-        vc.view.snp.makeConstraints { (make) in
+        vc.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
         vc.didMove(toParent: self)
-        self.qrCodeViewController = vc
+        qrCodeViewController = vc
     }
 
-    private func setupCheckinView()
-    {
+    private func setupCheckinView() {
         let vc = CurrentCheckinViewController()
-        self.addChild(vc)
-        self.view.addSubview(vc.view)
+        addChild(vc)
+        view.addSubview(vc.view)
 
-        vc.view.snp.makeConstraints { (make) in
+        vc.view.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
         vc.didMove(toParent: self)
-        self.currentCheckinViewController = vc
+        currentCheckinViewController = vc
     }
 }

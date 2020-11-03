@@ -11,8 +11,7 @@
 
 import Foundation
 
-class ReminderManager : NSObject
-{
+class ReminderManager: NSObject {
     private let notificationCategory = "reminder"
 
     // MARK: - Shared instance
@@ -21,11 +20,10 @@ class ReminderManager : NSObject
 
     // MARK: - Public API
 
-    public func scheduleReminder(for id: Int, in timeInterval: TimeInterval)
-    {
+    public func scheduleReminder(for id: Int, in timeInterval: TimeInterval) {
         let center = UNUserNotificationCenter.current()
         center.delegate = self
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
             if granted {
                 self.scheduleNotification(for: id, in: timeInterval)
             } else {
@@ -34,24 +32,21 @@ class ReminderManager : NSObject
         }
     }
 
-    public func removeAllReminder()
-    {
+    public func removeAllReminder() {
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllDeliveredNotifications()
     }
 
     // MARK: - Implementation
 
-    private func scheduleNotification(for id: Int, in timeInterval: TimeInterval)
-    {
+    private func scheduleNotification(for _: Int, in timeInterval: TimeInterval) {
         let notificationCenter = UNUserNotificationCenter.current()
         let notification = UNMutableNotificationContent()
 
         notification.title = "checkout_reminder_title".ub_localized
         notification.body = "checkout_reminder_text".ub_localized
-        notification.categoryIdentifier = self.notificationCategory
+        notification.categoryIdentifier = notificationCategory
         notification.sound = UNNotificationSound.default
-
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         let notificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: trigger)
@@ -59,15 +54,12 @@ class ReminderManager : NSObject
     }
 }
 
-extension ReminderManager : UNUserNotificationCenterDelegate
-{
-    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
-    {
+extension ReminderManager: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
         completionHandler([.alert, .badge, .sound])
     }
 
-    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void)
-    {
+    func userNotificationCenter(_: UNUserNotificationCenter, didReceive _: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         completionHandler()
     }
 }

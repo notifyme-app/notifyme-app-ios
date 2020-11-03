@@ -12,17 +12,15 @@
 import Foundation
 
 /// Implementation of business rules to link SDK and all errors and states  to UI state
-class UIStateLogic
-{
+class UIStateLogic {
     let manager: UIStateManager
 
     init(manager: UIStateManager) {
         self.manager = manager
     }
 
-    func buildState() -> UIStateModel
-    {
-        var checkInState : UIStateModel.CheckInState = .noCheckIn
+    func buildState() -> UIStateModel {
+        var checkInState: UIStateModel.CheckInState = .noCheckIn
         if let checkIn = CurrentCheckinManager.shared.currentCheckin {
             checkInState = .checkIn(checkIn)
         }

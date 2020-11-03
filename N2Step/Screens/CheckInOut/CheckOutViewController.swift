@@ -12,22 +12,20 @@
 import Foundation
 
 class CheckOutViewController: CenterContentViewController {
-
     private let checkOutButton = BigButton(text: "checkout_button_title".ub_localized)
 
     // MARK: - View
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
-        self.setupCheckout()
+        setup()
+        setupCheckout()
     }
 
     // MARK: - Setup
 
-    private func setupCheckout()
-    {
-        self.checkOutButton.touchUpCallback = { [weak self] in
+    private func setupCheckout() {
+        checkOutButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
 
             CurrentCheckinManager.shared.checkOut()
@@ -44,12 +42,11 @@ class CheckOutViewController: CenterContentViewController {
     }
 
     private func setup() {
-
         let venueView = VenueView()
-        self.contentView.addArrangedView(venueView)
+        contentView.addArrangedView(venueView)
 
-        self.contentView.addSpacerView(Padding.medium)
+        contentView.addSpacerView(Padding.medium)
 
-        self.contentView.addArrangedView(self.checkOutButton)
+        contentView.addArrangedView(checkOutButton)
     }
 }

@@ -11,12 +11,11 @@
 
 import Foundation
 
-class CurrentCheckinViewController : BaseViewController
-{
+class CurrentCheckinViewController: BaseViewController {
     private let contentView = StackScrollView()
     private let checkOutButton = BigButton(text: "checkout_button_title".ub_localized)
 
-    public var checkIn : CheckIn? {
+    public var checkIn: CheckIn? {
         didSet { self.update() }
     }
 
@@ -24,25 +23,24 @@ class CurrentCheckinViewController : BaseViewController
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
+        setup()
     }
 
     // MARK: - Setup
 
-    private func setup()
-    {
-        self.view.addSubview(self.contentView)
+    private func setup() {
+        view.addSubview(contentView)
 
-        self.contentView.snp.makeConstraints { (make) in
+        contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
-        self.contentView.addArrangedView(UIImageView(image: UIImage(named: "illus-tea-big")))
-        self.contentView.addSubview(VenueView())
+        contentView.addArrangedView(UIImageView(image: UIImage(named: "illus-tea-big")))
+        contentView.addSubview(VenueView())
 
-        self.contentView.addArrangedView(self.checkOutButton)
+        contentView.addArrangedView(checkOutButton)
 
-        self.checkOutButton.touchUpCallback = { [weak self] in
+        checkOutButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.presentCheckOutScreen()
         }
@@ -50,15 +48,13 @@ class CurrentCheckinViewController : BaseViewController
 
     // MARK: - Present
 
-    public func presentCheckOutScreen()
-    {
-        self.present(CheckOutViewController(), animated: true, completion: nil)
+    public func presentCheckOutScreen() {
+        present(CheckOutViewController(), animated: true, completion: nil)
     }
 
     // MARK: - Update
 
-    private func update()
-    {
+    private func update() {
         // TODO: update venue view & time
     }
 }

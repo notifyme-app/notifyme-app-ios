@@ -34,33 +34,29 @@ class CheckInConfirmViewController: CenterContentViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
-        self.setupCheckin()
+        setup()
+        setupCheckin()
     }
 
     // MARK: - Setup
 
-    private func setupCheckin()
-    {
-        self.checkInButton.touchUpCallback = { [weak self] in
+    private func setupCheckin() {
+        checkInButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             if CurrentCheckinManager.shared.checkIn(qrCode: strongSelf.qrCode) {
                 strongSelf.dismiss(animated: true, completion: nil)
-            }
-            else
-            {
+            } else {
                 // TODO: error handling!
             }
         }
     }
 
     private func setup() {
-
         let venueView = VenueView()
-        self.contentView.addArrangedView(venueView)
+        contentView.addArrangedView(venueView)
 
-        self.contentView.addSpacerView(Padding.medium)
+        contentView.addSpacerView(Padding.medium)
 
-        self.contentView.addArrangedView(self.checkInButton)
+        contentView.addArrangedView(checkInButton)
     }
 }

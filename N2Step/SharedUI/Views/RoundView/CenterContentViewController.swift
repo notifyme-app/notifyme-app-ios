@@ -11,21 +11,18 @@
 
 import Foundation
 
-class CenterContentViewController : BaseViewController
-{
-    public var contentView : StackScrollView {
-        return self.centerView.contentView
+class CenterContentViewController: BaseViewController {
+    public var contentView: StackScrollView {
+        return centerView.contentView
     }
 
-    public var dismissCallback : (() -> ())?
-
+    public var dismissCallback: (() -> Void)?
 
     private let centerView = CenterContentView(maxHeight: 450)
 
-    override init()
-    {
+    override init() {
         super.init()
-        self.modalPresentationStyle = .overCurrentContext
+        modalPresentationStyle = .overCurrentContext
     }
 
     required init?(coder _: NSCoder) {
@@ -50,16 +47,16 @@ class CenterContentViewController : BaseViewController
     // MARK: - Setup
 
     private func setup() {
-        self.view.backgroundColor = UIColor.clear
+        view.backgroundColor = UIColor.clear
 
-        self.view.addSubview(self.centerView)
+        view.addSubview(centerView)
 
-        self.centerView.snp.makeConstraints { make in
+        centerView.snp.makeConstraints { make in
             make.center.equalToSuperview()
             make.left.right.equalToSuperview().inset(Padding.medium)
         }
 
-        self.centerView.dismissButton.touchUpCallback = { [weak self] in
+        centerView.dismissButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.dismiss(animated: true, completion: nil)
             strongSelf.dismissCallback?()
@@ -67,7 +64,7 @@ class CenterContentViewController : BaseViewController
     }
 
     override func viewWillLayoutSubviews() {
-        self.centerView.heightConstraint?.update(offset: self.centerView.contentView.scrollView.contentSize.height)
+        centerView.heightConstraint?.update(offset: centerView.contentView.scrollView.contentSize.height)
         super.viewWillLayoutSubviews()
     }
 }

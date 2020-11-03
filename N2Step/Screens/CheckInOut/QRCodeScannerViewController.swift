@@ -11,7 +11,7 @@
 
 import Foundation
 
-class QRCodeScannerViewController : BaseViewController {
+class QRCodeScannerViewController: BaseViewController {
     var qrView: QRScannerView?
 
     // MARK: - Init

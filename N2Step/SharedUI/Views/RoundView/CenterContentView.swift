@@ -12,52 +12,49 @@
 import Foundation
 import SnapKit
 
-class CenterContentView : UIView
-{
+class CenterContentView: UIView {
     public let dismissButton = UBButton()
     public let contentView = StackScrollView()
 
-    public var heightConstraint : Constraint?
+    public var heightConstraint: Constraint?
     private let maxHeight = 450
 
-    init(maxHeight: CGFloat)
-    {
+    init(maxHeight _: CGFloat) {
         super.init(frame: .zero)
-        self.setup()
+        setup()
     }
 
-    required init?(coder: NSCoder) {
+    required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     // MARK: - Setup
 
-    private func setup()
-    {
-        self.backgroundColor = .white
-        self.ub_addShadow(radius: 10, opacity: 0.3, xOffset: 0, yOffset: 0)
-        self.layer.cornerRadius = 36
+    private func setup() {
+        backgroundColor = .white
+        ub_addShadow(radius: 10, opacity: 0.3, xOffset: 0, yOffset: 0)
+        layer.cornerRadius = 36
 
-        self.dismissButton.title = "X"
-        self.dismissButton.backgroundColor = .green
+        dismissButton.title = "X"
+        dismissButton.backgroundColor = .green
 
-        self.addSubview(self.contentView)
-        self.contentView.snp.makeConstraints { (make) in
+        addSubview(contentView)
+        contentView.snp.makeConstraints { make in
             make.top.equalToSuperview().inset(Padding.large)
             make.left.right.bottom.equalToSuperview().inset(Padding.medium)
         }
 
-        self.addSubview(self.dismissButton)
+        addSubview(dismissButton)
 
-        self.dismissButton.snp.makeConstraints { (make) in
+        dismissButton.snp.makeConstraints { make in
             make.right.top.equalToSuperview().inset(Padding.small)
             make.height.equalTo(40)
             make.width.equalTo(40)
         }
 
-        self.contentView.scrollView.alwaysBounceVertical = false
+        contentView.scrollView.alwaysBounceVertical = false
 
-        self.contentView.scrollView.snp.makeConstraints { (make) in
+        contentView.scrollView.snp.makeConstraints { make in
             make.height.lessThanOrEqualTo(self.maxHeight).priority(.required)
             self.heightConstraint = make.height.equalTo(0).offset(self.contentView.scrollView.contentSize.height).priority(.high).constraint
         }
