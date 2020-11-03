@@ -13,8 +13,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Switch to Xcode 11.7
-      run: sudo xcode-select --switch /Applications/Xcode_11.7.app
+    - uses: webfactory/ssh-agent@v0.4.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Switch to Xcode 12.1
+      run: sudo xcode-select --switch /Applications/Xcode_12.1.app
 
     # Compile project and run tests
     - name: Compile and run tests
@@ -26,8 +30,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Switch to Xcode 11.7
-      run: sudo xcode-select --switch /Applications/Xcode_11.7.app
+    - uses: webfactory/ssh-agent@v0.4.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Switch to Xcode 12.1
+      run: sudo xcode-select --switch /Applications/Xcode_12.1.app
     
     # Compile "Release-Prod" for iOS Simulator (no signing)
     - name: Compile and run tests
@@ -39,8 +47,12 @@ jobs:
     steps:
     - uses: actions/checkout@v2
 
-    - name: Switch to Xcode 11.7
-      run: sudo xcode-select --switch /Applications/Xcode_11.7.app
+    - uses: webfactory/ssh-agent@v0.4.1
+      with:
+        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+    - name: Switch to Xcode 12.1
+      run: sudo xcode-select --switch /Applications/Xcode_12.1.app
 
     # Compile "Release-Dev" for iOS Simulator (no signing)
     - name: Compile and run tests
