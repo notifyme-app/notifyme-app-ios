@@ -55,10 +55,9 @@ extension UIStackView {
         }
     }
 
-    func addDividerView(inset: CGFloat) {
+    func addDividerView(inset: CGFloat, color _: UIColor) {
         let container = UIView()
         let line = UIView()
-        line.backgroundColor = .ns_line
 
         addArrangedView(container)
         container.addSubview(line)

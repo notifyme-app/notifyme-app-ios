@@ -47,6 +47,16 @@ class CheckOutViewController: CenterContentViewController {
 
         contentView.addSpacerView(Padding.medium)
 
-        contentView.addArrangedView(checkOutButton)
+        let v = UIView()
+        v.addSubview(checkOutButton)
+
+        checkOutButton.snp.makeConstraints { make in
+            make.top.bottom.centerX.equalToSuperview()
+            make.right.left.lessThanOrEqualToSuperview().inset(Padding.medium).priority(.low)
+        }
+
+        contentView.addArrangedView(v)
+
+        // TODO:
     }
 }

@@ -26,4 +26,8 @@ struct CheckIn: UBCodable, Equatable {
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {
         return lhs.identifier == rhs.identifier
     }
+
+    public func timeSinceCheckIn() -> String {
+        return Date().timeIntervalSince(checkInTime).ns_formatTime()
+    }
 }

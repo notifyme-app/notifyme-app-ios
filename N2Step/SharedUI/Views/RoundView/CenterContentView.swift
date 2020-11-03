@@ -35,22 +35,23 @@ class CenterContentView: UIView {
         ub_addShadow(radius: 10, opacity: 0.3, xOffset: 0, yOffset: 0)
         layer.cornerRadius = 36
 
-        dismissButton.title = "X"
-        dismissButton.backgroundColor = .green
+        dismissButton.setImage(UIImage(named: "icons-ic-cross"), for: .normal)
 
         addSubview(contentView)
         contentView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Padding.large)
-            make.left.right.bottom.equalToSuperview().inset(Padding.medium)
+            make.top.bottom.equalToSuperview().inset(Padding.large + Padding.small)
+            make.left.right.equalToSuperview().inset(Padding.medium)
         }
 
         addSubview(dismissButton)
 
         dismissButton.snp.makeConstraints { make in
             make.right.top.equalToSuperview().inset(Padding.small)
-            make.height.equalTo(40)
-            make.width.equalTo(40)
+            make.height.equalTo(44)
+            make.width.equalTo(44)
         }
+
+        dismissButton.highlightCornerRadius = 22.0
 
         contentView.scrollView.alwaysBounceVertical = false
 
@@ -59,10 +60,4 @@ class CenterContentView: UIView {
             self.heightConstraint = make.height.equalTo(0).offset(self.contentView.scrollView.contentSize.height).priority(.high).constraint
         }
     }
-
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//        self.heightConstraint?.update(offset: self.contentView.scrollView.intrinsicContentSize.height)
-//        print("HEight \(self.contentView.scrollView.contentSize.height)")
-//    }
 }

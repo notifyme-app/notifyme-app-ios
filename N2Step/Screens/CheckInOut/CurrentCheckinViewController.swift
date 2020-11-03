@@ -13,7 +13,7 @@ import Foundation
 
 class CurrentCheckinViewController: BaseViewController {
     private let contentView = StackScrollView()
-    private let checkOutButton = BigButton(text: "checkout_button_title".ub_localized)
+    private let checkOutButton = BigButton(text: "checkout_button_title".ub_localized, color: .ns_purple)
 
     public var checkIn: CheckIn? {
         didSet { self.update() }
@@ -35,10 +35,34 @@ class CurrentCheckinViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
 
-        contentView.addArrangedView(UIImageView(image: UIImage(named: "illus-tea-big")))
-        contentView.addSubview(VenueView())
+        let isSmaller = view.frame.size.width < 375
 
-        contentView.addArrangedView(checkOutButton)
+        let imageView = UIImageView(image: UIImage(named: "illus-tea-big")?.ub_image(byScaling: isSmaller ? 0.6 : 1.0))
+        imageView.ub_setContentPriorityRequired()
+
+        let v = UIView()
+        v.addSubview(imageView)
+        imageView.snp.makeConstraints { make in
+            make.top.bottom.centerX.equalToSuperview()
+            make.right.left.lessThanOrEqualToSuperview().inset(Padding.medium)
+        }
+
+        contentView.addSpacerView(Padding.large)
+        contentView.addArrangedView(v)
+
+        contentView.addSpacerView(Padding.large + Padding.small)
+        contentView.addArrangedView(VenueView(icon: false))
+
+        contentView.addSpacerView(Padding.large)
+
+        let v2 = UIView()
+        v2.addSubview(checkOutButton)
+        checkOutButton.snp.makeConstraints { make in
+            make.top.bottom.centerX.equalToSuperview()
+            make.right.left.lessThanOrEqualToSuperview().inset(Padding.medium).priority(.low)
+        }
+
+        contentView.addArrangedView(v2)
 
         checkOutButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }

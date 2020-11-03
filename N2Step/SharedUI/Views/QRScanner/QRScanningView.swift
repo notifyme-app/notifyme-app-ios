@@ -23,8 +23,6 @@ class QRScannerView: UIView {
     /// capture settion which allows us to start and stop scanning.
     var captureSession: AVCaptureSession?
 
-    let overlay = QRScannerOverlay()
-
     init(delegate: QRScannerViewDelegate) {
         super.init(frame: .zero)
         self.delegate = delegate
@@ -43,11 +41,6 @@ class QRScannerView: UIView {
 
     override var layer: AVCaptureVideoPreviewLayer {
         return super.layer as! AVCaptureVideoPreviewLayer
-    }
-
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        overlay.setNeedsDisplay()
     }
 
     override var intrinsicContentSize: CGSize {
@@ -71,11 +64,6 @@ extension QRScannerView {
 
     /// Does the initial setup for captureSession
     private func doInitialSetup() {
-        addSubview(overlay)
-        overlay.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
-        }
-
         clipsToBounds = true
         captureSession = AVCaptureSession()
 
@@ -118,8 +106,6 @@ extension QRScannerView {
 
         layer.session = captureSession
         layer.videoGravity = .resizeAspectFill
-
-        captureSession?.startRunning()
     }
 
     func scanningDidFail() {
@@ -136,13 +122,9 @@ extension QRScannerView: AVCaptureMetadataOutputObjectsDelegate {
     func metadataOutput(_: AVCaptureMetadataOutput,
                         didOutput metadataObjects: [AVMetadataObject],
                         from _: AVCaptureConnection) {
-        stopScanning()
-
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
-            let generator = UIImpactFeedbackGenerator(style: .heavy)
-            generator.impactOccurred()
             found(code: stringValue)
         }
     }

@@ -25,14 +25,8 @@
 /*iOS FaceID: Text that is shown as reason for Face ID*/
 "face_id_reason_text" = "Scan your face to see your diary";
 
-/*Homescreen/Reports: No report*/
-"no_report_title" = "No report";
-
 /*Homescreen: Text with no report*/
 "no_report_hero_text" = "Enjoy your day and stay healthy";
-
-/*Check In: Button title*/
-"check_in_now_button_title" = "Check In Now";
 
 /*Reminder Notification Title*/
 "checkout_reminder_title" = "Checkout Reminder";
@@ -56,7 +50,28 @@
 "report_message_text" = "An infection could have occured";
 
 /*Highlighted part of Term no_report_hero_text (has to match exactly)*/
-"no_report_hero_text_highlight" = "stay healthy";
+"no_report_hero_text_highlight" = "Stay healthy";
 
 /*Highlight text of report_message_text (must be exactly as in this text)*/
 "report_message_text_highlight" = "An infection";
+
+/*QR-Scanner: request for scan text*/
+"qrscanner_scan_qr_text" = "Scan QR code to check in";
+
+/*Title within the red card in the report window when there is 1 or more reports.*/
+"report_header_title" = "Potential infection within the last 14 days";
+
+/*Subtitle within the red card in the report window when there is 1 or more reports.*/
+"report_header_subtitle" = "You could be infectious without realising it.";
+
+/*Action button title within the red card in the report window when there is 1 or more reports.*/
+"report_header_action_title" = "What to do?";
+
+/*Title within the green card in the report window when there is no report.*/
+"report_header_title_no_reports" = "No potential infections have been reported within the last 14 days";
+
+/*Subtitle within the green card in the report window when there is no report.*/
+"report_header_subtitle_no_reports" = "Stay healthy";
+
+/*QR Code Scanner: no valid code text*/
+"qrscanner_error" = "No valid code!";

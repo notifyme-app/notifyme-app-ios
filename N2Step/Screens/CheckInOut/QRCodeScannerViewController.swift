@@ -12,7 +12,15 @@
 import Foundation
 
 class QRCodeScannerViewController: BaseViewController {
-    var qrView: QRScannerView?
+    private var qrView: QRScannerView?
+    private var qrOverlay = QRScannerOverlay()
+
+    private let requestLabel = Label(.text, textAlignment: .center)
+    private let qrErrorLabel = Label(.boldUppercaseSmall, textColor: UIColor.ns_red, textAlignment: .center)
+
+    private var lastQrCode: String?
+
+    private var timer: Timer?
 
     // MARK: - Init
 
@@ -25,10 +33,23 @@ class QRCodeScannerViewController: BaseViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - Scanning
+
+    public func startScanning() {
+        lastQrCode = nil
+        startScanningProcess()
+    }
+
+    public func stopScanning() {
+        lastQrCode = nil
+        qrView?.stopScanning()
+    }
+
     // MARK: - View
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .ns_grayBackground
         setupQRView()
     }
 
@@ -41,9 +62,53 @@ class QRCodeScannerViewController: BaseViewController {
 
         qrView.snp.makeConstraints { make in
             make.height.equalTo(qrView.snp.width)
-            make.center.equalToSuperview()
-            make.left.right.equalToSuperview().inset(Padding.medium)
+            make.top.equalToSuperview().inset(3 * Padding.large)
+            make.left.right.equalToSuperview().inset(Padding.large + 1.5 * qrOverlay.lineWidth)
         }
+
+        view.addSubview(qrOverlay)
+
+        qrOverlay.snp.makeConstraints { make in
+            make.edges.equalTo(qrView).inset(-1.5 * qrOverlay.lineWidth)
+        }
+
+        view.addSubview(requestLabel)
+        requestLabel.text = "qrscanner_scan_qr_text".ub_localized
+
+        requestLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview().offset(Padding.large)
+            make.left.right.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        view.addSubview(qrErrorLabel)
+        qrErrorLabel.text = "qrscanner_error".ub_localized
+
+        qrErrorLabel.snp.makeConstraints { make in
+            make.top.equalTo(qrOverlay.snp.bottom).offset(Padding.small)
+            make.left.right.equalToSuperview().inset(Padding.mediumSmall)
+        }
+    }
+
+    // MARK: - Start scanning & error
+
+    private func startScanningProcess() {
+        qrView?.startScanning()
+        qrErrorLabel.alpha = 0.0
+        qrOverlay.lineColor = .ns_purple
+    }
+
+    private func showError() {
+        qrErrorLabel.alpha = 1.0
+        qrOverlay.lineColor = .ns_red
+
+        timer?.invalidate()
+        timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            UIView.animate(withDuration: 0.2) {
+                strongSelf.qrErrorLabel.alpha = 0.0
+                strongSelf.qrOverlay.lineColor = .ns_purple
+            }
+        })
     }
 }
 
@@ -53,9 +118,28 @@ extension QRCodeScannerViewController: QRScannerViewDelegate {
     }
 
     func qrScanningSucceededWithCode(_ str: String?) {
-        guard let str = str else { return }
-        let vc = CheckInConfirmViewController(qrCode: str)
-        present(vc, animated: true, completion: nil)
+        if lastQrCode == nil {
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.impactOccurred()
+        } else if let lastCode = lastQrCode {
+            if let str = str, lastCode != str {
+                let generator = UIImpactFeedbackGenerator(style: .heavy)
+                generator.impactOccurred()
+            }
+        }
+
+        lastQrCode = str
+
+        // TODO: check Code
+        let codeOk = true
+        if codeOk {
+            guard let str = str else { return }
+            stopScanning()
+            let vc = CheckInConfirmViewController(qrCode: str)
+            present(vc, animated: true, completion: nil)
+        } else {
+            showError()
+        }
     }
 
     func qrScanningDidStop() {

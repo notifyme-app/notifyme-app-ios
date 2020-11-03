@@ -15,11 +15,13 @@ class CheckInViewController: BaseViewController {
     private var qrCodeViewController: QRCodeScannerViewController?
     private var currentCheckinViewController: CurrentCheckinViewController?
 
+    private var titleTimer: Timer?
+    private var checkIn: CheckIn?
+
     // MARK: - Init
 
     override init() {
         super.init()
-        title = "checkin_title".ub_localized
     }
 
     required init?(coder _: NSCoder) {
@@ -46,12 +48,18 @@ class CheckInViewController: BaseViewController {
         case .noCheckIn:
             currentCheckinViewController?.view.isHidden = true
             qrCodeViewController?.view.isHidden = false
+            qrCodeViewController?.startScanning()
+            stopTitleTimer()
+            title = "checkin_title".ub_localized
 
         case let .checkIn(checkIn):
             currentCheckinViewController?.view.isHidden = false
             qrCodeViewController?.view.isHidden = true
+            qrCodeViewController?.stopScanning()
 
+            self.checkIn = checkIn
             currentCheckinViewController?.checkIn = checkIn
+            startTitleTimer()
         }
     }
 
@@ -81,5 +89,20 @@ class CheckInViewController: BaseViewController {
 
         vc.didMove(toParent: self)
         currentCheckinViewController = vc
+    }
+
+    // MARK: - Title timer
+
+    private func startTitleTimer() {
+        titleTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.title = strongSelf.checkIn?.timeSinceCheckIn() ?? ""
+        })
+        titleTimer?.fire()
+    }
+
+    private func stopTitleTimer() {
+        titleTimer?.invalidate()
+        titleTimer = nil
     }
 }

@@ -15,7 +15,13 @@ import N2StepSDK
 class VenueView: UIView {
     private let stackView = UIStackView()
 
-    init(venue _: VenueInfo? = nil) {
+    private let icon: Bool
+    private let venue: VenueInfo?
+
+    init(venue: VenueInfo? = nil, icon: Bool = true) {
+        self.venue = venue
+        self.icon = icon
+
         super.init(frame: .zero)
         setup()
     }
@@ -34,26 +40,31 @@ class VenueView: UIView {
             make.edges.equalToSuperview()
         }
 
-        let view = UIView()
-        let imageView = UIImageView(image: UIImage(named: "venue"))
-        imageView.ub_setContentPriorityRequired()
-        view.addSubview(imageView)
+        if icon {
+            let view = UIView()
+            let imageView = UIImageView(image: UIImage(named: "venue"))
+            imageView.ub_setContentPriorityRequired()
+            view.addSubview(imageView)
 
-        imageView.snp.makeConstraints { make in
-            make.top.bottom.centerX.equalToSuperview()
+            imageView.snp.makeConstraints { make in
+                make.top.bottom.centerX.equalToSuperview()
+            }
+
+            stackView.addArrangedSubview(view)
         }
-
-        stackView.addArrangedSubview(view)
 
         let titleLabel = Label(.title, textAlignment: .center)
         titleLabel.text = "Cybercafe SV"
 
         stackView.addArrangedSubview(titleLabel)
+        stackView.addSpacerView(4.0)
 
         let subtitleLabel = Label(.subtitle, textAlignment: .center)
         subtitleLabel.text = "EPFL Campus"
 
         stackView.addArrangedSubview(subtitleLabel)
+
+        stackView.addSpacerView(Padding.small + 4.0)
 
         let textLabel = Label(.text, textAlignment: .center)
         textLabel.text = "Lausanne"

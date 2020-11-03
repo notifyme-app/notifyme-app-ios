@@ -14,7 +14,7 @@ import Foundation
 class CheckInConfirmViewController: CenterContentViewController {
     private let qrCode: String
 
-    private let checkInButton = BigButton(text: "check_in_now_button_title".ub_localized)
+    private let checkInButton = BigButton(text: "check_in_now_button_title".ub_localized, color: .ns_purple, outline: true)
 
     // MARK: - Init
 
@@ -54,9 +54,9 @@ class CheckInConfirmViewController: CenterContentViewController {
     private func setup() {
         let venueView = VenueView()
         contentView.addArrangedView(venueView)
-
-        contentView.addSpacerView(Padding.medium)
-
+        contentView.addSpacerView(Padding.mediumSmall)
         contentView.addArrangedView(checkInButton)
+
+        // TODO: Diary.
     }
 }

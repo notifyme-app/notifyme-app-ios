@@ -9,9 +9,13 @@
 import UIKit
 
 open class QRScannerOverlay: UIView {
-    var lineWidth: CGFloat = 5
+    var lineWidth: CGFloat = 10 {
+        didSet { setNeedsDisplay() }
+    }
 
-    var lineColor: UIColor = .black
+    var lineColor: UIColor = .black {
+        didSet { setNeedsDisplay() }
+    }
 
     init() {
         super.init(frame: .zero)
@@ -26,12 +30,12 @@ open class QRScannerOverlay: UIView {
         guard let context = UIGraphicsGetCurrentContext() else { return }
 
         context.setLineWidth(lineWidth)
-        context.setStrokeColor(lineColor.withAlphaComponent(0.7).cgColor)
+        context.setStrokeColor(lineColor.cgColor)
 
         let height = rect.size.height
         let width = rect.size.width
 
-        let offset: CGFloat = 0.1
+        let offset: CGFloat = 0
         let rectangleSize = min(height, width) - 2 * min(height, width) * offset
         let xOffset = (width - rectangleSize) / 2
         let yOffset = (height - rectangleSize) / 2

@@ -43,6 +43,7 @@ class BigButton: UBButton {
         setupIconAndText(icon: icon, text: text)
 
         if outline {
+            label.textColor = color
             backgroundColor = UIColor.white
             layer.borderColor = color?.cgColor
             layer.borderWidth = 3.0
