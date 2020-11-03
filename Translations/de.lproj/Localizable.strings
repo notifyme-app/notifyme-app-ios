@@ -75,3 +75,18 @@
 
 /*QR Code Scanner: no valid code text*/
 "qrscanner_error" = "No valid code!";
+
+/*Reports: no reports information title*/
+"no_report_information_title" = "No potential infections have been reported within the last 14 days";
+
+/*No report Information : Additional text*/
+"no_report_information_text" = "Stay healthy";
+
+/*Reports: Information title*/
+"report_information_title" = "Potential infection within the last 14 days";
+
+/*Reports: Information text*/
+"report_information_text" = "You could be infectious without realising it.";
+
+/*Report Information What to do Button title*/
+"report_information_button_title" = "What to do?";

@@ -57,7 +57,7 @@ class HomescreenReportViewController: BaseSubViewController {
             noReportLabel.isHidden = true
 
             // TODO: change 3 days ago
-            reportButton.setContent(title: title, message: "report_message_text".ub_localized, messageHighlight: "report_message_text_highlight", subText: "3 days ago")
+            reportButton.setContent(title: title, message: "report_message_text".ub_localized, messageHighlight: "report_message_text_highlight".ub_localized, subText: "3 days ago")
         }
     }
 
