@@ -16,8 +16,10 @@ class HomescreenViewController: BaseViewController {
 
     private let reportViewController = HomescreenReportViewController()
 
-    private let checkInButton = BigButton(text: "checkin_button_title".ub_localized)
-    private let diaryButton = BigButton(icon: nil)
+    private let checkInButton = BigButton(icon: UIImage(named: "icons-ic-qr"), text: "checkin_button_title".ub_localized, color: UIColor.ns_purple)
+    private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
+
+    private let personImageView = UIImageView(image: UIImage(named: "person"))
 
     // MARK: - Init
 
@@ -33,16 +35,20 @@ class HomescreenViewController: BaseViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.isNavigationBarHidden = true
 
-        addOval()
         setupLayout()
         setupButtons()
+        setupPersonView()
+        addOval()
+
+        UIStateManager.shared.addObserver(self) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            // TODO: hide person view, when there are reports
+        }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = true
     }
 
     // MARK: - Setup
@@ -69,17 +75,29 @@ class HomescreenViewController: BaseViewController {
     private func setupButtons() {
         diaryButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.navigationController?.pushViewController(DiaryViewController(), animated: true)
+            let vc = LargeTitleNavigationController(contentViewController: DiaryViewController())
+            strongSelf.navigationController?.pushViewController(vc, animated: true)
         }
 
         checkInButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.navigationController?.pushViewController(CheckInViewController(), animated: true)
+            let vc = LargeTitleNavigationController(contentViewController: CheckInViewController())
+            strongSelf.navigationController?.pushViewController(vc, animated: true)
         }
 
         reportViewController.reportsTouchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.navigationController?.pushViewController(ReportsViewController(), animated: true)
+            let vc = LargeTitleNavigationController(contentViewController: ReportsViewController())
+            strongSelf.navigationController?.pushViewController(vc, animated: true)
+        }
+    }
+
+    private func setupPersonView() {
+        view.insertSubview(personImageView, at: 0)
+
+        personImageView.snp.makeConstraints { make in
+            make.bottom.greaterThanOrEqualTo(checkInButton.snp.top).offset(-Padding.large - Padding.medium).priority(.medium)
+            make.right.equalToSuperview().inset(Padding.medium + 8.0)
         }
     }
 }

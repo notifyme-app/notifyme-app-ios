@@ -12,6 +12,8 @@
 import UIKit
 
 class BaseViewController: UIViewController {
+    // MARK: - Init
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
@@ -20,17 +22,39 @@ class BaseViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: - View
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         view.backgroundColor = .white
+
+        // we don't hide the navigation completely, in that way
+        // left swipe is still there
+        navigationController?.navigationBar.isHidden = true
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.isNavigationBarHidden = false
-        navigationController?.navigationBar.prefersLargeTitles = true
     }
+
+    // MARK: - Title
+
+    public var titleChangeCallback: ((String?) -> Void)? {
+        didSet {
+            self.titleChangeCallback?(self.title)
+        }
+    }
+
+    override var title: String? {
+        get { super.title }
+        set {
+            super.title = newValue
+            titleChangeCallback?(title)
+        }
+    }
+
+    // MARK: - Fancy oval
 
     public func addOval() {
         let view = UIView()

@@ -11,4 +11,9 @@
 
 import Foundation
 
-class ReportsViewController: BaseViewController {}
+class ReportsViewController: BaseViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        title = "no_report_title".ub_localized
+    }
+}

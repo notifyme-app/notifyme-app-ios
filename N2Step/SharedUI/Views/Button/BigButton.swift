@@ -13,7 +13,17 @@ import Foundation
 import SnapKit
 
 class BigButton: UBButton {
-    init(icon _: UIImage? = nil) {
+    private let label = Label(.boldUppercase)
+
+    override var title: String? {
+        get { super.title }
+        set {
+            super.title = newValue
+            label.text = newValue
+        }
+    }
+
+    init(icon: UIImage? = nil) {
         super.init()
         setup()
 
@@ -21,14 +31,24 @@ class BigButton: UBButton {
             make.width.equalTo(72.0)
         }
 
-        backgroundColor = UIColor.blue
+        setImage(icon, for: .normal)
+
+        backgroundColor = UIColor.white
+        highlightedBackgroundColor = UIColor.black.withAlphaComponent(0.3)
     }
 
-    init(icon _: UIImage? = nil, text: String? = nil, color _: UIColor? = nil) {
+    init(icon: UIImage? = nil, text: String? = nil, color: UIColor? = nil, outline: Bool = false) {
         super.init()
         setup()
-        setTitle(text, for: .normal)
-        backgroundColor = UIColor.green
+        setupIconAndText(icon: icon, text: text)
+
+        if outline {
+            backgroundColor = UIColor.white
+            layer.borderColor = color?.cgColor
+            layer.borderWidth = 3.0
+        } else {
+            backgroundColor = color
+        }
     }
 
     required init?(coder _: NSCoder) {
@@ -43,5 +63,28 @@ class BigButton: UBButton {
         }
 
         layer.cornerRadius = 36.0
+        highlightCornerRadius = 36.0
+    }
+
+    private func setupIconAndText(icon: UIImage? = nil, text: String? = nil) {
+        let imageView = UIImageView(image: icon)
+        imageView.ub_setContentPriorityRequired()
+
+        addSubview(imageView)
+
+        imageView.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.left.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        addSubview(label)
+        label.text = text
+
+        label.snp.makeConstraints { make in
+            make.centerY.equalToSuperview()
+            make.right.lessThanOrEqualToSuperview().inset(Padding.small)
+            make.left.greaterThanOrEqualTo(imageView.snp.right).offset(Padding.small)
+            make.centerX.equalToSuperview().priority(.medium)
+        }
     }
 }

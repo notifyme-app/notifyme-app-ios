@@ -14,7 +14,7 @@ import Foundation
 class HomescreenReportViewController: BaseSubViewController {
     // MARK: - Private parts
 
-    let noReportsView = BigButton(text: "no_report_title".ub_localized)
+    let noReportsView = ReportButton()
     let noReportLabel = Label(.heroTitle)
 
     // MARK: - API
@@ -38,6 +38,8 @@ class HomescreenReportViewController: BaseSubViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+
+        noReportsView.setContent(title: "no_report_title".ub_localized)
     }
 
     // MARK: - Setup
@@ -48,12 +50,21 @@ class HomescreenReportViewController: BaseSubViewController {
 
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(Padding.medium)
+            make.edges.equalToSuperview().inset(Padding.mediumSmall)
         }
 
         stackView.addArrangedView(noReportsView)
-        stackView.addSpacerView(Padding.medium)
-        stackView.addArrangedView(noReportLabel)
+        stackView.addSpacerView(Padding.mediumSmall)
+
+        let view = UIView()
+        view.addSubview(noReportLabel)
+
+        noReportLabel.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        stackView.addArrangedView(view)
 
         noReportLabel.text = "no_report_hero_text".ub_localized
     }
