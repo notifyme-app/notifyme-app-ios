@@ -16,7 +16,7 @@ class HomescreenViewController: BaseViewController {
 
     private let reportViewController = HomescreenReportViewController()
 
-    private let checkInButton = BigButton(icon: UIImage(named: "icons-ic-qr"), text: "checkin_button_title".ub_localized, color: UIColor.ns_purple)
+    private let checkInButton = CheckInButton()
     private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
 
     private let personImageView = UIImageView(image: UIImage(named: "person"))
@@ -41,14 +41,25 @@ class HomescreenViewController: BaseViewController {
         setupPersonView()
         addOval()
 
-        UIStateManager.shared.addObserver(self) { [weak self] _ in
+        UIStateManager.shared.addObserver(self) { [weak self] state in
             guard let strongSelf = self else { return }
-            // TODO: hide person view, when there are reports
+            strongSelf.update(state)
         }
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+    }
+
+    // MARK: - Update
+
+    private func update(_ state: UIStateModel) {
+        switch state.reportState {
+        case .noReport:
+            personImageView.isHidden = false
+        case let .report:
+            personImageView.isHidden = true
+        }
     }
 
     // MARK: - Setup
@@ -64,6 +75,7 @@ class HomescreenViewController: BaseViewController {
         // Bottom buttons
         let stackView = UIStackView(arrangedSubviews: [checkInButton, diaryButton])
         stackView.spacing = Padding.small
+        stackView.alignment = .bottom
         view.addSubview(stackView)
 
         stackView.snp.makeConstraints { make in

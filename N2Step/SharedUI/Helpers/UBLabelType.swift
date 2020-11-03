@@ -31,6 +31,8 @@ public protocol UBLabelType {
 class UBLabel<T: UBLabelType>: UILabel {
     private let type: T
 
+    private var highlights: [(String, UIColor)] = []
+
     /// Simple way to initialize Label with T and optional textColor to override standard color of type. Standard multiline and left-aligned.
     init(_ type: T, textColor: UIColor? = nil, numberOfLines: Int = 0, textAlignment: NSTextAlignment = .left) {
         self.type = type
@@ -53,6 +55,11 @@ class UBLabel<T: UBLabelType>: UILabel {
 
     var isHtmlContent: Bool = false {
         didSet { update() }
+    }
+
+    public func addHighlight(text: String, color: UIColor) {
+        highlights.append((text, color))
+        update()
     }
 
     /// :nodoc:
@@ -108,6 +115,11 @@ class UBLabel<T: UBLabelType>: UILabel {
 
             // add attribute for paragraph
             textString.addAttribute(NSAttributedString.Key.paragraphStyle, value: paragraphStyle, range: textRange)
+
+            for (text, color) in highlights {
+                let range = (textContent as NSString).range(of: text)
+                textString.addAttribute(NSAttributedString.Key.foregroundColor, value: color, range: range)
+            }
         }
 
         // add attribute for kerning

@@ -38,7 +38,7 @@ class ReportButton: UBButton {
 
     // MARK: - Content
 
-    public func setContent(title: String, message: String? = nil, subText: String? = nil) {
+    public func setContent(title: String, message: String? = nil, messageHighlight: String? = nil, subText: String? = nil) {
         let hasMessage = message != nil
 
         let color = hasMessage ? UIColor.red : UIColor.ns_green
@@ -49,6 +49,10 @@ class ReportButton: UBButton {
         topTitleLabel.textColor = color
 
         messageLabel.text = message
+        if let m = messageHighlight {
+            messageLabel.addHighlight(text: m, color: color)
+        }
+
         subtextLabel.text = subText
 
         if hasMessage {

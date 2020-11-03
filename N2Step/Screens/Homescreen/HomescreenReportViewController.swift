@@ -14,13 +14,13 @@ import Foundation
 class HomescreenReportViewController: BaseSubViewController {
     // MARK: - Private parts
 
-    let noReportsView = ReportButton()
+    let reportButton = ReportButton()
     let noReportLabel = Label(.heroTitle)
 
     // MARK: - API
 
     public var reportsTouchUpCallback: (() -> Void)? {
-        didSet { self.noReportsView.touchUpCallback = self.reportsTouchUpCallback }
+        didSet { self.reportButton.touchUpCallback = self.reportsTouchUpCallback }
     }
 
     // MARK: - Init
@@ -39,7 +39,26 @@ class HomescreenReportViewController: BaseSubViewController {
         super.viewDidLoad()
         setup()
 
-        noReportsView.setContent(title: "no_report_title".ub_localized)
+        UIStateManager.shared.addObserver(self) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.update(state)
+        }
+    }
+
+    // MARK: - Update
+
+    private func update(_ state: UIStateModel) {
+        switch state.reportState {
+        case .noReport:
+            reportButton.setContent(title: "no_report_title".ub_localized)
+
+        case let .report(reports):
+            let title = reports.count > 1 ? "report_title_plural".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(reports.count)") : "report_title_singular".ub_localized
+            noReportLabel.isHidden = true
+
+            // TODO: change 3 days ago
+            reportButton.setContent(title: title, message: "report_message_text".ub_localized, messageHighlight: "report_message_text_highlight", subText: "3 days ago")
+        }
     }
 
     // MARK: - Setup
@@ -53,7 +72,7 @@ class HomescreenReportViewController: BaseSubViewController {
             make.edges.equalToSuperview().inset(Padding.mediumSmall)
         }
 
-        stackView.addArrangedView(noReportsView)
+        stackView.addArrangedView(reportButton)
         stackView.addSpacerView(Padding.mediumSmall)
 
         let view = UIView()
@@ -67,5 +86,6 @@ class HomescreenReportViewController: BaseSubViewController {
         stackView.addArrangedView(view)
 
         noReportLabel.text = "no_report_hero_text".ub_localized
+        noReportLabel.addHighlight(text: "no_report_hero_text_highlight".ub_localized, color: UIColor.ns_green)
     }
 }

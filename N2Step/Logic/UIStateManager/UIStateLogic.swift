@@ -25,6 +25,6 @@ class UIStateLogic {
             checkInState = .checkIn(checkIn)
         }
 
-        return UIStateModel(checkInState: checkInState)
+        return UIStateModel(checkInState: checkInState, reportState: .noReport)
     }
 }
