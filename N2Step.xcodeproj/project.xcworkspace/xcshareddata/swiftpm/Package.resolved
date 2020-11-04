@@ -2,20 +2,11 @@
   "object": {
     "pins": [
       {
-        "package": "Clibsodium",
-        "repositoryURL": "https://github.com/tiwoc/Clibsodium.git",
-        "state": {
-          "branch": null,
-          "revision": "2ac72772aae26b2da0b15c253d9bb79ba452f66a",
-          "version": "1.0.0"
-        }
-      },
-      {
         "package": "N2StepSDK",
         "repositoryURL": "ssh://git@github.com/UbiqueInnovation/n2step-sdk-ios.git",
         "state": {
           "branch": "develop",
-          "revision": "08fe5d26d89cd63adc4bcef77c8ee6246a6779b1",
+          "revision": "6f7bada0550b502e23d2e63871dd93593533244b",
           "version": null
         }
       },
@@ -41,8 +32,8 @@
         "package": "Sodium",
         "repositoryURL": "https://github.com/jedisct1/swift-sodium.git",
         "state": {
-          "branch": "0.8.0",
-          "revision": "5900a54dea817befa18f3148889fe922a38afe7f",
+          "branch": "0.9.0",
+          "revision": "176745ddc4991b27f80c3c2637652eb33b5782eb",
           "version": null
         }
       }
