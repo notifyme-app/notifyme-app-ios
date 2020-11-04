@@ -6,7 +6,7 @@
         "repositoryURL": "ssh://git@github.com/UbiqueInnovation/n2step-sdk-ios.git",
         "state": {
           "branch": "develop",
-          "revision": "6f7bada0550b502e23d2e63871dd93593533244b",
+          "revision": "eef6151f7698263cc5adca3563fced5ee47b0db6",
           "version": null
         }
       },
@@ -30,10 +30,10 @@
       },
       {
         "package": "Sodium",
-        "repositoryURL": "https://github.com/jedisct1/swift-sodium.git",
+        "repositoryURL": "https://github.com/UbiqueInnovation/swift-sodium.git",
         "state": {
-          "branch": "0.9.0",
-          "revision": "176745ddc4991b27f80c3c2637652eb33b5782eb",
+          "branch": "feature/full-libsodium",
+          "revision": "7c43f9a459f39dbdf3880e0729f7da5bca771900",
           "version": null
         }
       }
