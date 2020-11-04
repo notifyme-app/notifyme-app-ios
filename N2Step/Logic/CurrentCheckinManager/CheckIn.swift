@@ -21,7 +21,9 @@ struct CheckIn: UBCodable, Equatable {
 
     public let identifier: Int
     public let venue: VenueInfo?
-    public let checkInTime: Date
+    public var checkInTime: Date
+    public var comment: String?
+    public var checkOutTime: Date?
 
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {
         return lhs.identifier == rhs.identifier
@@ -30,4 +32,16 @@ struct CheckIn: UBCodable, Equatable {
     public func timeSinceCheckIn() -> String {
         return Date().timeIntervalSince(checkInTime).ns_formatTime()
     }
+}
+
+struct AdditionalInfo: UBCodable {
+    init(identifier: Int, publicKey: String, comment: String?) {
+        self.identifier = identifier
+        self.publicKey = publicKey
+        self.comment = comment
+    }
+
+    public let identifier: Int
+    public let publicKey: String
+    public let comment: String?
 }

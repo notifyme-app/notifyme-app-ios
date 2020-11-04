@@ -21,8 +21,11 @@ class CurrentCheckinManager {
 
     public static let shared = CurrentCheckinManager()
 
+    @KeychainPersisted(key: "ch.n2step.current.additional.infos.key", defaultValue: [])
+    private var additionalInfos: [AdditionalInfo]
+
     @UBOptionalUserDefault(key: "ch.n2step.current.checkin.key")
-    public private(set) var currentCheckin: CheckIn? {
+    public var currentCheckin: CheckIn? {
         didSet { UIStateManager.shared.userCheckinStateChanged() }
     }
 
@@ -36,17 +39,32 @@ class CurrentCheckinManager {
 
         // TODO: replace id and venue
         currentCheckin = CheckIn(identifier: 0, checkInTime: checkInTime, venue: nil)
-        return true
-        // }
+        removeAdditionalInfo(identifier: 0)
 
-        return false
+        return true
     }
 
     public func checkOut() {
         if let cc = currentCheckin {
+            saveAdditionalInfo(checkIn: cc)
+
             let ti = Date().timeIntervalSince(cc.checkInTime)
             // N2Step.changeDuration(checkinId: cc.identifier, pk: cc.venue.pk, newDuration: ti)
             currentCheckin = nil
         }
+    }
+
+    private func removeAdditionalInfo(identifier: Int) {
+        let infos = additionalInfos.filter { $0.identifier != identifier }
+        additionalInfos = infos
+    }
+
+    private func saveAdditionalInfo(checkIn: CheckIn) {
+        var infos: [AdditionalInfo] = additionalInfos
+
+        let info = AdditionalInfo(identifier: checkIn.identifier, publicKey: "", comment: checkIn.comment)
+
+        infos.append(info)
+        additionalInfos = infos
     }
 }

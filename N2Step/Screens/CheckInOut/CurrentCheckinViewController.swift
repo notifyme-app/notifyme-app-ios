@@ -73,7 +73,7 @@ class CurrentCheckinViewController: BaseViewController {
     // MARK: - Present
 
     public func presentCheckOutScreen() {
-        present(CheckOutViewController(), animated: true, completion: nil)
+        present(CheckinEditViewController(), animated: true, completion: nil)
     }
 
     // MARK: - Update

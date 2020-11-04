@@ -83,3 +83,22 @@
 
 /*Homescreen: Label you are checked in*/
 "homescreen_checkedin_label" = "You are checked in";
+
+/*Edit Checkin ViewController: your checkin at*/
+"edit_controller_your_checkin" = "Your check-in at";
+
+/*Edit Check in: DatePicker from label*/
+"datepicker_from" = "From";
+
+/*Edit Check in: DatePicker to label*/
+"datepicker_to" = "To";
+
+/*Edit Checkin: add comment label*/
+"edit_mode_addcomment" = "Add comment";
+
+/*Edit Mode: Add comment placeholder text*/
+/*Fuzzy*/
+"edit_mode_comment_placeholder" = "eg. Who were you with?";
+
+/*Done Button Title*/
+"done_button" = "Done";

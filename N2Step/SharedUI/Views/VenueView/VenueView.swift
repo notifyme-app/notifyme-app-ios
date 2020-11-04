@@ -13,10 +13,24 @@ import Foundation
 import N2StepSDK
 
 class VenueView: UIView {
+    // MARK: - Views
+
     private let stackView = UIStackView()
 
+    private let titleLabel = Label(.title, textAlignment: .center)
+    private let subtitleLabel = Label(.subtitle, textAlignment: .center)
+    private let textLabel = Label(.text, textAlignment: .center)
+
+    // MARK: - Properties
+
     private let icon: Bool
-    private let venue: VenueInfo?
+    public var venue: VenueInfo? {
+        didSet {
+            update()
+        }
+    }
+
+    // MARK: - Init
 
     init(venue: VenueInfo? = nil, icon: Bool = true) {
         self.venue = venue
@@ -24,10 +38,20 @@ class VenueView: UIView {
 
         super.init(frame: .zero)
         setup()
+        update()
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Update
+
+    private func update() {
+        // TODO: remove defaults
+        titleLabel.text = venue?.name ?? "Cybercafe SV"
+        subtitleLabel.text = venue?.room ?? "EPFL Campus"
+        textLabel.text = venue?.location ?? "Lausanne"
     }
 
     // MARK: - Setup
@@ -53,21 +77,11 @@ class VenueView: UIView {
             stackView.addArrangedSubview(view)
         }
 
-        let titleLabel = Label(.title, textAlignment: .center)
-        titleLabel.text = venue?.name ?? "Cybercafe SV"
-
         stackView.addArrangedSubview(titleLabel)
         stackView.addSpacerView(4.0)
 
-        let subtitleLabel = Label(.subtitle, textAlignment: .center)
-        subtitleLabel.text = venue?.room ?? "EPFL Campus"
-
         stackView.addArrangedSubview(subtitleLabel)
-
         stackView.addSpacerView(Padding.small + 4.0)
-
-        let textLabel = Label(.text, textAlignment: .center)
-        textLabel.text = venue?.location ?? "Lausanne"
 
         stackView.addArrangedSubview(textLabel)
     }
