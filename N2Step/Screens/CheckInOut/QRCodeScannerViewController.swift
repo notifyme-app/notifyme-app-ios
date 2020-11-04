@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 
 class QRCodeScannerViewController: BaseViewController {
     private var qrView: QRScannerView?
@@ -128,16 +129,17 @@ extension QRCodeScannerViewController: QRScannerViewDelegate {
             }
         }
 
+        guard let str = str else { return }
         lastQrCode = str
 
-        // TODO: check Code
-        let codeOk = true
-        if codeOk {
-            guard let str = str else { return }
+        let result = N2Step.getVenueInfo(qrCode: str)
+
+        switch result {
+        case let .success(info):
             stopScanning()
-            let vc = CheckInConfirmViewController(qrCode: str)
+            let vc = CheckInConfirmViewController(qrCode: str, venueInfo: info)
             present(vc, animated: true, completion: nil)
-        } else {
+        case let .failure(error):
             showError()
         }
     }

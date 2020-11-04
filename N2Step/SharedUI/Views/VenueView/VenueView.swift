@@ -54,20 +54,20 @@ class VenueView: UIView {
         }
 
         let titleLabel = Label(.title, textAlignment: .center)
-        titleLabel.text = "Cybercafe SV"
+        titleLabel.text = venue?.name ?? "Cybercafe SV"
 
         stackView.addArrangedSubview(titleLabel)
         stackView.addSpacerView(4.0)
 
         let subtitleLabel = Label(.subtitle, textAlignment: .center)
-        subtitleLabel.text = "EPFL Campus"
+        subtitleLabel.text = venue?.room ?? "EPFL Campus"
 
         stackView.addArrangedSubview(subtitleLabel)
 
         stackView.addSpacerView(Padding.small + 4.0)
 
         let textLabel = Label(.text, textAlignment: .center)
-        textLabel.text = "Lausanne"
+        textLabel.text = venue?.location ?? "Lausanne"
 
         stackView.addArrangedSubview(textLabel)
     }

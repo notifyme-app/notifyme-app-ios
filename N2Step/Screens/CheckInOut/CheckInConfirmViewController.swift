@@ -10,19 +10,22 @@
  */
 
 import Foundation
+import N2StepSDK
 
 class CheckInConfirmViewController: CenterContentViewController {
     private let qrCode: String
+    private let venueInfo: VenueInfo
 
     private let checkInButton = BigButton(text: "check_in_now_button_title".ub_localized, color: .ns_purple, outline: true)
 
     // MARK: - Init
 
-    init(qrCode: String) {
+    init(qrCode: String, venueInfo: VenueInfo) {
         self.qrCode = qrCode
+        self.venueInfo = venueInfo
         super.init()
 
-        title = qrCode
+        title = venueInfo.name
         modalPresentationStyle = .overCurrentContext
     }
 
@@ -52,7 +55,7 @@ class CheckInConfirmViewController: CenterContentViewController {
     }
 
     private func setup() {
-        let venueView = VenueView()
+        let venueView = VenueView(venue: venueInfo)
         contentView.addArrangedView(venueView)
         contentView.addSpacerView(Padding.mediumSmall)
         contentView.addArrangedView(checkInButton)
