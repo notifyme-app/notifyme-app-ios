@@ -11,6 +11,34 @@
 
 import Foundation
 
+enum ReminderOption: Int, UBCodable, CaseIterable {
+    case off
+    case oneHour
+    case twoHours
+
+    var title: String {
+        switch self {
+        case .off:
+            return "reminder_option_off".ub_localized.uppercased()
+        case .oneHour:
+            return "reminder_option_1h".ub_localized
+        case .twoHours:
+            return "reminder_option_2h".ub_localized
+        }
+    }
+
+    var timeInterval: TimeInterval {
+        switch self {
+        case .off:
+            return 0
+        case .oneHour:
+            return 60 * 60
+        case .twoHours:
+            return 2 * 60 * 60
+        }
+    }
+}
+
 class ReminderManager: NSObject {
     private let notificationCategory = "reminder"
 
@@ -18,14 +46,23 @@ class ReminderManager: NSObject {
 
     public static let shared = ReminderManager()
 
+    @UBUserDefault(key: "ch.n2step.current.reminder.key", defaultValue: .off)
+    public var currentReminder: ReminderOption
+
     // MARK: - Public API
 
-    public func scheduleReminder(for id: Int, in timeInterval: TimeInterval) {
+    public func scheduleReminder(for id: Int, with option: ReminderOption) {
+        currentReminder = option
+
+        if option == .off {
+            return
+        }
+
         let center = UNUserNotificationCenter.current()
         center.delegate = self
         center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
             if granted {
-                self.scheduleNotification(for: id, in: timeInterval)
+                self.scheduleNotification(for: id, in: option.timeInterval)
             } else {
                 // TODO: Problem.
             }
@@ -33,6 +70,7 @@ class ReminderManager: NSObject {
     }
 
     public func removeAllReminder() {
+        currentReminder = .off
         let notificationCenter = UNUserNotificationCenter.current()
         notificationCenter.removeAllDeliveredNotifications()
     }

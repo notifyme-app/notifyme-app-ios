@@ -25,6 +25,9 @@ class CheckinEditViewController: BaseViewController {
     private let toTimePickerControl = TimePickerControl(text: "datepicker_to".ub_localized)
     private let addCommentControl = AddCommentControl()
 
+    private let diarySwitch = UISwitch()
+    private let diarySubtextLabel = Label(.text)
+
     private let isCurrentCheckin: Bool
 
     private var checkIn: CheckIn? {
@@ -61,6 +64,7 @@ class CheckinEditViewController: BaseViewController {
         setupCheckout()
         setupTimeInteraction()
         setupComment()
+        setupSwitch()
     }
 
     // MARK: - Update
@@ -86,6 +90,14 @@ class CheckinEditViewController: BaseViewController {
 
             fromTimePickerControl.setDate(currentStart: date, currentEnd: Date(), isStart: true)
             toTimePickerControl.setDate(currentStart: date, currentEnd: Date(), isStart: false)
+        }
+
+        if let hidden = checkIn?.hideFromDiary {
+            diarySwitch.isOn = hidden
+
+            UIView.animate(withDuration: 0.2) {
+                self.diarySubtextLabel.alpha = hidden ? 1.0 : 0.0
+            }
         }
     }
 
@@ -115,7 +127,6 @@ class CheckinEditViewController: BaseViewController {
     private func setupTimeInteraction() {
         fromTimePickerControl.timeChangedCallback = { [weak self] date in
             guard let strongSelf = self else { return }
-
             strongSelf.checkIn?.checkInTime = date
 
             if strongSelf.isCurrentCheckin {
@@ -142,6 +153,18 @@ class CheckinEditViewController: BaseViewController {
             if strongSelf.isCurrentCheckin {
                 CurrentCheckinManager.shared.currentCheckin = strongSelf.checkIn
             }
+        }
+    }
+
+    private func setupSwitch() {
+        diarySwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
+    }
+
+    @objc private func switchChanged() {
+        checkIn?.hideFromDiary = diarySwitch.isOn
+
+        if isCurrentCheckin {
+            CurrentCheckinManager.shared.currentCheckin = checkIn
         }
     }
 
@@ -185,5 +208,37 @@ class CheckinEditViewController: BaseViewController {
 
         contentView.addSpacerView(Padding.mediumSmall)
         contentView.addArrangedView(addCommentControl)
+
+        let diaryLabel = Label(.boldUppercaseSmall, textColor: .ns_text)
+        diaryLabel.text = "diary_option_title".ub_localized
+
+        // diarySwitch.setContentHuggingPriority(.required, for: .horizontal)
+
+//        let diaryStackView = UIStackView(arrangedSubviews: [diaryLabel, diarySwitch])
+//        diaryStackView.axis = .horizontal
+//        diaryStackView.alignment = .center
+//        diaryStackView.spacing = Padding.small
+
+        let v = UIView()
+        v.addSubview(diaryLabel)
+        v.addSubview(diarySwitch)
+        diarySwitch.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.right.equalToSuperview().inset(5.0)
+        }
+
+        diaryLabel.snp.makeConstraints { make in
+            make.left.centerY.equalToSuperview()
+            make.right.equalTo(diarySwitch.snp.left).offset(-Padding.small)
+        }
+
+        contentView.addSpacerView(Padding.mediumSmall)
+        contentView.addArrangedView(v)
+
+        contentView.addSpacerView(Padding.mediumSmall)
+
+        contentView.addArrangedView(diarySubtextLabel)
+        diarySubtextLabel.text = "diary_option_subtext".ub_localized
+        diarySubtextLabel.alpha = 0
     }
 }

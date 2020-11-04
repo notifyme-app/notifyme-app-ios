@@ -30,6 +30,8 @@
 		6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5505712552D56C000D27B1 /* TimePickerControl.swift */; };
 		6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E550579255301FD000D27B1 /* AddCommentControl.swift */; };
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
+		6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55058625535A77000D27B1 /* ReminderControl.swift */; };
+		6E55058C25536219000D27B1 /* DiaryEntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55058B25536219000D27B1 /* DiaryEntryContentView.swift */; };
 		6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */; };
 		6E6628DE254AF1F100347F06 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628DD254AF1F100347F06 /* CheckInViewController.swift */; };
 		6E6628E9254AF21D00347F06 /* CheckinEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */; };
@@ -132,6 +134,8 @@
 		6E5505712552D56C000D27B1 /* TimePickerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerControl.swift; sourceTree = "<group>"; };
 		6E550579255301FD000D27B1 /* AddCommentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentControl.swift; sourceTree = "<group>"; };
 		6E55057E2553058C000D27B1 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
+		6E55058625535A77000D27B1 /* ReminderControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderControl.swift; sourceTree = "<group>"; };
+		6E55058B25536219000D27B1 /* DiaryEntryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryContentView.swift; sourceTree = "<group>"; };
 		6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenViewController.swift; sourceTree = "<group>"; };
 		6E6628DD254AF1F100347F06 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinEditViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +328,14 @@
 			path = Edit;
 			sourceTree = "<group>";
 		};
+		6E55058525535A6D000D27B1 /* Reminder */ = {
+			isa = PBXGroup;
+			children = (
+				6E55058625535A77000D27B1 /* ReminderControl.swift */,
+			);
+			path = Reminder;
+			sourceTree = "<group>";
+		};
 		6E6628CD254AF09700347F06 /* Homescreen */ = {
 			isa = PBXGroup;
 			children = (
@@ -336,6 +348,7 @@
 		6E6628DC254AF1E300347F06 /* CheckInOut */ = {
 			isa = PBXGroup;
 			children = (
+				6E55058525535A6D000D27B1 /* Reminder */,
 				6E5505702552D55E000D27B1 /* Edit */,
 				6E662A0325514EDB00347F06 /* CheckinButton */,
 				6E6628DD254AF1F100347F06 /* CheckInViewController.swift */,
@@ -354,6 +367,7 @@
 				6E6628F1254AF25900347F06 /* DiaryViewController.swift */,
 				6E662916254AF3FD00347F06 /* DiaryDetailViewController.swift */,
 				6E662968254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift */,
+				6E55058B25536219000D27B1 /* DiaryEntryContentView.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -873,6 +887,7 @@
 				6E662A0525514EE600347F06 /* CheckinButton.swift in Sources */,
 				6E6629BB255017A700347F06 /* CheckIn.swift in Sources */,
 				6E6629CF2550377200347F06 /* CurrentCheckinViewController.swift in Sources */,
+				6E55058C25536219000D27B1 /* DiaryEntryContentView.swift in Sources */,
 				6E662917254AF3FD00347F06 /* DiaryDetailViewController.swift in Sources */,
 				6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */,
 				DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */,
@@ -903,6 +918,7 @@
 				6E6628DE254AF1F100347F06 /* CheckInViewController.swift in Sources */,
 				242D227B245D6557005DAEA8 /* Backend.swift in Sources */,
 				6E55057F2553058C000D27B1 /* TextButton.swift in Sources */,
+				6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */,
 				DC702B10243F6FAE0066C773 /* UBUserDefaultValue.swift in Sources */,
 				6E662974254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift in Sources */,
 				6E6629FF255135BA00347F06 /* ReportButton.swift in Sources */,

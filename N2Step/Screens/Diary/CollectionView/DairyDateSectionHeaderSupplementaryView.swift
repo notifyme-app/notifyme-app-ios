@@ -12,7 +12,7 @@
 import Foundation
 
 class DairyDateSectionHeaderSupplementaryView: UICollectionReusableView {
-    let label = Label(.subtitle)
+    let label = Label(.boldUppercaseSmall, textColor: .ns_text)
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -29,9 +29,10 @@ class DairyDateSectionHeaderSupplementaryView: UICollectionReusableView {
         addSubview(label)
 
         label.snp.makeConstraints { make in
-            make.center.equalToSuperview()
+            make.bottom.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: Padding.small, bottom: Padding.small, right: Padding.small))
         }
 
-        label.text = "22.10.2020"
+        // TODO: fix date
+        label.text = "Thursday 22.10"
     }
 }

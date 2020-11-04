@@ -14,6 +14,8 @@ import Foundation
 class CurrentCheckinViewController: BaseViewController {
     private let contentView = StackScrollView()
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
+    private let venueView = VenueView(icon: false)
+    private let reminderControl = ReminderControl()
 
     public var checkIn: CheckIn? {
         didSet { self.update() }
@@ -24,6 +26,19 @@ class CurrentCheckinViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupReminderControl()
+    }
+
+    // MARK: - Reminder Control
+
+    private func setupReminderControl() {
+        reminderControl.changeCallback = { [weak self] option in
+            guard let strongSelf = self else { return }
+
+            if let checkIn = strongSelf.checkIn {
+                ReminderManager.shared.scheduleReminder(for: checkIn.identifier, with: option)
+            }
+        }
     }
 
     // MARK: - Setup
@@ -34,6 +49,8 @@ class CurrentCheckinViewController: BaseViewController {
         contentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        contentView.backgroundColor = .ns_grayBackground
 
         let isSmaller = view.frame.size.width < 375
 
@@ -51,7 +68,14 @@ class CurrentCheckinViewController: BaseViewController {
         contentView.addArrangedView(v)
 
         contentView.addSpacerView(Padding.large + Padding.small)
-        contentView.addArrangedView(VenueView(icon: false))
+
+        let vView = UIView()
+        vView.addSubview(venueView)
+        venueView.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: Padding.medium, bottom: 0, right: Padding.medium))
+        }
+
+        contentView.addArrangedView(vView)
 
         contentView.addSpacerView(Padding.large)
 
@@ -68,6 +92,40 @@ class CurrentCheckinViewController: BaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.presentCheckOutScreen()
         }
+
+        contentView.addSpacerView(Padding.large)
+
+        let reminderView = UIView()
+
+        let reminderLabel = Label(.boldUppercaseSmall, textColor: .ns_text, textAlignment: .center)
+        reminderLabel.text = "checkin_set_reminder".ub_localized
+        reminderView.addSubview(reminderLabel)
+
+        reminderLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: Padding.medium, bottom: 0, right: Padding.medium))
+        }
+
+        contentView.addArrangedView(reminderView)
+
+        contentView.addSpacerView(Padding.medium - Padding.small)
+
+        contentView.addArrangedView(reminderControl)
+
+        contentView.addSpacerView(Padding.large)
+
+        let whiteView = UIView()
+        whiteView.backgroundColor = UIColor.white
+        contentView.insertSubview(whiteView, at: 0)
+
+        whiteView.snp.makeConstraints { make in
+            make.bottom.equalTo(checkOutButton.snp.centerY)
+            make.left.right.equalToSuperview()
+            make.top.equalToSuperview().offset(-100.0)
+        }
+
+        whiteView.layer.cornerRadius = 36.0
+        whiteView.ub_addShadow(radius: 20.0, opacity: 0.17, xOffset: 0, yOffset: 2.0)
+        contentView.clipsToBounds = true
     }
 
     // MARK: - Present
@@ -80,5 +138,8 @@ class CurrentCheckinViewController: BaseViewController {
 
     private func update() {
         // TODO: update venue view & time
+
+        venueView.venue = checkIn?.venue
+        reminderControl.setOption(ReminderManager.shared.currentReminder)
     }
 }

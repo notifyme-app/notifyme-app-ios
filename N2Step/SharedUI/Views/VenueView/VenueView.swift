@@ -75,6 +75,7 @@ class VenueView: UIView {
             }
 
             stackView.addArrangedSubview(view)
+            stackView.addSpacerView(Padding.mediumSmall)
         }
 
         stackView.addArrangedSubview(titleLabel)

@@ -36,10 +36,10 @@ class CenterContentViewController: BaseViewController {
         setup()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
 
-        UIView.animate(withDuration: 0.4) {
+        UIView.animate(withDuration: 0.25) {
             self.view.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         }
     }

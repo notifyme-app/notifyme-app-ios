@@ -12,18 +12,33 @@
 import Foundation
 
 class DairyEntryCollectionViewCell: UICollectionViewCell {
+    // MARK: - Content view
+
+    private let diaryContentView = DiaryEntryContentView()
+
+    // MARK: - Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
 
-        snp.makeConstraints { make in
-            make.height.equalTo(80.0)
-        }
-
-        backgroundColor = UIColor.green
+        backgroundColor = UIColor.white
         layer.cornerRadius = 5.0
+        ub_addShadow(radius: 5.0, opacity: 0.17, xOffset: 0, yOffset: 2.0)
+
+        setup()
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Setup
+
+    private func setup() {
+        addSubview(diaryContentView)
+
+        diaryContentView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
     }
 }

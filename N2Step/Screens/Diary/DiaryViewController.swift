@@ -65,7 +65,7 @@ class DiaryViewController: BaseViewController {
         if let flowLayout = collectionView.collectionViewLayout as? DiaryCollectionViewFlowLayout {
             let collectionViewContentWidth = view.bounds.width
 
-            flowLayout.estimatedItemSize = CGSize(width: collectionViewContentWidth - 2.0 * Padding.small, height: 80)
+            flowLayout.estimatedItemSize = CGSize(width: collectionViewContentWidth - 2.0 * Padding.mediumSmall, height: 80)
             flowLayout.minimumInteritemSpacing = 0
         }
     }
@@ -111,22 +111,23 @@ class DiaryViewController: BaseViewController {
 
 extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     func numberOfSections(in _: UICollectionView) -> Int {
+        // TODO: set real values
         return 5
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
-        return CGSize(width: view.bounds.width, height: 40.0)
+        return CGSize(width: view.bounds.width, height: 56.0)
     }
 }
 
 extension DiaryViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
-        return 5
+        // TODO: set real values
+        return 3
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as DairyEntryCollectionViewCell
-
         return cell
     }
 
@@ -136,6 +137,7 @@ extension DiaryViewController: UICollectionViewDataSource {
         }
 
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DairyDateSectionHeaderSupplementaryView
+        // TODO: set real values
 
         return headerView
     }

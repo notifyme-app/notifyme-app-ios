@@ -101,4 +101,23 @@
 "edit_mode_comment_placeholder" = "eg. Who were you with?";
 
 /*Done Button Title*/
+/*Fuzzy*/
 "done_button" = "Done";
+
+/*Edit CheckIn: Text for not showing in diary option*/
+"diary_option_title" = "Don't show in diary";
+
+/*Edit CheckIn: Text that is shown when not showing in diary is set*/
+"diary_option_subtext" = "This Check-in will not be shown in the diary.\n\nNevertheless the app stores this entry during 14 days to warn you in case of potential infection.";
+
+/*Check In: Set Reminder title*/
+"checkin_set_reminder" = "Set reminder";
+
+/*Reminder: Option Off*/
+"reminder_option_off" = "off";
+
+/*Reminder Option one hour*/
+"reminder_option_1h" = "1 h";
+
+/*Reminder Option 2 hours*/
+"reminder_option_2h" = "2 h";

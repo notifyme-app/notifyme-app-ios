@@ -20,6 +20,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         N2Step.initialize()
 
+        setAppearance()
+
         window = UIWindow(frame: UIScreen.main.bounds)
 
         window?.makeKey()
@@ -27,5 +29,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
 
         return true
+    }
+
+    func setAppearance() {
+        let switchApperence = UISwitch.appearance()
+        switchApperence.tintColor = .ns_purple
+        switchApperence.onTintColor = .ns_purple
     }
 }
