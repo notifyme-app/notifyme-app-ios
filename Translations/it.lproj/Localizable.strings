@@ -50,28 +50,13 @@
 "report_message_text" = "An infection could have occured";
 
 /*Highlighted part of Term no_report_hero_text (has to match exactly)*/
-"no_report_hero_text_highlight" = "Stay healthy";
+"no_report_hero_text_highlight" = "stay healthy";
 
 /*Highlight text of report_message_text (must be exactly as in this text)*/
 "report_message_text_highlight" = "An infection";
 
 /*QR-Scanner: request for scan text*/
 "qrscanner_scan_qr_text" = "Scan QR code to check in";
-
-/*Title within the red card in the report window when there is 1 or more reports.*/
-"report_header_title" = "Potential infection within the last 14 days";
-
-/*Subtitle within the red card in the report window when there is 1 or more reports.*/
-"report_header_subtitle" = "You could be infectious without realising it.";
-
-/*Action button title within the red card in the report window when there is 1 or more reports.*/
-"report_header_action_title" = "What to do?";
-
-/*Title within the green card in the report window when there is no report.*/
-"report_header_title_no_reports" = "No potential infections have been reported within the last 14 days";
-
-/*Subtitle within the green card in the report window when there is no report.*/
-"report_header_subtitle_no_reports" = "Stay healthy";
 
 /*QR Code Scanner: no valid code text*/
 "qrscanner_error" = "No valid code!";
@@ -90,3 +75,9 @@
 
 /*Report Information What to do Button title*/
 "report_information_button_title" = "What to do?";
+
+/*Info Text that is displayed below the info about a new report.*/
+"report_message_days_ago" = "{NUMBER} days ago";
+
+/*Homescreen: Label you are checked in*/
+"homescreen_checkedin_label" = "You are checked in";

@@ -12,7 +12,7 @@
 import Foundation
 
 class CheckOutViewController: CenterContentViewController {
-    private let checkOutButton = BigButton(text: "checkout_button_title".ub_localized, color: .ns_purple)
+    private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
 
     // MARK: - View
 

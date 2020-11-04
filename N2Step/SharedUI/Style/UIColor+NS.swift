@@ -28,6 +28,11 @@ public extension UIColor {
 
     static var ns_green: UIColor = UIColor(ub_hexString: "#00a690")!
     static var ns_purple: UIColor = UIColor(ub_hexString: "#413f8d")!
+    static var ns_purpleDark: UIColor = UIColor(ub_hexString: "#292859")!
+    static var ns_purpleLight: UIColor = UIColor(ub_hexString: "#DDDCEA")!
+
+    static var ns_genericTouchState = UIColor.black.withAlphaComponent(0.1)
+
     static var ns_red: UIColor = UIColor(ub_hexString: "#f34e70")!
     static var ns_grayBackground = UIColor(ub_hexString: "#f2f2f2")!
 

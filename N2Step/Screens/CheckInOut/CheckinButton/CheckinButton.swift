@@ -18,12 +18,22 @@ class CheckInButton: UIView {
                 guard let strongSelf = self else { return }
                 strongSelf.touchUpCallback?()
             }
+
+            checkedInButton.touchUpCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.touchUpCallback?()
+            }
         }
     }
 
-    private let checkInButton = BigButton(icon: UIImage(named: "icons-ic-qr"), text: "checkin_button_title".ub_localized, color: UIColor.ns_purple)
+    private var titleTimer: Timer?
+    private var checkIn: CheckIn?
 
-    private let textLabel = Label(.boldUppercase)
+    private let checkInButton = BigButton(style: .normal, icon: UIImage(named: "icons-ic-qr"), text: "checkin_button_title".ub_localized)
+
+    private let checkedInButton = BigButton(style: .checkedIn, icon: UIImage(named: "icons-ic-qr"), text: "")
+
+    private let textLabel = Label(.boldUppercaseSmall, textColor: .ns_text)
 
     // MARK: - Init
 
@@ -47,30 +57,54 @@ class CheckInButton: UIView {
         switch state.checkInState {
         case .noCheckIn:
             textLabel.isHidden = true
+            checkInButton.isHidden = false
+            checkedInButton.isHidden = true
+            stopTitleTimer()
 
-        case .checkIn:
-            break
-            // TODO: checked in case
+        case let .checkIn(checkIn):
+            self.checkIn = checkIn
+            checkedInButton.isHidden = false
+            checkInButton.isHidden = true
+            startTitleTimer()
         }
     }
 
     // MARK: - Setup
 
     private func setup() {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.spacing = Padding.small
-
-        addSubview(stackView)
-
-        stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+        addSubview(checkInButton)
+        checkInButton.snp.makeConstraints { make in
+            make.left.right.bottom.equalToSuperview()
         }
 
-        // TODO: label
-        textLabel.text = "you are checked in"
+        addSubview(textLabel)
 
-        stackView.addArrangedSubview(textLabel)
-        stackView.addArrangedSubview(checkInButton)
+        textLabel.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.bottom.equalTo(self.checkInButton.snp.top).offset(-1.5 * Padding.small)
+            make.left.right.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        textLabel.text = "homescreen_checkedin_label".ub_localized
+
+        addSubview(checkedInButton)
+        checkedInButton.snp.makeConstraints { make in
+            make.edges.equalTo(self.checkInButton)
+        }
+    }
+
+    // MARK: - Title timer
+
+    private func startTitleTimer() {
+        titleTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.checkedInButton.title = strongSelf.checkIn?.timeSinceCheckIn() ?? ""
+        })
+        titleTimer?.fire()
+    }
+
+    private func stopTitleTimer() {
+        titleTimer?.invalidate()
+        titleTimer = nil
     }
 }

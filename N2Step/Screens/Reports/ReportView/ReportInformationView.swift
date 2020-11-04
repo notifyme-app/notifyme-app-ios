@@ -104,7 +104,7 @@ class ReportInformationView: UIView {
 
             b.highlightCornerRadius = layer.cornerRadius
             button = b
-            b.highlightedBackgroundColor = UIColor.black.withAlphaComponent(0.1)
+            b.highlightedBackgroundColor = .ns_genericTouchState
         }
     }
 }

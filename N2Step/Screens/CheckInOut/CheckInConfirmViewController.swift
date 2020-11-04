@@ -16,7 +16,7 @@ class CheckInConfirmViewController: CenterContentViewController {
     private let qrCode: String
     private let venueInfo: VenueInfo
 
-    private let checkInButton = BigButton(text: "check_in_now_button_title".ub_localized, color: .ns_purple, outline: true)
+    private let checkInButton = BigButton(style: .outline, text: "check_in_now_button_title".ub_localized)
 
     // MARK: - Init
 

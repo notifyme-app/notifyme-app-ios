@@ -12,18 +12,32 @@
 import Foundation
 import SnapKit
 
+enum BigButtonStyle {
+    case normal
+    case outline
+    case small
+
+    // special case
+    case checkedIn
+}
+
 class BigButton: UBButton {
-    private let label = Label(.boldUppercase)
+    private let label: Label
+    private let style: BigButtonStyle
 
     override var title: String? {
         get { super.title }
         set {
-            super.title = newValue
+            super.title = ""
+            accessibilityLabel = newValue
             label.text = newValue
         }
     }
 
     init(icon: UIImage? = nil) {
+        style = .normal
+        label = Label(.boldUppercase)
+
         super.init()
         setup()
 
@@ -34,21 +48,29 @@ class BigButton: UBButton {
         setImage(icon, for: .normal)
 
         backgroundColor = UIColor.white
-        highlightedBackgroundColor = UIColor.black.withAlphaComponent(0.3)
+        highlightedBackgroundColor = .ns_purpleLight
     }
 
-    init(icon: UIImage? = nil, text: String? = nil, color: UIColor? = nil, outline: Bool = false) {
+    init(style: BigButtonStyle, icon: UIImage? = nil, text: String? = nil) {
+        self.style = style
+        label = Label((style == .checkedIn) ? .navigationBarTitle : .boldUppercase)
+
         super.init()
         setup()
-        setupIconAndText(icon: icon, text: text)
 
-        if outline {
-            label.textColor = color
+        if style == .outline || style == .checkedIn {
+            setupIconAndText(icon: icon?.ub_image(with: .ns_purple), text: text)
+
+            label.textColor = .ns_purple
             backgroundColor = UIColor.white
-            layer.borderColor = color?.cgColor
+            layer.borderColor = UIColor.ns_purple.cgColor
             layer.borderWidth = 3.0
+            highlightedBackgroundColor = .ns_purpleLight
+
         } else {
-            backgroundColor = color
+            setupIconAndText(icon: icon?.ub_image(with: .white), text: text)
+            backgroundColor = .ns_purple
+            highlightedBackgroundColor = .ns_purpleDark
         }
     }
 

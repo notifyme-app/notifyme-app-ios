@@ -59,7 +59,7 @@ public enum LabelType: UBLabelType {
 
         switch self {
         case .navigationBarTitle:
-            return UIFont(name: boldFontName, size: bfs + 10.0)!
+            return monospacedDigitFont(fontName: boldFontName, size: bfs + 10.0)
         case .heroTitle:
             return UIFont(name: boldFontName, size: bfs + 24.0)!
         case .title:
@@ -130,6 +130,19 @@ public enum LabelType: UBLabelType {
     public var lineBreakMode: NSLineBreakMode {
         if self == .heroTitle { return .byWordWrapping }
         return .byTruncatingTail
+    }
+
+    /// Returns a font with monospaced digits of the given size
+    func monospacedDigitFont(fontName: String, size: CGFloat) -> UIFont {
+        let originalDescriptor = UIFont(name: fontName, size: size)!.fontDescriptor
+        let featureArray: [[UIFontDescriptor.FeatureKey: Any]] = [
+            [
+                .featureIdentifier: kNumberSpacingType,
+                .typeIdentifier: kMonospacedNumbersSelector,
+            ],
+        ]
+        let descriptor = originalDescriptor.addingAttributes([.featureSettings: featureArray])
+        return UIFont(descriptor: descriptor, size: 0)
     }
 }
 

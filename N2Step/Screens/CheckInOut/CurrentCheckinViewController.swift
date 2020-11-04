@@ -13,7 +13,7 @@ import Foundation
 
 class CurrentCheckinViewController: BaseViewController {
     private let contentView = StackScrollView()
-    private let checkOutButton = BigButton(text: "checkout_button_title".ub_localized, color: .ns_purple)
+    private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
 
     public var checkIn: CheckIn? {
         didSet { self.update() }

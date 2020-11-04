@@ -69,7 +69,7 @@ class LargeTitleNavigationController: UIViewController {
         let button = UBButton()
         button.layer.cornerRadius = 22.0
         button.backgroundColor = .clear
-        button.highlightedBackgroundColor = .lightGray
+        button.highlightedBackgroundColor = .ns_genericTouchState
 
         background.insertSubview(button, at: 0)
         button.snp.makeConstraints { make in

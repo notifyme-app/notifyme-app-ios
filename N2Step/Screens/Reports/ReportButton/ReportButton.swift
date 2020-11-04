@@ -71,7 +71,7 @@ class ReportButton: UBButton {
 
     private func setup() {
         backgroundColor = UIColor.white
-        highlightedBackgroundColor = UIColor.black.withAlphaComponent(0.15)
+        highlightedBackgroundColor = .ns_genericTouchState
         checkImageView.ub_setContentPriorityRequired()
         chevronImageView.ub_setContentPriorityRequired()
 
