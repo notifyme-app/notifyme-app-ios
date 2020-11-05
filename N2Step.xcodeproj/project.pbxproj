@@ -1437,7 +1437,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "ssh://git@github.com/UbiqueInnovation/n2step-sdk-ios.git";
 			requirement = {
-				branch = develop;
+				branch = feature/spm;
 				kind = branch;
 			};
 		};
