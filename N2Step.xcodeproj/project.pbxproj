@@ -111,7 +111,6 @@
 		DCB4430C242DD34700F19AA5 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D2C242D04290017C4F9 /* Inter-Medium.ttf */; };
 		DCB4430D242DD34700F19AA5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D2B242D04290017C4F9 /* Inter-Regular.ttf */; };
 		DCB4430E242DD34700F19AA5 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D27242D04280017C4F9 /* Inter-SemiBold.ttf */; };
-		DCC907642554A56300E00C78 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC907632554A56300E00C78 /* Clibsodium.xcframework */; };
 		F84089EC2493695200A66CD1 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EB2493695200A66CD1 /* Keychain.swift */; };
 		F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089ED2493696500A66CD1 /* KeychainPersisted.swift */; };
 /* End PBXBuildFile section */
@@ -242,7 +241,6 @@
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
 				DC3F373325513B2B00B709D3 /* N2StepSDK in Frameworks */,
-				DCC907642554A56300E00C78 /* Clibsodium.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
