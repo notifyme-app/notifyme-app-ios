@@ -82,11 +82,11 @@ class BigButton: UBButton {
 
     private func setup() {
         snp.makeConstraints { make in
-            make.height.equalTo(72.0)
+            make.height.equalTo(self.style == .small ? 48.0 : 72.0)
         }
 
-        layer.cornerRadius = 36.0
-        highlightCornerRadius = 36.0
+        layer.cornerRadius = style == .small ? 24.0 : 36.0
+        highlightCornerRadius = style == .small ? 24.0 : 36.0
     }
 
     private func setupIconAndText(icon: UIImage? = nil, text: String? = nil) {

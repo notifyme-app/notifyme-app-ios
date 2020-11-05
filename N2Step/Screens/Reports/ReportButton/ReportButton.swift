@@ -41,7 +41,7 @@ class ReportButton: UBButton {
     public func setContent(title: String, message: String? = nil, messageHighlight: String? = nil, subText: String? = nil) {
         let hasMessage = message != nil
 
-        let color = hasMessage ? UIColor.red : UIColor.ns_green
+        let color = hasMessage ? UIColor.ns_red : UIColor.ns_green
         let checkImage = UIImage(named: "icons-ic-check-filled")?.ub_image(with: color)
 
         checkImageView.image = checkImage

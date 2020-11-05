@@ -28,6 +28,8 @@ class CheckinEditViewController: BaseViewController {
     private let diarySwitch = UISwitch()
     private let diarySubtextLabel = Label(.text)
 
+    private let removeFromDiaryButton = BigButton(style: .small, text: "remove_from_diary_button".ub_localized)
+
     private let isCurrentCheckin: Bool
 
     private var checkIn: CheckIn? {
@@ -121,6 +123,11 @@ class CheckinEditViewController: BaseViewController {
             } else {
                 strongSelf.dismiss(animated: true, completion: nil)
             }
+        }
+
+        removeFromDiaryButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.present(RemoveFromDiaryWarningViewController(), animated: true, completion: nil)
         }
     }
 
@@ -218,33 +225,42 @@ class CheckinEditViewController: BaseViewController {
         let diaryLabel = Label(.boldUppercaseSmall, textColor: .ns_text)
         diaryLabel.text = "diary_option_title".ub_localized
 
-        // diarySwitch.setContentHuggingPriority(.required, for: .horizontal)
+        contentView.addSpacerView(Padding.mediumSmall)
 
-//        let diaryStackView = UIStackView(arrangedSubviews: [diaryLabel, diarySwitch])
-//        diaryStackView.axis = .horizontal
-//        diaryStackView.alignment = .center
-//        diaryStackView.spacing = Padding.small
+        if isCurrentCheckin {
+            let v = UIView()
+            v.addSubview(diaryLabel)
+            v.addSubview(diarySwitch)
+            diarySwitch.snp.makeConstraints { make in
+                make.top.bottom.equalToSuperview()
+                make.right.equalToSuperview().inset(5.0)
+            }
 
-        let v = UIView()
-        v.addSubview(diaryLabel)
-        v.addSubview(diarySwitch)
-        diarySwitch.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
-            make.right.equalToSuperview().inset(5.0)
-        }
+            diaryLabel.snp.makeConstraints { make in
+                make.left.centerY.equalToSuperview()
+                make.right.equalTo(diarySwitch.snp.left).offset(-Padding.small)
+            }
 
-        diaryLabel.snp.makeConstraints { make in
-            make.left.centerY.equalToSuperview()
-            make.right.equalTo(diarySwitch.snp.left).offset(-Padding.small)
+            contentView.addArrangedView(v)
+
+            contentView.addSpacerView(Padding.mediumSmall)
+
+            contentView.addArrangedView(diarySubtextLabel)
+            diarySubtextLabel.text = "diary_option_subtext".ub_localized
+            diarySubtextLabel.alpha = 0
+
+        } else {
+            let v = UIView()
+            v.addSubview(removeFromDiaryButton)
+
+            removeFromDiaryButton.snp.makeConstraints { make in
+                make.top.bottom.centerX.equalToSuperview()
+                make.left.right.lessThanOrEqualToSuperview()
+            }
+
+            contentView.addArrangedView(v)
         }
 
         contentView.addSpacerView(Padding.mediumSmall)
-        contentView.addArrangedView(v)
-
-        contentView.addSpacerView(Padding.mediumSmall)
-
-        contentView.addArrangedView(diarySubtextLabel)
-        diarySubtextLabel.text = "diary_option_subtext".ub_localized
-        diarySubtextLabel.alpha = 0
     }
 }
