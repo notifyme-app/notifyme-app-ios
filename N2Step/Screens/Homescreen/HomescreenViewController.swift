@@ -21,7 +21,7 @@ class HomescreenViewController: BaseViewController {
 
     private let personImageView = UIImageView(image: UIImage(named: "person"))
 
-    private let refreshButton = TextButton(text: "Refresh")
+    private let refreshControl = UIRefreshControl()
 
     // MARK: - Init
 
@@ -66,8 +66,11 @@ class HomescreenViewController: BaseViewController {
 
     // MARK: - Setup
 
-    private func startRefresh() {
-        ProblematicEventsManager.shared.sync()
+    @objc private func startRefresh() {
+        ProblematicEventsManager.shared.sync { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.refreshControl.endRefreshing()
+        }
     }
 
     private func setupLayout() {
@@ -76,17 +79,8 @@ class HomescreenViewController: BaseViewController {
             make.edges.equalToSuperview()
         }
 
-        let v = UIView()
-        v.addSubview(refreshButton)
-        refreshButton.snp.makeConstraints { make in
-            make.top.bottom.centerX.equalToSuperview()
-        }
-        stackScrollView.addArrangedView(v)
-
-        refreshButton.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.startRefresh()
-        }
+        stackScrollView.scrollView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(startRefresh), for: .valueChanged)
 
         stackScrollView.addSpacerView(Padding.small)
 

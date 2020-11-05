@@ -36,7 +36,7 @@
 		6E6403672553E680006D0498 /* ReportInformationViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */; };
 		6E640376255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E640375255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift */; };
 		6E64046725544C9F006D0498 /* ProblematicEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */; };
-		6E64046F255450C4006D0498 /* ProblematicEvent.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E64046E255450C4006D0498 /* ProblematicEvent.pb.swift */; };
+		6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E64047425546061006D0498 /* ProblematicEvents.pb.swift */; };
 		6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */; };
 		6E6628DE254AF1F100347F06 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628DD254AF1F100347F06 /* CheckInViewController.swift */; };
 		6E6628E9254AF21D00347F06 /* CheckinEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */; };
@@ -145,7 +145,7 @@
 		6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInformationViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E640375255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFromDiaryWarningViewController.swift; sourceTree = "<group>"; };
 		6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblematicEventsManager.swift; sourceTree = "<group>"; };
-		6E64046E255450C4006D0498 /* ProblematicEvent.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblematicEvent.pb.swift; sourceTree = "<group>"; };
+		6E64047425546061006D0498 /* ProblematicEvents.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblematicEvents.pb.swift; sourceTree = "<group>"; };
 		6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenViewController.swift; sourceTree = "<group>"; };
 		6E6628DD254AF1F100347F06 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinEditViewController.swift; sourceTree = "<group>"; };
@@ -350,7 +350,7 @@
 			isa = PBXGroup;
 			children = (
 				6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */,
-				6E64046E255450C4006D0498 /* ProblematicEvent.pb.swift */,
+				6E64047425546061006D0498 /* ProblematicEvents.pb.swift */,
 			);
 			path = ProblematicEventsManager;
 			sourceTree = "<group>";
@@ -933,6 +933,7 @@
 				6E66297E254C029700347F06 /* ReusableView.swift in Sources */,
 				6EFF9AE3245AAFC800C98FF3 /* UIImage+UBHelpers.m in Sources */,
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
+				6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */,
 				6E6629DF255050DE00347F06 /* UIStateLogic.swift in Sources */,
 				6E662903254AF38500347F06 /* PotentialInfectionViewController.swift in Sources */,
 				DC702B0B243F6FAE0066C773 /* UBPListValue.swift in Sources */,
@@ -967,7 +968,6 @@
 				2462BA1924520A480046906D /* Endpoint+Request.swift in Sources */,
 				6E7C0D20242CE1190017C4F9 /* UIColor+NS.swift in Sources */,
 				DC702B0A243F6FAE0066C773 /* UBOptionalUserDefault.swift in Sources */,
-				6E64046F255450C4006D0498 /* ProblematicEvent.pb.swift in Sources */,
 				6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */,
 				F84089EC2493695200A66CD1 /* Keychain.swift in Sources */,
 				6E662969254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift in Sources */,

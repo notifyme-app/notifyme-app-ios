@@ -22,15 +22,19 @@ class ProblematicEventsManager {
 
     // MARK: - API
 
-    public func sync() {
+    public func sync(completion: @escaping () -> Void) {
         let endpoint = backend.endpoint("traceKeys", headers: ["Accept": "application/protobuf"])
 
         let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, _, _ in
             guard let strongSelf = self else { return }
 
-            if let data = data {
-                let wrapper = try? ProblematicEventWrapper(serializedData: data, partial: true)
-                strongSelf.checkForMatches(wrapper: wrapper)
+            DispatchQueue.main.async {
+                if let data = data {
+                    let wrapper = try? ProblematicEventWrapper(serializedData: data)
+                    strongSelf.checkForMatches(wrapper: wrapper)
+                }
+
+                completion()
             }
         }
 
@@ -46,7 +50,7 @@ class ProblematicEventsManager {
     private func checkForMatches(wrapper: ProblematicEventWrapper?) {
         guard let wrapper = wrapper else { return }
 
-        var problematicEvents : [ProblematicEventInfo] = []
+        var problematicEvents: [ProblematicEventInfo] = []
 
         for i in wrapper.events {
 //            let info = ProblematicEventInfo()

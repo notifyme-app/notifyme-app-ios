@@ -25,9 +25,6 @@ class CheckinEditViewController: BaseViewController {
     private let toTimePickerControl = TimePickerControl(text: "datepicker_to".ub_localized)
     private let addCommentControl = AddCommentControl()
 
-    private let diarySwitch = UISwitch()
-    private let diarySubtextLabel = Label(.text)
-
     private let removeFromDiaryButton = BigButton(style: .small, text: "remove_from_diary_button".ub_localized)
 
     private let isCurrentCheckin: Bool
@@ -66,7 +63,6 @@ class CheckinEditViewController: BaseViewController {
         setupCheckout()
         setupTimeInteraction()
         setupComment()
-        setupSwitch()
     }
 
     // MARK: - Update
@@ -92,14 +88,6 @@ class CheckinEditViewController: BaseViewController {
 
             fromTimePickerControl.setDate(currentStart: date, currentEnd: Date(), isStart: true)
             toTimePickerControl.setDate(currentStart: date, currentEnd: Date(), isStart: false)
-        }
-
-        if let hidden = checkIn?.hideFromDiary {
-            diarySwitch.isOn = hidden
-
-            UIView.animate(withDuration: 0.2) {
-                self.diarySubtextLabel.alpha = hidden ? 1.0 : 0.0
-            }
         }
     }
 
@@ -163,18 +151,6 @@ class CheckinEditViewController: BaseViewController {
         }
     }
 
-    private func setupSwitch() {
-        diarySwitch.addTarget(self, action: #selector(switchChanged), for: .valueChanged)
-    }
-
-    @objc private func switchChanged() {
-        checkIn?.hideFromDiary = diarySwitch.isOn
-
-        if isCurrentCheckin {
-            CurrentCheckinManager.shared.currentCheckin = checkIn
-        }
-    }
-
     // MARK: - Setup
 
     private func setup() {
@@ -227,29 +203,7 @@ class CheckinEditViewController: BaseViewController {
 
         contentView.addSpacerView(Padding.mediumSmall)
 
-        if isCurrentCheckin {
-            let v = UIView()
-            v.addSubview(diaryLabel)
-            v.addSubview(diarySwitch)
-            diarySwitch.snp.makeConstraints { make in
-                make.top.bottom.equalToSuperview()
-                make.right.equalToSuperview().inset(5.0)
-            }
-
-            diaryLabel.snp.makeConstraints { make in
-                make.left.centerY.equalToSuperview()
-                make.right.equalTo(diarySwitch.snp.left).offset(-Padding.small)
-            }
-
-            contentView.addArrangedView(v)
-
-            contentView.addSpacerView(Padding.mediumSmall)
-
-            contentView.addArrangedView(diarySubtextLabel)
-            diarySubtextLabel.text = "diary_option_subtext".ub_localized
-            diarySubtextLabel.alpha = 0
-
-        } else {
+        if !isCurrentCheckin {
             let v = UIView()
             v.addSubview(removeFromDiaryButton)
 
