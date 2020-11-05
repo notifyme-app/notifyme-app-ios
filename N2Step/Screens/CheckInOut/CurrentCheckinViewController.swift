@@ -27,6 +27,22 @@ class CurrentCheckinViewController: BaseViewController {
         super.viewDidLoad()
         setup()
         setupReminderControl()
+
+        UIStateManager.shared.addObserver(self) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.update(state)
+        }
+    }
+
+    // MARK: - Update
+
+    private func update(_ state: UIStateModel) {
+        switch state.checkInState {
+        case .noCheckIn:
+            break
+        case let .checkIn(checkIn):
+            self.checkIn = checkIn
+        }
     }
 
     // MARK: - Reminder Control
@@ -137,8 +153,6 @@ class CurrentCheckinViewController: BaseViewController {
     // MARK: - Update
 
     private func update() {
-        // TODO: update venue view & time
-
         venueView.venue = checkIn?.venue
         reminderControl.setOption(ReminderManager.shared.currentReminder)
     }

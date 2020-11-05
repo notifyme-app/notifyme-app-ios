@@ -48,10 +48,9 @@ class VenueView: UIView {
     // MARK: - Update
 
     private func update() {
-        // TODO: remove defaults
-        titleLabel.text = venue?.name ?? "Cybercafe SV"
-        subtitleLabel.text = venue?.room ?? "EPFL Campus"
-        textLabel.text = venue?.location ?? "Lausanne"
+        titleLabel.text = venue?.name
+        subtitleLabel.text = venue?.room
+        textLabel.text = venue?.location
     }
 
     // MARK: - Setup

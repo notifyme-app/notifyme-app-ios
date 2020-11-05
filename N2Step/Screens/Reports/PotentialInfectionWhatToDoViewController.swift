@@ -64,7 +64,7 @@ class PotentialInfectionWhatToDoViewController: BaseViewController {
 
         let label = Label(.subtitle)
         contentView.addArrangedView(label)
-        label.text = "TODO: what to do screen"
+        label.text = "TODO: What to do-Screen"
 
         contentView.addSpacerView(Padding.mediumSmall)
     }

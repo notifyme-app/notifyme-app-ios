@@ -51,7 +51,7 @@ class ReminderManager: NSObject {
 
     // MARK: - Public API
 
-    public func scheduleReminder(for id: Int, with option: ReminderOption) {
+    public func scheduleReminder(for id: String, with option: ReminderOption) {
         currentReminder = option
 
         if option == .off {
@@ -77,7 +77,7 @@ class ReminderManager: NSObject {
 
     // MARK: - Implementation
 
-    private func scheduleNotification(for _: Int, in timeInterval: TimeInterval) {
+    private func scheduleNotification(for _: String, in timeInterval: TimeInterval) {
         let notificationCenter = UNUserNotificationCenter.current()
         let notification = UNMutableNotificationContent()
 

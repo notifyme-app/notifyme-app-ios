@@ -91,8 +91,6 @@ class DiaryViewController: BaseViewController {
 
     private func handleError(_: Error) {
         // TODO: handle error
-        let alert = UIAlertController(title: "Error", message: "Error", preferredStyle: .alert)
-        present(alert, animated: true, completion: nil)
     }
 }
 

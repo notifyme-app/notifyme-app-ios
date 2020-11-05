@@ -46,11 +46,9 @@ class CheckInConfirmViewController: CenterContentViewController {
     private func setupCheckin() {
         checkInButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            if CurrentCheckinManager.shared.checkIn(qrCode: strongSelf.qrCode) {
-                strongSelf.dismiss(animated: true, completion: nil)
-            } else {
-                // TODO: error handling!
-            }
+
+            CurrentCheckinManager.shared.checkIn(qrCode: strongSelf.qrCode, venueInfo: strongSelf.venueInfo)
+            strongSelf.dismiss(animated: true, completion: nil)
         }
     }
 
@@ -59,7 +57,5 @@ class CheckInConfirmViewController: CenterContentViewController {
         contentView.addArrangedView(venueView)
         contentView.addSpacerView(Padding.mediumSmall)
         contentView.addArrangedView(checkInButton)
-
-        // TODO: Diary.
     }
 }

@@ -60,6 +60,12 @@ class CheckinEditViewController: BaseViewController {
             strongSelf.update(state)
         }
 
+        // update checkout to now once after first update
+        if isCurrentCheckin {
+            checkIn?.checkOutTime = Date()
+            CurrentCheckinManager.shared.currentCheckin = checkIn
+        }
+
         setupCheckout()
         setupTimeInteraction()
         setupComment()
@@ -150,7 +156,7 @@ class CheckinEditViewController: BaseViewController {
                    nextDate < checkoutTime {
                     var minusDateComponent = DateComponents()
                     minusDateComponent.day = -1
-                    strongSelf.checkIn?.checkOutTime = calendar.date(byAdding: minusDateComponent, to: checkoutTime)
+                    strongSelf.checkIn?.checkOutTime = calendar.date(byAdding: minusDateComponent, to: checkoutTime)!
                 }
             }
 

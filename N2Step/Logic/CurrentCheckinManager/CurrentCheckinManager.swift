@@ -31,30 +31,28 @@ class CurrentCheckinManager {
 
     // MARK: - Public API
 
-    public func checkIn(qrCode _: String) -> Bool {
-        let checkInTime = Date()
-
-        // TODO: call SDK function
-        // if let (venue, id) = N2Step.checkin(qrCode: qrCode, arrivalTime: checkInTime) {
-
-        // TODO: replace id and venue
-        currentCheckin = CheckIn(identifier: 0, checkInTime: checkInTime, venue: nil)
-        removeAdditionalInfo(identifier: 0)
-
-        return true
+    public func checkIn(qrCode: String, venueInfo: VenueInfo) {
+        currentCheckin = CheckIn(identifier: "", qrCode: qrCode, checkInTime: Date(), venue: venueInfo)
     }
 
     public func checkOut() {
-        if let cc = currentCheckin {
-            saveAdditionalInfo(checkIn: cc)
+        if var cc = currentCheckin {
+            let result = N2Step.addCheckin(qrCode: cc.qrCode, arrivalTime: cc.checkInTime, departureTime: cc.checkOutTime)
 
-            let ti = Date().timeIntervalSince(cc.checkInTime)
-            // N2Step.changeDuration(checkinId: cc.identifier, pk: cc.venue.pk, newDuration: ti)
+            switch result {
+            case .success(let (venueInfo, id)):
+                cc.identifier = id
+                cc.venue = venueInfo
+                saveAdditionalInfo(checkIn: cc)
+            case .failure:
+                break
+            }
+
             currentCheckin = nil
         }
     }
 
-    private func removeAdditionalInfo(identifier: Int) {
+    private func removeAdditionalInfo(identifier: String) {
         let infos = additionalInfos.filter { $0.identifier != identifier }
         additionalInfos = infos
     }
@@ -62,7 +60,7 @@ class CurrentCheckinManager {
     private func saveAdditionalInfo(checkIn: CheckIn) {
         var infos: [AdditionalInfo] = additionalInfos
 
-        let info = AdditionalInfo(identifier: checkIn.identifier, publicKey: "", comment: checkIn.comment)
+        let info = AdditionalInfo(identifier: checkIn.identifier, publicKey: checkIn.venue.publicKey, comment: checkIn.comment)
 
         infos.append(info)
         additionalInfos = infos
