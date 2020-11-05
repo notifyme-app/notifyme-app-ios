@@ -84,10 +84,27 @@ class CheckinEditViewController: BaseViewController {
         if let date = checkIn?.checkInTime {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEEE, MMM d"
-            startDateLabel.text = formatter.string(from: date)
 
-            fromTimePickerControl.setDate(currentStart: date, currentEnd: Date(), isStart: true)
-            toTimePickerControl.setDate(currentStart: date, currentEnd: Date(), isStart: false)
+            var dates: [String] = []
+            dates.append(formatter.string(from: date))
+
+            if let checkoutTime = checkIn?.checkOutTime {
+                let calendar = NSCalendar.current
+                var dayComponent = DateComponents()
+                dayComponent.day = 1
+                let start = calendar.startOfDay(for: date)
+                if let nextDate = calendar.date(byAdding: dayComponent, to: start),
+                   nextDate < checkoutTime {
+                    dates.append(formatter.string(from: checkoutTime))
+                }
+            }
+
+            startDateLabel.text = dates.joined(separator: " – ")
+
+            let checkOutTime = checkIn?.checkOutTime ?? Date()
+
+            fromTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime, isStart: true)
+            toTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime, isStart: false)
         }
     }
 
@@ -123,6 +140,19 @@ class CheckinEditViewController: BaseViewController {
         fromTimePickerControl.timeChangedCallback = { [weak self] date in
             guard let strongSelf = self else { return }
             strongSelf.checkIn?.checkInTime = date
+
+            if let checkoutTime = strongSelf.checkIn?.checkOutTime {
+                let calendar = NSCalendar.current
+                var dayComponent = DateComponents()
+                dayComponent.day = 1
+
+                if let nextDate = calendar.date(byAdding: dayComponent, to: date),
+                   nextDate < checkoutTime {
+                    var minusDateComponent = DateComponents()
+                    minusDateComponent.day = -1
+                    strongSelf.checkIn?.checkOutTime = calendar.date(byAdding: minusDateComponent, to: checkoutTime)
+                }
+            }
 
             if strongSelf.isCurrentCheckin {
                 CurrentCheckinManager.shared.currentCheckin = strongSelf.checkIn
@@ -189,8 +219,8 @@ class CheckinEditViewController: BaseViewController {
         contentView.addSpacerView(Padding.mediumSmall)
 
         let stackView = UIStackView(arrangedSubviews: [fromTimePickerControl, toTimePickerControl])
-        stackView.axis = .horizontal
-        stackView.spacing = Padding.small
+        stackView.axis = .vertical
+        stackView.spacing = Padding.mediumSmall
         stackView.distribution = .fillEqually
 
         contentView.addArrangedView(stackView)

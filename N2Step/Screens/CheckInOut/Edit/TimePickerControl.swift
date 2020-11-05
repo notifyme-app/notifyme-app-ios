@@ -34,15 +34,19 @@ class TimePickerControl: UIView {
     public func setDate(currentStart: Date, currentEnd: Date, isStart: Bool) {
         let calendar = Calendar.current
         let startTime = calendar.startOfDay(for: currentStart)
-        let endTime = calendar.date(bySettingHour: 23, minute: 59, second: 59, of: currentStart)
+
+        var dayComponent = DateComponents()
+        dayComponent.day = 1 // For removing one day (yesterday): -1
+        let nextDate = calendar.date(byAdding: dayComponent, to: currentStart)
+        let startEnd = calendar.date(byAdding: dayComponent, to: startTime)
 
         if isStart {
             datePicker.minimumDate = startTime
+            datePicker.maximumDate = startEnd! > Date() ? Date() : startEnd!
             datePicker.date = currentStart
-            datePicker.maximumDate = currentEnd
         } else {
-            datePicker.maximumDate = endTime
-            datePicker.minimumDate = startTime
+            datePicker.minimumDate = currentStart
+            datePicker.maximumDate = nextDate
             datePicker.date = currentEnd
         }
     }
@@ -53,7 +57,7 @@ class TimePickerControl: UIView {
         datePicker.addTarget(self, action: #selector(TimePickerControl.handleDatePicker), for: .valueChanged)
 
         datePicker.backgroundColor = .ns_grayBackground
-        datePicker.datePickerMode = .time
+        datePicker.datePickerMode = .dateAndTime
         if #available(iOS 14.0, *) {
             datePicker.preferredDatePickerStyle = .wheels
         } else {
