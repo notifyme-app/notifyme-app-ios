@@ -25,6 +25,6 @@ class UIStateLogic {
             checkInState = .checkIn(checkIn)
         }
 
-        return UIStateModel(checkInState: checkInState, reportState: .report(reports: []))
+        return UIStateModel(checkInState: checkInState, reportState: .report(reports: []), diaryState: CurrentCheckinManager.shared.getDiary())
     }
 }

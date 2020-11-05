@@ -12,7 +12,17 @@
 import Foundation
 
 class DiaryDateSectionHeaderSupplementaryView: UICollectionReusableView {
-    let label = Label(.boldUppercaseSmall, textColor: .ns_text)
+    private let label = Label(.boldUppercaseSmall, textColor: .ns_text)
+
+    public var date: Date? {
+        didSet {
+            if let d = date {
+                let formatter = DateFormatter()
+                formatter.dateFormat = "EEEE, MMM d"
+                label.text = formatter.string(from: d)
+            }
+        }
+    }
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,8 +41,5 @@ class DiaryDateSectionHeaderSupplementaryView: UICollectionReusableView {
         label.snp.makeConstraints { make in
             make.bottom.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: Padding.small))
         }
-
-        // TODO: fix date
-        label.text = "Thursday 22.10"
     }
 }

@@ -15,6 +15,8 @@ import LocalAuthentication
 class DiaryViewController: BaseViewController {
     private let collectionView: DiaryCollectionView
 
+    private var diary: [[CheckIn]] = []
+
     // MARK: - Init
 
     override init() {
@@ -86,7 +88,17 @@ class DiaryViewController: BaseViewController {
 
     private func showDiary() {
         // TODO: show diary
+        UIStateManager.shared.addObserver(self) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.update(state)
+        }
+
         collectionView.alpha = 1.0
+    }
+
+    private func update(_ state: UIStateModel) {
+        diary = state.diaryState
+        collectionView.reloadData()
     }
 
     private func handleError(_: Error) {
@@ -96,8 +108,7 @@ class DiaryViewController: BaseViewController {
 
 extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     func numberOfSections(in _: UICollectionView) -> Int {
-        // TODO: set real values
-        return 5
+        return diary.count
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
@@ -106,13 +117,14 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
 }
 
 extension DiaryViewController: UICollectionViewDataSource {
-    func collectionView(_: UICollectionView, numberOfItemsInSection _: Int) -> Int {
+    func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: set real values
-        return 3
+        return diary[section].count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as DiaryEntryCollectionViewCell
+        cell.checkIn = diary[indexPath.section][indexPath.item]
         return cell
     }
 
@@ -122,13 +134,13 @@ extension DiaryViewController: UICollectionViewDataSource {
         }
 
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DiaryDateSectionHeaderSupplementaryView
-        // TODO: set real values
+        headerView.date = diary[indexPath.section][0].checkInTime
 
         return headerView
     }
 
-    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // TODO: set checkin...
-        present(CheckinEditViewController(checkIn: nil), animated: true, completion: nil)
+        present(CheckinEditViewController(checkIn: diary[indexPath.section][indexPath.item]), animated: true, completion: nil)
     }
 }

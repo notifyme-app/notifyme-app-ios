@@ -35,8 +35,9 @@ class CheckinEditViewController: BaseViewController {
 
     // MARK: - Init
 
-    init(checkIn _: CheckIn? = nil) {
+    init(checkIn: CheckIn? = nil) {
         isCurrentCheckin = false
+        self.checkIn = checkIn
         super.init()
     }
 
@@ -69,6 +70,8 @@ class CheckinEditViewController: BaseViewController {
         setupCheckout()
         setupTimeInteraction()
         setupComment()
+
+        update()
     }
 
     // MARK: - Update
@@ -160,18 +163,14 @@ class CheckinEditViewController: BaseViewController {
                 }
             }
 
-            if strongSelf.isCurrentCheckin {
-                CurrentCheckinManager.shared.currentCheckin = strongSelf.checkIn
-            }
+            strongSelf.updateCheckIn()
         }
 
         toTimePickerControl.timeChangedCallback = { [weak self] date in
             guard let strongSelf = self else { return }
             strongSelf.checkIn?.checkOutTime = date
 
-            if strongSelf.isCurrentCheckin {
-                CurrentCheckinManager.shared.currentCheckin = strongSelf.checkIn
-            }
+            strongSelf.updateCheckIn()
         }
     }
 
@@ -180,9 +179,15 @@ class CheckinEditViewController: BaseViewController {
             guard let strongSelf = self else { return }
 
             strongSelf.checkIn?.comment = comment
+            strongSelf.updateCheckIn()
+        }
+    }
 
-            if strongSelf.isCurrentCheckin {
-                CurrentCheckinManager.shared.currentCheckin = strongSelf.checkIn
+    private func updateCheckIn() {
+        if isCurrentCheckin {
+            CurrentCheckinManager.shared.currentCheckin = checkIn
+        } else {
+            if let checkIn = self.checkIn { CurrentCheckinManager.shared.updateCheckIn(checkIn: checkIn)
             }
         }
     }

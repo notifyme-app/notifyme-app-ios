@@ -21,16 +21,15 @@ class DiaryEntryContentView: UIView {
     private let venueLabel = Label(.text)
     private let timeLabel = Label(.text, textColor: .ns_purple)
 
+    public var checkIn: CheckIn? {
+        didSet { update() }
+    }
+
     // MARK: - Init
 
     init() {
         super.init(frame: .zero)
         setup()
-
-        // TODO: set real values
-        roomLabel.text = "Meeting Room IP32"
-        venueLabel.text = "EPFL Campus, Lausanne"
-        timeLabel.text = "10:01 – 11:35"
     }
 
     required init?(coder _: NSCoder) {
@@ -61,5 +60,21 @@ class DiaryEntryContentView: UIView {
             make.top.bottom.equalToSuperview().inset(Padding.small)
             make.right.lessThanOrEqualTo(self.checkImageView.snp.left).offset(-5.0)
         }
+    }
+
+    // MARK: - Update
+
+    private func update() {
+        roomLabel.text = checkIn?.venue.room
+        venueLabel.text = checkIn?.venue.location
+
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm"
+
+        timeLabel.text = [checkIn?.checkInTime, checkIn?.checkOutTime].compactMap { (date) -> String? in
+            if let d = date {
+                return formatter.string(from: d)
+            } else { return nil }
+        }.joined(separator: " – ")
     }
 }

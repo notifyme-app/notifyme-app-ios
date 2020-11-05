@@ -38,15 +38,3 @@ struct CheckIn: UBCodable, Equatable {
         return Date().timeIntervalSince(checkInTime).ns_formatTime()
     }
 }
-
-struct AdditionalInfo: UBCodable {
-    init(identifier: String, publicKey: Data, comment: String?) {
-        self.identifier = identifier
-        self.publicKey = publicKey
-        self.comment = comment
-    }
-
-    public let identifier: String
-    public let publicKey: Data
-    public let comment: String?
-}

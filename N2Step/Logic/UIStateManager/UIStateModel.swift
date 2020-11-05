@@ -17,6 +17,7 @@ import N2StepSDK
 struct UIStateModel: Equatable {
     var checkInState: CheckInState = .noCheckIn
     var reportState: ReportState = .noReport
+    var diaryState: [[CheckIn]] = []
 
     enum CheckInState: Equatable {
         case noCheckIn

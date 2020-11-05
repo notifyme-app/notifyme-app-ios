@@ -16,6 +16,10 @@ class DiaryEntryCollectionViewCell: UICollectionViewCell {
 
     private let diaryContentView = DiaryEntryContentView()
 
+    public var checkIn: CheckIn? {
+        didSet { self.diaryContentView.checkIn = checkIn }
+    }
+
     // MARK: - Init
 
     override init(frame: CGRect) {
