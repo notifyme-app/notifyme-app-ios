@@ -21,7 +21,7 @@ class ReportInformationView: UIView {
     private let color: UIColor
     private let buttonTitle: String?
 
-    private var button: UBButton?
+    public var button: UBButton?
 
     public var touchUpCallback: (() -> Void)? {
         didSet {
@@ -54,20 +54,16 @@ class ReportInformationView: UIView {
         layer.cornerRadius = 36.0
         backgroundColor = color
 
-        addSubview(titleLabel)
         titleLabel.text = title
-
-        titleLabel.snp.makeConstraints { make in
-            make.top.left.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
-            make.right.equalToSuperview().inset(Padding.large)
-        }
-
-        addSubview(textLabel)
         textLabel.text = text
 
-        textLabel.snp.makeConstraints { make in
-            make.top.equalTo(self.titleLabel.snp.bottom).offset(Padding.mediumSmall)
-            make.left.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
+        let stackView = UIStackView(arrangedSubviews: [titleLabel, textLabel])
+        stackView.axis = .vertical
+        stackView.spacing = Padding.medium - Padding.small
+        addSubview(stackView)
+
+        stackView.snp.makeConstraints { make in
+            make.top.left.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
             make.right.equalToSuperview().inset(Padding.large)
 
             if !isButton {
@@ -81,7 +77,7 @@ class ReportInformationView: UIView {
             addSubview(buttonLabel)
 
             buttonLabel.snp.makeConstraints { make in
-                make.top.equalTo(self.textLabel.snp.bottom).offset(Padding.mediumSmall)
+                make.top.equalTo(stackView.snp.bottom).offset(Padding.mediumSmall)
                 make.left.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
                 make.right.equalToSuperview().inset(Padding.large + Padding.mediumSmall)
                 make.bottom.equalToSuperview().inset(Padding.large)

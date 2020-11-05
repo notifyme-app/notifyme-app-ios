@@ -32,6 +32,8 @@
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
 		6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55058625535A77000D27B1 /* ReminderControl.swift */; };
 		6E55058C25536219000D27B1 /* DiaryEntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55058B25536219000D27B1 /* DiaryEntryContentView.swift */; };
+		6E64035F2553E365006D0498 /* DiaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E64035E2553E365006D0498 /* DiaryCollectionView.swift */; };
+		6E6403672553E680006D0498 /* ReportInformationViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */; };
 		6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */; };
 		6E6628DE254AF1F100347F06 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628DD254AF1F100347F06 /* CheckInViewController.swift */; };
 		6E6628E9254AF21D00347F06 /* CheckinEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */; };
@@ -50,8 +52,8 @@
 		6E66295C254BF4FF00347F06 /* StackScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66295B254BF4FF00347F06 /* StackScrollView.swift */; };
 		6E662964254BF7FD00347F06 /* BaseSubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662963254BF7FD00347F06 /* BaseSubViewController.swift */; };
 		6E662969254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662968254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift */; };
-		6E66296F254C012A00347F06 /* DairyEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66296E254C012A00347F06 /* DairyEntryCollectionViewCell.swift */; };
-		6E662974254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662973254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift */; };
+		6E66296F254C012A00347F06 /* DiaryEntryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66296E254C012A00347F06 /* DiaryEntryCollectionViewCell.swift */; };
+		6E662974254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662973254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift */; };
 		6E662979254C024F00347F06 /* UICollection+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662978254C024F00347F06 /* UICollection+NS.swift */; };
 		6E66297E254C029700347F06 /* ReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66297D254C029700347F06 /* ReusableView.swift */; };
 		6E662985254C397800347F06 /* ReminderManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662984254C397800347F06 /* ReminderManager.swift */; };
@@ -136,6 +138,8 @@
 		6E55057E2553058C000D27B1 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
 		6E55058625535A77000D27B1 /* ReminderControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderControl.swift; sourceTree = "<group>"; };
 		6E55058B25536219000D27B1 /* DiaryEntryContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryContentView.swift; sourceTree = "<group>"; };
+		6E64035E2553E365006D0498 /* DiaryCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionView.swift; sourceTree = "<group>"; };
+		6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInformationViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenViewController.swift; sourceTree = "<group>"; };
 		6E6628DD254AF1F100347F06 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinEditViewController.swift; sourceTree = "<group>"; };
@@ -154,8 +158,8 @@
 		6E66295B254BF4FF00347F06 /* StackScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackScrollView.swift; sourceTree = "<group>"; };
 		6E662963254BF7FD00347F06 /* BaseSubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseSubViewController.swift; sourceTree = "<group>"; };
 		6E662968254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
-		6E66296E254C012A00347F06 /* DairyEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyEntryCollectionViewCell.swift; sourceTree = "<group>"; };
-		6E662973254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DairyDateSectionHeaderSupplementaryView.swift; sourceTree = "<group>"; };
+		6E66296E254C012A00347F06 /* DiaryEntryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEntryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6E662973254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDateSectionHeaderSupplementaryView.swift; sourceTree = "<group>"; };
 		6E662978254C024F00347F06 /* UICollection+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollection+NS.swift"; sourceTree = "<group>"; };
 		6E66297D254C029700347F06 /* ReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReusableView.swift; sourceTree = "<group>"; };
 		6E662984254C397800347F06 /* ReminderManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReminderManager.swift; sourceTree = "<group>"; };
@@ -408,8 +412,9 @@
 		6E66296D254C011900347F06 /* CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				6E66296E254C012A00347F06 /* DairyEntryCollectionViewCell.swift */,
-				6E662973254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift */,
+				6E66296E254C012A00347F06 /* DiaryEntryCollectionViewCell.swift */,
+				6E662973254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift */,
+				6E64035E2553E365006D0498 /* DiaryCollectionView.swift */,
 			);
 			path = CollectionView;
 			sourceTree = "<group>";
@@ -501,6 +506,7 @@
 			isa = PBXGroup;
 			children = (
 				6EB4C79B2551B130005070ED /* ReportInformationView.swift */,
+				6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */,
 			);
 			path = ReportView;
 			sourceTree = "<group>";
@@ -889,10 +895,12 @@
 				6E6629CF2550377200347F06 /* CurrentCheckinViewController.swift in Sources */,
 				6E55058C25536219000D27B1 /* DiaryEntryContentView.swift in Sources */,
 				6E662917254AF3FD00347F06 /* DiaryDetailViewController.swift in Sources */,
+				6E64035F2553E365006D0498 /* DiaryCollectionView.swift in Sources */,
 				6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */,
 				DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */,
 				6E662957254BF38000347F06 /* HomescreenReportViewController.swift in Sources */,
 				6E66290D254AF3B600347F06 /* ContactDetailsViewController.swift in Sources */,
+				6E6403672553E680006D0498 /* ReportInformationViewCollectionViewCell.swift in Sources */,
 				6E662912254AF3CE00347F06 /* ThankYouViewController.swift in Sources */,
 				6E6628E9254AF21D00347F06 /* CheckinEditViewController.swift in Sources */,
 				6E6629E62550606400347F06 /* VenueView.swift in Sources */,
@@ -920,7 +928,7 @@
 				6E55057F2553058C000D27B1 /* TextButton.swift in Sources */,
 				6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */,
 				DC702B10243F6FAE0066C773 /* UBUserDefaultValue.swift in Sources */,
-				6E662974254C014B00347F06 /* DairyDateSectionHeaderSupplementaryView.swift in Sources */,
+				6E662974254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift in Sources */,
 				6E6629FF255135BA00347F06 /* ReportButton.swift in Sources */,
 				6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */,
 				DC8B5D912549676100B922DB /* Bundle+BuildInfo.swift in Sources */,
@@ -943,7 +951,7 @@
 				6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */,
 				F84089EC2493695200A66CD1 /* Keychain.swift in Sources */,
 				6E662969254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift in Sources */,
-				6E66296F254C012A00347F06 /* DairyEntryCollectionViewCell.swift in Sources */,
+				6E66296F254C012A00347F06 /* DiaryEntryCollectionViewCell.swift in Sources */,
 				6E6629F925512A6800347F06 /* LargeTitleNavigationController.swift in Sources */,
 				6E662925254AF63400347F06 /* QRScannerOverlay.swift in Sources */,
 				6E66294C254B2CF500347F06 /* CheckInConfirmViewController.swift in Sources */,

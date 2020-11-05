@@ -13,14 +13,12 @@ import Foundation
 import LocalAuthentication
 
 class DiaryViewController: BaseViewController {
-    private let flowLayout: DiaryCollectionViewFlowLayout
-    private let collectionView: UICollectionView
+    private let collectionView: DiaryCollectionView
 
     // MARK: - Init
 
     override init() {
-        flowLayout = DiaryCollectionViewFlowLayout()
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
+        collectionView = DiaryCollectionView()
 
         super.init()
         title = "diary_title".ub_localized
@@ -54,20 +52,9 @@ class DiaryViewController: BaseViewController {
     private func setupCollectionView() {
         collectionView.dataSource = self
         collectionView.delegate = self
-        collectionView.backgroundColor = UIColor.clear
-        collectionView.contentInset = UIEdgeInsets(top: 0.0, left: Padding.small, bottom: 0.0, right: Padding.small)
+        collectionView.setup()
+
         collectionView.alpha = 0.0
-
-        collectionView.register(DairyEntryCollectionViewCell.self)
-        collectionView.register(DairyDateSectionHeaderSupplementaryView.self,
-                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader)
-
-        if let flowLayout = collectionView.collectionViewLayout as? DiaryCollectionViewFlowLayout {
-            let collectionViewContentWidth = view.bounds.width
-
-            flowLayout.estimatedItemSize = CGSize(width: collectionViewContentWidth - 2.0 * Padding.mediumSmall, height: 80)
-            flowLayout.minimumInteritemSpacing = 0
-        }
     }
 
     // MARK: - Authentication
@@ -127,7 +114,7 @@ extension DiaryViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(for: indexPath) as DairyEntryCollectionViewCell
+        let cell = collectionView.dequeueReusableCell(for: indexPath) as DiaryEntryCollectionViewCell
         return cell
     }
 
@@ -136,9 +123,14 @@ extension DiaryViewController: UICollectionViewDataSource {
             fatalError("Supplementary views other than section headers are not supported.")
         }
 
-        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DairyDateSectionHeaderSupplementaryView
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DiaryDateSectionHeaderSupplementaryView
         // TODO: set real values
 
         return headerView
+    }
+
+    func collectionView(_: UICollectionView, didSelectItemAt _: IndexPath) {
+        // TODO: set checkin...
+        present(CheckinEditViewController(checkIn: nil), animated: true, completion: nil)
     }
 }

@@ -31,19 +31,19 @@ class CheckinEditViewController: BaseViewController {
     private let isCurrentCheckin: Bool
 
     private var checkIn: CheckIn? {
-        didSet { self.update() }
+        didSet { update() }
     }
 
     // MARK: - Init
 
+    init(checkIn _: CheckIn? = nil) {
+        isCurrentCheckin = false
+        super.init()
+    }
+
     override init() {
         isCurrentCheckin = true
         super.init()
-        if #available(iOS 13.0, *) {
-            isModalInPresentation = true
-        } else {
-            // Fallback on earlier versions
-        }
     }
 
     required init?(coder _: NSCoder) {
@@ -171,6 +171,12 @@ class CheckinEditViewController: BaseViewController {
     // MARK: - Setup
 
     private func setup() {
+        if #available(iOS 13.0, *) {
+            isModalInPresentation = true
+        } else {
+            // Fallback on earlier versions
+        }
+
         contentView.scrollView.ub_enableDefaultKeyboardObserver()
 
         view.addSubview(contentView)

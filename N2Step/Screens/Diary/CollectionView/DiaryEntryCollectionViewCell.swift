@@ -11,7 +11,7 @@
 
 import Foundation
 
-class DairyEntryCollectionViewCell: UICollectionViewCell {
+class DiaryEntryCollectionViewCell: UICollectionViewCell {
     // MARK: - Content view
 
     private let diaryContentView = DiaryEntryContentView()
@@ -35,10 +35,20 @@ class DairyEntryCollectionViewCell: UICollectionViewCell {
     // MARK: - Setup
 
     private func setup() {
-        addSubview(diaryContentView)
+        contentView.addSubview(diaryContentView)
 
         diaryContentView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
+        }
+    }
+
+    // MARK: - Highlight
+
+    override var isHighlighted: Bool {
+        get { return super.isHighlighted }
+        set {
+            super.isHighlighted = newValue
+            contentView.backgroundColor = newValue ? UIColor.ns_genericTouchState : UIColor.clear
         }
     }
 }
