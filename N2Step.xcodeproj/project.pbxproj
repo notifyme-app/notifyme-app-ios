@@ -111,6 +111,7 @@
 		DCB4430C242DD34700F19AA5 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D2C242D04290017C4F9 /* Inter-Medium.ttf */; };
 		DCB4430D242DD34700F19AA5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D2B242D04290017C4F9 /* Inter-Regular.ttf */; };
 		DCB4430E242DD34700F19AA5 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D27242D04280017C4F9 /* Inter-SemiBold.ttf */; };
+		DCC907642554A56300E00C78 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DCC907632554A56300E00C78 /* Clibsodium.xcframework */; };
 		F84089EC2493695200A66CD1 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EB2493695200A66CD1 /* Keychain.swift */; };
 		F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089ED2493696500A66CD1 /* KeychainPersisted.swift */; };
 /* End PBXBuildFile section */
@@ -229,6 +230,7 @@
 		DC9A81A5242CE5E000AD1548 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC9A81A7242CE5E000AD1548 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC9A81A9242CE5E000AD1548 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		DCC907632554A56300E00C78 /* Clibsodium.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Clibsodium.xcframework; path = "../../../Library/Developer/Xcode/DerivedData/N2Step-ajhbxgntdpdzmdczxjrvllkqdfvy/SourcePackages/checkouts/n2step-sdk-ios/Clibsodium.xcframework"; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -240,6 +242,7 @@
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
 				DC3F373325513B2B00B709D3 /* N2StepSDK in Frameworks */,
+				DCC907642554A56300E00C78 /* Clibsodium.xcframework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,6 +328,7 @@
 		24780B3B2430BC00003BB26C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DCC907632554A56300E00C78 /* Clibsodium.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
