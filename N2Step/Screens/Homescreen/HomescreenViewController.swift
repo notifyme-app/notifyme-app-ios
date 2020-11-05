@@ -21,6 +21,8 @@ class HomescreenViewController: BaseViewController {
 
     private let personImageView = UIImageView(image: UIImage(named: "person"))
 
+    private let refreshButton = TextButton(text: "Refresh")
+
     // MARK: - Init
 
     override init() {
@@ -64,11 +66,29 @@ class HomescreenViewController: BaseViewController {
 
     // MARK: - Setup
 
+    private func startRefresh() {
+        ProblematicEventsManager.shared.sync()
+    }
+
     private func setupLayout() {
         view.addSubview(stackScrollView)
         stackScrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        let v = UIView()
+        v.addSubview(refreshButton)
+        refreshButton.snp.makeConstraints { make in
+            make.top.bottom.centerX.equalToSuperview()
+        }
+        stackScrollView.addArrangedView(v)
+
+        refreshButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.startRefresh()
+        }
+
+        stackScrollView.addSpacerView(Padding.small)
 
         stackScrollView.addArrangedViewController(reportViewController, parent: self)
 

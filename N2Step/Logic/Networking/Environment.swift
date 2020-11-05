@@ -28,12 +28,12 @@ enum Environment {
         #endif
     }
 
-    var codegenService: Backend {
+    var backendService: Backend {
         switch self {
         case .dev:
-            fatalError("No backend yet")
+            return Backend("https://app-dev-ws.n2s.ch", version: "v1")
         case .prod:
-            fatalError("No backend yet")
+            return Backend("https://app-prod-ws.n2s.ch", version: "v1")
         }
     }
 }
