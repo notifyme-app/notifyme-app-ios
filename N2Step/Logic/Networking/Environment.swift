@@ -36,4 +36,13 @@ enum Environment {
             return Backend("https://app-prod-ws.n2s.ch", version: "v1")
         }
     }
+
+    var uploadHost: String {
+        switch self {
+        case .dev:
+            return "upload-dev.n2s.ch"
+        case .prod:
+            return "upload.n2s.ch"
+        }
+    }
 }
