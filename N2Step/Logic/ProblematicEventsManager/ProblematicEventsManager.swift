@@ -13,7 +13,6 @@ import Foundation
 import SwiftProtobuf
 
 class ProblematicEventsManager {
-
     private let dateFormatter: DateFormatter = {
         let formatter = DateFormatter()
         formatter.locale = Locale(identifier: "en_US")
@@ -30,7 +29,6 @@ class ProblematicEventsManager {
     @UBOptionalUserDefault(key: "ch.n2step.exposure.lastSync")
     private var lastSync: Int?
 
-    @KeychainPersisted(key: "ch.n2step.exposure.events.key", defaultValue: [])
     private var exposureEvents: [ExposureEvent] {
         didSet { UIStateManager.shared.stateChanged() }
     }
@@ -71,7 +69,9 @@ class ProblematicEventsManager {
 
     // MARK: - Init
 
-    init() {}
+    init() {
+        exposureEvents = N2Step.getExposureEvents()
+    }
 
     // MARK: - Check
 
