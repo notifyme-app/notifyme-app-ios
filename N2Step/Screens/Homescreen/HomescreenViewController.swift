@@ -58,7 +58,7 @@ class HomescreenViewController: BaseViewController {
     // MARK: - Update
 
     private func update(_ state: UIStateModel) {
-        personImageView.isHidden = state.exposureState == .noExposure
+        personImageView.isHidden = state.exposureState != .noExposure
     }
 
     // MARK: - Setup

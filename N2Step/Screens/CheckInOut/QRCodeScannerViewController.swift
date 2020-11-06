@@ -139,7 +139,7 @@ extension QRCodeScannerViewController: QRScannerViewDelegate {
             stopScanning()
             let vc = CheckInConfirmViewController(qrCode: str, venueInfo: info)
             present(vc, animated: true, completion: nil)
-        case let .failure(error):
+        case .failure:
             showError()
         }
     }
