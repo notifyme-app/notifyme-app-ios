@@ -1,0 +1,3 @@
+[submodule "N2Step/SDK/n2step-sdk-ios"]
+	path = N2Step/SDK/n2step-sdk-ios
+	url = git@github.com:UbiqueInnovation/n2step-sdk-ios.git

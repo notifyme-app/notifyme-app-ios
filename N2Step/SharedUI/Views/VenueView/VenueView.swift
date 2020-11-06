@@ -10,7 +10,6 @@
  */
 
 import Foundation
-import N2StepSDK
 
 class VenueView: UIView {
     // MARK: - Views
