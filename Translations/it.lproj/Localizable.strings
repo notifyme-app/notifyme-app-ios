@@ -135,3 +135,9 @@
 
 /*Report: 1 day ago singular*/
 "report_message_one_day_ago" = "1 day ago";
+
+/*Notification Channel name on Android Devices (Only visible in System Settings)*/
+"android_notification_channel_name" = "Exposure Notifications";
+
+/*Info Text that is displayed below the info about a new report today.*/
+"report_message_today" = "Today";

@@ -56,17 +56,8 @@ class HomescreenReportViewController: BaseSubViewController {
             let title = exposure.count > 1 ? "report_title_plural".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(exposure.count)") : "report_title_singular".ub_localized
             noReportLabel.isHidden = true
 
-            var daysAgo = 1
-            if let firstArrivaltime = exposure.first?.exposureEvent.arrivalTime {
-                let calendar = Calendar.current
-                let start = calendar.startOfDay(for: firstArrivaltime)
-                let now = calendar.startOfDay(for: Date())
-                let components = calendar.dateComponents([.day], from: start, to: now)
-
-                daysAgo = components.day ?? 1
-            }
-
-            let subText = daysAgo > 1 ? "report_message_days_ago".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(daysAgo)") : "report_message_one_day_ago".ub_localized
+            let d = exposure.first?.exposureEvent.arrivalTime ?? Date()
+            let subText = d.daysAgo()
 
             reportButton.setContent(title: title, message: "report_message_text".ub_localized, messageHighlight: "report_message_text_highlight".ub_localized, subText: subText)
         }

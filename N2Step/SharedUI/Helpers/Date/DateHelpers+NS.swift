@@ -11,6 +11,21 @@
 
 import Foundation
 
+extension Date {
+    func daysAgo() -> String {
+        let calendar = Calendar.current
+        let start = calendar.startOfDay(for: self)
+        let now = calendar.startOfDay(for: Date())
+        let components = calendar.dateComponents([.day], from: start, to: now)
+
+        switch components.day ?? 0 {
+        case 0: return "report_message_today".ub_localized
+        case 1: return "report_message_one_day_ago".ub_localized
+        default: return "report_message_days_ago".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(components.day ?? 0)")
+        }
+    }
+}
+
 extension TimeInterval {
     private var seconds: String {
         let value = Int(self) % 60

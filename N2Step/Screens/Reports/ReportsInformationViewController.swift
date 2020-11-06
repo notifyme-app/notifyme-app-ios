@@ -121,21 +121,10 @@ extension ReportsInformationViewController: UICollectionViewDataSource {
         }
 
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DiaryDateSectionHeaderSupplementaryView
-        // TODO: set real values
 
         if indexPath.section > 0 {
-            var daysAgo = 1
-            if let firstArrivaltime = exposure[indexPath.section - 1].first?.exposureEvent.arrivalTime {
-                let calendar = Calendar.current
-                let start = calendar.startOfDay(for: firstArrivaltime)
-                let now = calendar.startOfDay(for: Date())
-                let components = calendar.dateComponents([.day], from: start, to: now)
-
-                daysAgo = components.day ?? 1
-            }
-
-            let subText = daysAgo > 1 ? "report_message_days_ago".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(daysAgo)") : "report_message_one_day_ago".ub_localized
-            headerView.text = subText
+            let d = exposure[indexPath.section - 1].first?.exposureEvent.arrivalTime ?? Date()
+            headerView.text = d.daysAgo()
         }
 
         return headerView
