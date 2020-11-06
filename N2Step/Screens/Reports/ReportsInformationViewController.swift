@@ -145,9 +145,7 @@ extension ReportsInformationViewController: UICollectionViewDataSource {
         if indexPath.section == 0 {
             present(PotentialInfectionWhatToDoViewController(), animated: true, completion: nil)
         } else {
-            // TODO: set checkin...
-            present(CheckinEditViewController(checkIn: nil
-            ), animated: true, completion: nil)
+            // TODO: Define what we do here.
         }
     }
 }
