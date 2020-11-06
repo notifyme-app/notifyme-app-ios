@@ -20,7 +20,16 @@ class ProblematicEventsManager {
 
     private let backend = Environment.current.backendService
 
+    @KeychainPersisted(key: "ch.n2step.exposure.events.key", defaultValue: [])
+    private var exposureEvents: [ExposureEvent] {
+        didSet { UIStateManager.shared.stateChanged() }
+    }
+
     // MARK: - API
+
+    public func getExposureEvents() -> [ExposureEvent] {
+        return exposureEvents
+    }
 
     public func sync(completion: @escaping () -> Void) {
         let endpoint = backend.endpoint("traceKeys", headers: ["Accept": "application/protobuf"])
@@ -53,13 +62,14 @@ class ProblematicEventsManager {
         var problematicEvents: [ProblematicEventInfo] = []
 
         for i in wrapper.events {
-//            let info = ProblematicEventInfo()
-//            info.sk = i.secretKey
-//            info.entry = Date(timeIntervalSince1970: i.startTime / 1000)
-//            info.exit = Date(timeIntervalSince1970: i.endTime / 1000)
-//            info.message = i.message
+            let sk = i.secretKey.bytes
+            let entry: Date = Date(timeIntervalSince1970: TimeInterval(i.startTime / 1000))
+            let exit: Date = Date(timeIntervalSince1970: TimeInterval(i.endTime / 1000))
+            let message = i.message.bytes
+
+            let info = ProblematicEventInfo(privateKey: sk, entry: entry, exit: exit, message: message)
         }
 
-        let exposureEvents = N2Step.checkForMatches(publishedSKs: problematicEvents)
+        exposureEvents = N2Step.checkForMatches(publishedSKs: problematicEvents)
     }
 }

@@ -16,7 +16,7 @@ import N2StepSDK
 /// We use a single state model to ensure that all elements have a consistent state
 struct UIStateModel: Equatable {
     var checkInState: CheckInState = .noCheckIn
-    var reportState: ReportState = .noReport
+    var exposureState: ExposureState = .noExposure
     var diaryState: [[CheckIn]] = []
 
     enum CheckInState: Equatable {
@@ -24,8 +24,8 @@ struct UIStateModel: Equatable {
         case checkIn(CheckIn)
     }
 
-    enum ReportState: Equatable {
-        case noReport
-        case report(reports: [N2StepSDK.ExposureEvent])
+    enum ExposureState: Equatable {
+        case noExposure
+        case exposure(exposureEvents: [N2StepSDK.ExposureEvent])
     }
 }

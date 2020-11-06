@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 
 class RemoveFromDiaryWarningViewController: CenterContentViewController {
     private let titleLabel = Label(.title)
@@ -18,9 +19,23 @@ class RemoveFromDiaryWarningViewController: CenterContentViewController {
 
     private let removeNowButton = BigButton(style: .small, text: "remove_diary_remove_now_button".ub_localized)
 
+    public var removeCallback: (() -> Void)? {
+        didSet {
+            removeNowButton.touchUpCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.dismiss(animated: true) {
+                    strongSelf.removeCallback?()
+                }
+            }
+        }
+    }
+
+    private let venueInfo: VenueInfo
+
     // MARK: - Init
 
-    override init() {
+    init(venueInfo: VenueInfo) {
+        self.venueInfo = venueInfo
         super.init()
     }
 
@@ -39,24 +54,40 @@ class RemoveFromDiaryWarningViewController: CenterContentViewController {
 
     private func setup() {
         titleLabel.text = "remove_diary_warning_title".ub_localized
-        textLabel.text = "remove_diary_warning_text".ub_localized
+
+        let text = [venueInfo.name, venueInfo.location]
+
+        textLabel.text = "remove_diary_warning_text".ub_localized.replacingOccurrences(of: "{LOCATION_INFO}", with: text.joined(separator: ", "))
+
         explanationLabel.text = "remove_diary_warning_star_text".ub_localized
 
         contentView.addArrangedView(titleLabel)
         contentView.addSpacerView(Padding.mediumSmall)
         contentView.addArrangedView(textLabel)
         contentView.addSpacerView(Padding.medium)
-        contentView.addArrangedView(explanationLabel)
+
+        let v = UIStackView()
+        v.spacing = Padding.small
+        v.alignment = .firstBaseline
+
+        let starLabel = Label(.text)
+        starLabel.text = "*"
+        starLabel.ub_setContentPriorityRequired()
+
+        v.addArrangedView(starLabel)
+        v.addArrangedView(explanationLabel)
+
+        contentView.addArrangedView(v)
         contentView.addSpacerView(Padding.medium)
 
-        let v = UIView()
-        v.addSubview(removeNowButton)
+        let v2 = UIView()
+        v2.addSubview(removeNowButton)
 
         removeNowButton.snp.makeConstraints { make in
             make.top.bottom.centerX.equalToSuperview()
             make.left.right.lessThanOrEqualToSuperview()
         }
 
-        contentView.addArrangedView(v)
+        contentView.addArrangedView(v2)
     }
 }

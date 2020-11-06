@@ -56,14 +56,14 @@ class ReportsViewController: BaseViewController {
     // MARK: - Update
 
     private func update(_ state: UIStateModel) {
-        switch state.reportState {
-        case .noReport:
+        switch state.exposureState {
+        case .noExposure:
             title = "no_report_title".ub_localized
             noReportInformationView.isHidden = false
             reportsInformationViewController.view.isHidden = true
 
-        case let .report(reports):
-            title = reports.count > 1 ? "report_title_plural".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(reports.count)") : "report_title_singular".ub_localized
+        case let .exposure(events):
+            title = events.count > 1 ? "report_title_plural".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(events.count)") : "report_title_singular".ub_localized
             noReportInformationView.isHidden = true
             reportsInformationViewController.view.isHidden = false
         }

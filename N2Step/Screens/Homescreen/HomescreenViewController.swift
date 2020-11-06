@@ -47,6 +47,8 @@ class HomescreenViewController: BaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.update(state)
         }
+
+        startRefresh()
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -56,12 +58,7 @@ class HomescreenViewController: BaseViewController {
     // MARK: - Update
 
     private func update(_ state: UIStateModel) {
-        switch state.reportState {
-        case .noReport:
-            personImageView.isHidden = false
-        case let .report:
-            personImageView.isHidden = true
-        }
+        personImageView.isHidden = state.exposureState == .noExposure
     }
 
     // MARK: - Setup

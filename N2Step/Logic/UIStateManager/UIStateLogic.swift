@@ -20,12 +20,24 @@ class UIStateLogic {
     }
 
     func buildState() -> UIStateModel {
+        return UIStateModel(checkInState: buildCheckInState(), exposureState: buildExposureState(), diaryState: buildDiaryState())
+    }
+
+    // MARK: - Substates
+
+    private func buildCheckInState() -> UIStateModel.CheckInState {
         var checkInState: UIStateModel.CheckInState = .noCheckIn
         if let checkIn = CheckInManager.shared.currentCheckin {
             checkInState = .checkIn(checkIn)
         }
 
-        return UIStateModel(checkInState: checkInState, reportState: .report(reports: []), diaryState: buildDiaryState())
+        return checkInState
+    }
+
+    private func buildExposureState() -> UIStateModel.ExposureState {
+        let events = ProblematicEventsManager.shared.getExposureEvents().sorted { $0.arrivalTime < $1.arrivalTime
+        }
+        return events.count > 0 ? .exposure(exposureEvents: events) : .noExposure
     }
 
     private func buildDiaryState() -> [[CheckIn]] {

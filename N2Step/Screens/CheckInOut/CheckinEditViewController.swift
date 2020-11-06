@@ -141,7 +141,7 @@ class CheckinEditViewController: BaseViewController {
 
         removeFromDiaryButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.present(RemoveFromDiaryWarningViewController(), animated: true, completion: nil)
+            strongSelf.showRemoveWarning()
         }
     }
 
@@ -242,7 +242,7 @@ class CheckinEditViewController: BaseViewController {
         let diaryLabel = Label(.boldUppercaseSmall, textColor: .ns_text)
         diaryLabel.text = "diary_option_title".ub_localized
 
-        contentView.addSpacerView(Padding.mediumSmall)
+        contentView.addSpacerView(Padding.large)
 
         if !isCurrentCheckin {
             let v = UIView()
@@ -250,12 +250,27 @@ class CheckinEditViewController: BaseViewController {
 
             removeFromDiaryButton.snp.makeConstraints { make in
                 make.top.bottom.centerX.equalToSuperview()
-                make.left.right.lessThanOrEqualToSuperview()
             }
 
             contentView.addArrangedView(v)
         }
 
         contentView.addSpacerView(Padding.mediumSmall)
+    }
+
+    // MARK: - Show remove warning
+
+    private func showRemoveWarning() {
+        guard let checkIn = self.checkIn else { return }
+
+        let vc = RemoveFromDiaryWarningViewController(venueInfo: checkIn.venue)
+        vc.removeCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+
+            CheckInManager.shared.hideFromDiary(identifier: checkIn.identifier)
+            strongSelf.dismiss(animated: true, completion: nil)
+        }
+
+        present(vc, animated: true, completion: nil)
     }
 }
