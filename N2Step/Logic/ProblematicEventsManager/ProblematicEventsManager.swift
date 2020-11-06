@@ -90,6 +90,7 @@ class ProblematicEventsManager {
             problematicEvents.append(info)
         }
 
+        N2Step.cleanUpOldData(maxDaysToKeep: 10)
         exposureEvents = N2Step.checkForMatches(publishedSKs: problematicEvents)
     }
 }
