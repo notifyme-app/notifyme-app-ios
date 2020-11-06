@@ -13,11 +13,22 @@ import Foundation
 import SwiftProtobuf
 
 class ProblematicEventsManager {
+
+    private let dateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US")
+        formatter.dateFormat = "E, dd MMM YYYY HH:mm:ss zzz"
+        return formatter
+    }()
+
     // MARK: - Shared
 
     public static let shared = ProblematicEventsManager()
 
     private let backend = Environment.current.backendService
+
+    @UBOptionalUserDefault(key: "ch.n2step.exposure.lastSync")
+    private var lastSync: Int?
 
     @KeychainPersisted(key: "ch.n2step.exposure.events.key", defaultValue: [])
     private var exposureEvents: [ExposureEvent] {
@@ -31,10 +42,19 @@ class ProblematicEventsManager {
     }
 
     public func sync(completion: @escaping () -> Void) {
-        let endpoint = backend.endpoint("traceKeys", headers: ["Accept": "application/protobuf"])
+        var queryParameters = [String: String]()
+        if let sync = lastSync {
+            queryParameters["lastSync"] = "\(sync)"
+        }
 
-        let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, _, _ in
+        let endpoint = backend.endpoint("traceKeys", queryParameters: queryParameters, headers: ["Accept": "application/protobuf"])
+
+        let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, response, _ in
             guard let strongSelf = self else { return }
+
+            if let dateHeader = (response as? HTTPURLResponse)?.allHeaderFields["Date"] as? String, let date = strongSelf.dateFormatter.date(from: dateHeader) {
+                strongSelf.lastSync = date.millisecondsSince1970
+            }
 
             DispatchQueue.main.async {
                 if let data = data {
