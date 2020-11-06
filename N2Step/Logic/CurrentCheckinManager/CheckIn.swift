@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 
 struct CheckIn: UBCodable, Equatable {
     init(identifier: String, qrCode: String, checkInTime: Date, venue: VenueInfo, hideFromDiary: Bool = false) {

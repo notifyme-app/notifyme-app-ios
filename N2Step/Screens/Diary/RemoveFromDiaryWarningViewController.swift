@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 
 class RemoveFromDiaryWarningViewController: CenterContentViewController {
     private let titleLabel = Label(.title)

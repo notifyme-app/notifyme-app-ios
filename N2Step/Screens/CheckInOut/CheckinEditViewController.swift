@@ -103,7 +103,7 @@ class CheckinEditViewController: BaseViewController {
                 dayComponent.day = 1
                 let start = calendar.startOfDay(for: date)
                 if let nextDate = calendar.date(byAdding: dayComponent, to: start),
-                   nextDate < checkoutTime {
+                    nextDate < checkoutTime {
                     dates.append(formatter.string(from: checkoutTime))
                 }
             }
@@ -158,7 +158,7 @@ class CheckinEditViewController: BaseViewController {
                 dayComponent.day = 1
 
                 if let nextDate = calendar.date(byAdding: dayComponent, to: date),
-                   nextDate < checkoutTime {
+                    nextDate < checkoutTime {
                     var minusDateComponent = DateComponents()
                     minusDateComponent.day = -1
                     strongSelf.checkIn?.checkOutTime = calendar.date(byAdding: minusDateComponent, to: checkoutTime)!

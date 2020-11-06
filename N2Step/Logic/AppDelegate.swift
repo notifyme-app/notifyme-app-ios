@@ -8,6 +8,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import N2StepSDK
 import UIKit
 
 @UIApplicationMain

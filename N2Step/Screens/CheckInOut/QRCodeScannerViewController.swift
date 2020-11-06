@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 
 class QRCodeScannerViewController: BaseSubViewController {
     private var qrView: QRScannerView?

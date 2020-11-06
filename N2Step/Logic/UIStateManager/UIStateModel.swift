@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 
 /// Global state model for all screens that are connected to tracing state and results
 /// We use a single state model to ensure that all elements have a consistent state

@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 import SwiftProtobuf
 
 class ProblematicEventsManager {

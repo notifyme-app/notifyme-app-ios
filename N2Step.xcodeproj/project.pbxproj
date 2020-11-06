@@ -27,6 +27,8 @@
 		24780B34242FDF4C003BB26C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24780B33242FDF4C003BB26C /* Launch Screen.storyboard */; };
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
 		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
+		48E3CEC925560A66004F858B /* Clibsodium in Frameworks */ = {isa = PBXBuildFile; productRef = 48E3CEC825560A66004F858B /* Clibsodium */; };
+		48E3CECB25560A66004F858B /* N2StepSDK in Frameworks */ = {isa = PBXBuildFile; productRef = 48E3CECA25560A66004F858B /* N2StepSDK */; };
 		6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5505712552D56C000D27B1 /* TimePickerControl.swift */; };
 		6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E550579255301FD000D27B1 /* AddCommentControl.swift */; };
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
@@ -87,22 +89,6 @@
 		8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8E81CCCE241FD813006F2437 /* SnapKit */; };
 		AAF73668242F3D030051E34A /* UIStackView+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+NS.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
-		DC37325B2555527E004155B6 /* Clibsodium.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC37325A2555527E004155B6 /* Clibsodium.xcframework */; };
-		DC37327325555289004155B6 /* CryptoFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326125555289004155B6 /* CryptoFunctions.swift */; };
-		DC37327425555289004155B6 /* N2StepMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326225555289004155B6 /* N2StepMain.swift */; };
-		DC37327525555289004155B6 /* ExposureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326425555289004155B6 /* ExposureEvent.swift */; };
-		DC37327725555289004155B6 /* ProblematicEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326625555289004155B6 /* ProblematicEventInfo.swift */; };
-		DC37327825555289004155B6 /* QRCode.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326725555289004155B6 /* QRCode.pb.swift */; };
-		DC37327925555289004155B6 /* N2StepError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326825555289004155B6 /* N2StepError.swift */; };
-		DC37327A25555289004155B6 /* VenueInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326925555289004155B6 /* VenueInfo.swift */; };
-		DC37327B25555289004155B6 /* CheckinEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326A25555289004155B6 /* CheckinEntry.swift */; };
-		DC37327C25555289004155B6 /* CheckinStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326C25555289004155B6 /* CheckinStorage.swift */; };
-		DC37327D25555289004155B6 /* QRCodeParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326D25555289004155B6 /* QRCodeParser.swift */; };
-		DC37327E25555289004155B6 /* N2Step.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326E25555289004155B6 /* N2Step.swift */; };
-		DC37327F25555289004155B6 /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37327025555289004155B6 /* Date+Extension.swift */; };
-		DC37328025555289004155B6 /* TimeInterval+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37327125555289004155B6 /* TimeInterval+Extension.swift */; };
-		DC37328125555289004155B6 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37327225555289004155B6 /* Data+Extension.swift */; };
-		DC37328A2555530B004155B6 /* SwiftProtobuf in Frameworks */ = {isa = PBXBuildFile; productRef = DC3732892555530B004155B6 /* SwiftProtobuf */; };
 		DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8C22549B08300C2145A /* BaseViewController.swift */; };
 		DC4DD8EA2549E7A200C2145A /* DummyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8E92549E7A200C2145A /* DummyTests.swift */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
@@ -118,7 +104,6 @@
 		DC702B17243F70060066C773 /* UIView+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702B16243F70060066C773 /* UIView+NS.swift */; };
 		DC8B5D912549676100B922DB /* Bundle+BuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC8B5D902549676100B922DB /* Bundle+BuildInfo.swift */; };
 		DC9A81AB242CE5E000AD1548 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = DC9A81A1242CE5E000AD1548 /* Localizable.strings */; };
-		DCA862A6255597C3001B0666 /* ExposureStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA862A5255597C3001B0666 /* ExposureStorage.swift */; };
 		DCB44307242DD34700F19AA5 /* Inter-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D29242D04280017C4F9 /* Inter-Black.ttf */; };
 		DCB44308242DD34700F19AA5 /* Inter-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D28242D04280017C4F9 /* Inter-Bold.ttf */; };
 		DCB44309242DD34700F19AA5 /* Inter-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D26242D04280017C4F9 /* Inter-ExtraBold.ttf */; };
@@ -227,21 +212,6 @@
 		8E81CCB1241FCC7F006F2437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAF73667242F3D030051E34A /* UIStackView+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+NS.swift"; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
-		DC37325A2555527E004155B6 /* Clibsodium.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Clibsodium.xcframework; path = "n2step-sdk-ios/Clibsodium.xcframework"; sourceTree = "<group>"; };
-		DC37326125555289004155B6 /* CryptoFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoFunctions.swift; sourceTree = "<group>"; };
-		DC37326225555289004155B6 /* N2StepMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = N2StepMain.swift; sourceTree = "<group>"; };
-		DC37326425555289004155B6 /* ExposureEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExposureEvent.swift; sourceTree = "<group>"; };
-		DC37326625555289004155B6 /* ProblematicEventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblematicEventInfo.swift; sourceTree = "<group>"; };
-		DC37326725555289004155B6 /* QRCode.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.pb.swift; sourceTree = "<group>"; };
-		DC37326825555289004155B6 /* N2StepError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = N2StepError.swift; sourceTree = "<group>"; };
-		DC37326925555289004155B6 /* VenueInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VenueInfo.swift; sourceTree = "<group>"; };
-		DC37326A25555289004155B6 /* CheckinEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinEntry.swift; sourceTree = "<group>"; };
-		DC37326C25555289004155B6 /* CheckinStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckinStorage.swift; sourceTree = "<group>"; };
-		DC37326D25555289004155B6 /* QRCodeParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCodeParser.swift; sourceTree = "<group>"; };
-		DC37326E25555289004155B6 /* N2Step.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = N2Step.swift; sourceTree = "<group>"; };
-		DC37327025555289004155B6 /* Date+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
-		DC37327125555289004155B6 /* TimeInterval+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TimeInterval+Extension.swift"; sourceTree = "<group>"; };
-		DC37327225555289004155B6 /* Data+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
 		DC4DD8C22549B08300C2145A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DC4DD8E92549E7A200C2145A /* DummyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyTests.swift; sourceTree = "<group>"; };
 		DC702AFA243F6D870066C773 /* UBLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBLabelType.swift; sourceTree = "<group>"; };
@@ -260,8 +230,6 @@
 		DC9A81A5242CE5E000AD1548 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC9A81A7242CE5E000AD1548 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/Localizable.strings; sourceTree = "<group>"; };
 		DC9A81A9242CE5E000AD1548 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
-		DCA862A5255597C3001B0666 /* ExposureStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExposureStorage.swift; sourceTree = "<group>"; };
-		DCC907632554A56300E00C78 /* Clibsodium.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = Clibsodium.xcframework; path = "../../../Library/Developer/Xcode/DerivedData/N2Step-ajhbxgntdpdzmdczxjrvllkqdfvy/SourcePackages/checkouts/n2step-sdk-ios/Clibsodium.xcframework"; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -271,9 +239,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DC37325B2555527E004155B6 /* Clibsodium.xcframework in Frameworks */,
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
-				DC37328A2555530B004155B6 /* SwiftProtobuf in Frameworks */,
+				48E3CEC925560A66004F858B /* Clibsodium in Frameworks */,
+				48E3CECB25560A66004F858B /* N2StepSDK in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -359,7 +327,6 @@
 		24780B3B2430BC00003BB26C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				DCC907632554A56300E00C78 /* Clibsodium.xcframework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -618,7 +585,6 @@
 		8E81CC97241FCC7D006F2437 /* N2Step */ = {
 			isa = PBXGroup;
 			children = (
-				DC37325625555215004155B6 /* SDK */,
 				DC286A24242CE0AD001D5344 /* Logic */,
 				DC286A27242CE1D2001D5344 /* Screens */,
 				6EBD8D2A242CB7D500686D9F /* SharedUI */,
@@ -660,70 +626,6 @@
 				6E6628CD254AF09700347F06 /* Homescreen */,
 			);
 			path = Screens;
-			sourceTree = "<group>";
-		};
-		DC37325625555215004155B6 /* SDK */ = {
-			isa = PBXGroup;
-			children = (
-				DC37325A2555527E004155B6 /* Clibsodium.xcframework */,
-				DC37325F25555289004155B6 /* N2StepSDK */,
-			);
-			path = SDK;
-			sourceTree = "<group>";
-		};
-		DC37325F25555289004155B6 /* N2StepSDK */ = {
-			isa = PBXGroup;
-			children = (
-				DCA8629925558F19001B0666 /* Exposure */,
-				DC37326025555289004155B6 /* Crypto */,
-				DC37326225555289004155B6 /* N2StepMain.swift */,
-				DC37326325555289004155B6 /* Models */,
-				DC37326B25555289004155B6 /* Checkin */,
-				DC37326E25555289004155B6 /* N2Step.swift */,
-				DC37326F25555289004155B6 /* Helpers */,
-			);
-			name = N2StepSDK;
-			path = "n2step-sdk-ios/Sources/N2StepSDK";
-			sourceTree = "<group>";
-		};
-		DC37326025555289004155B6 /* Crypto */ = {
-			isa = PBXGroup;
-			children = (
-				DC37326125555289004155B6 /* CryptoFunctions.swift */,
-			);
-			path = Crypto;
-			sourceTree = "<group>";
-		};
-		DC37326325555289004155B6 /* Models */ = {
-			isa = PBXGroup;
-			children = (
-				DC37326425555289004155B6 /* ExposureEvent.swift */,
-				DC37326625555289004155B6 /* ProblematicEventInfo.swift */,
-				DC37326725555289004155B6 /* QRCode.pb.swift */,
-				DC37326825555289004155B6 /* N2StepError.swift */,
-				DC37326925555289004155B6 /* VenueInfo.swift */,
-				DC37326A25555289004155B6 /* CheckinEntry.swift */,
-			);
-			path = Models;
-			sourceTree = "<group>";
-		};
-		DC37326B25555289004155B6 /* Checkin */ = {
-			isa = PBXGroup;
-			children = (
-				DC37326C25555289004155B6 /* CheckinStorage.swift */,
-				DC37326D25555289004155B6 /* QRCodeParser.swift */,
-			);
-			path = Checkin;
-			sourceTree = "<group>";
-		};
-		DC37326F25555289004155B6 /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				DC37327025555289004155B6 /* Date+Extension.swift */,
-				DC37327125555289004155B6 /* TimeInterval+Extension.swift */,
-				DC37327225555289004155B6 /* Data+Extension.swift */,
-			);
-			path = Helpers;
 			sourceTree = "<group>";
 		};
 		DC702B02243F6FAE0066C773 /* UBUserDefault */ = {
@@ -797,14 +699,6 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
-		DCA8629925558F19001B0666 /* Exposure */ = {
-			isa = PBXGroup;
-			children = (
-				DCA862A5255597C3001B0666 /* ExposureStorage.swift */,
-			);
-			path = Exposure;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -826,7 +720,8 @@
 			name = N2Step;
 			packageProductDependencies = (
 				8E81CCCE241FD813006F2437 /* SnapKit */,
-				DC3732892555530B004155B6 /* SwiftProtobuf */,
+				48E3CEC825560A66004F858B /* Clibsodium */,
+				48E3CECA25560A66004F858B /* N2StepSDK */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* N2Step.app */;
@@ -889,7 +784,7 @@
 			mainGroup = 8E81CC8C241FCC7D006F2437;
 			packageReferences = (
 				8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				DC3732882555530B004155B6 /* XCRemoteSwiftPackageReference "swift-protobuf" */,
+				48E3CEC725560A66004F858B /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */,
 			);
 			productRefGroup = 8E81CC96241FCC7D006F2437 /* Products */;
 			projectDirPath = "";
@@ -1014,17 +909,14 @@
 				DC702AFD243F6E410066C773 /* UBButton.swift in Sources */,
 				AAF73668242F3D030051E34A /* UIStackView+NS.swift in Sources */,
 				6E662964254BF7FD00347F06 /* BaseSubViewController.swift in Sources */,
-				DC37328125555289004155B6 /* Data+Extension.swift in Sources */,
 				6EB4C7AA2551BA99005070ED /* ReportsInformationViewController.swift in Sources */,
 				6E662A0525514EE600347F06 /* CheckinButton.swift in Sources */,
 				6E6629BB255017A700347F06 /* CheckIn.swift in Sources */,
 				6E6629CF2550377200347F06 /* CurrentCheckinViewController.swift in Sources */,
 				6E55058C25536219000D27B1 /* DiaryEntryContentView.swift in Sources */,
-				DC37327925555289004155B6 /* N2StepError.swift in Sources */,
 				6E662917254AF3FD00347F06 /* DiaryDetailViewController.swift in Sources */,
 				6E64035F2553E365006D0498 /* DiaryCollectionView.swift in Sources */,
 				6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */,
-				DC37327325555289004155B6 /* CryptoFunctions.swift in Sources */,
 				DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */,
 				6E662957254BF38000347F06 /* HomescreenReportViewController.swift in Sources */,
 				6E66290D254AF3B600347F06 /* ContactDetailsViewController.swift in Sources */,
@@ -1045,7 +937,6 @@
 				6EFF9AE3245AAFC800C98FF3 /* UIImage+UBHelpers.m in Sources */,
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
 				6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */,
-				DCA862A6255597C3001B0666 /* ExposureStorage.swift in Sources */,
 				6E6629DF255050DE00347F06 /* UIStateLogic.swift in Sources */,
 				6E662903254AF38500347F06 /* PotentialInfectionViewController.swift in Sources */,
 				DC702B0B243F6FAE0066C773 /* UBPListValue.swift in Sources */,
@@ -1057,36 +948,26 @@
 				6E6628DE254AF1F100347F06 /* CheckInViewController.swift in Sources */,
 				242D227B245D6557005DAEA8 /* Backend.swift in Sources */,
 				6E55057F2553058C000D27B1 /* TextButton.swift in Sources */,
-				DC37327E25555289004155B6 /* N2Step.swift in Sources */,
 				6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */,
 				DC702B10243F6FAE0066C773 /* UBUserDefaultValue.swift in Sources */,
-				DC37327C25555289004155B6 /* CheckinStorage.swift in Sources */,
 				6E662974254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift in Sources */,
 				6E6629FF255135BA00347F06 /* ReportButton.swift in Sources */,
 				6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */,
 				DC8B5D912549676100B922DB /* Bundle+BuildInfo.swift in Sources */,
-				DC37328025555289004155B6 /* TimeInterval+Extension.swift in Sources */,
-				DC37327725555289004155B6 /* ProblematicEventInfo.swift in Sources */,
 				6E66292C254AF7CC00347F06 /* BigButton.swift in Sources */,
 				6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */,
 				6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */,
 				6E6629B625500C8400347F06 /* CheckInManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
-				DC37327525555289004155B6 /* ExposureEvent.swift in Sources */,
 				6EB4C79C2551B130005070ED /* ReportInformationView.swift in Sources */,
 				6E6629DA255048AE00347F06 /* UIStateModel.swift in Sources */,
 				6E662908254AF39E00347F06 /* PotentialInfectionWhatToDoViewController.swift in Sources */,
 				6E64046725544C9F006D0498 /* ProblematicEventsManager.swift in Sources */,
-				DC37327425555289004155B6 /* N2StepMain.swift in Sources */,
-				DC37327F25555289004155B6 /* Date+Extension.swift in Sources */,
-				DC37327825555289004155B6 /* QRCode.pb.swift in Sources */,
 				DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */,
 				6E662920254AF61500347F06 /* QRScanningView.swift in Sources */,
 				DC702B0D243F6FAE0066C773 /* UBCodable.swift in Sources */,
-				DC37327B25555289004155B6 /* CheckinEntry.swift in Sources */,
 				6E6628F2254AF25900347F06 /* DiaryViewController.swift in Sources */,
 				8E81CC99241FCC7D006F2437 /* AppDelegate.swift in Sources */,
-				DC37327A25555289004155B6 /* VenueInfo.swift in Sources */,
 				2462BA1924520A480046906D /* Endpoint+Request.swift in Sources */,
 				6E7C0D20242CE1190017C4F9 /* UIColor+NS.swift in Sources */,
 				DC702B0A243F6FAE0066C773 /* UBOptionalUserDefault.swift in Sources */,
@@ -1094,7 +975,6 @@
 				F84089EC2493695200A66CD1 /* Keychain.swift in Sources */,
 				6E662969254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift in Sources */,
 				6E66296F254C012A00347F06 /* DiaryEntryCollectionViewCell.swift in Sources */,
-				DC37327D25555289004155B6 /* QRCodeParser.swift in Sources */,
 				6E6629F925512A6800347F06 /* LargeTitleNavigationController.swift in Sources */,
 				6E662925254AF63400347F06 /* QRScannerOverlay.swift in Sources */,
 				6E66294C254B2CF500347F06 /* CheckInConfirmViewController.swift in Sources */,
@@ -1548,6 +1428,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		48E3CEC725560A66004F858B /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "git@github.com:UbiqueInnovation/n2step-sdk-ios.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
 		8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit";
@@ -1556,26 +1444,23 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		DC3732882555530B004155B6 /* XCRemoteSwiftPackageReference "swift-protobuf" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/apple/swift-protobuf";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.13.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		48E3CEC825560A66004F858B /* Clibsodium */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48E3CEC725560A66004F858B /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */;
+			productName = Clibsodium;
+		};
+		48E3CECA25560A66004F858B /* N2StepSDK */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 48E3CEC725560A66004F858B /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */;
+			productName = N2StepSDK;
+		};
 		8E81CCCE241FD813006F2437 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
-		};
-		DC3732892555530B004155B6 /* SwiftProtobuf */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = DC3732882555530B004155B6 /* XCRemoteSwiftPackageReference "swift-protobuf" */;
-			productName = SwiftProtobuf;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

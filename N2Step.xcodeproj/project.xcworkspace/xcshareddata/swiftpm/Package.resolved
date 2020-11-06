@@ -2,6 +2,15 @@
   "object": {
     "pins": [
       {
+        "package": "N2StepSDK",
+        "repositoryURL": "git@github.com:UbiqueInnovation/n2step-sdk-ios.git",
+        "state": {
+          "branch": "develop",
+          "revision": "41797f97373d0eee1e63c6c140ab21ba61d64144",
+          "version": null
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit",
         "state": {
@@ -12,11 +21,11 @@
       },
       {
         "package": "SwiftProtobuf",
-        "repositoryURL": "https://github.com/apple/swift-protobuf",
+        "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
-          "branch": null,
+          "branch": "1.13.0",
           "revision": "426bef0ddfdc6449b7bd1418baafad6bbc56110b",
-          "version": "1.13.0"
+          "version": null
         }
       }
     ]

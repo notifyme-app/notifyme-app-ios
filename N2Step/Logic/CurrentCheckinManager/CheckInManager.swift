@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import N2StepSDK
 
 protocol CheckinStateUpdate {
     func checkinStateDidChange()
