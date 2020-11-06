@@ -21,10 +21,10 @@ class UIStateLogic {
 
     func buildState() -> UIStateModel {
         var checkInState: UIStateModel.CheckInState = .noCheckIn
-        if let checkIn = CurrentCheckinManager.shared.currentCheckin {
+        if let checkIn = CheckInManager.shared.currentCheckin {
             checkInState = .checkIn(checkIn)
         }
 
-        return UIStateModel(checkInState: checkInState, reportState: .report(reports: []), diaryState: CurrentCheckinManager.shared.getDiary())
+        return UIStateModel(checkInState: checkInState, reportState: .report(reports: []), diaryState: CheckInManager.shared.getDiary())
     }
 }

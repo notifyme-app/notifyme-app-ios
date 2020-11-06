@@ -16,10 +16,10 @@ protocol CheckinStateUpdate {
     func checkinStateDidChange()
 }
 
-class CurrentCheckinManager {
+class CheckInManager {
     // MARK: - Shared
 
-    public static let shared = CurrentCheckinManager()
+    public static let shared = CheckInManager()
 
     @KeychainPersisted(key: "ch.n2step.current.diary.key", defaultValue: [])
     private var diary: [CheckIn] {

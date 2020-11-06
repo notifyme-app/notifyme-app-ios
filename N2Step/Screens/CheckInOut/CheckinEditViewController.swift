@@ -64,7 +64,7 @@ class CheckinEditViewController: BaseViewController {
         // update checkout to now once after first update
         if isCurrentCheckin {
             checkIn?.checkOutTime = Date()
-            CurrentCheckinManager.shared.currentCheckin = checkIn
+            CheckInManager.shared.currentCheckin = checkIn
         }
 
         setupCheckout()
@@ -124,7 +124,7 @@ class CheckinEditViewController: BaseViewController {
             guard let strongSelf = self else { return }
 
             if strongSelf.isCurrentCheckin {
-                CurrentCheckinManager.shared.checkOut()
+                CheckInManager.shared.checkOut()
 
                 let presentingVC = strongSelf.presentingViewController
                 strongSelf.dismiss(animated: true) {
@@ -185,9 +185,9 @@ class CheckinEditViewController: BaseViewController {
 
     private func updateCheckIn() {
         if isCurrentCheckin {
-            CurrentCheckinManager.shared.currentCheckin = checkIn
+            CheckInManager.shared.currentCheckin = checkIn
         } else {
-            if let checkIn = self.checkIn { CurrentCheckinManager.shared.updateCheckIn(checkIn: checkIn)
+            if let checkIn = self.checkIn { CheckInManager.shared.updateCheckIn(checkIn: checkIn)
             }
         }
     }

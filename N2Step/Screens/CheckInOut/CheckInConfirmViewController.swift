@@ -47,7 +47,7 @@ class CheckInConfirmViewController: CenterContentViewController {
         checkInButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
 
-            CurrentCheckinManager.shared.checkIn(qrCode: strongSelf.qrCode, venueInfo: strongSelf.venueInfo)
+            CheckInManager.shared.checkIn(qrCode: strongSelf.qrCode, venueInfo: strongSelf.venueInfo)
             strongSelf.dismiss(animated: true, completion: nil)
         }
     }
