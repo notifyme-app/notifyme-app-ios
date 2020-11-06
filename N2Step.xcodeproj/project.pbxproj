@@ -27,6 +27,7 @@
 		24780B34242FDF4C003BB26C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24780B33242FDF4C003BB26C /* Launch Screen.storyboard */; };
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
 		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
+		48C69FB22555399A00E0DF3F /* Clibsodium in Frameworks */ = {isa = PBXBuildFile; productRef = 48C69FB12555399A00E0DF3F /* Clibsodium */; };
 		6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5505712552D56C000D27B1 /* TimePickerControl.swift */; };
 		6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E550579255301FD000D27B1 /* AddCommentControl.swift */; };
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
@@ -241,6 +242,7 @@
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
 				DC3F373325513B2B00B709D3 /* N2StepSDK in Frameworks */,
+				48C69FB22555399A00E0DF3F /* Clibsodium in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -721,6 +723,7 @@
 			packageProductDependencies = (
 				8E81CCCE241FD813006F2437 /* SnapKit */,
 				DC3F373225513B2B00B709D3 /* N2StepSDK */,
+				48C69FB12555399A00E0DF3F /* Clibsodium */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* N2Step.app */;
@@ -1446,6 +1449,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		48C69FB12555399A00E0DF3F /* Clibsodium */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC3F373125513B2B00B709D3 /* XCRemoteSwiftPackageReference "n2step-sdk-ios" */;
+			productName = Clibsodium;
+		};
 		8E81CCCE241FD813006F2437 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */;
