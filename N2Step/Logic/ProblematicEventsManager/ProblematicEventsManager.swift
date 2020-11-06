@@ -68,6 +68,7 @@ class ProblematicEventsManager {
             let message = i.message.bytes
 
             let info = ProblematicEventInfo(privateKey: sk, entry: entry, exit: exit, message: message)
+            problematicEvents.append(info)
         }
 
         exposureEvents = N2Step.checkForMatches(publishedSKs: problematicEvents)
