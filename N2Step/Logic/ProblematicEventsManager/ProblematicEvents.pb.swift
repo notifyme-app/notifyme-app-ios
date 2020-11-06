@@ -158,7 +158,6 @@ extension ProblematicEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if self._secretKey == nil { return false }
         if self._startTime == nil { return false }
         if self._endTime == nil { return false }
-        if self._message == nil { return false }
         return true
     }
 
