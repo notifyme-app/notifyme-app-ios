@@ -31,7 +31,9 @@ class AddCommentControl: UIView {
 
     // MARK: - API
 
-    public func setComment(text _: String?) {}
+    public func setComment(text: String?) {
+        textField.text = text
+    }
 
     // MARK: - Setup
 

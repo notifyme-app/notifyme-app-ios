@@ -115,6 +115,8 @@ class CheckinEditViewController: BaseViewController {
             fromTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime)
             toTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime)
         }
+
+        addCommentControl.setComment(text: checkIn?.comment)
     }
 
     // MARK: - Setup
