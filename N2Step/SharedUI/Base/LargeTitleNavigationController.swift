@@ -16,6 +16,7 @@ class LargeTitleNavigationController: UIViewController {
 
     let contentViewController: BaseViewController
     private let titleLabel = Label(.title, numberOfLines: 1)
+    private let lineView = UIView()
 
     init(contentViewController: BaseViewController) {
         self.contentViewController = contentViewController
@@ -35,6 +36,7 @@ class LargeTitleNavigationController: UIViewController {
         super.viewDidLoad()
         setupHeader()
         setupContent()
+        setupLine()
     }
 
     private func setupHeader() {
@@ -84,6 +86,16 @@ class LargeTitleNavigationController: UIViewController {
         }
     }
 
+    private func setupLine() {
+        view.addSubview(lineView)
+        lineView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.height.equalTo(1.0)
+            make.top.equalTo(LargeTitleNavigationController.headerHeight - 1.0)
+        }
+        lineView.backgroundColor = UIColor.white
+    }
+
     private func setupContent() {
         addChild(contentViewController)
         view.addSubview(contentViewController.view)
@@ -94,5 +106,24 @@ class LargeTitleNavigationController: UIViewController {
         }
 
         contentViewController.didMove(toParent: self)
+        contentViewController.scrollViewContentOffsetDelegate = self
+    }
+}
+
+extension LargeTitleNavigationController: ScrollViewContentOffsetUpdateDelegate {
+    func didUpdateContentOffset(s: CGPoint) {
+        UIView.animate(withDuration: 0.15) {
+            if s.y > 0 {
+                if self.lineView.backgroundColor == .clear {
+                    self.lineView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
+                    self.lineView.ub_addShadow(with: .black, radius: 3.0, opacity: 1.0, xOffset: 0.0, yOffset: 3.0)
+                }
+            } else {
+                if self.lineView.backgroundColor != .clear {
+                    self.lineView.backgroundColor = .clear
+                    self.lineView.ub_addShadow(with: .black, radius: 2.0, opacity: 0.0, xOffset: 0.0, yOffset: 2.0)
+                }
+            }
+        }
     }
 }

@@ -28,6 +28,7 @@ class DiaryCollectionView: UICollectionView {
     // MARK: - Setup
 
     public func setup() {
+        alwaysBounceVertical = true
         backgroundColor = UIColor.clear
         contentInset = UIEdgeInsets(top: 0.0, left: Padding.mediumSmall, bottom: 0.0, right: Padding.mediumSmall)
 
@@ -41,7 +42,8 @@ class DiaryCollectionView: UICollectionView {
             flowLayout.estimatedItemSize = CGSize(width: collectionViewContentWidth, height: 80)
         }
 
-        // collectionViewLayout.invalidateLayout()
+        collectionViewLayout.invalidateLayout()
+
         reloadData()
     }
 }

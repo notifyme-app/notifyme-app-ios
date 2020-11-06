@@ -114,6 +114,10 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
         return CGSize(width: view.bounds.width, height: 56.0)
     }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollViewContentOffsetDelegate?.didUpdateContentOffset(s: scrollView.contentOffset)
+    }
 }
 
 extension DiaryViewController: UICollectionViewDataSource {

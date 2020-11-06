@@ -19,7 +19,7 @@ class HomescreenViewController: BaseViewController {
     private let checkInButton = CheckInButton()
     private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
 
-    private let personImageView = UIImageView(image: UIImage(named: "person"))
+    private let personImageView = UIImageView()
 
     private let refreshControl = UIRefreshControl()
 
@@ -116,10 +116,18 @@ class HomescreenViewController: BaseViewController {
     }
 
     private func setupPersonView() {
+        let small = view.bounds.size.width <= 375
+
+        if view.bounds.size.width > 320 {
+            personImageView.image = UIImage(named: "person")?.ub_image(byScaling: small ? 0.8 : 1.0)
+        }
+
         view.insertSubview(personImageView, at: 0)
 
+        let padding = small ? 0 : Padding.large + Padding.medium
+
         personImageView.snp.makeConstraints { make in
-            make.bottom.greaterThanOrEqualTo(checkInButton.snp.top).offset(-Padding.large - Padding.medium).priority(.medium)
+            make.bottom.greaterThanOrEqualTo(checkInButton.snp.top).offset(-padding).priority(.medium)
             make.right.equalToSuperview().inset(Padding.medium + 8.0)
         }
     }

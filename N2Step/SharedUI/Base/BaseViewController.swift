@@ -11,8 +11,14 @@
 
 import UIKit
 
+protocol ScrollViewContentOffsetUpdateDelegate {
+    func didUpdateContentOffset(s: CGPoint)
+}
+
 class BaseViewController: UIViewController {
     // MARK: - Init
+
+    var scrollViewContentOffsetDelegate: ScrollViewContentOffsetUpdateDelegate?
 
     init() {
         super.init(nibName: nil, bundle: nil)
