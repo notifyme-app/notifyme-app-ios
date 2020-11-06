@@ -37,7 +37,6 @@ class ReportsInformationViewController: BaseSubViewController {
     private func update(_ state: UIStateModel) {
         switch state.exposureState {
         case .noExposure:
-            break
             exposure = []
             collectionView.reloadData()
         case let .exposure(_, exposureByDay):
