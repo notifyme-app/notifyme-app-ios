@@ -37,7 +37,47 @@ class UIStateLogic {
     private func buildExposureState() -> UIStateModel.ExposureState {
         let events = ProblematicEventsManager.shared.getExposureEvents().sorted { $0.arrivalTime < $1.arrivalTime
         }
-        return events.count > 0 ? .exposure(exposureEvents: events) : .noExposure
+
+        let diary = CheckInManager.shared.getDiary()
+
+        var exposures: [Exposure] = []
+
+        for event in events {
+            let diaryEntry = diary.first { $0.identifier == event.checkinId }
+            exposures.append(Exposure(exposureEvent: event, diaryEntry: diaryEntry))
+        }
+
+        var result: [[Exposure]] = []
+        var currentDate: Date?
+        var currentCheckins: [Exposure] = []
+
+        let calendar = NSCalendar.current
+
+        for i in exposures {
+            let d = calendar.startOfDay(for: i.exposureEvent.arrivalTime)
+
+            if currentDate == nil {
+                currentDate = d
+            }
+
+            guard let cd = currentDate else { continue }
+
+            if cd == d {
+                currentCheckins.append(i)
+            } else {
+                result.append(currentCheckins)
+                currentCheckins.removeAll()
+
+                currentDate = d
+                currentCheckins.append(i)
+            }
+        }
+
+        if currentCheckins.count > 0 {
+            result.append(currentCheckins)
+        }
+
+        return exposures.count > 0 ? .exposure(exposure: exposures, exposureByDay: result) : .noExposure
     }
 
     private func buildDiaryState() -> [[CheckIn]] {

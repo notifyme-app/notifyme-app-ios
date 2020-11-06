@@ -17,7 +17,11 @@ class DiaryEntryCollectionViewCell: UICollectionViewCell {
     private let diaryContentView = DiaryEntryContentView()
 
     public var checkIn: CheckIn? {
-        didSet { self.diaryContentView.checkIn = checkIn }
+        didSet { diaryContentView.checkIn = checkIn }
+    }
+
+    public var exposure: Exposure? {
+        didSet { self.diaryContentView.exposure = exposure }
     }
 
     // MARK: - Init

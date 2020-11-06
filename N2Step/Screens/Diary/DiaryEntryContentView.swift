@@ -15,7 +15,7 @@ class DiaryEntryContentView: UIView {
     // MARK: - Subviews
 
     private let imageView = UIImageView(image: UIImage(named: "illus-meeting"))
-    private let checkImageView = UIImageView(image: UIImage(named: "icons-ic-check-filled"))
+    private let checkImageView = UIImageView()
 
     private let roomLabel = Label(.textBold)
     private let venueLabel = Label(.text)
@@ -23,6 +23,10 @@ class DiaryEntryContentView: UIView {
 
     public var checkIn: CheckIn? {
         didSet { update() }
+    }
+
+    public var exposure: Exposure? {
+        didSet { updateExposure() }
     }
 
     // MARK: - Init
@@ -64,7 +68,27 @@ class DiaryEntryContentView: UIView {
 
     // MARK: - Update
 
+    private func updateExposure() {
+        if let d = exposure?.diaryEntry {
+            checkIn = d
+        } else {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "HH:mm"
+
+            // TODO: set wording for hidden exposures
+            venueLabel.text = "Exposure"
+            if let e = exposure?.exposureEvent {
+                timeLabel.text = [e.arrivalTime, e.departureTime].compactMap { (date) -> String? in
+                    formatter.string(from: date)
+                }.joined(separator: " – ")
+            }
+        }
+
+        checkImageView.image = UIImage(named: "icons-ic-red-info")
+    }
+
     private func update() {
+        checkImageView.image = UIImage(named: "icons-ic-check-filled")
         roomLabel.text = checkIn?.venue.room
         venueLabel.text = checkIn?.venue.location
 

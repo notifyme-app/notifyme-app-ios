@@ -18,11 +18,30 @@ class ReportsInformationViewController: BaseSubViewController {
 
     private let collectionView = DiaryCollectionView()
 
+    private var exposure: [[Exposure]] = []
+
     // MARK: - View
 
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+
+        UIStateManager.shared.addObserver(self) { [weak self] state in
+            guard let strongSelf = self else { return }
+            strongSelf.update(state)
+        }
+    }
+
+    // MARK: - State update
+
+    private func update(_ state: UIStateModel) {
+        switch state.exposureState {
+        case .noExposure:
+            break
+        case let .exposure(_, exposureByDay):
+            exposure = exposureByDay
+            collectionView.reloadData()
+        }
     }
 
     // MARK: - Setup
@@ -44,8 +63,7 @@ class ReportsInformationViewController: BaseSubViewController {
 
 extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
     func numberOfSections(in _: UICollectionView) -> Int {
-        // TODO: set real values
-        return 3
+        return exposure.count + 1
     }
 
     func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -79,7 +97,7 @@ extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
 extension ReportsInformationViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // TODO: set real values
-        return section == 0 ? 1 : 5
+        return section == 0 ? 1 : exposure[section - 1].count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -88,6 +106,10 @@ extension ReportsInformationViewController: UICollectionViewDataSource {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(for: indexPath) as DiaryEntryCollectionViewCell
+
+            let e = exposure[indexPath.section - 1][indexPath.row]
+            cell.exposure = e
+
             return cell
         }
     }
@@ -99,6 +121,21 @@ extension ReportsInformationViewController: UICollectionViewDataSource {
 
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DiaryDateSectionHeaderSupplementaryView
         // TODO: set real values
+
+        if indexPath.section > 0 {
+            var daysAgo = 1
+            if let firstArrivaltime = exposure[indexPath.section - 1].first?.exposureEvent.arrivalTime {
+                let calendar = Calendar.current
+                let start = calendar.startOfDay(for: firstArrivaltime)
+                let now = calendar.startOfDay(for: Date())
+                let components = calendar.dateComponents([.day], from: start, to: now)
+
+                daysAgo = components.day ?? 1
+            }
+
+            let subText = daysAgo > 1 ? "report_message_days_ago".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(daysAgo)") : "report_message_one_day_ago".ub_localized
+            headerView.text = subText
+        }
 
         return headerView
     }

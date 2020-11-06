@@ -24,6 +24,12 @@ class DiaryDateSectionHeaderSupplementaryView: UICollectionReusableView {
         }
     }
 
+    public var text: String? {
+        didSet {
+            label.text = text
+        }
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setup()

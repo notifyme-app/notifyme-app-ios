@@ -52,12 +52,12 @@ class HomescreenReportViewController: BaseSubViewController {
         case .noExposure:
             reportButton.setContent(title: "no_report_title".ub_localized)
 
-        case let .exposure(events):
-            let title = events.count > 1 ? "report_title_plural".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(events.count)") : "report_title_singular".ub_localized
+        case let .exposure(exposure, _):
+            let title = exposure.count > 1 ? "report_title_plural".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(exposure.count)") : "report_title_singular".ub_localized
             noReportLabel.isHidden = true
 
             var daysAgo = 1
-            if let firstArrivaltime = events.first?.arrivalTime {
+            if let firstArrivaltime = exposure.first?.exposureEvent.arrivalTime {
                 let calendar = Calendar.current
                 let start = calendar.startOfDay(for: firstArrivaltime)
                 let now = calendar.startOfDay(for: Date())

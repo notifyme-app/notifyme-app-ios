@@ -25,6 +25,16 @@ struct UIStateModel: Equatable {
 
     enum ExposureState: Equatable {
         case noExposure
-        case exposure(exposureEvents: [ExposureEvent])
+        case exposure(exposure: [Exposure], exposureByDay: [[Exposure]])
     }
+}
+
+struct Exposure: Equatable {
+    init(exposureEvent: ExposureEvent, diaryEntry: CheckIn?) {
+        self.exposureEvent = exposureEvent
+        self.diaryEntry = diaryEntry
+    }
+
+    let exposureEvent: ExposureEvent
+    let diaryEntry: CheckIn?
 }
