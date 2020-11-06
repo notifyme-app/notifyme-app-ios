@@ -13,6 +13,7 @@ import Foundation
 
 enum ReminderOption: Int, UBCodable, CaseIterable {
     case off
+    case threeMinutes
     case oneHour
     case twoHours
 
@@ -20,6 +21,8 @@ enum ReminderOption: Int, UBCodable, CaseIterable {
         switch self {
         case .off:
             return "reminder_option_off".ub_localized.uppercased()
+        case .threeMinutes:
+            return "3 min"
         case .oneHour:
             return "reminder_option_1h".ub_localized
         case .twoHours:
@@ -31,6 +34,8 @@ enum ReminderOption: Int, UBCodable, CaseIterable {
         switch self {
         case .off:
             return 0
+        case .threeMinutes:
+            return 3 * 60
         case .oneHour:
             return 60 * 60
         case .twoHours:

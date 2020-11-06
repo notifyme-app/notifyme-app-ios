@@ -46,6 +46,8 @@ class CheckInManager {
 
     public func checkOut() {
         if var cc = currentCheckin {
+            ReminderManager.shared.removeAllReminder()
+
             let result = N2Step.addCheckin(qrCode: cc.qrCode, arrivalTime: cc.checkInTime, departureTime: cc.checkOutTime)
 
             switch result {
