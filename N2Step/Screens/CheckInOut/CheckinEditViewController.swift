@@ -21,8 +21,8 @@ class CheckinEditViewController: BaseViewController {
     private let venueView = VenueView(icon: false)
     private let startDateLabel = Label(.textBold, textAlignment: .center)
 
-    private let fromTimePickerControl = TimePickerControl(text: "datepicker_from".ub_localized)
-    private let toTimePickerControl = TimePickerControl(text: "datepicker_to".ub_localized)
+    private let fromTimePickerControl = TimePickerControl(text: "datepicker_from".ub_localized, isStart: true)
+    private let toTimePickerControl = TimePickerControl(text: "datepicker_to".ub_localized, isStart: false)
     private let addCommentControl = AddCommentControl()
 
     private let removeFromDiaryButton = BigButton(style: .small, text: "remove_from_diary_button".ub_localized)
@@ -80,7 +80,7 @@ class CheckinEditViewController: BaseViewController {
         if isCurrentCheckin {
             switch state.checkInState {
             case .noCheckIn:
-                break
+                checkIn = nil
             case let .checkIn(checkIn):
                 self.checkIn = checkIn
             }
@@ -112,8 +112,8 @@ class CheckinEditViewController: BaseViewController {
 
             let checkOutTime = checkIn?.checkOutTime ?? Date()
 
-            fromTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime, isStart: true)
-            toTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime, isStart: false)
+            fromTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime)
+            toTimePickerControl.setDate(currentStart: date, currentEnd: checkOutTime)
         }
     }
 
@@ -127,13 +127,13 @@ class CheckinEditViewController: BaseViewController {
                 CheckInManager.shared.checkOut()
 
                 let presentingVC = strongSelf.presentingViewController
-                strongSelf.dismiss(animated: true) {
-                    if let nvc = presentingVC as? UINavigationController {
-                        nvc.popToRootViewController(animated: true)
-                    } else {
-                        presentingVC?.navigationController?.popToRootViewController(animated: true)
-                    }
+                if let nvc = presentingVC as? UINavigationController {
+                    nvc.popToRootViewController(animated: true)
+                } else {
+                    presentingVC?.navigationController?.popToRootViewController(animated: true)
                 }
+                strongSelf.dismiss(animated: true, completion: nil)
+
             } else {
                 strongSelf.dismiss(animated: true, completion: nil)
             }

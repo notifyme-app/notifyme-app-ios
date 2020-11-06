@@ -41,6 +41,8 @@ class QRCodeScannerViewController: BaseSubViewController {
     }
 
     public func stopScanning() {
+        timer?.invalidate()
+        timer = nil
         lastQrCode = nil
         qrView?.stopScanning()
     }
@@ -51,6 +53,11 @@ class QRCodeScannerViewController: BaseSubViewController {
         super.viewDidLoad()
         view.backgroundColor = .ns_grayBackground
         setupQRView()
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        stopScanning()
     }
 
     // MARK: - Setup

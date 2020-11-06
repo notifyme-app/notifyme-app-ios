@@ -11,17 +11,30 @@
 
 import UIKit
 
-protocol ScrollViewContentOffsetUpdateDelegate {
+@objc protocol ScrollViewContentOffsetUpdateDelegate {
     func didUpdateContentOffset(s: CGPoint)
 }
 
 class BaseViewController: UIViewController {
     // MARK: - Init
 
-    var scrollViewContentOffsetDelegate: ScrollViewContentOffsetUpdateDelegate?
+    weak var scrollViewContentOffsetDelegate: ScrollViewContentOffsetUpdateDelegate?
+
+    public static var instanceCount = 0
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+        BaseViewController.instanceCount -= 1
+        dprint("'\(self.classForCoder)' has been removed, there are now \(BaseViewController.instanceCount).")
+    }
+
+    // MARK: - Initialization
 
     init() {
         super.init(nibName: nil, bundle: nil)
+
+        BaseViewController.instanceCount += 1
+        dprint("'\(classForCoder)' has been added, there are now \(BaseViewController.instanceCount).")
     }
 
     required init?(coder _: NSCoder) {

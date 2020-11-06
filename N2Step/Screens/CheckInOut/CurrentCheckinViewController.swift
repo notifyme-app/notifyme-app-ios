@@ -39,7 +39,7 @@ class CurrentCheckinViewController: BaseSubViewController {
     private func update(_ state: UIStateModel) {
         switch state.checkInState {
         case .noCheckIn:
-            break
+            checkIn = nil
         case let .checkIn(checkIn):
             self.checkIn = checkIn
         }

@@ -41,6 +41,11 @@ class CheckInViewController: BaseViewController {
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        stopTitleTimer()
+    }
+
     // MARK: - Update
 
     private func update(_ state: UIStateModel) {

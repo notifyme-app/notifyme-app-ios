@@ -17,9 +17,12 @@ class TimePickerControl: UIView {
 
     public var timeChangedCallback: ((Date) -> Void)?
 
+    private let isStart: Bool
+
     // MARK: - Init
 
-    init(text: String) {
+    init(text: String, isStart: Bool) {
+        self.isStart = isStart
         super.init(frame: .zero)
         label.text = text
         setup()
@@ -31,7 +34,7 @@ class TimePickerControl: UIView {
 
     // MARK: - API
 
-    public func setDate(currentStart: Date, currentEnd: Date, isStart: Bool) {
+    public func setDate(currentStart: Date, currentEnd: Date) {
         let calendar = Calendar.current
         let startTime = calendar.startOfDay(for: currentStart)
 
