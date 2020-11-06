@@ -23,50 +23,18 @@ class CheckInManager {
 
     @KeychainPersisted(key: "ch.n2step.current.diary.key", defaultValue: [])
     private var diary: [CheckIn] {
-        didSet { UIStateManager.shared.userCheckinStateChanged() }
+        didSet { UIStateManager.shared.stateChanged() }
     }
 
     @UBOptionalUserDefault(key: "ch.n2step.current.checkin.key")
     public var currentCheckin: CheckIn? {
-        didSet { UIStateManager.shared.userCheckinStateChanged() }
+        didSet { UIStateManager.shared.stateChanged() }
     }
 
     // MARK: - Public API
 
-    public func getDiary() -> [[CheckIn]] {
-        var result: [[CheckIn]] = []
-        var currentDate: Date?
-        var currentCheckins: [CheckIn] = []
-
-        let calendar = NSCalendar.current
-
-        for i in diary.sorted(by: { (a, b) -> Bool in
-            a.checkInTime < b.checkInTime
-        }) {
-            let d = calendar.startOfDay(for: i.checkInTime)
-
-            if currentDate == nil {
-                currentDate = d
-            }
-
-            guard let cd = currentDate else { continue }
-
-            if cd == d {
-                currentCheckins.append(i)
-            } else {
-                result.append(currentCheckins)
-                currentCheckins.removeAll()
-
-                currentDate = d
-                currentCheckins.append(i)
-            }
-        }
-
-        if currentCheckins.count > 0 {
-            result.append(currentCheckins)
-        }
-
-        return result
+    public func getDiary() -> [CheckIn] {
+        return diary
     }
 
     public func hideFromDiary(identifier: String) {

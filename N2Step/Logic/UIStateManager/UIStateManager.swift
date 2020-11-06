@@ -29,7 +29,7 @@ class UIStateManager: NSObject {
 
     // MARK: - Refresh triggers
 
-    public func userCheckinStateChanged() {
+    public func stateChanged() {
         refresh()
     }
 
