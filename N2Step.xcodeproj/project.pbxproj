@@ -91,7 +91,6 @@
 		DC37327325555289004155B6 /* CryptoFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326125555289004155B6 /* CryptoFunctions.swift */; };
 		DC37327425555289004155B6 /* N2StepMain.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326225555289004155B6 /* N2StepMain.swift */; };
 		DC37327525555289004155B6 /* ExposureEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326425555289004155B6 /* ExposureEvent.swift */; };
-		DC37327625555289004155B6 /* QRCode.proto in Sources */ = {isa = PBXBuildFile; fileRef = DC37326525555289004155B6 /* QRCode.proto */; };
 		DC37327725555289004155B6 /* ProblematicEventInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326625555289004155B6 /* ProblematicEventInfo.swift */; };
 		DC37327825555289004155B6 /* QRCode.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326725555289004155B6 /* QRCode.pb.swift */; };
 		DC37327925555289004155B6 /* N2StepError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC37326825555289004155B6 /* N2StepError.swift */; };
@@ -232,7 +231,6 @@
 		DC37326125555289004155B6 /* CryptoFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CryptoFunctions.swift; sourceTree = "<group>"; };
 		DC37326225555289004155B6 /* N2StepMain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = N2StepMain.swift; sourceTree = "<group>"; };
 		DC37326425555289004155B6 /* ExposureEvent.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExposureEvent.swift; sourceTree = "<group>"; };
-		DC37326525555289004155B6 /* QRCode.proto */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.protobuf; path = QRCode.proto; sourceTree = "<group>"; };
 		DC37326625555289004155B6 /* ProblematicEventInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblematicEventInfo.swift; sourceTree = "<group>"; };
 		DC37326725555289004155B6 /* QRCode.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRCode.pb.swift; sourceTree = "<group>"; };
 		DC37326825555289004155B6 /* N2StepError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = N2StepError.swift; sourceTree = "<group>"; };
@@ -700,7 +698,6 @@
 			isa = PBXGroup;
 			children = (
 				DC37326425555289004155B6 /* ExposureEvent.swift */,
-				DC37326525555289004155B6 /* QRCode.proto */,
 				DC37326625555289004155B6 /* ProblematicEventInfo.swift */,
 				DC37326725555289004155B6 /* QRCode.pb.swift */,
 				DC37326825555289004155B6 /* N2StepError.swift */,
@@ -1049,7 +1046,6 @@
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
 				6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */,
 				DCA862A6255597C3001B0666 /* ExposureStorage.swift in Sources */,
-				DC37327625555289004155B6 /* QRCode.proto in Sources */,
 				6E6629DF255050DE00347F06 /* UIStateLogic.swift in Sources */,
 				6E662903254AF38500347F06 /* PotentialInfectionViewController.swift in Sources */,
 				DC702B0B243F6FAE0066C773 /* UBPListValue.swift in Sources */,
