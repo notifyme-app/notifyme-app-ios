@@ -18,6 +18,8 @@ class ReportsViewController: BaseViewController {
 
     private let reportsInformationViewController = ReportsInformationViewController()
 
+    private let stackScrollView = StackScrollView(axis: .vertical, spacing: 0)
+
     // MARK: - View
 
     override func viewDidLoad() {
@@ -34,23 +36,26 @@ class ReportsViewController: BaseViewController {
     // MARK: - Setup
 
     private func setup() {
-        // view for no reports
-        view.addSubview(noReportInformationView)
-
-        noReportInformationView.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.left.right.equalToSuperview().inset(Padding.mediumSmall)
-        }
-
-        // view with reports
-        addChild(reportsInformationViewController)
-        view.addSubview(reportsInformationViewController.view)
-
-        reportsInformationViewController.view.snp.makeConstraints { make in
+        view.addSubview(stackScrollView)
+        stackScrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
 
-        reportsInformationViewController.didMove(toParent: self)
+        // view for no reports
+        let v = UIView()
+        v.addSubview(noReportInformationView)
+
+        stackScrollView.addArrangedView(v)
+
+        noReportInformationView.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.left.right.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        stackScrollView.scrollView.delegate = self
+
+        // view with reports
+        addSubviewController(vc: reportsInformationViewController)
     }
 
     // MARK: - Update
@@ -67,5 +72,11 @@ class ReportsViewController: BaseViewController {
             noReportInformationView.isHidden = true
             reportsInformationViewController.view.isHidden = false
         }
+    }
+}
+
+extension ReportsViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        scrollViewContentOffsetDelegate?.didUpdateContentOffset(s: scrollView.contentOffset)
     }
 }

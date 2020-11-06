@@ -11,7 +11,7 @@
 
 import Foundation
 
-class CurrentCheckinViewController: BaseViewController {
+class CurrentCheckinViewController: BaseSubViewController {
     private let contentView = StackScrollView()
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
     private let venueView = VenueView(icon: false)
@@ -142,6 +142,8 @@ class CurrentCheckinViewController: BaseViewController {
         whiteView.layer.cornerRadius = 36.0
         whiteView.ub_addShadow(radius: 20.0, opacity: 0.17, xOffset: 0, yOffset: 2.0)
         contentView.clipsToBounds = true
+
+        contentView.scrollView.delegate = self
     }
 
     // MARK: - Present
@@ -155,5 +157,11 @@ class CurrentCheckinViewController: BaseViewController {
     private func update() {
         venueView.venue = checkIn?.venue
         reminderControl.setOption(ReminderManager.shared.currentReminder)
+    }
+}
+
+extension CurrentCheckinViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        baseViewController?.scrollViewContentOffsetDelegate?.didUpdateContentOffset(s: scrollView.contentOffset)
     }
 }

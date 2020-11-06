@@ -70,6 +70,10 @@ extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
             return CGSize(width: width, height: 200.0)
         }
     }
+
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        baseViewController?.scrollViewContentOffsetDelegate?.didUpdateContentOffset(s: scrollView.contentOffset)
+    }
 }
 
 extension ReportsInformationViewController: UICollectionViewDataSource {

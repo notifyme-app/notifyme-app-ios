@@ -12,6 +12,8 @@
 import Foundation
 
 class BaseSubViewController: UIViewController {
+    public var baseViewController: BaseViewController?
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }

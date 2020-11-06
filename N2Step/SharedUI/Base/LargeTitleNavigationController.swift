@@ -93,7 +93,7 @@ class LargeTitleNavigationController: UIViewController {
             make.height.equalTo(1.0)
             make.top.equalTo(LargeTitleNavigationController.headerHeight - 1.0)
         }
-        lineView.backgroundColor = UIColor.white
+        lineView.backgroundColor = UIColor.clear
     }
 
     private func setupContent() {

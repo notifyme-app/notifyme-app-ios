@@ -77,4 +77,18 @@ class BaseViewController: UIViewController {
 
         view.layer.cornerRadius = size * 0.5
     }
+
+    // MARK: - add subviewcontroller
+
+    public func addSubviewController(vc: BaseSubViewController) {
+        addChild(vc)
+        view.addSubview(vc.view)
+
+        vc.view.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        vc.didMove(toParent: self)
+        vc.baseViewController = self
+    }
 }

@@ -11,7 +11,7 @@
 
 import Foundation
 
-class QRCodeScannerViewController: BaseViewController {
+class QRCodeScannerViewController: BaseSubViewController {
     private var qrView: QRScannerView?
     private var qrOverlay = QRScannerOverlay()
 
