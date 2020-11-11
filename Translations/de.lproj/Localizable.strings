@@ -1,5 +1,5 @@
 "language_code" = "de";
-"app_name" = "N2Step";
+"app_name" = "NotifyMe";
 
 /*Title of Checkin Screen*/
 "checkin_title" = "Check-In";
@@ -141,3 +141,6 @@
 
 /*Info Text that is displayed below the info about a new report today.*/
 "report_message_today" = "Today";
+
+/*Checkout date label if event spans over more than one day*/
+"checkout_from_to_date" = "{DATE} to {DATE}";

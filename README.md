@@ -1,8 +1,8 @@
-<h1 align="center">N2Step for iOS</h1>
-<h4 align="center">N2Step App for Switzerland 🇨🇭</h4>
+<h1 align="center">NotifyMe for iOS</h1>
+<h4 align="center">NotifyMe App for Switzerland 🇨🇭</h4>
 <br />
 <div align="center">
-  <img width="180" height="180" src="N2Step/Resources/Assets.xcassets/AppIcon.appiconset/appicon@180x180.png" />
+  <img width="180" height="180" src="NotifyMe/Resources/Assets.xcassets/AppIcon.appiconset/appicon@180x180.png" />
   <br />
 </div>
 <br />
@@ -13,12 +13,12 @@
       src="https://img.shields.io/badge/SPM-%E2%9C%93-brightgreen.svg?style=flat">
     </a>
     <!-- Build -->
-    <a href="https://github.com/UbiqueInnovation/n2step-app-ios/build">
+    <a href="https://github.com/UbiqueInnovation/notifyme-app-ios/build">
       <img alt="Build"
-      src="https://github.com/UbiqueInnovation/n2step-app-ios/workflows/build/badge.svg">
+      src="https://github.com/UbiqueInnovation/notifyme-app-ios/workflows/build/badge.svg">
     </a>
     <!-- License -->
-    <a href="https://github.com/UbiqueInnovation/n2step-app-ios/blob/master/LICENSE">
+    <a href="https://github.com/UbiqueInnovation/notifyme-app-ios/blob/master/LICENSE">
       <img alt="License: MPL 2.0"
       src="https://img.shields.io/badge/License-MPL%202.0-brightgreen.svg">
     </a>
@@ -33,7 +33,7 @@ TODO
 TODO
 
 ## Repositories
-* iOS SDK & Sample app: [n2step-sdk-ios](https://github.com/UbiqueInnovation/n2step-sdk-ios)
+* iOS SDK & Sample app: [crowdnotifier-sdk-ios](https://github.com/UbiqueInnovation/crowdnotifier-sdk-ios)
 
 
 ## Further Documentation
