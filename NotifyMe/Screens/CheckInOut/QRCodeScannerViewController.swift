@@ -181,7 +181,7 @@ extension QRCodeScannerViewController: QRScannerViewDelegate {
         guard let str = str else { return }
         lastQrCode = str
 
-        let result = CrowdNotifier.getVenueInfo(qrCode: str)
+        let result = CrowdNotifier.getVenueInfo(qrCode: str, baseUrl: Environment.current.qrGenBaseUrl)
 
         switch result {
         case let .success(info):

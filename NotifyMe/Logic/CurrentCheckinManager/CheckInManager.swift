@@ -49,12 +49,11 @@ class CheckInManager {
         if var cc = currentCheckin {
             ReminderManager.shared.removeAllReminder()
 
-            let result = CrowdNotifier.addCheckin(qrCode: cc.qrCode, arrivalTime: cc.checkInTime, departureTime: cc.checkOutTime)
+            let result = CrowdNotifier.addCheckin(arrivalTime: cc.checkInTime, departureTime: cc.checkOutTime, notificationKey: cc.notificationKey, venuePublicKey: cc.venuePublicKey)
 
             switch result {
-            case .success(let (venueInfo, id)):
+            case let .success(id):
                 cc.identifier = id
-                cc.venue = venueInfo
                 saveAdditionalInfo(checkIn: cc)
             case .failure:
                 break
@@ -65,7 +64,7 @@ class CheckInManager {
     }
 
     public func updateCheckIn(checkIn: CheckIn) {
-        let result = CrowdNotifier.updateCheckin(checkinId: checkIn.identifier, qrCode: checkIn.qrCode, newArrivalTime: checkIn.checkInTime, newDepartureTime: checkIn.checkOutTime)
+        let result = CrowdNotifier.updateCheckin(checkinId: checkIn.identifier, newArrivalTime: checkIn.checkInTime, newDepartureTime: checkIn.checkOutTime, notificationKey: checkIn.notificationKey, venuePublicKey: checkIn.venuePublicKey)
 
         switch result {
         case .success:

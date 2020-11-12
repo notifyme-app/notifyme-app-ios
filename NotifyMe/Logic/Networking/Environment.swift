@@ -31,18 +31,27 @@ enum Environment {
     var backendService: Backend {
         switch self {
         case .dev:
-            return Backend("https://app-dev-ws.n2s.ch", version: "v1")
+            return Backend("https://app-dev-ws.notify-me.ch", version: "v1")
         case .prod:
-            return Backend("https://app-prod-ws.n2s.ch", version: "v1")
+            return Backend("https://app-prod-ws.notify-me.ch", version: "v1")
         }
     }
 
     var uploadHost: String {
         switch self {
         case .dev:
-            return "upload-dev.n2s.ch"
+            return "upload-dev.notify-me.ch"
         case .prod:
-            return "upload.n2s.ch"
+            return "upload.notify-me.ch"
+        }
+    }
+
+    var qrGenBaseUrl: String {
+        switch self {
+        case .dev:
+            return "https://qr-dev.notify-me.ch"
+        case .prod:
+            return "https://qr.notify-me.ch"
         }
     }
 }

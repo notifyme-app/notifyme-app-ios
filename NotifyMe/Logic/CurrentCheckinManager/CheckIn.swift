@@ -38,3 +38,15 @@ struct CheckIn: UBCodable, Equatable {
         return Date().timeIntervalSince(checkInTime).ns_formatTime()
     }
 }
+
+extension CheckIn {
+    // MARK: - Convenience getters
+
+    var notificationKey: Bytes {
+        return venue.notificationKey.bytes
+    }
+
+    var venuePublicKey: Bytes {
+        return venue.publicKey.bytes
+    }
+}
