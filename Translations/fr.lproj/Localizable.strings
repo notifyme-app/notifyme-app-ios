@@ -1,4 +1,8 @@
+
+/*Language code: Technical code used in app (translations filled in by Ubique)*/
 "language_code" = "fr";
+
+/*Name of the app*/
 "app_name" = "NotifyMe";
 
 /*Title of Checkin Screen*/
@@ -112,12 +116,6 @@
 /*Reminder: Option Off*/
 "reminder_option_off" = "off";
 
-/*Reminder Option one hour*/
-"reminder_option_1h" = "1 h";
-
-/*Reminder Option 2 hours*/
-"reminder_option_2h" = "2 h";
-
 /*Edit Checkin: Remove from diary button title*/
 "remove_from_diary_button" = "Hide from diary";
 
@@ -143,4 +141,49 @@
 "report_message_today" = "Today";
 
 /*Checkout date label if event spans over more than one day*/
-"checkout_from_to_date" = "{DATE} to {DATE}";
+"checkout_from_to_date" = "{DATE1} to {DATE2}";
+
+/*Text that is displayed to the user in the biometric authentication popup.*/
+"authenticate_for_diary" = "Authenticate yourself to access the diary";
+
+/*Notification Channel name for Reminders on Android Devices (Only visible in System Settings)*/
+"android_reminder_channel_name" = "Reminders";
+
+/*Reminder Option with an amount of hours*/
+"reminder_option_hours" = "{HOURS} h";
+
+/*Reminder Option with an amount of minutes*/
+"reminder_option_minutes" = "{MINUTES}'";
+
+/*Warning that is displayed on the Main Screen if a non productive build is used.*/
+"non_productive_warning" = "This app provides a preview of the NotifyMe app and is not meant for production";
+
+/*Checkin: Reminder Alert title when permission to send reminders not given*/
+"checkin_reminder_settings_alert_title" = "The reminder could not be set";
+
+/*Checkin: Reminder Alert message when permission to send reminders not given*/
+"checkin_reminder_settings_alert_message" = "In order to send you reminders the app needs the permission to send notifications. You can enable the permission for notifications in the app settings.";
+
+/*Check In Reminder Alert Open Settings button*/
+"checkin_reminder_option_open_settings" = "Open app settings";
+
+/*Cancel button title*/
+"cancel" = "Cancel";
+
+/*QR Scanner: camera has no permission explanation text*/
+"qr_scanner_no_camera_permission" = "Access to your camera is needed to scan QR codes";
+
+/*Title for an exposure notification.*/
+"exposure_notification_title" = "New message";
+
+/*Body text for an exposure notification.*/
+"exposure_notification_body" = "Open the app to read the message";
+
+/*Close button title in the top right corner to close the new exposure screen.*/
+"new_exposure_close_button" = "Close";
+
+/*Header text above the personal notes in the new exposure screen.*/
+"new_exposure_notes_header" = "Your Notes";
+
+/*Header text above the location details in the new exposure screen.*/
+"new_exposure_location_header" = "Where";

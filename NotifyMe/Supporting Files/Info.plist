@@ -32,9 +32,9 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string> NSCameraUsageDescription</string>
+	<string> </string>
 	<key>NSFaceIDUsageDescription</key>
-	<string>NSFaceIDUsageDescription</string>
+	<string> </string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>Inter-Regular.ttf</string>

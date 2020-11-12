@@ -54,6 +54,7 @@ extension QRScannerView {
     }
 
     func startScanning() {
+        doInitialSetup()
         captureSession?.startRunning()
     }
 
@@ -81,7 +82,7 @@ extension QRScannerView {
         do {
             videoInput = try AVCaptureDeviceInput(device: videoCaptureDevice)
         } catch {
-            print(error)
+            scanningDidFail()
             return
         }
 

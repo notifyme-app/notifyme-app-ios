@@ -13,20 +13,23 @@ import Foundation
 
 enum ReminderOption: Int, UBCodable, CaseIterable {
     case off
-    case threeMinutes
+    case thirtyMinutes
     case oneHour
     case twoHours
+    case fourHours
 
     var title: String {
         switch self {
         case .off:
             return "reminder_option_off".ub_localized.uppercased()
-        case .threeMinutes:
-            return "3 min"
+        case .thirtyMinutes:
+            return "reminder_option_minutes".ub_localized.replacingOccurrences(of: "{MINUTES}", with: "30")
         case .oneHour:
-            return "reminder_option_1h".ub_localized
+            return "reminder_option_hours".ub_localized.replacingOccurrences(of: "{HOURS}", with: "1")
         case .twoHours:
-            return "reminder_option_2h".ub_localized
+            return "reminder_option_hours".ub_localized.replacingOccurrences(of: "{HOURS}", with: "2")
+        case .fourHours:
+            return "reminder_option_hours".ub_localized.replacingOccurrences(of: "{HOURS}", with: "4")
         }
     }
 
@@ -34,12 +37,14 @@ enum ReminderOption: Int, UBCodable, CaseIterable {
         switch self {
         case .off:
             return 0
-        case .threeMinutes:
-            return 3 * 60
+        case .thirtyMinutes:
+            return 30 * 60
         case .oneHour:
             return 60 * 60
         case .twoHours:
             return 2 * 60 * 60
+        case .fourHours:
+            return 4 * 60 * 60
         }
     }
 }
@@ -56,10 +61,11 @@ class ReminderManager: NSObject {
 
     // MARK: - Public API
 
-    public func scheduleReminder(for id: String, with option: ReminderOption) {
+    public func scheduleReminder(for id: String, with option: ReminderOption, didFailCallback: @escaping (() -> Void)) {
         currentReminder = option
 
         if option == .off {
+            removeAllReminder()
             return
         }
 
@@ -69,7 +75,9 @@ class ReminderManager: NSObject {
             if granted {
                 self.scheduleNotification(for: id, in: option.timeInterval)
             } else {
-                // TODO: Problem.
+                DispatchQueue.main.async {
+                    didFailCallback()
+                }
             }
         }
     }

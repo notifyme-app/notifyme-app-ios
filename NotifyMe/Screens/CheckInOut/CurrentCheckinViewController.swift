@@ -50,10 +50,42 @@ class CurrentCheckinViewController: BaseSubViewController {
     private func setupReminderControl() {
         reminderControl.changeCallback = { [weak self] option in
             guard let strongSelf = self else { return }
+            strongSelf.scheduleReminder(option: option)
+        }
 
-            if let checkIn = strongSelf.checkIn {
-                ReminderManager.shared.scheduleReminder(for: checkIn.identifier, with: option)
-            }
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.scheduleReminder(option: ReminderManager.shared.currentReminder)
+        }
+    }
+
+    private func scheduleReminder(option: ReminderOption) {
+        if let checkIn = self.checkIn {
+            ReminderManager.shared.scheduleReminder(for: checkIn.identifier, with: option, didFailCallback: { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.handleReminderError()
+            })
+        }
+    }
+
+    private func handleReminderError() {
+        reminderControl.setOption(ReminderOption.off)
+
+        let alertController = UIAlertController(title: "checkin_reminder_settings_alert_title".ub_localized, message: "checkin_reminder_settings_alert_message".ub_localized, preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "checkin_reminder_option_open_settings".ub_localized, style: .default, handler: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.openAppSettings()
+        }))
+
+        alertController.addAction(UIAlertAction(title: "cancel".ub_localized, style: .cancel, handler: { _ in }))
+
+        present(alertController, animated: true, completion: nil)
+    }
+
+    private func openAppSettings() {
+        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(settingsURL)
         }
     }
 
@@ -157,6 +189,10 @@ class CurrentCheckinViewController: BaseSubViewController {
     private func update() {
         venueView.venue = checkIn?.venue
         reminderControl.setOption(ReminderManager.shared.currentReminder)
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 

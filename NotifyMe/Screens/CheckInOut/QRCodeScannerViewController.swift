@@ -16,6 +16,8 @@ class QRCodeScannerViewController: BaseSubViewController {
     private var qrView: QRScannerView?
     private var qrOverlay = QRScannerOverlay()
 
+    private var cameraPermissionErrorView = UIView()
+
     private let requestLabel = Label(.text, textAlignment: .center)
     private let qrErrorLabel = Label(.boldUppercaseSmall, textColor: UIColor.ns_red, textAlignment: .center)
 
@@ -54,6 +56,11 @@ class QRCodeScannerViewController: BaseSubViewController {
         super.viewDidLoad()
         view.backgroundColor = .ns_grayBackground
         setupQRView()
+
+        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.startScanning()
+        }
     }
 
     override func viewDidDisappear(_ animated: Bool) {
@@ -95,11 +102,42 @@ class QRCodeScannerViewController: BaseSubViewController {
             make.top.equalTo(qrOverlay.snp.bottom).offset(Padding.small)
             make.left.right.equalToSuperview().inset(Padding.mediumSmall)
         }
+
+        view.addSubview(cameraPermissionErrorView)
+        cameraPermissionErrorView.snp.makeConstraints { make in
+            make.left.right.equalTo(qrView)
+            make.centerY.equalTo(qrView)
+        }
+
+        let label = Label(.boldUppercaseSmall, textColor: UIColor.ns_red, textAlignment: .center)
+        label.text = "qr_scanner_no_camera_permission".ub_localized
+        let button = BigButton(style: .small, text: "checkin_reminder_option_open_settings".ub_localized)
+
+        cameraPermissionErrorView.addSubview(label)
+        cameraPermissionErrorView.addSubview(button)
+
+        label.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+        }
+
+        button.snp.makeConstraints { make in
+            make.top.equalTo(label.snp.bottom).offset(Padding.mediumSmall)
+            make.bottom.centerX.equalToSuperview()
+            make.left.greaterThanOrEqualToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+        }
+
+        button.touchUpCallback = {
+            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+                UIApplication.shared.open(settingsURL)
+            }
+        }
     }
 
     // MARK: - Start scanning & error
 
     private func startScanningProcess() {
+        cameraPermissionErrorView.alpha = 0.0
         qrView?.startScanning()
         qrErrorLabel.alpha = 0.0
         qrOverlay.lineColor = .ns_purple
@@ -118,11 +156,15 @@ class QRCodeScannerViewController: BaseSubViewController {
             }
         })
     }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self)
+    }
 }
 
 extension QRCodeScannerViewController: QRScannerViewDelegate {
     func qrScanningDidFail() {
-        // TODO: Show error
+        cameraPermissionErrorView.alpha = 1.0
     }
 
     func qrScanningSucceededWithCode(_ str: String?) {

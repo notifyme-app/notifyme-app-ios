@@ -78,6 +78,7 @@
 		6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D38242E02A20017C4F9 /* NSLayoutConstants.swift */; };
 		6E8FC0FA24518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FC0F724518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m */; };
 		6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FC0F924518BF2002AB1E5 /* UBKeyboardObserver.m */; };
+		6EA6A5D9255D631700A66212 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6A5D4255D631600A66212 /* InfoPlist.strings */; };
 		6EB4C78825519C22005070ED /* DateHelpers+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C78725519C22005070ED /* DateHelpers+NS.swift */; };
 		6EB4C79C2551B130005070ED /* ReportInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C79B2551B130005070ED /* ReportInformationView.swift */; };
 		6EB4C7AA2551BA99005070ED /* ReportsInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */; };
@@ -199,6 +200,10 @@
 		6E8FC0F724518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+UBKeyboardObserver.m"; sourceTree = "<group>"; };
 		6E8FC0F824518BF2002AB1E5 /* UBKeyboardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UBKeyboardObserver.h; sourceTree = "<group>"; };
 		6E8FC0F924518BF2002AB1E5 /* UBKeyboardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UBKeyboardObserver.m; sourceTree = "<group>"; };
+		6EA6A5D5255D631600A66212 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6EA6A5D6255D631600A66212 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6EA6A5D7255D631600A66212 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6EA6A5D8255D631600A66212 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EB4C78725519C22005070ED /* DateHelpers+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateHelpers+NS.swift"; sourceTree = "<group>"; };
 		6EB4C79B2551B130005070ED /* ReportInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInformationView.swift; sourceTree = "<group>"; };
 		6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsInformationViewController.swift; sourceTree = "<group>"; };
@@ -683,6 +688,7 @@
 		DC9A81A0242CE5E000AD1548 /* Translations */ = {
 			isa = PBXGroup;
 			children = (
+				6EA6A5D4255D631600A66212 /* InfoPlist.strings */,
 				DC9A81A1242CE5E000AD1548 /* Localizable.strings */,
 			);
 			path = Translations;
@@ -803,6 +809,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB4430E242DD34700F19AA5 /* Inter-SemiBold.ttf in Resources */,
+				6EA6A5D9255D631700A66212 /* InfoPlist.strings in Resources */,
 				DCB44308242DD34700F19AA5 /* Inter-Bold.ttf in Resources */,
 				DCB4430B242DD34700F19AA5 /* Inter-Light.ttf in Resources */,
 				8E81CCA2241FCC7F006F2437 /* Assets.xcassets in Resources */,
@@ -1004,6 +1011,17 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		6EA6A5D4255D631600A66212 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				6EA6A5D5255D631600A66212 /* en */,
+				6EA6A5D6255D631600A66212 /* it */,
+				6EA6A5D7255D631600A66212 /* de */,
+				6EA6A5D8255D631600A66212 /* fr */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
 		DC9A81A1242CE5E000AD1548 /* Localizable.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
