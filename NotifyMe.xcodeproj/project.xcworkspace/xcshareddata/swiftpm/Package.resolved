@@ -3,10 +3,10 @@
     "pins": [
       {
         "package": "CrowdNotifierSDK",
-        "repositoryURL": "ssh://git@github.com/UbiqueInnovation/crowdnotifier-sdk-ios.git",
+        "repositoryURL": "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
         "state": {
           "branch": "develop",
-          "revision": "f588d91fbef7ffab2de4c1160eb59428ef6a1bc0",
+          "revision": "9a9896efd61dd705be4b20b8766870e3ffb54b56",
           "version": null
         }
       },

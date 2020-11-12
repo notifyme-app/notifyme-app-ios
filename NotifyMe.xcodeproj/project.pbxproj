@@ -89,6 +89,8 @@
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
 		DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8C22549B08300C2145A /* BaseViewController.swift */; };
 		DC4DD8EA2549E7A200C2145A /* DummyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8E92549E7A200C2145A /* DummyTests.swift */; };
+		DC6CF891255D676100DFCE8F /* CrowdNotifierSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */; };
+		DC6CF893255D676100DFCE8F /* Clibsodium in Frameworks */ = {isa = PBXBuildFile; productRef = DC6CF892255D676100DFCE8F /* Clibsodium */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
 		DC702AFD243F6E410066C773 /* UBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFC243F6E410066C773 /* UBButton.swift */; };
 		DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFE243F6ED90066C773 /* UIColor+HEX.swift */; };
@@ -110,8 +112,6 @@
 		DCB4430C242DD34700F19AA5 /* Inter-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D2C242D04290017C4F9 /* Inter-Medium.ttf */; };
 		DCB4430D242DD34700F19AA5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D2B242D04290017C4F9 /* Inter-Regular.ttf */; };
 		DCB4430E242DD34700F19AA5 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D27242D04280017C4F9 /* Inter-SemiBold.ttf */; };
-		DCE30467255BB7980013A341 /* CrowdNotifierSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DCE30466255BB7980013A341 /* CrowdNotifierSDK */; };
-		DCE30469255BB7980013A341 /* Clibsodium in Frameworks */ = {isa = PBXBuildFile; productRef = DCE30468255BB7980013A341 /* Clibsodium */; };
 		F84089EC2493695200A66CD1 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EB2493695200A66CD1 /* Keychain.swift */; };
 		F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089ED2493696500A66CD1 /* KeychainPersisted.swift */; };
 /* End PBXBuildFile section */
@@ -240,8 +240,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
-				DCE30467255BB7980013A341 /* CrowdNotifierSDK in Frameworks */,
-				DCE30469255BB7980013A341 /* Clibsodium in Frameworks */,
+				DC6CF891255D676100DFCE8F /* CrowdNotifierSDK in Frameworks */,
+				DC6CF893255D676100DFCE8F /* Clibsodium in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,8 +720,8 @@
 			name = NotifyMe;
 			packageProductDependencies = (
 				8E81CCCE241FD813006F2437 /* SnapKit */,
-				DCE30466255BB7980013A341 /* CrowdNotifierSDK */,
-				DCE30468255BB7980013A341 /* Clibsodium */,
+				DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */,
+				DC6CF892255D676100DFCE8F /* Clibsodium */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* NotifyMe.app */;
@@ -784,7 +784,7 @@
 			mainGroup = 8E81CC8C241FCC7D006F2437;
 			packageReferences = (
 				8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */,
-				DCE30465255BB7980013A341 /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */,
+				DC6CF88F255D676100DFCE8F /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */,
 			);
 			productRefGroup = 8E81CC96241FCC7D006F2437 /* Products */;
 			projectDirPath = "";
@@ -1436,9 +1436,9 @@
 				minimumVersion = 5.0.1;
 			};
 		};
-		DCE30465255BB7980013A341 /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */ = {
+		DC6CF88F255D676100DFCE8F /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "ssh://git@github.com/UbiqueInnovation/crowdnotifier-sdk-ios.git";
+			repositoryURL = "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git";
 			requirement = {
 				branch = develop;
 				kind = branch;
@@ -1452,14 +1452,14 @@
 			package = 8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
 		};
-		DCE30466255BB7980013A341 /* CrowdNotifierSDK */ = {
+		DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCE30465255BB7980013A341 /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */;
+			package = DC6CF88F255D676100DFCE8F /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */;
 			productName = CrowdNotifierSDK;
 		};
-		DCE30468255BB7980013A341 /* Clibsodium */ = {
+		DC6CF892255D676100DFCE8F /* Clibsodium */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = DCE30465255BB7980013A341 /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */;
+			package = DC6CF88F255D676100DFCE8F /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */;
 			productName = Clibsodium;
 		};
 /* End XCSwiftPackageProductDependency section */
