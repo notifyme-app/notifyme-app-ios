@@ -3,6 +3,7 @@
 <div align="center">
   <img width="180" height="180" src="NotifyMe/Resources/Assets.xcassets/AppIcon.appiconset/appicon@180x180-1.png" />
   <br />
+  <a href="https://testflight.apple.com/join/OqONONgv" target="_blank">Download iOS App</a>
 </div>
 <br />
 <div align="center">
@@ -10,11 +11,6 @@
     <a href="https://github.com/apple/swift-package-manager">
       <img alt="Swift Package Manager"
       src="https://img.shields.io/badge/SPM-%E2%9C%93-brightgreen.svg?style=flat">
-    </a>
-    <!-- Build -->
-    <a href="https://github.com/UbiqueInnovation/notifyme-app-ios/build">
-      <img alt="Build"
-      src="https://github.com/UbiqueInnovation/notifyme-app-ios/workflows/build/badge.svg">
     </a>
     <!-- License -->
     <a href="https://github.com/UbiqueInnovation/notifyme-app-ios/blob/master/LICENSE">
@@ -47,10 +43,13 @@ The full set of documents for CrowdNotifier is at https://github.com/CrowdNotifi
 
 ## Installation and Building
 
+### Direct installation
+The application can be downloaded and installed from TestFlight using this [link](https://testflight.apple.com/join/OqONONgv).
+
+### Building locally
 The project should be opened with Xcode 12.0 or newer. Dependencies are managed with [Swift Package Manager](https://swift.org/package-manager); no further setup is needed.
 
 ### Provisioning
-
 The project is configured for a specific provisioning profile. To install the app on your own device, you will have to update the settings using your own provisioning profile.
 
 
