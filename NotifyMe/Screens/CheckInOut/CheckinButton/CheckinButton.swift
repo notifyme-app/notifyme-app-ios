@@ -34,6 +34,8 @@ class CheckInButton: UIView {
     private let checkedInButton = BigButton(style: .checkedIn, icon: UIImage(named: "icons-ic-qr"), text: "")
 
     private let textLabel = Label(.boldUppercaseSmall, textColor: .ns_text)
+    private let textContainer = UIView()
+    private let stackView = UIStackView()
 
     // MARK: - Init
 
@@ -56,14 +58,15 @@ class CheckInButton: UIView {
     private func update(_ state: UIStateModel) {
         switch state.checkInState {
         case .noCheckIn:
-            textLabel.isHidden = true
+            stackView.isHidden = true
+            textContainer.isHidden = true
             checkInButton.isHidden = false
-            checkedInButton.isHidden = true
             stopTitleTimer()
 
         case let .checkIn(checkIn):
             self.checkIn = checkIn
-            checkedInButton.isHidden = false
+            stackView.isHidden = false
+            textContainer.isHidden = false
             checkInButton.isHidden = true
             startTitleTimer()
         }
@@ -74,22 +77,33 @@ class CheckInButton: UIView {
     private func setup() {
         addSubview(checkInButton)
         checkInButton.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualToSuperview()
             make.left.right.bottom.equalToSuperview()
         }
 
-        addSubview(textLabel)
+        addSubview(stackView)
+        stackView.spacing = 1.5 * Padding.small
+        stackView.axis = .vertical
+
+        textContainer.addSubview(textLabel)
 
         textLabel.snp.makeConstraints { make in
-            make.top.equalToSuperview()
-            make.bottom.equalTo(self.checkInButton.snp.top).offset(-1.5 * Padding.small)
+            make.top.bottom.equalToSuperview()
             make.left.right.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        stackView.addArrangedSubview(textContainer)
+        stackView.addArrangedSubview(checkedInButton)
+
+        stackView.snp.makeConstraints { make in
+            make.top.greaterThanOrEqualToSuperview()
+            make.bottom.left.right.equalTo(self.checkInButton)
         }
 
         textLabel.text = "homescreen_checkedin_label".ub_localized
 
-        addSubview(checkedInButton)
         checkedInButton.snp.makeConstraints { make in
-            make.edges.equalTo(self.checkInButton)
+            make.height.equalTo(self.checkInButton)
         }
     }
 

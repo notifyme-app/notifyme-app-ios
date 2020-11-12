@@ -18,6 +18,7 @@ class HomescreenViewController: BaseViewController {
 
     private let checkInButton = CheckInButton()
     private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
+    private let nonProductiveLabel = Label(.boldUppercaseSmall, textColor: .ns_red)
 
     private let personImageView = UIImageView()
 
@@ -93,6 +94,14 @@ class HomescreenViewController: BaseViewController {
             make.bottom.equalTo(self.view.snp_bottomMargin).inset(Padding.medium)
             make.left.right.equalToSuperview().inset(Padding.medium)
         }
+
+        view.addSubview(nonProductiveLabel)
+        nonProductiveLabel.snp.makeConstraints { make in
+            make.left.right.equalToSuperview().inset(Padding.mediumSmall + Padding.medium)
+            make.bottom.equalTo(stackView.snp.top).offset(-1.5 * Padding.small)
+        }
+
+        nonProductiveLabel.text = "non_productive_warning".ub_localized
     }
 
     private func setupButtons() {
@@ -119,15 +128,15 @@ class HomescreenViewController: BaseViewController {
         let small = view.bounds.size.width <= 375
 
         if view.bounds.size.width > 320 {
-            personImageView.image = UIImage(named: "person")?.ub_image(byScaling: small ? 0.8 : 1.0)
+            personImageView.image = UIImage(named: "person")?.ub_image(byScaling: small ? 0.65 : 0.95)
         }
 
         view.insertSubview(personImageView, at: 0)
 
-        let padding = small ? 0 : Padding.large + Padding.medium
+        let padding = small ? Padding.medium : 2.0 * Padding.medium
 
         personImageView.snp.makeConstraints { make in
-            make.bottom.greaterThanOrEqualTo(checkInButton.snp.top).offset(-padding).priority(.medium)
+            make.bottom.greaterThanOrEqualTo(nonProductiveLabel.snp.top).offset(-padding).priority(.medium)
             make.right.equalToSuperview().inset(Padding.medium + 8.0)
         }
     }

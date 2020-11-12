@@ -160,7 +160,7 @@
 "reminder_option_minutes" = "{MINUTES}'";
 
 /*Warning that is displayed on the Main Screen if a non productive build is used.*/
-"non_productive_warning" = "This app provides a preview of the NotifyMe app and is not meant for production";
+"non_productive_warning" = "This app provides a preview of the NotifyMe app and is not meant for production.";
 
 /*Checkin: Reminder Alert title when permission to send reminders not given*/
 "checkin_reminder_settings_alert_title" = "The reminder could not be set";
