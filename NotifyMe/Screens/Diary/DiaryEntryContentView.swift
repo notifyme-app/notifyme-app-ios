@@ -18,6 +18,9 @@ class DiaryEntryContentView: UIView {
 
     private let imageTextView = ImageTextView()
 
+    private let bottomView = UIView()
+    private let whatToDoView = ReportWhatToDoView()
+
     public var checkIn: CheckIn? {
         didSet { update() }
     }
@@ -40,12 +43,23 @@ class DiaryEntryContentView: UIView {
     // MARK: - Setup
 
     private func setup() {
-        addSubview(checkImageView)
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+
+        addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+            make.bottom.lessThanOrEqualToSuperview()
+        }
+
+        let topView = UIView()
+
+        topView.addSubview(checkImageView)
         checkImageView.snp.makeConstraints { make in
             make.right.top.equalToSuperview().inset(Padding.small)
         }
 
-        addSubview(imageTextView)
+        topView.addSubview(imageTextView)
         imageTextView.snp.makeConstraints { make in
             make.left.equalToSuperview().inset(Padding.mediumSmall)
             make.top.equalToSuperview().inset(Padding.small + 3.0)
@@ -53,10 +67,20 @@ class DiaryEntryContentView: UIView {
             make.right.lessThanOrEqualTo(self.checkImageView.snp.left).offset(-5.0)
         }
 
-        addSubview(checkImageView)
+        topView.addSubview(checkImageView)
         checkImageView.snp.makeConstraints { make in
             make.right.top.equalToSuperview().inset(Padding.small)
         }
+
+        stackView.addArrangedView(topView)
+
+        bottomView.addSubview(whatToDoView)
+
+        whatToDoView.snp.makeConstraints { make in
+            make.top.left.right.bottom.equalToSuperview().inset(Padding.small)
+        }
+
+        stackView.addArrangedView(bottomView)
     }
 
     // MARK: - Update
@@ -77,6 +101,10 @@ class DiaryEntryContentView: UIView {
         }
 
         checkImageView.image = UIImage(named: "icons-ic-red-info")
+
+        whatToDoView.message = exposure?.exposureEvent.message
+
+        bottomView.isHidden = false
     }
 
     private func update() {
@@ -99,5 +127,7 @@ class DiaryEntryContentView: UIView {
         texts.append(timeText)
 
         imageTextView.text = texts.compactMap { $0 }.joined(separator: "\n")
+
+        bottomView.isHidden = true
     }
 }

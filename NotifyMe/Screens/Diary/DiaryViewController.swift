@@ -16,6 +16,7 @@ class DiaryViewController: BaseViewController {
     private let collectionView: DiaryCollectionView
 
     private var diary: [[CheckIn]] = []
+    private var exposures: [Exposure] = []
 
     // MARK: - Init
 
@@ -98,6 +99,14 @@ class DiaryViewController: BaseViewController {
 
     private func update(_ state: UIStateModel) {
         diary = state.diaryState
+
+        switch state.exposureState {
+        case .exposure(exposure: let exposures, exposureByDay: _):
+            self.exposures = exposures
+        case .noExposure:
+            exposures = []
+        }
+
         collectionView.reloadData()
     }
 
@@ -122,14 +131,30 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
 
 extension DiaryViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: set real values
         return diary[section].count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(for: indexPath) as DiaryEntryCollectionViewCell
-        cell.checkIn = diary[indexPath.section][indexPath.item]
+
+        let entry = diary[indexPath.section][indexPath.item]
+
+        if let exposure = exposureForDiary(diaryEntry: entry) {
+            cell.exposure = exposure
+        } else {
+            cell.checkIn = entry
+        }
+
         return cell
+    }
+
+    func collectionView(_: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        let entry = diary[indexPath.section][indexPath.item]
+        return exposureForDiary(diaryEntry: entry) == nil
+    }
+
+    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
+        return self.collectionView(collectionView, shouldSelectItemAt: indexPath)
     }
 
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
@@ -138,13 +163,33 @@ extension DiaryViewController: UICollectionViewDataSource {
         }
 
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DiaryDateSectionHeaderSupplementaryView
-        headerView.date = diary[indexPath.section][0].checkInTime
+        headerView.date = diary[indexPath.section].first?.checkInTime
 
         return headerView
     }
 
+    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let width = view.frame.size.width - 2.0 * Padding.mediumSmall
+
+        let entry = diary[indexPath.section][indexPath.item]
+        if let exposure = exposureForDiary(diaryEntry: entry) {
+            return DiaryCollectionView.diaryCellSize(width: width, exposure: exposure)
+        }
+
+        return DiaryCollectionView.diaryCellSize(width: width, checkIn: entry)
+    }
+
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        // TODO: set checkin...
         present(CheckinEditViewController(checkIn: diary[indexPath.section][indexPath.item]), animated: true, completion: nil)
+    }
+
+    private func exposureForDiary(diaryEntry: CheckIn) -> Exposure? {
+        return exposures.first { (e) -> Bool in
+            if let d = e.diaryEntry {
+                return d.identifier == diaryEntry.identifier
+            }
+
+            return false
+        }
     }
 }

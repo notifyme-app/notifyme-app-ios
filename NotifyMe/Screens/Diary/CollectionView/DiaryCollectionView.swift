@@ -38,12 +38,38 @@ class DiaryCollectionView: UICollectionView {
 
         if let flowLayout = collectionViewLayout as? DiaryCollectionViewFlowLayout {
             flowLayout.sectionInset = .zero
-            let collectionViewContentWidth = (superview?.bounds.width ?? 0) - 2.0 * Padding.mediumSmall
-            flowLayout.estimatedItemSize = CGSize(width: collectionViewContentWidth, height: 80)
         }
 
         collectionViewLayout.invalidateLayout()
 
         reloadData()
+    }
+
+    private static let cell = DiaryEntryContentView()
+
+    public static func diaryCellSize(width: CGFloat, exposure: Exposure) -> CGSize {
+        cell.exposure = exposure
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+
+        var fittingSize = UIView.layoutFittingCompressedSize
+        fittingSize.width = width
+
+        let size = cell.systemLayoutSizeFitting(fittingSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
+
+        return CGSize(width: width, height: size.height)
+    }
+
+    public static func diaryCellSize(width: CGFloat, checkIn: CheckIn) -> CGSize {
+        cell.checkIn = checkIn
+        cell.setNeedsLayout()
+        cell.layoutIfNeeded()
+
+        var fittingSize = UIView.layoutFittingCompressedSize
+        fittingSize.width = width
+
+        let size = cell.systemLayoutSizeFitting(fittingSize, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
+
+        return CGSize(width: width, height: size.height)
     }
 }

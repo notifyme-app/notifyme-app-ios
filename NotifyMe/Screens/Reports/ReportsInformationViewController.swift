@@ -78,14 +78,13 @@ extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
         let width = view.frame.size.width - 2.0 * Padding.mediumSmall
 
         if indexPath.section == 0 {
-            // TODO: this could be better
             let cell = ReportInformationViewCollectionViewCell().contentView
             let s = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
             let size = cell.systemLayoutSizeFitting(s, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultHigh)
 
             return CGSize(width: size.width, height: size.height)
         } else {
-            return CGSize(width: width, height: 200.0)
+            return DiaryCollectionView.diaryCellSize(width: width, exposure: exposure(for: indexPath))
         }
     }
 
@@ -96,8 +95,7 @@ extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
 
 extension ReportsInformationViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        // TODO: set real values
-        return section == 0 ? 1 : exposure[section - 1].count
+        return section == 0 ? 1 : exposures(for: section).count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -106,9 +104,7 @@ extension ReportsInformationViewController: UICollectionViewDataSource {
             return cell
         } else {
             let cell = collectionView.dequeueReusableCell(for: indexPath) as DiaryEntryCollectionViewCell
-
-            let e = exposure[indexPath.section - 1][indexPath.row]
-            cell.exposure = e
+            cell.exposure = exposure(for: indexPath)
 
             return cell
         }
@@ -122,10 +118,18 @@ extension ReportsInformationViewController: UICollectionViewDataSource {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DiaryDateSectionHeaderSupplementaryView
 
         if indexPath.section > 0 {
-            let d = exposure[indexPath.section - 1].first?.exposureEvent.arrivalTime ?? Date()
+            let d = exposures(for: indexPath.section).first?.exposureEvent.arrivalTime ?? Date()
             headerView.text = d.ns_daysAgo()
         }
 
         return headerView
+    }
+
+    private func exposure(for indexPath: IndexPath) -> Exposure {
+        return exposures(for: indexPath.section)[indexPath.row]
+    }
+
+    private func exposures(for section: Int) -> [Exposure] {
+        return exposure[section - 1]
     }
 }

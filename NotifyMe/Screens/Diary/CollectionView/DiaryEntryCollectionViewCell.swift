@@ -21,7 +21,7 @@ class DiaryEntryCollectionViewCell: UICollectionViewCell {
     }
 
     public var exposure: Exposure? {
-        didSet { self.diaryContentView.exposure = exposure }
+        didSet { diaryContentView.exposure = exposure }
     }
 
     // MARK: - Init
