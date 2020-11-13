@@ -90,6 +90,7 @@
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
 		DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8C22549B08300C2145A /* BaseViewController.swift */; };
 		DC4DD8EA2549E7A200C2145A /* DummyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8E92549E7A200C2145A /* DummyTests.swift */; };
+		DC61828D255E5EBA006B79D4 /* Clibsodium in Frameworks */ = {isa = PBXBuildFile; productRef = DC61828C255E5EBA006B79D4 /* Clibsodium */; };
 		DC6CF891255D676100DFCE8F /* CrowdNotifierSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
 		DC702AFD243F6E410066C773 /* UBButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFC243F6E410066C773 /* UBButton.swift */; };
@@ -245,6 +246,7 @@
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
 				DC6CF891255D676100DFCE8F /* CrowdNotifierSDK in Frameworks */,
+				DC61828D255E5EBA006B79D4 /* Clibsodium in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -725,6 +727,7 @@
 			packageProductDependencies = (
 				8E81CCCE241FD813006F2437 /* SnapKit */,
 				DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */,
+				DC61828C255E5EBA006B79D4 /* Clibsodium */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* NotifyMe.app */;
@@ -1466,6 +1469,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		DC61828C255E5EBA006B79D4 /* Clibsodium */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6CF88F255D676100DFCE8F /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */;
+			productName = Clibsodium;
 		};
 		DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */ = {
 			isa = XCSwiftPackageProductDependency;
