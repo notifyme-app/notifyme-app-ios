@@ -49,7 +49,7 @@ class ModalBaseViewController: BaseViewController {
 
         view.addSubview(contentView)
         contentView.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Padding.large + Padding.small)
+            make.top.equalToSuperview().inset(Padding.large + 1.5 * Padding.small)
             make.bottom.left.right.equalToSuperview()
         }
 
