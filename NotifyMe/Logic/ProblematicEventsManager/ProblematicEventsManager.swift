@@ -30,6 +30,9 @@ class ProblematicEventsManager {
     @UBOptionalUserDefault(key: "ch.notify-me.exposure.lastSync")
     private var lastSync: Int?
 
+    @UBUserDefault(key: "ch.notify-me.exposure.notifiedIds", defaultValue: [])
+    private(set) var notifiedIds: [String]
+
     private var exposureEvents: [ExposureEvent] {
         didSet { UIStateManager.shared.stateChanged() }
     }
@@ -40,7 +43,7 @@ class ProblematicEventsManager {
         return exposureEvents
     }
 
-    public func sync(completion: @escaping () -> Void) {
+    public func sync(isBackgroundFetch: Bool = false, completion: @escaping (_ newData: Bool, _ needsNotification: Bool) -> Void) {
         var queryParameters = [String: String]()
         if let sync = lastSync {
             queryParameters["lastSync"] = "\(sync)"
@@ -49,19 +52,35 @@ class ProblematicEventsManager {
         let endpoint = backend.endpoint("traceKeys", queryParameters: queryParameters, headers: ["Accept": "application/protobuf"])
 
         let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, response, _ in
-            guard let strongSelf = self else { return }
+            guard let strongSelf = self else {
+                completion(false, false)
+                return
+            }
 
             if let dateHeader = (response as? HTTPURLResponse)?.allHeaderFields["Date"] as? String, let date = strongSelf.dateFormatter.date(from: dateHeader) {
                 strongSelf.lastSync = date.millisecondsSince1970
             }
 
-            DispatchQueue.main.async {
+            let block = {
                 if let data = data {
                     let wrapper = try? ProblematicEventWrapper(serializedData: data)
                     strongSelf.checkForMatches(wrapper: wrapper)
-                }
 
-                completion()
+                    // Only if there is a checkin id that has not trigered a notification yet,
+                    // a notification needs to be triggered
+                    let newCheckinIds = strongSelf.exposureEvents.map { $0.checkinId }.filter { !strongSelf.notifiedIds.contains($0) }
+                    strongSelf.notifiedIds.append(contentsOf: newCheckinIds)
+                    let needsNewNotification = !newCheckinIds.isEmpty
+                    completion(true, needsNewNotification)
+                } else {
+                    completion(false, false)
+                }
+            }
+
+            if isBackgroundFetch {
+                block()
+            } else {
+                DispatchQueue.main.async(execute: block)
             }
         }
 
@@ -91,7 +110,7 @@ class ProblematicEventsManager {
             problematicEvents.append(info)
         }
 
-        CrowdNotifier.cleanUpOldData(maxDaysToKeep: 10)
+        CrowdNotifier.cleanUpOldData(maxDaysToKeep: 14)
         exposureEvents = CrowdNotifier.checkForMatches(publishedSKs: problematicEvents)
     }
 }

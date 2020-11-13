@@ -65,7 +65,7 @@ class HomescreenViewController: BaseViewController {
     // MARK: - Setup
 
     @objc private func startRefresh() {
-        ProblematicEventsManager.shared.sync { [weak self] in
+        ProblematicEventsManager.shared.sync { [weak self] _, _ in
             guard let strongSelf = self else { return }
             strongSelf.refreshControl.endRefreshing()
         }

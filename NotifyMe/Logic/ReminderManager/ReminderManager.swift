@@ -38,20 +38,22 @@ enum ReminderOption: Int, UBCodable, CaseIterable {
         case .off:
             return 0
         case .thirtyMinutes:
-            return 30 * 60
+            #if DEBUG
+                return 30 * .second
+            #else
+                return 30 * .minute
+            #endif
         case .oneHour:
-            return 60 * 60
+            return .hour
         case .twoHours:
-            return 2 * 60 * 60
+            return 2 * .hour
         case .fourHours:
-            return 4 * 60 * 60
+            return 4 * .hour
         }
     }
 }
 
 class ReminderManager: NSObject {
-    private let notificationCategory = "reminder"
-
     // MARK: - Shared instance
 
     public static let shared = ReminderManager()
@@ -61,19 +63,17 @@ class ReminderManager: NSObject {
 
     // MARK: - Public API
 
-    public func scheduleReminder(for id: String, with option: ReminderOption, didFailCallback: @escaping (() -> Void)) {
+    public func scheduleReminder(for _: String, with option: ReminderOption, didFailCallback: @escaping (() -> Void)) {
         currentReminder = option
 
         if option == .off {
-            removeAllReminder()
+            removeAllReminders()
             return
         }
 
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-        center.requestAuthorization(options: [.alert, .badge, .sound]) { granted, _ in
+        NotificationManager.shared.requestAuthorization { granted, _ in
             if granted {
-                self.scheduleNotification(for: id, in: option.timeInterval)
+                NotificationManager.shared.scheduleReminderNotification(after: option.timeInterval)
             } else {
                 DispatchQueue.main.async {
                     didFailCallback()
@@ -82,35 +82,9 @@ class ReminderManager: NSObject {
         }
     }
 
-    public func removeAllReminder() {
+    public func removeAllReminders() {
         currentReminder = .off
-        let notificationCenter = UNUserNotificationCenter.current()
-        notificationCenter.removeAllDeliveredNotifications()
-    }
 
-    // MARK: - Implementation
-
-    private func scheduleNotification(for _: String, in timeInterval: TimeInterval) {
-        let notificationCenter = UNUserNotificationCenter.current()
-        let notification = UNMutableNotificationContent()
-
-        notification.title = "checkout_reminder_title".ub_localized
-        notification.body = "checkout_reminder_text".ub_localized
-        notification.categoryIdentifier = notificationCategory
-        notification.sound = UNNotificationSound.default
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        let notificationRequest = UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: trigger)
-        notificationCenter.add(notificationRequest)
-    }
-}
-
-extension ReminderManager: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
-    }
-
-    func userNotificationCenter(_: UNUserNotificationCenter, didReceive _: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
+        NotificationManager.shared.removeCurrentReminderNotification()
     }
 }

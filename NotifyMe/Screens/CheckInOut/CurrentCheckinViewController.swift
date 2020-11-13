@@ -52,11 +52,6 @@ class CurrentCheckinViewController: BaseSubViewController {
             guard let strongSelf = self else { return }
             strongSelf.scheduleReminder(option: option)
         }
-
-        NotificationCenter.default.addObserver(forName: UIApplication.didBecomeActiveNotification, object: nil, queue: nil) { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.scheduleReminder(option: ReminderManager.shared.currentReminder)
-        }
     }
 
     private func scheduleReminder(option: ReminderOption) {

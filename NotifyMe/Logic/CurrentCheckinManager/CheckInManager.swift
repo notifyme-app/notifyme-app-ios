@@ -47,7 +47,11 @@ class CheckInManager {
 
     public func checkOut() {
         if var cc = currentCheckin {
-            ReminderManager.shared.removeAllReminder()
+            // This is the last moment we can ask the user for the required notification permission.
+            // After the first checkout, it's possible that a background update triggers a match and therefore a notification
+            NotificationManager.shared.requestAuthorization { _, _ in }
+
+            ReminderManager.shared.removeAllReminders()
 
             let result = CrowdNotifier.addCheckin(arrivalTime: cc.checkInTime, departureTime: cc.checkOutTime, notificationKey: cc.notificationKey, venuePublicKey: cc.venuePublicKey)
 
