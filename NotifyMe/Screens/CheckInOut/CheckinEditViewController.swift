@@ -11,11 +11,8 @@
 
 import Foundation
 
-class CheckinEditViewController: BaseViewController {
+class CheckinEditViewController: ModalBaseViewController {
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
-
-    public let dismissButton = TextButton(text: "done_button".ub_localized)
-    public let contentView = StackScrollView()
 
     private let checkinLabel = Label(.boldUppercaseSmall, textColor: .ns_text, textAlignment: .center)
     private let venueView = VenueView(icon: false)
@@ -38,12 +35,12 @@ class CheckinEditViewController: BaseViewController {
     init(checkIn: CheckIn? = nil) {
         isCurrentCheckin = false
         self.checkIn = checkIn
-        super.init()
+        super.init(horizontalContentInset: Padding.large)
     }
 
-    override init() {
+    init() {
         isCurrentCheckin = true
-        super.init()
+        super.init(horizontalContentInset: Padding.large)
     }
 
     required init?(coder _: NSCoder) {
@@ -197,27 +194,6 @@ class CheckinEditViewController: BaseViewController {
     // MARK: - Setup
 
     private func setup() {
-        if #available(iOS 13.0, *) {
-            isModalInPresentation = true
-        } else {
-            // Fallback on earlier versions
-        }
-
-        contentView.scrollView.ub_enableDefaultKeyboardObserver()
-
-        view.addSubview(contentView)
-        contentView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(Padding.large + Padding.small)
-            make.left.right.equalToSuperview().inset(Padding.large)
-        }
-
-        view.addSubview(dismissButton)
-
-        dismissButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Padding.small)
-            make.right.equalToSuperview().inset(Padding.mediumSmall)
-        }
-
         contentView.addArrangedView(checkinLabel)
         checkinLabel.text = "edit_controller_your_checkin".ub_localized
 

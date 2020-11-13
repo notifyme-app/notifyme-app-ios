@@ -14,8 +14,6 @@ import Foundation
 class ReportsInformationViewController: BaseSubViewController {
     private let stackScrollView = StackScrollView(axis: .vertical, spacing: 0)
 
-//    private let reportInformationView = ReportInformationView(title: "report_information_title".ub_localized, text: "report_information_text".ub_localized, color: .ns_red, buttonTitle: "report_information_button_title".ub_localized)
-
     private let collectionView = DiaryCollectionView()
 
     private var exposure: [[Exposure]] = []
@@ -51,6 +49,7 @@ class ReportsInformationViewController: BaseSubViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ReportInformationViewCollectionViewCell.self)
+        collectionView.allowsSelection = false
 
         view.addSubview(collectionView)
 
@@ -82,7 +81,7 @@ extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
             // TODO: this could be better
             let cell = ReportInformationViewCollectionViewCell().contentView
             let s = CGSize(width: width, height: CGFloat.greatestFiniteMagnitude)
-            let size = cell.systemLayoutSizeFitting(s, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultLow)
+            let size = cell.systemLayoutSizeFitting(s, withHorizontalFittingPriority: .required, verticalFittingPriority: .defaultHigh)
 
             return CGSize(width: size.width, height: size.height)
         } else {
@@ -124,17 +123,9 @@ extension ReportsInformationViewController: UICollectionViewDataSource {
 
         if indexPath.section > 0 {
             let d = exposure[indexPath.section - 1].first?.exposureEvent.arrivalTime ?? Date()
-            headerView.text = d.daysAgo()
+            headerView.text = d.ns_daysAgo()
         }
 
         return headerView
-    }
-
-    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        if indexPath.section == 0 {
-            present(PotentialInfectionWhatToDoViewController(), animated: true, completion: nil)
-        } else {
-            // TODO: Define what we do here.
-        }
     }
 }

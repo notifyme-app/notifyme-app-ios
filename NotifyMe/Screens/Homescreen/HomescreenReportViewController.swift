@@ -57,7 +57,7 @@ class HomescreenReportViewController: BaseSubViewController {
             noReportLabel.isHidden = true
 
             let d = exposure.first?.exposureEvent.arrivalTime ?? Date()
-            let subText = d.daysAgo()
+            let subText = d.ns_daysAgo()
 
             reportButton.setContent(title: title, message: "report_message_text".ub_localized, messageHighlight: "report_message_text_highlight".ub_localized, subText: subText)
         }

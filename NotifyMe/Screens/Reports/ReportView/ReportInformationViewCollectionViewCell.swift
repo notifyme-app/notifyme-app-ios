@@ -12,7 +12,7 @@
 import Foundation
 
 class ReportInformationViewCollectionViewCell: UICollectionViewCell {
-    public let informationView = ReportInformationView(title: "report_information_title".ub_localized, text: "report_information_text".ub_localized, color: .ns_red, buttonTitle: "report_information_button_title".ub_localized)
+    public let informationView = ReportInformationView(title: "report_information_title".ub_localized, text: "report_information_text".ub_localized, color: .ns_red)
 
     // MARK: - Init
 
@@ -35,14 +35,6 @@ class ReportInformationViewCollectionViewCell: UICollectionViewCell {
         informationView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
             make.width.lessThanOrEqualTo(self.snp.width)
-        }
-    }
-
-    override var isHighlighted: Bool {
-        get { return super.isHighlighted }
-        set {
-            super.isHighlighted = newValue
-            informationView.button?.isHighlighted = isHighlighted
         }
     }
 }

@@ -22,7 +22,7 @@ class StackScrollView: UIView {
 
     public var hitTestDelegate: HitTestDelegate?
 
-    init(axis: NSLayoutConstraint.Axis = .vertical, spacing: CGFloat = 0) {
+    init(axis: NSLayoutConstraint.Axis = .vertical, spacing: CGFloat = 0, stackViewHorizontalInset: CGFloat = 0) {
         super.init(frame: .zero)
 
         switch axis {
@@ -67,7 +67,7 @@ class StackScrollView: UIView {
 
         stackView.snp.makeConstraints { make in
             make.top.bottom.centerX.equalToSuperview()
-            make.width.equalToSuperview()
+            make.width.equalToSuperview().inset(stackViewHorizontalInset)
         }
     }
 

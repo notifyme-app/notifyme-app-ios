@@ -11,19 +11,15 @@
 
 import Foundation
 
-class PotentialInfectionWhatToDoViewController: BaseViewController {
+class ModalBaseViewController: BaseViewController {
     public let dismissButton = TextButton(text: "done_button".ub_localized)
-    public let contentView = StackScrollView()
+    public let contentView: StackScrollView
 
     // MARK: - Init
 
-    override init() {
+    init(horizontalContentInset: CGFloat = 0) {
+        contentView = StackScrollView(stackViewHorizontalInset: horizontalContentInset)
         super.init()
-        if #available(iOS 13.0, *) {
-            isModalInPresentation = true
-        } else {
-            // Fallback on earlier versions
-        }
     }
 
     required init?(coder _: NSCoder) {
@@ -35,22 +31,23 @@ class PotentialInfectionWhatToDoViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-
-        dismissButton.touchUpCallback = { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.dismiss(animated: true, completion: nil)
-        }
     }
 
     // MARK: - Setup
 
     private func setup() {
+        if #available(iOS 13.0, *) {
+            isModalInPresentation = true
+        } else {
+            // Fallback on earlier versions
+        }
+
         contentView.scrollView.ub_enableDefaultKeyboardObserver()
 
         view.addSubview(contentView)
         contentView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(Padding.large + Padding.small)
-            make.left.right.equalToSuperview().inset(Padding.large)
+            make.top.equalToSuperview().inset(Padding.large + Padding.small)
+            make.bottom.left.right.equalToSuperview()
         }
 
         view.addSubview(dismissButton)
@@ -60,12 +57,9 @@ class PotentialInfectionWhatToDoViewController: BaseViewController {
             make.right.equalToSuperview().inset(Padding.mediumSmall)
         }
 
-        contentView.addSpacerView(Padding.mediumSmall)
-
-        let label = Label(.subtitle)
-        contentView.addArrangedView(label)
-        label.text = "TODO: What to do-Screen"
-
-        contentView.addSpacerView(Padding.mediumSmall)
+        dismissButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.dismiss(animated: true, completion: nil)
+        }
     }
 }

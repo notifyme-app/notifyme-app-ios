@@ -30,6 +30,11 @@ class TextButton: UBButton {
         }
     }
 
+    override var title: String? {
+        get { super.title }
+        set { super.title = newValue?.uppercased() }
+    }
+
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

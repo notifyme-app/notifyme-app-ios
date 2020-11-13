@@ -14,29 +14,15 @@ import Foundation
 class ReportInformationView: UIView {
     private let titleLabel = Label(.title, textColor: .white)
     private let textLabel = Label(.text, textColor: .white)
-    private let buttonLabel = Label(.boldUppercase, textColor: .white, textAlignment: .right)
 
     private let title: String
     private let text: String
     private let color: UIColor
-    private let buttonTitle: String?
 
-    public var button: UBButton?
-
-    public var touchUpCallback: (() -> Void)? {
-        didSet {
-            button?.touchUpCallback = { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.touchUpCallback?()
-            }
-        }
-    }
-
-    init(title: String, text: String, color: UIColor, buttonTitle: String? = nil) {
+    init(title: String, text: String, color: UIColor) {
         self.title = title
         self.text = text
         self.color = color
-        self.buttonTitle = buttonTitle
 
         super.init(frame: .zero)
         setup()
@@ -49,7 +35,7 @@ class ReportInformationView: UIView {
     // MARK: - Setup
 
     private func setup() {
-        let isButton = buttonTitle != nil
+        // let isButton = buttonTitle != nil
 
         layer.cornerRadius = 36.0
         backgroundColor = color
@@ -65,42 +51,11 @@ class ReportInformationView: UIView {
         stackView.snp.makeConstraints { make in
             make.top.left.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
             make.right.equalToSuperview().inset(Padding.large)
-
-            if !isButton {
-                make.bottom.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
-            }
+            make.bottom.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
         }
 
-        if isButton {
-            buttonLabel.text = buttonTitle
-
-            addSubview(buttonLabel)
-
-            buttonLabel.snp.makeConstraints { make in
-                make.top.equalTo(stackView.snp.bottom).offset(Padding.mediumSmall)
-                make.left.equalToSuperview().inset(Padding.mediumSmall + Padding.small)
-                make.right.equalToSuperview().inset(Padding.large + Padding.mediumSmall)
-                make.bottom.equalToSuperview().inset(Padding.large)
-            }
-
-            let imageView = UIImageView(image: UIImage(named: "icons-ic-chevron-right")?.ub_image(with: .white))
-            addSubview(imageView)
-
-            imageView.snp.makeConstraints { make in
-                make.centerY.equalTo(self.buttonLabel)
-                make.left.equalTo(self.snp.right).inset(Padding.large)
-            }
-
-            let b = UBButton()
-            insertSubview(b, at: 0)
-
-            b.snp.makeConstraints { make in
-                make.edges.equalToSuperview()
-            }
-
-            b.highlightCornerRadius = layer.cornerRadius
-            button = b
-            b.highlightedBackgroundColor = .ns_genericTouchState
-        }
+        // needed for collection view cell content to layout correctly
+        titleLabel.ub_setContentPriorityRequired()
+        textLabel.ub_setContentPriorityRequired()
     }
 }

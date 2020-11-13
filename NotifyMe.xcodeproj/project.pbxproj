@@ -42,10 +42,6 @@
 		6E6628E9254AF21D00347F06 /* CheckinEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */; };
 		6E6628F2254AF25900347F06 /* DiaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628F1254AF25900347F06 /* DiaryViewController.swift */; };
 		6E6628FB254AF28800347F06 /* ReportsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628FA254AF28800347F06 /* ReportsViewController.swift */; };
-		6E662903254AF38500347F06 /* PotentialInfectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662902254AF38400347F06 /* PotentialInfectionViewController.swift */; };
-		6E662908254AF39E00347F06 /* PotentialInfectionWhatToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662907254AF39E00347F06 /* PotentialInfectionWhatToDoViewController.swift */; };
-		6E66290D254AF3B600347F06 /* ContactDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66290C254AF3B600347F06 /* ContactDetailsViewController.swift */; };
-		6E662912254AF3CE00347F06 /* ThankYouViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662911254AF3CE00347F06 /* ThankYouViewController.swift */; };
 		6E662917254AF3FD00347F06 /* DiaryDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662916254AF3FD00347F06 /* DiaryDetailViewController.swift */; };
 		6E662920254AF61500347F06 /* QRScanningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E66291F254AF61500347F06 /* QRScanningView.swift */; };
 		6E662925254AF63400347F06 /* QRScannerOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662924254AF63300347F06 /* QRScannerOverlay.swift */; };
@@ -79,6 +75,11 @@
 		6E8FC0FA24518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FC0F724518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m */; };
 		6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E8FC0F924518BF2002AB1E5 /* UBKeyboardObserver.m */; };
 		6EA6A5D9255D631700A66212 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6EA6A5D4255D631600A66212 /* InfoPlist.strings */; };
+		6EA6A5E4255E6E8F00A66212 /* ModalBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A5E3255E6E8E00A66212 /* ModalBaseViewController.swift */; };
+		6EA6A5EA255E73AC00A66212 /* ModalReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A5E9255E73AC00A66212 /* ModalReportViewController.swift */; };
+		6EA6A5F0255E76AC00A66212 /* ModalReportInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A5EF255E76AC00A66212 /* ModalReportInformationView.swift */; };
+		6EA6A5F8255E76C600A66212 /* ReportWhatTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A5F7255E76C600A66212 /* ReportWhatTodoView.swift */; };
+		6EA6A60A255E828000A66212 /* ImageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A609255E828000A66212 /* ImageTextView.swift */; };
 		6EB4C78825519C22005070ED /* DateHelpers+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C78725519C22005070ED /* DateHelpers+NS.swift */; };
 		6EB4C79C2551B130005070ED /* ReportInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C79B2551B130005070ED /* ReportInformationView.swift */; };
 		6EB4C7AA2551BA99005070ED /* ReportsInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */; };
@@ -153,10 +154,6 @@
 		6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinEditViewController.swift; sourceTree = "<group>"; };
 		6E6628F1254AF25900347F06 /* DiaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryViewController.swift; sourceTree = "<group>"; };
 		6E6628FA254AF28800347F06 /* ReportsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsViewController.swift; sourceTree = "<group>"; };
-		6E662902254AF38400347F06 /* PotentialInfectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialInfectionViewController.swift; sourceTree = "<group>"; };
-		6E662907254AF39E00347F06 /* PotentialInfectionWhatToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PotentialInfectionWhatToDoViewController.swift; sourceTree = "<group>"; };
-		6E66290C254AF3B600347F06 /* ContactDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailsViewController.swift; sourceTree = "<group>"; };
-		6E662911254AF3CE00347F06 /* ThankYouViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThankYouViewController.swift; sourceTree = "<group>"; };
 		6E662916254AF3FD00347F06 /* DiaryDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryDetailViewController.swift; sourceTree = "<group>"; };
 		6E66291F254AF61500347F06 /* QRScanningView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanningView.swift; sourceTree = "<group>"; };
 		6E662924254AF63300347F06 /* QRScannerOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannerOverlay.swift; sourceTree = "<group>"; };
@@ -204,6 +201,11 @@
 		6EA6A5D6255D631600A66212 /* it */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = it; path = it.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EA6A5D7255D631600A66212 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6EA6A5D8255D631600A66212 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6EA6A5E3255E6E8E00A66212 /* ModalBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalBaseViewController.swift; sourceTree = "<group>"; };
+		6EA6A5E9255E73AC00A66212 /* ModalReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalReportViewController.swift; sourceTree = "<group>"; };
+		6EA6A5EF255E76AC00A66212 /* ModalReportInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModalReportInformationView.swift; sourceTree = "<group>"; };
+		6EA6A5F7255E76C600A66212 /* ReportWhatTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportWhatTodoView.swift; sourceTree = "<group>"; };
+		6EA6A609255E828000A66212 /* ImageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextView.swift; sourceTree = "<group>"; };
 		6EB4C78725519C22005070ED /* DateHelpers+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateHelpers+NS.swift"; sourceTree = "<group>"; };
 		6EB4C79B2551B130005070ED /* ReportInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInformationView.swift; sourceTree = "<group>"; };
 		6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsInformationViewController.swift; sourceTree = "<group>"; };
@@ -297,6 +299,7 @@
 				DC4DD8C22549B08300C2145A /* BaseViewController.swift */,
 				6E662963254BF7FD00347F06 /* BaseSubViewController.swift */,
 				6E6629F825512A6800347F06 /* LargeTitleNavigationController.swift */,
+				6EA6A5E3255E6E8E00A66212 /* ModalBaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -402,14 +405,12 @@
 		6E6628F9254AF27900347F06 /* Reports */ = {
 			isa = PBXGroup;
 			children = (
+				6EA6A5EE255E769900A66212 /* ModalInformationViews */,
 				6EB4C79A2551B11F005070ED /* ReportView */,
 				6E6629FD255135AA00347F06 /* ReportButton */,
 				6E6628FA254AF28800347F06 /* ReportsViewController.swift */,
-				6E662902254AF38400347F06 /* PotentialInfectionViewController.swift */,
-				6E662907254AF39E00347F06 /* PotentialInfectionWhatToDoViewController.swift */,
-				6E66290C254AF3B600347F06 /* ContactDetailsViewController.swift */,
-				6E662911254AF3CE00347F06 /* ThankYouViewController.swift */,
 				6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */,
+				6EA6A5E9255E73AC00A66212 /* ModalReportViewController.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -482,6 +483,7 @@
 			isa = PBXGroup;
 			children = (
 				6E6629E52550606400347F06 /* VenueView.swift */,
+				6EA6A609255E828000A66212 /* ImageTextView.swift */,
 			);
 			path = VenueView;
 			sourceTree = "<group>";
@@ -517,6 +519,14 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
+		6EA6A5EE255E769900A66212 /* ModalInformationViews */ = {
+			isa = PBXGroup;
+			children = (
+				6EA6A5EF255E76AC00A66212 /* ModalReportInformationView.swift */,
+			);
+			path = ModalInformationViews;
+			sourceTree = "<group>";
+		};
 		6EB4C78625519C18005070ED /* Date */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +540,7 @@
 			children = (
 				6EB4C79B2551B130005070ED /* ReportInformationView.swift */,
 				6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */,
+				6EA6A5F7255E76C600A66212 /* ReportWhatTodoView.swift */,
 			);
 			path = ReportView;
 			sourceTree = "<group>";
@@ -925,12 +936,13 @@
 				6E64035F2553E365006D0498 /* DiaryCollectionView.swift in Sources */,
 				6E8FC0FB24518BF2002AB1E5 /* UBKeyboardObserver.m in Sources */,
 				DC702AFF243F6ED90066C773 /* UIColor+HEX.swift in Sources */,
+				6EA6A5E4255E6E8F00A66212 /* ModalBaseViewController.swift in Sources */,
 				6E662957254BF38000347F06 /* HomescreenReportViewController.swift in Sources */,
-				6E66290D254AF3B600347F06 /* ContactDetailsViewController.swift in Sources */,
+				6EA6A5F8255E76C600A66212 /* ReportWhatTodoView.swift in Sources */,
 				6E6403672553E680006D0498 /* ReportInformationViewCollectionViewCell.swift in Sources */,
-				6E662912254AF3CE00347F06 /* ThankYouViewController.swift in Sources */,
 				6E6628E9254AF21D00347F06 /* CheckinEditViewController.swift in Sources */,
 				6E6629E62550606400347F06 /* VenueView.swift in Sources */,
+				6EA6A5F0255E76AC00A66212 /* ModalReportInformationView.swift in Sources */,
 				6E662979254C024F00347F06 /* UICollection+NS.swift in Sources */,
 				6E640376255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift in Sources */,
 				6E66295C254BF4FF00347F06 /* StackScrollView.swift in Sources */,
@@ -945,8 +957,8 @@
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
 				6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */,
 				6E6629DF255050DE00347F06 /* UIStateLogic.swift in Sources */,
-				6E662903254AF38500347F06 /* PotentialInfectionViewController.swift in Sources */,
 				DC702B0B243F6FAE0066C773 /* UBPListValue.swift in Sources */,
+				6EA6A60A255E828000A66212 /* ImageTextView.swift in Sources */,
 				6E6629CA2550376400347F06 /* QRCodeScannerViewController.swift in Sources */,
 				6EB4C78825519C22005070ED /* DateHelpers+NS.swift in Sources */,
 				242D227D245D6581005DAEA8 /* Endpoint.swift in Sources */,
@@ -960,6 +972,7 @@
 				6E662974254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift in Sources */,
 				6E6629FF255135BA00347F06 /* ReportButton.swift in Sources */,
 				6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */,
+				6EA6A5EA255E73AC00A66212 /* ModalReportViewController.swift in Sources */,
 				DC8B5D912549676100B922DB /* Bundle+BuildInfo.swift in Sources */,
 				6E66292C254AF7CC00347F06 /* BigButton.swift in Sources */,
 				6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */,
@@ -968,7 +981,6 @@
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
 				6EB4C79C2551B130005070ED /* ReportInformationView.swift in Sources */,
 				6E6629DA255048AE00347F06 /* UIStateModel.swift in Sources */,
-				6E662908254AF39E00347F06 /* PotentialInfectionWhatToDoViewController.swift in Sources */,
 				6E64046725544C9F006D0498 /* ProblematicEventsManager.swift in Sources */,
 				DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */,
 				6E662920254AF61500347F06 /* QRScanningView.swift in Sources */,

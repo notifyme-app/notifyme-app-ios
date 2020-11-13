@@ -12,7 +12,7 @@
 import Foundation
 
 extension Date {
-    func daysAgo() -> String {
+    func ns_daysAgo() -> String {
         let calendar = Calendar.current
         let start = calendar.startOfDay(for: self)
         let now = calendar.startOfDay(for: Date())
