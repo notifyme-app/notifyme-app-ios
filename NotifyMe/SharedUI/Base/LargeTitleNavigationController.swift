@@ -16,7 +16,7 @@ class LargeTitleNavigationController: UIViewController {
 
     let contentViewController: BaseViewController
     private let titleLabel = Label(.title, numberOfLines: 1)
-    private let lineView = UIView()
+    private let lineView = NavigationLineView()
 
     private let contentView = UIView()
 
@@ -101,10 +101,8 @@ class LargeTitleNavigationController: UIViewController {
         view.addSubview(lineView)
         lineView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.height.equalTo(1.0)
             make.top.equalTo(self.contentView.snp.bottom).offset(-1)
         }
-        lineView.backgroundColor = UIColor.clear
     }
 
     private func setupContent() {
@@ -123,18 +121,6 @@ class LargeTitleNavigationController: UIViewController {
 
 extension LargeTitleNavigationController: ScrollViewContentOffsetUpdateDelegate {
     func didUpdateContentOffset(s: CGPoint) {
-        UIView.animate(withDuration: 0.15) {
-            if s.y > 0 {
-                if self.lineView.backgroundColor == .clear {
-                    self.lineView.backgroundColor = UIColor.black.withAlphaComponent(0.1)
-                    self.lineView.ub_addShadow(with: .black, radius: 3.0, opacity: 1.0, xOffset: 0.0, yOffset: 3.0)
-                }
-            } else {
-                if self.lineView.backgroundColor != .clear {
-                    self.lineView.backgroundColor = .clear
-                    self.lineView.ub_addShadow(with: .black, radius: 2.0, opacity: 0.0, xOffset: 0.0, yOffset: 2.0)
-                }
-            }
-        }
+        lineView.updateColor(offset: s.y)
     }
 }

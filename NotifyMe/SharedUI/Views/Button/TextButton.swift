@@ -14,6 +14,8 @@ import Foundation
 class TextButton: UBButton {
     // MARK: - Init
 
+    private let label = Label(.boldUppercase)
+
     init(text: String) {
         super.init()
         title = text
@@ -31,8 +33,13 @@ class TextButton: UBButton {
     }
 
     override var title: String? {
-        get { super.title }
-        set { super.title = newValue?.uppercased() }
+        get {
+            label.text
+        }
+        set {
+            label.text = newValue
+            super.setAttributedTitle(label.attributedText, for: .normal)
+        }
     }
 
     required init?(coder _: NSCoder) {

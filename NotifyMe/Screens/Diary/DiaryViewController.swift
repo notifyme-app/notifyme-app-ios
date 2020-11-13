@@ -88,7 +88,6 @@ class DiaryViewController: BaseViewController {
     }
 
     private func showDiary() {
-        // TODO: show diary
         UIStateManager.shared.addObserver(self) { [weak self] state in
             guard let strongSelf = self else { return }
             strongSelf.update(state)

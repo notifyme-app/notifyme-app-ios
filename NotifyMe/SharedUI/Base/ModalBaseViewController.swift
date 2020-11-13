@@ -15,6 +15,8 @@ class ModalBaseViewController: BaseViewController {
     public let dismissButton = TextButton(text: "done_button".ub_localized)
     public let contentView: StackScrollView
 
+    private let lineView = NavigationLineView()
+
     // MARK: - Init
 
     init(horizontalContentInset: CGFloat = 0) {
@@ -42,6 +44,7 @@ class ModalBaseViewController: BaseViewController {
             // Fallback on earlier versions
         }
 
+        contentView.scrollView.delegate = self
         contentView.scrollView.ub_enableDefaultKeyboardObserver()
 
         view.addSubview(contentView)
@@ -61,5 +64,17 @@ class ModalBaseViewController: BaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.dismiss(animated: true, completion: nil)
         }
+
+        view.addSubview(lineView)
+        lineView.snp.makeConstraints { make in
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(contentView.snp.top)
+        }
+    }
+}
+
+extension ModalBaseViewController: UIScrollViewDelegate {
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        lineView.updateColor(offset: scrollView.contentOffset.y)
     }
 }
