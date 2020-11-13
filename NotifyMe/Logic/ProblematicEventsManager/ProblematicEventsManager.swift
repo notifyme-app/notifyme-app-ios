@@ -70,7 +70,7 @@ class ProblematicEventsManager {
 
     // MARK: - Init
 
-    init() {
+    private init() {
         exposureEvents = CrowdNotifier.getExposureEvents()
     }
 
