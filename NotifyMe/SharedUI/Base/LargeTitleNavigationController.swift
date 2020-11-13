@@ -12,11 +12,13 @@
 import Foundation
 
 class LargeTitleNavigationController: UIViewController {
-    private static let headerHeight = 136.0
+    private static let headerHeight = 92.0
 
     let contentViewController: BaseViewController
     private let titleLabel = Label(.title, numberOfLines: 1)
     private let lineView = UIView()
+
+    private let contentView = UIView()
 
     init(contentViewController: BaseViewController) {
         self.contentViewController = contentViewController
@@ -46,7 +48,16 @@ class LargeTitleNavigationController: UIViewController {
         view.addSubview(background)
 
         background.snp.makeConstraints { make in
+            make.top.equalToSuperview()
             make.top.left.right.equalToSuperview()
+        }
+
+        view.addSubview(contentView)
+
+        contentView.snp.makeConstraints { make in
+            make.top.equalTo(view.snp_topMargin)
+            make.left.right.equalToSuperview()
+            make.bottom.equalTo(background)
             make.height.equalTo(LargeTitleNavigationController.headerHeight)
         }
 
@@ -57,7 +68,7 @@ class LargeTitleNavigationController: UIViewController {
         let imageView = UIImageView(image: UIImage(named: "icons-ic-chevron-back"))
         imageView.ub_setContentPriorityRequired()
 
-        background.addSubview(stackView)
+        contentView.addSubview(stackView)
         stackView.addArrangedView(imageView)
         stackView.addArrangedView(titleLabel)
 
@@ -73,7 +84,7 @@ class LargeTitleNavigationController: UIViewController {
         button.backgroundColor = .clear
         button.highlightedBackgroundColor = .ns_genericTouchState
 
-        background.insertSubview(button, at: 0)
+        contentView.insertSubview(button, at: 0)
         button.snp.makeConstraints { make in
             make.centerX.equalTo(imageView).offset(-5.0)
             make.centerY.equalTo(imageView)
@@ -91,7 +102,7 @@ class LargeTitleNavigationController: UIViewController {
         lineView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.height.equalTo(1.0)
-            make.top.equalTo(LargeTitleNavigationController.headerHeight - 1.0)
+            make.top.equalTo(self.contentView.snp.bottom).offset(-1)
         }
         lineView.backgroundColor = UIColor.clear
     }
@@ -102,7 +113,7 @@ class LargeTitleNavigationController: UIViewController {
 
         contentViewController.view.snp.makeConstraints { make in
             make.bottom.left.right.equalToSuperview()
-            make.top.equalToSuperview().offset(LargeTitleNavigationController.headerHeight)
+            make.top.equalTo(self.contentView.snp.bottom)
         }
 
         contentViewController.didMove(toParent: self)
