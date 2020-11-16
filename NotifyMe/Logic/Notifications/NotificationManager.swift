@@ -17,7 +17,6 @@ class NotificationManager: NSObject {
     private let notificationCenter = UNUserNotificationCenter.current()
 
     private var reminderNotificationId: String?
-    private var exposureNotificationId: String?
 
     override private init() {
         super.init()
@@ -46,29 +45,20 @@ class NotificationManager: NSObject {
 
     func removeCurrentReminderNotification() {
         if let id = reminderNotificationId {
-            notificationCenter.removeDeliveredNotifications(withIdentifiers: [id])
+            notificationCenter.removePendingNotificationRequests(withIdentifiers: [id])
+            reminderNotificationId = nil
         }
     }
 
     func showExposureNotification() {
-        removeCurrentExposureNotification()
-
         let notification = UNMutableNotificationContent()
         notification.title = "exposure_notification_title".ub_localized
         notification.body = "exposure_notification_body".ub_localized
         notification.sound = UNNotificationSound.default
 
-        let id = UUID().uuidString
-        notificationCenter.add(UNNotificationRequest(identifier: id, content: notification, trigger: nil))
-
-        exposureNotificationId = id
+        notificationCenter.add(UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil))
     }
 
-    func removeCurrentExposureNotification() {
-        if let id = exposureNotificationId {
-            notificationCenter.removeDeliveredNotifications(withIdentifiers: [id])
-        }
-    }
 }
 
 extension NotificationManager: UNUserNotificationCenterDelegate {
