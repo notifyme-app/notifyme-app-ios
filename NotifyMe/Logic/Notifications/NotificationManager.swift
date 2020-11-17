@@ -34,7 +34,7 @@ class NotificationManager: NSObject {
         let notification = UNMutableNotificationContent()
         notification.title = "checkout_reminder_title".ub_localized
         notification.body = "checkout_reminder_text".ub_localized
-        notification.sound = UNNotificationSound.default
+        notification.sound = .default
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
         let id = UUID().uuidString
@@ -54,11 +54,19 @@ class NotificationManager: NSObject {
         let notification = UNMutableNotificationContent()
         notification.title = "exposure_notification_title".ub_localized
         notification.body = "exposure_notification_body".ub_localized
-        notification.sound = UNNotificationSound.default
+        notification.sound = .default
 
         notificationCenter.add(UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil))
     }
 
+    func showDebugNotification(title: String, body: String) {
+        let notification = UNMutableNotificationContent()
+        notification.title = title
+        notification.body = body
+        notification.sound = .default
+
+        notificationCenter.add(UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil))
+    }
 }
 
 extension NotificationManager: UNUserNotificationCenterDelegate {
