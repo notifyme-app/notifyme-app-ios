@@ -62,14 +62,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Background refresh
 
-    private let minimumBackgroundFetchInterval: TimeInterval = .hour * 4
+    private let minimumBackgroundFetchInterval: TimeInterval = UIApplication.backgroundFetchIntervalMinimum
 
     private func setupBackgroundTasks() {
         UIApplication.shared.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
     }
 
     func application(_: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        #if DEBUG || RELEASE_DEV
+            NotificationManager.shared.showDebugNotification(title: "Background fetch started", body: "Time: \(Date())")
+        #endif
         ProblematicEventsManager.shared.sync(isBackgroundFetch: true) { newData, needsNotification in
+            #if DEBUG || RELEASE_DEV
+                NotificationManager.shared.showDebugNotification(title: "Sync completed", body: "Time: \(Date()), newData: \(newData), needsNotification: \(needsNotification)")
+            #endif
             if !newData {
                 completionHandler(.noData)
             } else {
