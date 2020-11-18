@@ -110,7 +110,7 @@ class DiaryViewController: BaseViewController {
     }
 
     private func handleError(_: Error) {
-        // TODO: handle error
+        navigationController?.popViewController(animated: true)
     }
 }
 
