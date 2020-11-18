@@ -14,13 +14,31 @@ import Foundation
 class TextButton: UBButton {
     // MARK: - Init
 
-    private let label = Label(.boldUppercase)
+    private let textColor: UIColor
+    private let underlined: Bool
+    private let labelFont: UIFont = LabelType.boldUppercase.font
 
-    init(text: String) {
+    init(text: String, textColor: UIColor = .ns_purple, underlined: Bool = false) {
+        self.textColor = textColor
+        self.underlined = underlined
+
         super.init()
-        title = text
-        titleLabel?.font = LabelType.boldUppercase.font
-        setTitleColor(.ns_purple, for: .normal)
+
+        if underlined {
+            let attributedText = NSAttributedString(string: text, attributes: [
+                .font: labelFont,
+                .foregroundColor: textColor,
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+            ])
+            setAttributedTitle(attributedText, for: .normal)
+        } else {
+            let attributedText = NSAttributedString(string: text, attributes: [
+                .font: labelFont,
+                .foregroundColor: textColor,
+            ])
+            setAttributedTitle(attributedText, for: .normal)
+        }
+
         highlightedBackgroundColor = UIColor.ns_genericTouchState
         highlightCornerRadius = 3.0
 
@@ -34,11 +52,23 @@ class TextButton: UBButton {
 
     override var title: String? {
         get {
-            label.text
+            titleLabel?.text
         }
         set {
-            label.text = newValue
-            super.setAttributedTitle(label.attributedText, for: .normal)
+            if underlined {
+                let attributedText = NSAttributedString(string: newValue ?? "", attributes: [
+                    .font: labelFont,
+                    .foregroundColor: textColor,
+                    .underlineStyle: NSUnderlineStyle.single.rawValue,
+                ])
+                setAttributedTitle(attributedText, for: .normal)
+            } else {
+                let attributedText = NSAttributedString(string: newValue ?? "", attributes: [
+                    .font: labelFont,
+                    .foregroundColor: textColor,
+                ])
+                setAttributedTitle(attributedText, for: .normal)
+            }
         }
     }
 

@@ -58,7 +58,6 @@ class NotificationManager: NSObject {
 
         notificationCenter.add(UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil))
     }
-
 }
 
 extension NotificationManager: UNUserNotificationCenterDelegate {

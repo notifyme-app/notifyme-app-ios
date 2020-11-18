@@ -9,145 +9,145 @@
 "checkin_title" = "Check-In";
 
 /*Title of diary screen*/
-"diary_title" = "Diary";
+"diary_title" = "Journal";
 
 /*Homescreen: Title of checkin button*/
-"checkin_button_title" = "Check-In";
+"checkin_button_title" = "Check-in";
 
 /*Homescreen: No Reports title*/
-"no_report_title" = "No report";
+"no_report_title" = "Pas de rapports";
 
 /*Check-In: scan code*/
-"checkin_scan_code" = "Scan QR code to check in";
+"checkin_scan_code" = "Scannez le code QR pour vous enregistrer";
 
 /*iOS: Text bei Berechtigung für Kamera*/
-"NSCameraUsageDescription" = "Your camera is used to scan the QR code.";
+"NSCameraUsageDescription" = "Votre caméra est utilisée pour scanner le code QR.";
 
 /*iOS Permission: Text to show for FaceID*/
-"NSFaceIDUsageDescription" = "Enabling Face ID allows you to securely access your diary.";
+"NSFaceIDUsageDescription" = "L'autorisation du Face ID vous permet d'accéder à votre journal en toute sécurité.";
 
 /*iOS FaceID: Text that is shown as reason for Face ID*/
-"face_id_reason_text" = "Scan your face to see your diary";
+"face_id_reason_text" = "Authentifiez-vous pour accéder au journal";
 
 /*Homescreen: Text with no report*/
-"no_report_hero_text" = "Enjoy your day and stay healthy";
+"no_report_hero_text" = "Prenez soin de vous\n";
 
 /*Reminder Notification Title*/
-"checkout_reminder_title" = "Checkout Reminder";
+"checkout_reminder_title" = "Quitter le lieu - rappel";
 
 /*Reminder Checkout Text*/
-"checkout_reminder_text" = "Do you want to check out?";
+"checkout_reminder_text" = "Voulez-vous quitter le lieu?";
 
 /*Check In Confirm: Button title*/
-"check_in_now_button_title" = "Check In Now";
+"check_in_now_button_title" = "Enregistrez-vous maintenant";
 
 /*CheckIn: Check out Button title*/
-"checkout_button_title" = "Check out";
+"checkout_button_title" = "Quitter le lieu";
 
 /*Title for 1 report*/
-"report_title_singular" = "1 report";
+"report_title_singular" = "1 rapport";
 
 /*Reports: Title for multiple reports*/
-"report_title_plural" = "{NUMBER} reports";
+"report_title_plural" = "{NUMBER} rapports";
 
 /*Reports: Infection text*/
-"report_message_text" = "An infection could have occured";
+"report_message_text" = "Il y a un risque d'infection";
 
 /*Highlighted part of Term no_report_hero_text (has to match exactly)*/
-"no_report_hero_text_highlight" = "stay healthy";
+"no_report_hero_text_highlight" = "de vous";
 
 /*Highlight text of report_message_text (must be exactly as in this text)*/
-"report_message_text_highlight" = "An infection";
+"report_message_text_highlight" = "Une infection";
 
 /*QR-Scanner: request for scan text*/
-"qrscanner_scan_qr_text" = "Scan QR code to check in";
+"qrscanner_scan_qr_text" = "Scannez le code QR pour vous enregistrer.";
 
 /*QR Code Scanner: no valid code text*/
-"qrscanner_error" = "No valid code!";
+"qrscanner_error" = "Le code n'est pas valide.";
 
 /*Reports: no reports information title*/
-"no_report_information_title" = "No potential infections have been reported within the last 14 days";
+"no_report_information_title" = "Aucun risque d'infection n'a été signalé au cours des 14 derniers  jours.";
 
 /*No report Information : Additional text*/
-"no_report_information_text" = "Stay healthy";
+"no_report_information_text" = "Restez en bonne santé.";
 
 /*Reports: Information title*/
-"report_information_title" = "Potential infection within the last 14 days";
+"report_information_title" = "Risque d'infection au cours des 14 derniers jours.";
 
 /*Reports: Information text*/
-"report_information_text" = "You could be infectious without realising it.";
+"report_information_text" = "Vous pourriez être contagieu·x·se sans le savoir.";
 
 /*Report Information What to do Button title*/
-"report_information_button_title" = "What to do?";
+"report_information_button_title" = "Que faire?";
 
 /*Info Text that is displayed below the info about a new report.*/
-"report_message_days_ago" = "{NUMBER} days ago";
+"report_message_days_ago" = "Il y a {NUMBER} jours";
 
 /*Homescreen: Label you are checked in*/
-"homescreen_checkedin_label" = "You are checked in";
+"homescreen_checkedin_label" = "Vous êtes enregistré";
 
 /*Edit Checkin ViewController: your checkin at*/
-"edit_controller_your_checkin" = "Your check-in at";
+"edit_controller_your_checkin" = "Vous êtes enregistré chez";
 
 /*Edit Check in: DatePicker from label*/
-"datepicker_from" = "From";
+"datepicker_from" = "de";
 
 /*Edit Check in: DatePicker to label*/
-"datepicker_to" = "To";
+"datepicker_to" = "à";
 
 /*Edit Checkin: add comment label*/
-"edit_mode_addcomment" = "Add comment";
+"edit_mode_addcomment" = "Ajouter un commentaire";
 
 /*Edit Mode: Add comment placeholder text*/
-"edit_mode_comment_placeholder" = "eg. Who were you with?";
+"edit_mode_comment_placeholder" = "p. ex. Avec qui étiez-vous?";
 
 /*Done Button Title*/
-"done_button" = "Done";
+"done_button" = "Terminé";
 
 /*Edit CheckIn: Text for not showing in diary option*/
-"diary_option_title" = "Don't show in diary";
+"diary_option_title" = "Ne pas afficher dans mon journal";
 
 /*Edit CheckIn: Text that is shown when not showing in diary is set*/
-"diary_option_subtext" = "This Check-in will not be shown in the diary.\n\nNevertheless the app stores this entry during 14 days to warn you in case of potential infection.";
+"diary_option_subtext" = "Ce check-in ne sera pas affiché dans votre journal.\n\nCependant, l'application sauvegarde cette information pendant 14  jours afin de pouvoir vous avertir au cas où vous courez le risque d'avoir été exposé au virus";
 
 /*Check In: Set Reminder title*/
-"checkin_set_reminder" = "Set reminder";
+"checkin_set_reminder" = "Configurer un rappel";
 
 /*Reminder: Option Off*/
-"reminder_option_off" = "off";
+"reminder_option_off" = "Off";
 
 /*Edit Checkin: Remove from diary button title*/
-"remove_from_diary_button" = "Hide from diary";
+"remove_from_diary_button" = "Occulter du journal";
 
 /*Remove from Diary Warning view title*/
-"remove_diary_warning_title" = "Warning";
+"remove_diary_warning_title" = "Avertissement";
 
 /*Remove from diary warning view explanation text*/
-"remove_diary_warning_text" = "You are about to remove “{LOCATION_INFO}” from your diary. This action is irreversible.* Please confirm you are sure about this.";
+"remove_diary_warning_text" = "Vous êtes sur le point de supprimer “{LOCATION_INFO}” de votre journal. Cette démarche est irréversible. Veuillez confirmer cette action.";
 
 /*Remove from diary warning view remove button title*/
-"remove_diary_remove_now_button" = "Hide now";
+"remove_diary_remove_now_button" = "Occulter maintenant";
 
 /*Remove from diary warning start text*/
-"remove_diary_warning_star_text" = "The app stores this entry during 14 days to warn you in case of potential infections.";
+"remove_diary_warning_star_text" = "l'Application sauvegarde cette information pendant 14 jours afin de pouvoir vous avertir au cas où il y a un risque d'infection.";
 
 /*Report: 1 day ago singular*/
-"report_message_one_day_ago" = "1 day ago";
+"report_message_one_day_ago" = "Il y a un jour";
 
 /*Notification Channel name on Android Devices (Only visible in System Settings)*/
-"android_notification_channel_name" = "Exposure Notifications";
+"android_notification_channel_name" = "Notifications";
 
 /*Info Text that is displayed below the info about a new report today.*/
-"report_message_today" = "Today";
+"report_message_today" = "Aujourd'hui";
 
 /*Checkout date label if event spans over more than one day*/
-"checkout_from_to_date" = "{DATE1} to {DATE2}";
+"checkout_from_to_date" = "du {DATE1} au {DATE2}";
 
 /*Text that is displayed to the user in the biometric authentication popup.*/
-"authenticate_for_diary" = "Authenticate yourself to access the diary";
+"authenticate_for_diary" = "Authentifiez-vous pour accéder au journal";
 
 /*Notification Channel name for Reminders on Android Devices (Only visible in System Settings)*/
-"android_reminder_channel_name" = "Reminders";
+"android_reminder_channel_name" = "Rappels";
 
 /*Reminder Option with an amount of hours*/
 "reminder_option_hours" = "{HOURS} h";
@@ -156,34 +156,113 @@
 "reminder_option_minutes" = "{MINUTES}'";
 
 /*Warning that is displayed on the Main Screen if a non productive build is used.*/
-"non_productive_warning" = "This app provides a preview of the NotifyMe app and is not meant for production.";
+"non_productive_warning" = "Cette version de l'application donne un aperçu de NotifyMe. Elle n'est pas destinée à la production.";
 
 /*Checkin: Reminder Alert title when permission to send reminders not given*/
-"checkin_reminder_settings_alert_title" = "The reminder could not be set";
+"checkin_reminder_settings_alert_title" = "Le rappel n'a pas pu être configuré";
 
 /*Checkin: Reminder Alert message when permission to send reminders not given*/
-"checkin_reminder_settings_alert_message" = "In order to send you reminders the app needs the permission to send notifications. You can enable the permission for notifications in the app settings.";
+"checkin_reminder_settings_alert_message" = "Afin de pouvoir vous envoyer des rappels, NotifyMe nécessite votre autorisation pour l'envoi de notifications.";
 
 /*Check In Reminder Alert Open Settings button*/
-"checkin_reminder_option_open_settings" = "Open app settings";
+"checkin_reminder_option_open_settings" = "Ajuster";
 
 /*Cancel button title*/
-"cancel" = "Cancel";
+"cancel" = "Annuler";
 
 /*QR Scanner: camera has no permission explanation text*/
-"qr_scanner_no_camera_permission" = "Access to your camera is needed to scan QR codes";
+"qr_scanner_no_camera_permission" = "l'Accès à votre caméra est nécessaire pour scanner le code QR.";
 
 /*Title for an exposure notification.*/
-"exposure_notification_title" = "New message";
+"exposure_notification_title" = "Nouveau message";
 
 /*Body text for an exposure notification.*/
-"exposure_notification_body" = "Open the app to read the message";
+"exposure_notification_body" = "Ouvrir l'application pour lire le message";
 
 /*Close button title in the top right corner to close the new exposure screen.*/
-"new_exposure_close_button" = "Close";
+"new_exposure_close_button" = "Fermer";
 
 /*Header text above the personal notes in the new exposure screen.*/
-"new_exposure_notes_header" = "Your Notes";
+"new_exposure_notes_header" = "Vos notes";
 
 /*Header text above the location details in the new exposure screen.*/
-"new_exposure_location_header" = "Where";
+"new_exposure_location_header" = "Où";
+
+/*Version text in the Imprint (Webview)*/
+"imprint_webview_version_text" = "Version";
+
+/*Title publisher in imprint*/
+"imprint_webview_publisher_title" = "Éditeur";
+
+/*Text about Ubique in the imprint*/
+"imprint_webview_ubique_about_text" = "Ubique est spécialisé dans le développement d'applications mobiles conçues pour le consommateur final. En tant qu'entreprise reconnue dans la conception de produits basés sur des protocoles décentralisés, le travail d'Ubique se focalise sur la connexion entre l'utilisateur et la technologie avancée.";
+
+/*Title in collaboration with in imprint*/
+"imprint_webview_collaboration_title" = "En collaboration avec";
+
+/*CrowdNotifier Paper text*/
+"imprint_webview_paper_text" = "Ce projet est basé sur l'article CrowdNotifier de Wouter Lueks (EPFL) et al.:";
+
+/*CrowdNotifier Paper link*/
+"imprint_webview_paper_link" = "github.com/CrowdNotifier/documents";
+"imprint_webview_more_info_title" = "Informations supplémentaires";
+"imprint_webview_more_info_link" = "https://notify-me.ch";
+"imprint_webview_legal_title" = "juridique";
+"imprint_webview_legal_link_text" = "Protection des données et conditions d'utilisation";
+"imprint_webview_legal_link_url" = "www.notify-me.ch/legal";
+"imprint_webview_sourcecode_title" = "Code source";
+"imprint_webview_sourcecode_text" = "Le code source actuel publié sous Licence Publique est disponible sur GitHub:";
+"imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
+"generator_title" = "Créer code QR démo";
+"generator_category_label" = "Catégorie";
+"generator_category_other" = "Autre";
+"generator_category_meeting_room" = "Salle de réunion";
+"generator_category_cafeteria" = "Cafétéria";
+"generator_category_private_party" = "Soirée privée";
+"generator_title_label" = "Titre";
+"generator_title_placeholder" = "p. ex. Nom de pièce ou d'événement";
+"generator_subtitle_label" = "Sous-titre";
+"generator_subtitle_placeholder" = "p. ex. Organisation ou organisateur·trice";
+"generator_addition_label" = "Additif";
+"generator_addition_placeholder" = "p. ex. Bâtiment ou lieu";
+"generator_generation_button_label" = "Générer un code QR";
+"generator_back" = "Retour";
+"generator_public_bulletpoint_1" = "Avec ce code QR les visiteurs peuvent s'enregistrer sur place.";
+"generator_public_bulletpoint_2" = "Le code peut être scanné avec NotifyMe";
+"generator_public_bulletpoint_3" = "Les check-ins ne sont pas sauvegardés de manière centrale. Aucunes données personnelles ne sont saisies.";
+"generator_private_bulletpoint_1" = "Ce code QR informe les visiteurs en cas incident.";
+"generator_private_bulletpoint_2" = "Le code peut être scanné avec n'importe quel autre lecteur QR.";
+"generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information n'est transmise à l'organisateur.";
+"generator_pdf_button" = "Télécharger PDF";
+"generator_public_qr_title" = "Code QR <span>publique</span>\\\n";
+"generator_private_qr_title" = "Code QR <span>privé</span>\\";
+"generator_missing_input" = "Veuillez remplir le champ obligatoire";
+"upload_title" = "Rapport d'une éventuelle infection";
+"upload_period_label" = "Période concernée";
+"upload_period_from_label" = "de";
+"upload_period_to_label" = "à";
+"upload_note_label" = "Indication au visiteur";
+"upload_note_placeholder" = "Que faire?";
+"upload_upload_button" = "Informer le visiteur";
+"error_network_title" = "Erreur de réseau";
+"error_network_text" = "Vérifiez votre connexion internet.";
+"error_notification_deactivated_title" = "Notifications désactivées";
+"error_notification_deactivated_text" = "Changez les réglages pour être informé immédiatement au cas où vous avez un rapport.";
+"error_background_refresh_title" = "Mise à jour éteinte.";
+"error_background_refresh_text" = "Changez les réglages pour également être informé des rapports en dehors de l'application.";
+"error_camera_permission_title" = "Pas d'accès à la caméra";
+"error_camera_permission_text" = "L'application a besoin d'avoir accès à la caméra pour pouvoir scanner le code QR.";
+"error_action_change_settings" = "Changer les réglages";
+"error_action_retry" = "Réessayer";
+"upload_success_message" = "Information successful";
+"upload_error_message" = "Information failed";
+"upload_missing_payload" = "Pas de code privé trouvé. Scannez un code QR valable.";
+
+/*Titel einer generischen Fehleranzeige*/
+"error_title" = "Error";
+
+/*Fehlermeldung, wenn man bereits eingecheckt ist*/
+"error_already_checked_in" = "You are already checked in.";
+
+/*Titel eines Ok-Buttons*/
+"ok_button" = "Ok";

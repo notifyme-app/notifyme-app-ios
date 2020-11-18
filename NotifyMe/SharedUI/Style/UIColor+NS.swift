@@ -23,4 +23,6 @@ public extension UIColor {
     static var ns_red: UIColor = UIColor(ub_hexString: "#f34e70")!
     static var ns_redLight: UIColor = UIColor(ub_hexString: "#fdedf0")!
     static var ns_grayBackground = UIColor(ub_hexString: "#f2f2f2")!
+
+    static var ns_error: UIColor = UIColor(ub_hexString: "#e20008")!
 }
