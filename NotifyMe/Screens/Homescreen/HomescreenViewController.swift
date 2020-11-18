@@ -52,10 +52,6 @@ class HomescreenViewController: BaseViewController {
         startRefresh()
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
-
     // MARK: - Update
 
     private func update(_ state: UIStateModel) {
