@@ -31,6 +31,8 @@ class ErrorView: UIView {
     private let textLabel = Label(.text, textAlignment: .center)
     private let button = TextButton(text: "", textColor: .ns_text, underlined: true)
 
+    private let topPadding: CGFloat
+
     var touchUpCallback: (() -> Void)? {
         get { button.touchUpCallback }
         set { button.touchUpCallback = newValue }
@@ -40,8 +42,9 @@ class ErrorView: UIView {
         didSet { update() }
     }
 
-    init(errorModel: ErrorViewModel? = nil) {
+    init(errorModel: ErrorViewModel? = nil, topPadding: CGFloat = 0) {
         self.errorModel = errorModel
+        self.topPadding = topPadding
 
         super.init(frame: .zero)
 
@@ -66,6 +69,7 @@ class ErrorView: UIView {
             make.edges.equalToSuperview().inset(Padding.small)
         }
 
+        stackView.addSpacerView(topPadding)
         stackView.addArrangedSubview(iconView)
         stackView.addSpacerView(Padding.small)
         stackView.addArrangedSubview(titleLabel)

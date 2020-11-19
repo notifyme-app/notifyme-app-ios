@@ -15,7 +15,7 @@ class ErrorViewController: CenterContentViewController {
     private let errorView: ErrorView
 
     init(errorModel: ErrorViewModel) {
-        errorView = ErrorView(errorModel: errorModel)
+        errorView = ErrorView(errorModel: errorModel, topPadding: Padding.large + 5)
         super.init()
     }
 
@@ -31,8 +31,7 @@ class ErrorViewController: CenterContentViewController {
 
     private func setupView() {
         contentView.snp.remakeConstraints { make in
-            make.top.equalToSuperview().inset(Padding.large + Padding.small)
-            make.leading.trailing.bottom.equalToSuperview().inset(5)
+            make.edges.equalToSuperview().inset(5)
         }
 
         contentView.addArrangedView(errorView)
