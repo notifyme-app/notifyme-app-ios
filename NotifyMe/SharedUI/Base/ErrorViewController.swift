@@ -36,7 +36,7 @@ class ErrorViewController: CenterContentViewController {
 
         contentView.addArrangedView(errorView)
 
-        errorView.touchUpCallback = { [weak self] in
+        errorView.errorCallback = { [weak self] _ in
             guard let strongSelf = self else { return }
             strongSelf.dismiss(animated: true, completion: nil)
         }

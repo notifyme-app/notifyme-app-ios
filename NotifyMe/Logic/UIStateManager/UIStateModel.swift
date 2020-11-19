@@ -18,6 +18,7 @@ struct UIStateModel: Equatable {
     var checkInState: CheckInState = .noCheckIn
     var exposureState: ExposureState = .noExposure
     var diaryState: [[CheckIn]] = []
+    var errorState = ErrorState(error: nil)
 
     enum CheckInState: Equatable {
         case noCheckIn
@@ -27,6 +28,10 @@ struct UIStateModel: Equatable {
     enum ExposureState: Equatable {
         case noExposure
         case exposure(exposure: [Exposure], exposureByDay: [[Exposure]])
+    }
+
+    struct ErrorState: Equatable {
+        let error: ErrorViewModel?
     }
 }
 

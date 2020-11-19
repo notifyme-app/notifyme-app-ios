@@ -69,13 +69,6 @@ extension QRScannerView {
         captureSession = AVCaptureSession()
 
         guard let videoCaptureDevice = AVCaptureDevice.default(for: .video) else {
-            #if targetEnvironment(simulator)
-                let json = """
-                {"rp":{"name":"AccessApp","id":"mtls.ubique.ch"},"user":{"name":"asdf@asdfd.de","displayName":"asdf@asdfd.de","id":"AAAALA"},"challenge":"fjW_x2wrmT8oD5OdmgF4ppeS9_1zRaweVCk5Oz8nO5Q","pubKeyCredParams":[{"alg":-7,"type":"public-key"}],"excludeCredentials":[],"attestation":"none","extensions":{}}
-                """
-                stopScanning()
-                found(code: json)
-            #endif
             return
         }
         let videoInput: AVCaptureDeviceInput

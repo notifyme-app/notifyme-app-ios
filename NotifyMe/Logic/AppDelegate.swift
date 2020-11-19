@@ -41,6 +41,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationDidBecomeActive(_: UIApplication) {
         clearBadge()
+
+        NotificationManager.shared.checkAuthorization()
     }
 
     private func initializeWindow() {
@@ -107,7 +109,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         switch UIStateManager.shared.uiState.checkInState {
         case .checkIn:
-            let vc = ErrorViewController(errorModel: ErrorViewModel(title: "error_title".ub_localized, text: "error_already_checked_in".ub_localized, buttonText: "ok_button".ub_localized))
+            let vc = ErrorViewController(errorModel: .alreadyCheckedIn)
             window?.rootViewController?.present(vc, animated: true, completion: nil)
         case .noCheckIn:
             // Try checkin
@@ -118,7 +120,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let vc = CheckInConfirmViewController(qrCode: urlString, venueInfo: info)
                 window?.rootViewController?.present(vc, animated: true, completion: nil)
             case .failure:
-                let vc = ErrorViewController(errorModel: ErrorViewModel(title: "error_title".ub_localized, text: "qrscanner_error".ub_localized, buttonText: "ok_button".ub_localized))
+                let vc = ErrorViewController(errorModel: .invalidQrCode)
                 window?.rootViewController?.present(vc, animated: true, completion: nil)
             }
         }

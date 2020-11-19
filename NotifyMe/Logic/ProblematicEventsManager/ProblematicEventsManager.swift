@@ -39,6 +39,8 @@ class ProblematicEventsManager {
 
     // MARK: - API
 
+    public private(set) var lastSyncFailed: Bool = false
+
     public func getExposureEvents() -> [ExposureEvent] {
         return exposureEvents
     }
@@ -51,15 +53,20 @@ class ProblematicEventsManager {
 
         let endpoint = backend.endpoint("traceKeys", queryParameters: queryParameters, headers: ["Accept": "application/protobuf"])
 
-        let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, response, _ in
+        lastSyncFailed = false
+
+        let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, _, error in
             guard let strongSelf = self else {
                 completion(false, false)
                 return
             }
 
-            if let dateHeader = (response as? HTTPURLResponse)?.allHeaderFields["Date"] as? String, let date = strongSelf.dateFormatter.date(from: dateHeader) {
-                strongSelf.lastSync = date.millisecondsSince1970
-            }
+            strongSelf.lastSyncFailed = error != nil
+
+            // TODO: N2STEP-24 check correct header field according to backend specification
+//            if let dateHeader = (response as? HTTPURLResponse)?.allHeaderFields["Date"] as? String, let date = strongSelf.dateFormatter.date(from: dateHeader) {
+//                strongSelf.lastSync = date.millisecondsSince1970
+//            }
 
             let block = {
                 if let data = data {

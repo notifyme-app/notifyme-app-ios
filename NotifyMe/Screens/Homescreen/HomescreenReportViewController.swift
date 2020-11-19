@@ -14,8 +14,8 @@ import Foundation
 class HomescreenReportViewController: BaseSubViewController {
     // MARK: - Private parts
 
-    let reportButton = ReportButton()
-    let noReportLabel = Label(.heroTitle)
+    private let reportButton = ReportButton()
+    private let noReportLabel = Label(.heroTitle)
 
     // MARK: - API
 
@@ -51,7 +51,7 @@ class HomescreenReportViewController: BaseSubViewController {
         switch state.exposureState {
         case .noExposure:
             noReportLabel.isHidden = false
-            reportButton.setContent(title: "no_report_title".ub_localized)
+            reportButton.setContent(title: "no_report_title".ub_localized, error: state.errorState.error)
 
         case let .exposure(exposure, _):
             noReportLabel.isHidden = true
@@ -60,7 +60,7 @@ class HomescreenReportViewController: BaseSubViewController {
             let d = exposure.first?.exposureEvent.arrivalTime ?? Date()
             let subText = d.ns_daysAgo()
 
-            reportButton.setContent(title: title, message: "report_message_text".ub_localized, messageHighlight: "report_message_text_highlight".ub_localized, subText: subText)
+            reportButton.setContent(title: title, message: "report_message_text".ub_localized, messageHighlight: "report_message_text_highlight".ub_localized, subText: subText, error: state.errorState.error)
         }
     }
 
@@ -90,5 +90,7 @@ class HomescreenReportViewController: BaseSubViewController {
 
         noReportLabel.text = "no_report_hero_text".ub_localized
         noReportLabel.addHighlight(text: "no_report_hero_text_highlight".ub_localized, color: UIColor.ns_green)
+
+        reportButton.errorCallback = handleError(_:)
     }
 }

@@ -12,11 +12,13 @@
 import Foundation
 
 class ReportsInformationViewController: BaseSubViewController {
-    private let stackScrollView = StackScrollView(axis: .vertical, spacing: 0)
-
     private let collectionView = DiaryCollectionView()
 
     private var exposure: [[Exposure]] = []
+    private var error: ErrorViewModel?
+    private var hasError: Bool {
+        error != nil
+    }
 
     // MARK: - View
 
@@ -41,6 +43,8 @@ class ReportsInformationViewController: BaseSubViewController {
             exposure = exposureByDay
             collectionView.reloadData()
         }
+
+        error = state.errorState.error
     }
 
     // MARK: - Setup
@@ -49,6 +53,7 @@ class ReportsInformationViewController: BaseSubViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ReportInformationViewCollectionViewCell.self)
+        collectionView.register(ErrorCollectionViewCell.self)
 
         view.addSubview(collectionView)
 
@@ -105,11 +110,17 @@ extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
 
 extension ReportsInformationViewController: UICollectionViewDataSource {
     func collectionView(_: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return section == 0 ? 1 : exposures(for: section).count
+        return section == 0 ? (hasError ? 2 : 1) : exposures(for: section).count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.section == 0 {
+            if hasError, indexPath.row == 0 {
+                let cell = collectionView.dequeueReusableCell(for: indexPath) as ErrorCollectionViewCell
+                cell.errorView.errorModel = error
+                cell.errorView.errorCallback = handleError(_:)
+                return cell
+            }
             let cell = collectionView.dequeueReusableCell(for: indexPath) as ReportInformationViewCollectionViewCell
             return cell
         } else {

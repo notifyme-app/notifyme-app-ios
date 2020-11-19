@@ -16,7 +16,8 @@ class QRCodeScannerViewController: BaseSubViewController {
     private var qrView: QRScannerView?
     private var qrOverlay = QRScannerOverlay()
 
-    private var cameraPermissionErrorView = UIView()
+    private let errorContainer = UIView()
+    private let errorView = ErrorView(errorModel: .noCameraPermission)
 
     private let requestLabel = Label(.text, textAlignment: .center)
     private let qrErrorLabel = Label(.boldUppercaseSmall, textColor: UIColor.ns_red, textAlignment: .center)
@@ -103,41 +104,25 @@ class QRCodeScannerViewController: BaseSubViewController {
             make.left.right.equalToSuperview().inset(Padding.mediumSmall)
         }
 
-        view.addSubview(cameraPermissionErrorView)
-        cameraPermissionErrorView.snp.makeConstraints { make in
-            make.left.right.equalTo(qrView)
-            make.centerY.equalTo(qrView)
+        errorContainer.backgroundColor = .ns_grayBackground
+        view.addSubview(errorContainer)
+        errorContainer.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
         }
 
-        let label = Label(.boldUppercaseSmall, textColor: UIColor.ns_red, textAlignment: .center)
-        label.text = "qr_scanner_no_camera_permission".ub_localized
-        let button = BigButton(style: .small, text: "checkin_reminder_option_open_settings".ub_localized)
-
-        cameraPermissionErrorView.addSubview(label)
-        cameraPermissionErrorView.addSubview(button)
-
-        label.snp.makeConstraints { make in
-            make.top.left.right.equalToSuperview()
+        errorContainer.addSubview(errorView)
+        errorView.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(Padding.large * 2)
+            make.leading.trailing.equalToSuperview().inset(Padding.mediumSmall)
         }
 
-        button.snp.makeConstraints { make in
-            make.top.equalTo(label.snp.bottom).offset(Padding.mediumSmall)
-            make.bottom.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview()
-            make.right.lessThanOrEqualToSuperview()
-        }
-
-        button.touchUpCallback = {
-            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(settingsURL)
-            }
-        }
+        errorView.errorCallback = handleError(_:)
     }
 
     // MARK: - Start scanning & error
 
     private func startScanningProcess() {
-        cameraPermissionErrorView.alpha = 0.0
+        errorContainer.alpha = 0.0
         qrView?.startScanning()
         qrErrorLabel.alpha = 0.0
         qrOverlay.lineColor = .ns_purple
@@ -164,7 +149,7 @@ class QRCodeScannerViewController: BaseSubViewController {
 
 extension QRCodeScannerViewController: QRScannerViewDelegate {
     func qrScanningDidFail() {
-        cameraPermissionErrorView.alpha = 1.0
+        errorContainer.alpha = 1.0
     }
 
     func qrScanningSucceededWithCode(_ str: String?) {

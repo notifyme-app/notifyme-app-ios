@@ -11,20 +11,6 @@
 
 import UIKit
 
-struct ErrorViewModel {
-    let title: String
-    let text: String
-    let buttonText: String
-    let icon: UIImage?
-
-    init(title: String, text: String, buttonText: String, icon: UIImage? = nil) {
-        self.title = title
-        self.text = text
-        self.buttonText = buttonText
-        self.icon = icon
-    }
-}
-
 class ErrorView: UIView {
     private let iconView = UIImageView()
     private let titleLabel = Label(.boldUppercase, textColor: .ns_error, textAlignment: .center)
@@ -33,10 +19,7 @@ class ErrorView: UIView {
 
     private let topPadding: CGFloat
 
-    var touchUpCallback: (() -> Void)? {
-        get { button.touchUpCallback }
-        set { button.touchUpCallback = newValue }
-    }
+    var errorCallback: ((ErrorViewModel?) -> Void)?
 
     var errorModel: ErrorViewModel? {
         didSet { update() }
@@ -69,6 +52,8 @@ class ErrorView: UIView {
             make.edges.equalToSuperview().inset(Padding.small)
         }
 
+        iconView.ub_setContentPriorityRequired()
+
         stackView.addSpacerView(topPadding)
         stackView.addArrangedSubview(iconView)
         stackView.addSpacerView(Padding.small)
@@ -77,6 +62,15 @@ class ErrorView: UIView {
         stackView.addArrangedSubview(textLabel)
         stackView.addSpacerView(Padding.mediumSmall)
         stackView.addArrangedSubview(button)
+
+        button.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.didTapButton()
+        }
+    }
+
+    @objc private func didTapButton() {
+        errorCallback?(errorModel)
     }
 
     private func update() {

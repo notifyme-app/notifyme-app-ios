@@ -30,7 +30,27 @@ class NotificationManager {
     }
 
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
-        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound], completionHandler: completion)
+        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+            self.hasDeniedNotificationPermission = !success
+
+            DispatchQueue.main.async {
+                UIStateManager.shared.stateChanged()
+            }
+            completion(success, error)
+        }
+    }
+
+    @UBUserDefault(key: "ch.notify-me.hasDeniedNotificationPermission", defaultValue: false)
+    private(set) var hasDeniedNotificationPermission: Bool
+
+    func checkAuthorization() {
+        notificationCenter.getNotificationSettings { settings in
+            self.hasDeniedNotificationPermission = settings.authorizationStatus == .denied
+
+            DispatchQueue.main.async {
+                UIStateManager.shared.stateChanged()
+            }
+        }
     }
 
     func scheduleReminderNotification(after timeInterval: TimeInterval) {

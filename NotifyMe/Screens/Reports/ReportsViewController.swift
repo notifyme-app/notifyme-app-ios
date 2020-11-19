@@ -20,6 +20,9 @@ class ReportsViewController: BaseViewController {
 
     private let stackScrollView = StackScrollView(axis: .vertical, spacing: 0)
 
+    private let errorViewContainer = UIView()
+    private let errorView = ErrorView()
+
     // MARK: - View
 
     override func viewDidLoad() {
@@ -40,6 +43,17 @@ class ReportsViewController: BaseViewController {
         stackScrollView.snp.makeConstraints { make in
             make.edges.equalToSuperview()
         }
+
+        // Error view
+        errorViewContainer.addSubview(errorView)
+        stackScrollView.addArrangedView(errorViewContainer)
+
+        errorView.snp.makeConstraints { make in
+            make.top.equalToSuperview()
+            make.leading.trailing.bottom.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        errorView.errorCallback = handleError(_:)
 
         // view for no reports
         let v = UIView()
@@ -66,12 +80,16 @@ class ReportsViewController: BaseViewController {
             title = "no_report_title".ub_localized
             noReportInformationView.isHidden = false
             reportsInformationViewController.view.isHidden = true
+            errorViewContainer.isHidden = state.errorState.error == nil
 
         case let .exposure(exposure, _):
             title = exposure.count > 1 ? "report_title_plural".ub_localized.replacingOccurrences(of: "{NUMBER}", with: "\(exposure.count)") : "report_title_singular".ub_localized
             noReportInformationView.isHidden = true
             reportsInformationViewController.view.isHidden = false
+            errorViewContainer.isHidden = true // When there are exposure, we need to show the error view in the collectionView
         }
+
+        errorView.errorModel = state.errorState.error
     }
 }
 

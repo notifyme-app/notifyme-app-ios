@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import AVFoundation
 import CrowdNotifierSDK
 import Foundation
 
@@ -21,7 +22,7 @@ class UIStateLogic {
     }
 
     func buildState() -> UIStateModel {
-        return UIStateModel(checkInState: buildCheckInState(), exposureState: buildExposureState(), diaryState: buildDiaryState())
+        return UIStateModel(checkInState: buildCheckInState(), exposureState: buildExposureState(), diaryState: buildDiaryState(), errorState: buildErrorState())
     }
 
     // MARK: - Substates
@@ -117,5 +118,26 @@ class UIStateLogic {
         }
 
         return result
+    }
+
+    private func buildErrorState() -> UIStateModel.ErrorState {
+        if ProblematicEventsManager.shared.lastSyncFailed {
+            return UIStateModel.ErrorState(error: .networkProblem)
+        }
+
+        if NotificationManager.shared.hasDeniedNotificationPermission {
+            return UIStateModel.ErrorState(error: .noNotificationPermission)
+        }
+
+        if UIApplication.shared.backgroundRefreshStatus != .available {
+            return UIStateModel.ErrorState(error: .noBackgroundFetch)
+        }
+
+        let status = AVCaptureDevice.authorizationStatus(for: .video)
+        if status == .denied || status == .restricted {
+            return UIStateModel.ErrorState(error: .noCameraPermission)
+        }
+
+        return UIStateModel.ErrorState(error: nil)
     }
 }
