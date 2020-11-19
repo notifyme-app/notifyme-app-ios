@@ -16,28 +16,22 @@ class TextButton: UBButton {
 
     private let textColor: UIColor
     private let underlined: Bool
-    private let labelFont: UIFont = LabelType.boldUppercase.font
+    private let label: Label
 
-    init(text: String, textColor: UIColor = .ns_purple, underlined: Bool = false) {
+    init(text: String, textColor: UIColor = .ns_purple, underlined: Bool = false, lightFont: Bool = false) {
         self.textColor = textColor
         self.underlined = underlined
+        label = Label(lightFont ? .lightUppercase : .boldUppercase)
 
         super.init()
 
-        if underlined {
-            let attributedText = NSAttributedString(string: text, attributes: [
-                .font: labelFont,
-                .foregroundColor: textColor,
-                .underlineStyle: NSUnderlineStyle.single.rawValue,
-            ])
-            setAttributedTitle(attributedText, for: .normal)
-        } else {
-            let attributedText = NSAttributedString(string: text, attributes: [
-                .font: labelFont,
-                .foregroundColor: textColor,
-            ])
-            setAttributedTitle(attributedText, for: .normal)
-        }
+        // set properties first
+        label.textColor = textColor
+        titleLabel?.font = label.font
+        titleLabel?.textColor = textColor
+
+        // then title, that update works
+        title = text
 
         highlightedBackgroundColor = UIColor.ns_genericTouchState
         highlightCornerRadius = 3.0
@@ -52,27 +46,28 @@ class TextButton: UBButton {
 
     override var title: String? {
         get {
-            titleLabel?.text
+            label.text
         }
         set {
-            if underlined {
-                let attributedText = NSAttributedString(string: newValue ?? "", attributes: [
-                    .font: labelFont,
-                    .foregroundColor: textColor,
-                    .underlineStyle: NSUnderlineStyle.single.rawValue,
-                ])
-                setAttributedTitle(attributedText, for: .normal)
-            } else {
-                let attributedText = NSAttributedString(string: newValue ?? "", attributes: [
-                    .font: labelFont,
-                    .foregroundColor: textColor,
-                ])
-                setAttributedTitle(attributedText, for: .normal)
-            }
+            label.text = newValue
+            updateTitle()
         }
     }
 
     required init?(coder _: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    private func updateTitle() {
+        if underlined {
+            let attributedText = NSAttributedString(string: title ?? "", attributes: [
+                .font: label.font!,
+                .foregroundColor: textColor,
+                .underlineStyle: NSUnderlineStyle.single.rawValue,
+            ])
+            setAttributedTitle(attributedText, for: .normal)
+        } else {
+            setAttributedTitle(label.attributedText, for: .normal)
+        }
     }
 }

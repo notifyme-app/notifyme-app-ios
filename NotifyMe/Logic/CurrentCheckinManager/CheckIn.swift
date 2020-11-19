@@ -17,7 +17,6 @@ struct CheckIn: UBCodable, Equatable {
         self.identifier = identifier
         self.venue = venue
         self.checkInTime = checkInTime
-        checkOutTime = checkInTime
         self.hideFromDiary = hideFromDiary
         self.qrCode = qrCode
     }
@@ -27,7 +26,7 @@ struct CheckIn: UBCodable, Equatable {
     public var venue: VenueInfo
     public var checkInTime: Date
     public var comment: String?
-    public var checkOutTime: Date
+    public var checkOutTime: Date?
     public var hideFromDiary: Bool
 
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {

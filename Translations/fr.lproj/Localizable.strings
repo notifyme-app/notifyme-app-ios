@@ -279,3 +279,6 @@
 
 /*Highlighted text part of app name: Me*/
 "app_name_highlight" = "Me";
+
+/*Title of back button*/
+"back_button" = "Back";

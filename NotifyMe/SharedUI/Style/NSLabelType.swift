@@ -37,6 +37,7 @@ public enum LabelType: UBLabelType {
     case text
     case textBold
     case boldUppercase
+    case lightUppercase
     case boldUppercaseSmall
 
     public var font: UIFont {
@@ -70,6 +71,8 @@ public enum LabelType: UBLabelType {
             return UIFont(name: boldFontName, size: bfs)!
         case .boldUppercase:
             return UIFont(name: boldFontName, size: bfs)!
+        case .lightUppercase:
+            return UIFont(name: lightFontName, size: bfs)!
         case .boldUppercaseSmall:
             return UIFont(name: boldFontName, size: bfs - 3.0)!
         }
@@ -77,7 +80,7 @@ public enum LabelType: UBLabelType {
 
     public var textColor: UIColor {
         switch self {
-        case .boldUppercase, .boldUppercaseSmall:
+        case .boldUppercase, .boldUppercaseSmall, .lightUppercase:
             return .white
         default:
             return .ns_text
@@ -98,7 +101,7 @@ public enum LabelType: UBLabelType {
             return 22.0 / 16.0
         case .textBold:
             return 22.0 / 16.0
-        case .boldUppercase:
+        case .boldUppercase, .lightUppercase:
             return 26.0 / 16.0
         case .boldUppercaseSmall:
             return 1.0
@@ -110,11 +113,15 @@ public enum LabelType: UBLabelType {
             return 1.0
         }
 
+        if self == .lightUppercase {
+            return 0.41
+        }
+
         return nil
     }
 
     public var isUppercased: Bool {
-        if self == .boldUppercase || self == .boldUppercaseSmall {
+        if self == .boldUppercase || self == .boldUppercaseSmall || self == .lightUppercase {
             return true
         }
 

@@ -85,6 +85,6 @@ extension AddCommentControl: UITextFieldDelegate {
         let textFieldText: NSString = (textField.text ?? "") as NSString
         let txtAfterUpdate = textFieldText.replacingCharacters(in: range, with: string)
         commentChangedCallback?(txtAfterUpdate)
-        return false
+        return true
     }
 }

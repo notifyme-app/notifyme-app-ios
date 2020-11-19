@@ -13,13 +13,29 @@ import Foundation
 
 class ModalBaseViewController: BaseViewController {
     public let dismissButton = TextButton(text: "done_button".ub_localized)
+    private let leftButton = TextButton(text: "".ub_localized, lightFont: true)
+    private let titleLabel = Label(.boldUppercase, textColor: .ns_text)
+
     public let contentView: StackScrollView
 
     private let lineView = NavigationLineView()
 
+    public var leftButtonTitle: String? {
+        didSet { self.updateLeftButton() }
+    }
+
+    override public var title: String? {
+        didSet { updateTitle() }
+    }
+
+    public var leftButtonTouchCallback: (() -> Void)?
+
+    public let topBackgroundColor: UIColor
+
     // MARK: - Init
 
-    init(horizontalContentInset: CGFloat = 0) {
+    init(horizontalContentInset: CGFloat = 0, backgroundColor: UIColor = .white) {
+        topBackgroundColor = backgroundColor
         contentView = StackScrollView(stackViewHorizontalInset: horizontalContentInset)
         super.init()
     }
@@ -44,6 +60,9 @@ class ModalBaseViewController: BaseViewController {
             // Fallback on earlier versions
         }
 
+        view.backgroundColor = topBackgroundColor
+
+        contentView.backgroundColor = .white
         contentView.scrollView.delegate = self
         contentView.scrollView.ub_enableDefaultKeyboardObserver()
 
@@ -60,6 +79,27 @@ class ModalBaseViewController: BaseViewController {
             make.right.equalToSuperview().inset(Padding.mediumSmall)
         }
 
+        view.addSubview(leftButton)
+
+        leftButton.snp.makeConstraints { make in
+            make.top.equalToSuperview().inset(Padding.small)
+            make.left.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        leftButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.leftButtonTouchCallback?()
+        }
+
+        view.addSubview(titleLabel)
+
+        titleLabel.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(dismissButton)
+            make.left.greaterThanOrEqualTo(leftButton.snp.right).offset(Padding.small)
+            make.right.lessThanOrEqualTo(self.dismissButton.snp.left).offset(-Padding.small)
+        }
+
         dismissButton.touchUpCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.dismiss(animated: true, completion: nil)
@@ -70,6 +110,19 @@ class ModalBaseViewController: BaseViewController {
             make.left.right.equalToSuperview()
             make.bottom.equalTo(contentView.snp.top)
         }
+    }
+
+    private func updateLeftButton() {
+        leftButton.isHidden = true
+
+        if let t = leftButtonTitle {
+            leftButton.title = t
+            leftButton.isHidden = false
+        }
+    }
+
+    private func updateTitle() {
+        titleLabel.text = title
     }
 }
 

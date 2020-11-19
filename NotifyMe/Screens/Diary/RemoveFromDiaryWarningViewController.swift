@@ -17,7 +17,7 @@ class RemoveFromDiaryWarningViewController: CenterContentViewController {
     private let textLabel = Label(.text)
     private let explanationLabel = Label(.text)
 
-    private let removeNowButton = BigButton(style: .small, text: "remove_diary_remove_now_button".ub_localized)
+    private let removeNowButton = BigButton(style: .small, text: "remove_diary_remove_now_button".ub_localized, color: .ns_red)
 
     public var removeCallback: (() -> Void)? {
         didSet {

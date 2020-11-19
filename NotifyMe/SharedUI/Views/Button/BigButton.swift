@@ -16,6 +16,7 @@ enum BigButtonStyle {
     case normal
     case outline
     case small
+    case outlineSmall
 
     // special case
     case checkedIn
@@ -51,26 +52,28 @@ class BigButton: UBButton {
         highlightedBackgroundColor = .ns_purpleLight
     }
 
-    init(style: BigButtonStyle, icon: UIImage? = nil, text: String? = nil) {
+    init(style: BigButtonStyle, icon: UIImage? = nil, text: String? = nil, color: UIColor = .ns_purple, highlightColor: UIColor = .ns_purpleLight, darkHighlightColor: UIColor = .ns_purpleDark) {
         self.style = style
         label = Label((style == .checkedIn) ? .navigationBarTitle : .boldUppercase)
 
         super.init()
         setup()
 
-        if style == .outline || style == .checkedIn {
+        let isOutline = style == .outline || style == .outlineSmall
+
+        if isOutline || style == .checkedIn {
             setupIconAndText(icon: icon?.ub_image(with: .ns_purple), text: text)
 
-            label.textColor = .ns_purple
+            label.textColor = color
             backgroundColor = UIColor.white
-            layer.borderColor = UIColor.ns_purple.cgColor
+            layer.borderColor = color.cgColor
             layer.borderWidth = 3.0
-            highlightedBackgroundColor = .ns_purpleLight
+            highlightedBackgroundColor = highlightColor
 
         } else {
             setupIconAndText(icon: icon?.ub_image(with: .white), text: text)
-            backgroundColor = .ns_purple
-            highlightedBackgroundColor = .ns_purpleDark
+            backgroundColor = color
+            highlightedBackgroundColor = darkHighlightColor
         }
     }
 
@@ -81,12 +84,13 @@ class BigButton: UBButton {
     // MARK: - Setup
 
     private func setup() {
+        let isSmall = style == .small || style == .outlineSmall
         snp.makeConstraints { make in
-            make.height.equalTo(self.style == .small ? 48.0 : 72.0)
+            make.height.equalTo(isSmall ? 48.0 : 72.0)
         }
 
-        layer.cornerRadius = style == .small ? 24.0 : 36.0
-        highlightCornerRadius = style == .small ? 24.0 : 36.0
+        layer.cornerRadius = isSmall ? 24.0 : 36.0
+        highlightCornerRadius = isSmall ? 24.0 : 36.0
     }
 
     private func setupIconAndText(icon: UIImage? = nil, text: String? = nil) {
