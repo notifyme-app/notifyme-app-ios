@@ -11,17 +11,22 @@
 
 import Foundation
 
-class NotificationManager: NSObject {
+struct NotificationType {
+    static let reminder = "ch.notify-me.notificationtype.reminder"
+    static let exposure = "ch.notify-me.notificationtype.exposure"
+}
+
+class NotificationManager {
     static let shared = NotificationManager()
 
     private let notificationCenter = UNUserNotificationCenter.current()
 
     private var reminderNotificationId: String?
 
-    override private init() {
-        super.init()
-
-        notificationCenter.delegate = self
+    var notificationCategories: Set<UNNotificationCategory> {
+        return Set(arrayLiteral:
+            UNNotificationCategory(identifier: NotificationType.reminder, actions: [], intentIdentifiers: [], options: []),
+            UNNotificationCategory(identifier: NotificationType.exposure, actions: [], intentIdentifiers: [], options: []))
     }
 
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
@@ -32,6 +37,7 @@ class NotificationManager: NSObject {
         removeCurrentReminderNotification()
 
         let notification = UNMutableNotificationContent()
+        notification.categoryIdentifier = NotificationType.reminder
         notification.title = "checkout_reminder_title".ub_localized
         notification.body = "checkout_reminder_text".ub_localized
         notification.sound = .default
@@ -52,6 +58,7 @@ class NotificationManager: NSObject {
 
     func showExposureNotification() {
         let notification = UNMutableNotificationContent()
+        notification.categoryIdentifier = NotificationType.exposure
         notification.title = "exposure_notification_title".ub_localized
         notification.body = "exposure_notification_body".ub_localized
         notification.sound = .default
@@ -66,15 +73,5 @@ class NotificationManager: NSObject {
         notification.sound = .default
 
         notificationCenter.add(UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil))
-    }
-}
-
-extension NotificationManager: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_: UNUserNotificationCenter, willPresent _: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        completionHandler([.alert, .badge, .sound])
-    }
-
-    func userNotificationCenter(_: UNUserNotificationCenter, didReceive _: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        completionHandler()
     }
 }

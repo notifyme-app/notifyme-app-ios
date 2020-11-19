@@ -26,6 +26,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstRun = false
         }
 
+        setupNotificationDelegate()
+
         setAppearance()
 
         clearBadge()
@@ -50,6 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func clearBadge() {
         UIApplication.shared.applicationIconBadgeNumber = 0
+    }
+
+    private func setupNotificationDelegate() {
+        UNUserNotificationCenter.current().delegate = self
+        UNUserNotificationCenter.current().setNotificationCategories(NotificationManager.shared.notificationCategories)
     }
 
     // MARK: - Appearance
@@ -87,6 +94,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    // MARK: - Universal links
+
     func application(_: UIApplication, continue userActivity: NSUserActivity, restorationHandler _: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
         guard userActivity.activityType == NSUserActivityTypeBrowsingWeb, let urlString = userActivity.webpageURL?.absoluteString else {
             return false
@@ -115,5 +124,39 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         return true
+    }
+}
+
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    func userNotificationCenter(_: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        handleNotification(notification)
+        completionHandler([.alert, .badge, .sound])
+    }
+
+    func userNotificationCenter(_: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        handleNotification(response.notification)
+        completionHandler()
+    }
+
+    private func handleNotification(_ notification: UNNotification) {
+        let category = notification.request.content.categoryIdentifier
+
+        if category == NotificationType.exposure {
+            switch UIStateManager.shared.uiState.exposureState {
+            case let .exposure(exposures, _):
+                guard let newest = exposures.last else {
+                    return
+                }
+
+                if window == nil {
+                    initializeWindow()
+                }
+                let vc = ModalReportViewController(exposure: newest)
+                window?.rootViewController?.present(vc, animated: true, completion: nil)
+
+            case .noExposure:
+                break
+            }
+        }
     }
 }
