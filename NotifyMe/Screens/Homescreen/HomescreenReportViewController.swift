@@ -72,7 +72,7 @@ class HomescreenReportViewController: BaseSubViewController {
 
         view.addSubview(stackView)
         stackView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(Padding.mediumSmall)
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 6.0, left: Padding.mediumSmall, bottom: Padding.mediumSmall, right: Padding.mediumSmall))
         }
 
         stackView.addArrangedView(reportButton)

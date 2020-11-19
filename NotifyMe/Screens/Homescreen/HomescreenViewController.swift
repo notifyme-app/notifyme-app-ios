@@ -15,6 +15,7 @@ class HomescreenViewController: BaseViewController {
     private let stackScrollView = StackScrollView(axis: .vertical)
 
     private let reportViewController = HomescreenReportViewController()
+    private let headerView = HomescreenHeaderView()
 
     private let checkInButton = CheckInButton()
     private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
@@ -76,7 +77,7 @@ class HomescreenViewController: BaseViewController {
         stackScrollView.scrollView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(startRefresh), for: .valueChanged)
 
-        stackScrollView.addSpacerView(Padding.small)
+        stackScrollView.addArrangedView(headerView)
 
         stackScrollView.addArrangedViewController(reportViewController, parent: self)
 
@@ -117,6 +118,12 @@ class HomescreenViewController: BaseViewController {
             guard let strongSelf = self else { return }
             let vc = LargeTitleNavigationController(contentViewController: ReportsViewController())
             strongSelf.navigationController?.pushViewController(vc, animated: true)
+        }
+
+        headerView.infoButtonPressed = { [weak self] in
+            guard let strongSelf = self else { return }
+            let vc = WebViewController(mode: .local("impressum"))
+            strongSelf.present(vc, animated: true, completion: nil)
         }
     }
 

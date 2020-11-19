@@ -57,7 +57,7 @@
 "no_report_hero_text_highlight" = "gesund";
 
 /*Highlight text of report_message_text (must be exactly as in this text)*/
-"report_message_text_highlight" = "einer Ansteckung";
+"report_message_text_highlight" = "Ansteckung";
 
 /*QR-Scanner: request for scan text*/
 "qrscanner_scan_qr_text" = "QR-Code scannen und einchecken";
@@ -111,7 +111,7 @@
 "diary_option_subtext" = "Dieses Check-in wird nicht im Tagebuch angezeigt.\n\nTrotzdem speichert die App den Eintrag während 14 Tagen, um Sie bei einer möglichen Ansteckung zu warnen.";
 
 /*Check In: Set Reminder title*/
-"checkin_set_reminder" = "Erinnerung setzen";
+"checkin_set_reminder" = "Check-out Erinnerung";
 
 /*Reminder: Option Off*/
 "reminder_option_off" = "Aus";
@@ -211,7 +211,7 @@
 "imprint_webview_legal_link_text" = "Datenschutz &  Nutzungsbestimmungen";
 "imprint_webview_legal_link_url" = "www.notify-me.ch/legal";
 "imprint_webview_sourcecode_title" = "Quellcode";
-"imprint_webview_sourcecode_text" = "Den aktuellen Quellcode finden Sie auf github, veröffentlicht unter Public-License:";
+"imprint_webview_sourcecode_text" = "Den aktuellen Quellcode finden Sie auf GitHub, veröffentlicht unter Public-License:";
 "imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
 "generator_title" = "Demo QR-Codes erstellen";
 "generator_category_label" = "Kategorie";
@@ -237,25 +237,25 @@
 "generator_public_qr_title" = "<span>Public</span>\\\nQR-Code";
 "generator_private_qr_title" = "<span>Private</span>\\\nQR-Code";
 "generator_missing_input" = "Bitte Pflichtfeld ausfüllen";
-"upload_title" = "Meldung über eine mögliche Ansteckung";
+"upload_title" = "Besucher informieren";
 "upload_period_label" = "Betroffener Zeitraum";
 "upload_period_from_label" = "Von";
 "upload_period_to_label" = "Bis";
 "upload_note_label" = "Hinweis an die Besucher";
 "upload_note_placeholder" = "Was sollen die Besucher tun?";
-"upload_upload_button" = "Besucher informieren";
+"upload_upload_button" = "Jetzt informieren";
 "error_network_title" = "Netzwerk Fehler";
 "error_network_text" = "Überprüfen Sie Ihre Internet Verbindung.";
 "error_notification_deactivated_title" = "Mitteilungen deaktiviert";
 "error_notification_deactivated_text" = "Ändern Sie die Einstellungen, um bei einer Meldung direkt informiert zu werden.";
 "error_background_refresh_title" = "Hintergrundaktualisierung ausgeschaltet";
-"error_background_refresh_text" = "Ändern Sie die Einstellungen, um bei einer neuen Meldung auch ausserhalb der App informiert zu werden.";
+"error_background_refresh_text" = "Ändern Sie die Einstellungen, um bei einer Meldung direkt informiert zu werden.";
 "error_camera_permission_title" = "Kein Zugriff auf Kamera";
 "error_camera_permission_text" = "Die App benötigt Zugriff auf die Kamera, um den QR-Code scannen zu können.";
 "error_action_change_settings" = "Einstellungen ändern";
 "error_action_retry" = "Erneut versuchen";
-"upload_success_message" = "Information erfolgreich";
-"upload_error_message" = "Information fehlgeschlagen";
+"upload_success_message" = "Upload erfolgreich";
+"upload_error_message" = "Upload fehlgeschlagen";
 "upload_missing_payload" = "Kein Private Key gefunden. Bitte einen gültigen QR-Code scannen.";
 
 /*Titel einer generischen Fehleranzeige*/
@@ -266,3 +266,16 @@
 
 /*Titel eines Ok-Buttons*/
 "ok_button" = "Ok";
+"landing_description" = "Dezentral gespeicherte Check-Ins für Meetings & Events";
+"landing_app_store_link" = "https://example.com";
+"landing_play_store_link" = "https://example.com";
+"generator_pdf_created_on_format" = "Erstellt am %d.%m.%Y um %H:%M Uhr\n";
+
+/*Title of the diary entry edit screen.*/
+"edit_controller_title" = "Bearbeiten";
+
+/*Save button title im checkout screen.*/
+"checkout_save_button_title" = "Sichern";
+
+/*Highlighted text part of app name: Me*/
+"app_name_highlight" = "Me";

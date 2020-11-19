@@ -207,7 +207,7 @@
 "imprint_webview_paper_link" = "github.com/CrowdNotifier/documents";
 "imprint_webview_more_info_title" = "Informations supplémentaires";
 "imprint_webview_more_info_link" = "https://notify-me.ch";
-"imprint_webview_legal_title" = "juridique";
+"imprint_webview_legal_title" = "Indications légales";
 "imprint_webview_legal_link_text" = "Protection des données et conditions d'utilisation";
 "imprint_webview_legal_link_url" = "www.notify-me.ch/legal";
 "imprint_webview_sourcecode_title" = "Code source";
@@ -229,7 +229,7 @@
 "generator_back" = "Retour";
 "generator_public_bulletpoint_1" = "Avec ce code QR les visiteurs peuvent s'enregistrer sur place.";
 "generator_public_bulletpoint_2" = "Le code peut être scanné avec NotifyMe";
-"generator_public_bulletpoint_3" = "Les check-ins ne sont pas sauvegardés de manière centrale. Aucunes données personnelles ne sont saisies.";
+"generator_public_bulletpoint_3" = "Aucune données personnelles ne sont saisies. Les enregistrements ne sont pas visibles pour les propriétaires de lieux.";
 "generator_private_bulletpoint_1" = "Ce code QR informe les visiteurs en cas incident.";
 "generator_private_bulletpoint_2" = "Le code peut être scanné avec n'importe quel autre lecteur QR.";
 "generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information n'est transmise à l'organisateur.";
@@ -237,7 +237,7 @@
 "generator_public_qr_title" = "Code QR <span>publique</span>\\\n";
 "generator_private_qr_title" = "Code QR <span>privé</span>\\";
 "generator_missing_input" = "Veuillez remplir le champ obligatoire";
-"upload_title" = "Rapport d'une éventuelle infection";
+"upload_title" = "Informer le visiteur";
 "upload_period_label" = "Période concernée";
 "upload_period_from_label" = "de";
 "upload_period_to_label" = "à";
@@ -247,22 +247,35 @@
 "error_network_title" = "Erreur de réseau";
 "error_network_text" = "Vérifiez votre connexion internet.";
 "error_notification_deactivated_title" = "Notifications désactivées";
-"error_notification_deactivated_text" = "Changez les réglages pour être informé immédiatement au cas où vous avez un rapport.";
+"error_notification_deactivated_text" = "Changez les réglages pour être informé immédiatement au cas où vous avez reçu un rapport.";
 "error_background_refresh_title" = "Mise à jour éteinte.";
 "error_background_refresh_text" = "Changez les réglages pour également être informé des rapports en dehors de l'application.";
 "error_camera_permission_title" = "Pas d'accès à la caméra";
 "error_camera_permission_text" = "L'application a besoin d'avoir accès à la caméra pour pouvoir scanner le code QR.";
 "error_action_change_settings" = "Changer les réglages";
 "error_action_retry" = "Réessayer";
-"upload_success_message" = "Information successful";
-"upload_error_message" = "Information failed";
+"upload_success_message" = "Téléchargement réussi";
+"upload_error_message" = "Téléchargement échoué";
 "upload_missing_payload" = "Pas de code privé trouvé. Scannez un code QR valable.";
 
 /*Titel einer generischen Fehleranzeige*/
-"error_title" = "Error";
+"error_title" = "Erreur";
 
 /*Fehlermeldung, wenn man bereits eingecheckt ist*/
-"error_already_checked_in" = "You are already checked in.";
+"error_already_checked_in" = "Vous êtes déjà enregistré.";
 
 /*Titel eines Ok-Buttons*/
 "ok_button" = "Ok";
+"landing_description" = "Check-ins sauvé de manière décentralisé pour réunions et événements.";
+"landing_app_store_link" = "https://example.com";
+"landing_play_store_link" = "https://example.com";
+"generator_pdf_created_on_format" = "Créé le %d.%m.%Y à %H:%M h";
+
+/*Title of the diary entry edit screen.*/
+"edit_controller_title" = "Éditer";
+
+/*Save button title im checkout screen.*/
+"checkout_save_button_title" = "Sauvegarder";
+
+/*Highlighted text part of app name: Me*/
+"app_name_highlight" = "Me";

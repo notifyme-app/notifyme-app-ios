@@ -247,7 +247,7 @@
 "error_network_title" = "Connection error";
 "error_network_text" = "Check your internet connection";
 "error_notification_deactivated_title" = "Deactivate notifications";
-"error_notification_deactivated_text" = "Edit the app settings to be immediately informed when there is a report.";
+"error_notification_deactivated_text" = "Edit the app settings to receive report-notifications.";
 "error_background_refresh_title" = "Background updates are off";
 "error_background_refresh_text" = "Edit the app settings to be informed when there is a report outside of the app as well.";
 "error_camera_permission_title" = "No camera access";
@@ -266,3 +266,16 @@
 
 /*Titel eines Ok-Buttons*/
 "ok_button" = "Ok";
+"landing_description" = "Check-in for meetings and events.";
+"landing_app_store_link" = "https://example.com";
+"landing_play_store_link" = "https://example.com";
+"generator_pdf_created_on_format" = "Created on %d.%m.%Y at %H:%M";
+
+/*Title of the diary entry edit screen.*/
+"edit_controller_title" = "Edit";
+
+/*Save button title im checkout screen.*/
+"checkout_save_button_title" = "Save";
+
+/*Highlighted text part of app name: Me*/
+"app_name_highlight" = "Me";

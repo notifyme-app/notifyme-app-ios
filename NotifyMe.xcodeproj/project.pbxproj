@@ -81,6 +81,9 @@
 		6EA6A5F8255E76C600A66212 /* ReportWhatTodoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A5F7255E76C600A66212 /* ReportWhatTodoView.swift */; };
 		6EA6A60A255E828000A66212 /* ImageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A609255E828000A66212 /* ImageTextView.swift */; };
 		6EA6A615255EE09800A66212 /* NavigationLineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EA6A614255EE09800A66212 /* NavigationLineView.swift */; };
+		6EAB759E2566A3D8007B8807 /* HomescreenHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAB759D2566A3D8007B8807 /* HomescreenHeaderView.swift */; };
+		6EAB75AA2566FCAF007B8807 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EAB75A92566FCAE007B8807 /* WebViewController.swift */; };
+		6EAB76202566FE40007B8807 /* Impressum in Resources */ = {isa = PBXBuildFile; fileRef = 6EAB761F2566FE40007B8807 /* Impressum */; };
 		6EB4C78825519C22005070ED /* DateHelpers+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C78725519C22005070ED /* DateHelpers+NS.swift */; };
 		6EB4C79C2551B130005070ED /* ReportInformationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C79B2551B130005070ED /* ReportInformationView.swift */; };
 		6EB4C7AA2551BA99005070ED /* ReportsInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */; };
@@ -215,6 +218,9 @@
 		6EA6A5F7255E76C600A66212 /* ReportWhatTodoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportWhatTodoView.swift; sourceTree = "<group>"; };
 		6EA6A609255E828000A66212 /* ImageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextView.swift; sourceTree = "<group>"; };
 		6EA6A614255EE09800A66212 /* NavigationLineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationLineView.swift; sourceTree = "<group>"; };
+		6EAB759D2566A3D8007B8807 /* HomescreenHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenHeaderView.swift; sourceTree = "<group>"; };
+		6EAB75A92566FCAE007B8807 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
+		6EAB761F2566FE40007B8807 /* Impressum */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Impressum; sourceTree = "<group>"; };
 		6EB4C78725519C22005070ED /* DateHelpers+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DateHelpers+NS.swift"; sourceTree = "<group>"; };
 		6EB4C79B2551B130005070ED /* ReportInformationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInformationView.swift; sourceTree = "<group>"; };
 		6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportsInformationViewController.swift; sourceTree = "<group>"; };
@@ -312,6 +318,7 @@
 		24780B03242DF9DB003BB26C /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				6EAB75A92566FCAE007B8807 /* WebViewController.swift */,
 				6E66295B254BF4FF00347F06 /* StackScrollView.swift */,
 				DC4DD8C22549B08300C2145A /* BaseViewController.swift */,
 				DC9DA0962566AFF300784A4F /* ErrorHandling+ViewController.swift */,
@@ -388,6 +395,7 @@
 		6E6628CD254AF09700347F06 /* Homescreen */ = {
 			isa = PBXGroup;
 			children = (
+				6EAB759D2566A3D8007B8807 /* HomescreenHeaderView.swift */,
 				6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */,
 				6E662956254BF37F00347F06 /* HomescreenReportViewController.swift */,
 			);
@@ -719,6 +727,7 @@
 		DC9A8197242CE46F00AD1548 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6EAB761F2566FE40007B8807 /* Impressum */,
 				6E8FC0F524518BF1002AB1E5 /* NotifyMe-Bridging-Header.h */,
 				8E81CCA6241FCC7F006F2437 /* Info.plist */,
 				242D2280245D7363005DAEA8 /* build.yml */,
@@ -865,6 +874,7 @@
 				DC9A81AB242CE5E000AD1548 /* Localizable.strings in Resources */,
 				DCB4430D242DD34700F19AA5 /* Inter-Regular.ttf in Resources */,
 				DCB4430C242DD34700F19AA5 /* Inter-Medium.ttf in Resources */,
+				6EAB76202566FE40007B8807 /* Impressum in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1021,6 +1031,7 @@
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
 				6EB4C79C2551B130005070ED /* ReportInformationView.swift in Sources */,
 				6E6629DA255048AE00347F06 /* UIStateModel.swift in Sources */,
+				6EAB75AA2566FCAF007B8807 /* WebViewController.swift in Sources */,
 				6E64046725544C9F006D0498 /* ProblematicEventsManager.swift in Sources */,
 				DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */,
 				6E662920254AF61500347F06 /* QRScanningView.swift in Sources */,
@@ -1032,6 +1043,7 @@
 				DC702B0A243F6FAE0066C773 /* UBOptionalUserDefault.swift in Sources */,
 				6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */,
 				F84089EC2493695200A66CD1 /* Keychain.swift in Sources */,
+				6EAB759E2566A3D8007B8807 /* HomescreenHeaderView.swift in Sources */,
 				6E662969254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift in Sources */,
 				6E66296F254C012A00347F06 /* DiaryEntryCollectionViewCell.swift in Sources */,
 				6E6629F925512A6800347F06 /* LargeTitleNavigationController.swift in Sources */,
