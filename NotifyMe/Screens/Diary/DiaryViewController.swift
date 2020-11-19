@@ -147,15 +147,6 @@ extension DiaryViewController: UICollectionViewDataSource {
         return cell
     }
 
-    func collectionView(_: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        let entry = diary[indexPath.section][indexPath.item]
-        return exposureForDiary(diaryEntry: entry) == nil
-    }
-
-    func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
-        return self.collectionView(collectionView, shouldSelectItemAt: indexPath)
-    }
-
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard kind == UICollectionView.elementKindSectionHeader else {
             fatalError("Supplementary views other than section headers are not supported.")
@@ -179,7 +170,13 @@ extension DiaryViewController: UICollectionViewDataSource {
     }
 
     func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        present(CheckinEditViewController(checkIn: diary[indexPath.section][indexPath.item]), animated: true, completion: nil)
+        let d = diary[indexPath.section][indexPath.item]
+
+        if let exposure = exposureForDiary(diaryEntry: d) {
+            present(ModalReportViewController(exposure: exposure), animated: true, completion: nil)
+        } else {
+            present(CheckinEditViewController(checkIn: diary[indexPath.section][indexPath.item]), animated: true, completion: nil)
+        }
     }
 
     private func exposureForDiary(diaryEntry: CheckIn) -> Exposure? {

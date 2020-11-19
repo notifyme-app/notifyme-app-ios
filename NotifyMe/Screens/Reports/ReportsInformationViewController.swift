@@ -49,7 +49,6 @@ class ReportsInformationViewController: BaseSubViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(ReportInformationViewCollectionViewCell.self)
-        collectionView.allowsSelection = false
 
         view.addSubview(collectionView)
 
@@ -90,6 +89,17 @@ extension ReportsInformationViewController: UICollectionViewDelegateFlowLayout {
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         baseViewController?.scrollViewContentOffsetDelegate?.didUpdateContentOffset(s: scrollView.contentOffset)
+    }
+
+    func collectionView(_: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.section > 0 {
+            let exposure = self.exposure(for: indexPath)
+            present(ModalReportViewController(exposure: exposure), animated: true, completion: nil)
+        }
+    }
+
+    func collectionView(_: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        return indexPath.section > 0
     }
 }
 

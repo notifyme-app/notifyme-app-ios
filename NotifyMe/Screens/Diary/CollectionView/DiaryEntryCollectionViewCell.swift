@@ -30,7 +30,10 @@ class DiaryEntryCollectionViewCell: UICollectionViewCell {
         super.init(frame: frame)
 
         backgroundColor = UIColor.white
+
         layer.cornerRadius = 5.0
+        contentView.layer.cornerRadius = 5.0
+        
         ub_addShadow(radius: 5.0, opacity: 0.17, xOffset: 0, yOffset: 2.0)
 
         setup()
