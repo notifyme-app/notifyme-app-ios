@@ -21,6 +21,9 @@ class VenueView: UIView {
     private let subtitleLabel = Label(.subtitle, textAlignment: .center)
     private let textLabel = Label(.text, textAlignment: .center)
 
+    private let venueImageView = UIImageView()
+    private let imageContentView = UIView()
+
     // MARK: - Properties
 
     private let icon: Bool
@@ -48,6 +51,13 @@ class VenueView: UIView {
     // MARK: - Update
 
     private func update() {
+        imageContentView.isHidden = true
+
+        if let image = venue?.image(large: true), icon {
+            venueImageView.image = image
+            imageContentView.isHidden = false
+        }
+
         titleLabel.text = venue?.name
         subtitleLabel.text = venue?.room
         textLabel.text = venue?.location
@@ -63,19 +73,16 @@ class VenueView: UIView {
             make.edges.equalToSuperview()
         }
 
-        if icon {
-            let view = UIView()
-            let imageView = UIImageView(image: UIImage(named: "venue"))
-            imageView.ub_setContentPriorityRequired()
-            view.addSubview(imageView)
+        venueImageView.ub_setContentPriorityRequired()
+        imageContentView.addSubview(venueImageView)
 
-            imageView.snp.makeConstraints { make in
-                make.top.bottom.centerX.equalToSuperview()
-            }
-
-            stackView.addArrangedSubview(view)
-            stackView.addSpacerView(Padding.mediumSmall)
+        venueImageView.snp.makeConstraints { make in
+            make.top.bottom.centerX.equalToSuperview()
+            make.bottom.equalToSuperview().inset(Padding.mediumSmall)
         }
+
+        stackView.addArrangedSubview(imageContentView)
+        imageContentView.isHidden = true
 
         stackView.addArrangedSubview(titleLabel)
         stackView.addSpacerView(4.0)

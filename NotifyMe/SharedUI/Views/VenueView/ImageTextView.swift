@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CrowdNotifierSDK
 import Foundation
 
 class ImageTextView: UIView {
@@ -28,7 +29,7 @@ class ImageTextView: UIView {
 
     // MARK: - Views
 
-    private let imageView = UIImageView(image: UIImage(named: "illus-meeting"))
+    private let imageView = UIImageView(image: VenueInfo.defaultImage(large: false))
 
     private let titleLabel = Label(.textBold)
     private let label = Label(.text)

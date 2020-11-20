@@ -69,6 +69,7 @@
 		6E6629F925512A6800347F06 /* LargeTitleNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629F825512A6800347F06 /* LargeTitleNavigationController.swift */; };
 		6E6629FF255135BA00347F06 /* ReportButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629FE255135B900347F06 /* ReportButton.swift */; };
 		6E662A0525514EE600347F06 /* CheckinButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662A0425514EE600347F06 /* CheckinButton.swift */; };
+		6E7515802567ADD600EDB6A7 /* Venue+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E75157F2567ADD600EDB6A7 /* Venue+NS.swift */; };
 		6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */; };
 		6E7C0D20242CE1190017C4F9 /* UIColor+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */; };
 		6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D38242E02A20017C4F9 /* NSLayoutConstants.swift */; };
@@ -193,6 +194,7 @@
 		6E6629F825512A6800347F06 /* LargeTitleNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LargeTitleNavigationController.swift; sourceTree = "<group>"; };
 		6E6629FE255135B900347F06 /* ReportButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportButton.swift; sourceTree = "<group>"; };
 		6E662A0425514EE600347F06 /* CheckinButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinButton.swift; sourceTree = "<group>"; };
+		6E75157F2567ADD600EDB6A7 /* Venue+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Venue+NS.swift"; sourceTree = "<group>"; };
 		6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLabelType.swift; sourceTree = "<group>"; };
 		6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NS.swift"; sourceTree = "<group>"; };
 		6E7C0D26242D04280017C4F9 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -357,6 +359,7 @@
 				DC702B16243F70060066C773 /* UIView+NS.swift */,
 				6E662978254C024F00347F06 /* UICollection+NS.swift */,
 				6E66297D254C029700347F06 /* ReusableView.swift */,
+				6E75157F2567ADD600EDB6A7 /* Venue+NS.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -1023,6 +1026,7 @@
 				6E55057F2553058C000D27B1 /* TextButton.swift in Sources */,
 				6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */,
 				DC702B10243F6FAE0066C773 /* UBUserDefaultValue.swift in Sources */,
+				6E7515802567ADD600EDB6A7 /* Venue+NS.swift in Sources */,
 				6E662974254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift in Sources */,
 				6E6629FF255135BA00347F06 /* ReportButton.swift in Sources */,
 				6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */,

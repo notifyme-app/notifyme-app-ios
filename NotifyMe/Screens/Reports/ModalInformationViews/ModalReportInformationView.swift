@@ -100,5 +100,6 @@ class ModalReportInformationView: UIView {
 
         whereImageTextView.title = exposure.diaryEntry?.venue.room ?? "-"
         whereImageTextView.text = [exposure.diaryEntry?.venue.name, exposure.diaryEntry?.venue.location].compactMap { $0 }.joined(separator: ", ")
+        whereImageTextView.image = exposure.diaryEntry?.venue.image(large: false)
     }
 }

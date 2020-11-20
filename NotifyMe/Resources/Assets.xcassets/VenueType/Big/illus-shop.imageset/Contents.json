@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "illus-tea-big.png",
+      "filename" : "illus-shop-copy.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "illus-tea-big@2x.png",
+      "filename" : "illus-shop-copy@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "illus-tea-big@3x.png",
+      "filename" : "illus-shop-copy@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

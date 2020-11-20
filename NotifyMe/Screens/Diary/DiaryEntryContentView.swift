@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CrowdNotifierSDK
 import Foundation
 
 class DiaryEntryContentView: UIView {
@@ -22,11 +23,17 @@ class DiaryEntryContentView: UIView {
     private let whatToDoView = ReportWhatToDoView()
 
     public var checkIn: CheckIn? {
-        didSet { update() }
+        didSet {
+            reset()
+            update()
+        }
     }
 
     public var exposure: Exposure? {
-        didSet { updateExposure() }
+        didSet {
+            reset()
+            updateExposure()
+        }
     }
 
     // MARK: - Init
@@ -111,6 +118,7 @@ class DiaryEntryContentView: UIView {
         checkImageView.image = UIImage(named: "icons-ic-check-filled")
 
         imageTextView.title = checkIn?.venue.location
+        imageTextView.image = checkIn?.venue.image(large: false)
 
         var texts: [String?] = []
         texts.append(checkIn?.venue.room)
@@ -129,5 +137,11 @@ class DiaryEntryContentView: UIView {
         imageTextView.text = texts.compactMap { $0 }.joined(separator: "\n")
 
         bottomView.isHidden = true
+    }
+
+    private func reset() {
+        imageTextView.image = VenueInfo.defaultImage(large: false)
+        imageTextView.title = nil
+        imageTextView.text = nil
     }
 }

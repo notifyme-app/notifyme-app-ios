@@ -97,14 +97,15 @@ class CurrentCheckinViewController: BaseSubViewController {
 
         let isSmaller = view.frame.size.width < 375
 
-        let imageView = UIImageView(image: UIImage(named: "illus-tea-big")?.ub_image(byScaling: isSmaller ? 0.6 : 1.0))
+        let imageView = UIImageView(image: UIImage(named: "illus-checked-in-time")?.ub_image(byScaling: isSmaller ? 0.6 : 1.0))
         imageView.ub_setContentPriorityRequired()
 
         let v = UIView()
         v.addSubview(imageView)
         imageView.snp.makeConstraints { make in
             make.top.bottom.centerX.equalToSuperview()
-            make.right.left.lessThanOrEqualToSuperview().inset(Padding.medium)
+            make.left.greaterThanOrEqualToSuperview().inset(Padding.medium)
+            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
         }
 
         contentView.addSpacerView(Padding.large)

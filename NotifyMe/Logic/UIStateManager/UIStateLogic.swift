@@ -92,7 +92,7 @@ class UIStateLogic {
         let calendar = NSCalendar.current
 
         for i in diary.sorted(by: { (a, b) -> Bool in
-            a.checkInTime < b.checkInTime
+            a.checkInTime > b.checkInTime
         }) {
             let d = calendar.startOfDay(for: i.checkInTime)
 
