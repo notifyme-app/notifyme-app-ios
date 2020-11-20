@@ -14,7 +14,7 @@ import Foundation
 
 class QRCodeScannerViewController: BaseSubViewController {
     private var qrView: QRScannerView?
-    private var qrOverlay = QRScannerOverlay()
+    private var qrOverlay = QRScannerFullOverlayView()
 
     private let errorContainer = UIView()
     private let errorView = ErrorView(errorModel: .noCameraPermission)
@@ -77,15 +77,13 @@ class QRCodeScannerViewController: BaseSubViewController {
         view.addSubview(qrView)
 
         qrView.snp.makeConstraints { make in
-            make.height.equalTo(qrView.snp.width)
-            make.top.equalToSuperview().inset(3 * Padding.large)
-            make.left.right.equalToSuperview().inset(Padding.large + 1.5 * qrOverlay.lineWidth)
+            make.edges.equalToSuperview()
         }
 
         view.addSubview(qrOverlay)
 
         qrOverlay.snp.makeConstraints { make in
-            make.edges.equalTo(qrView).inset(-1.5 * qrOverlay.lineWidth)
+            make.edges.equalToSuperview()
         }
 
         view.addSubview(requestLabel)
@@ -100,7 +98,7 @@ class QRCodeScannerViewController: BaseSubViewController {
         qrErrorLabel.text = "qrscanner_error".ub_localized
 
         qrErrorLabel.snp.makeConstraints { make in
-            make.top.equalTo(qrOverlay.snp.bottom).offset(Padding.small)
+            make.top.equalTo(qrOverlay.scannerOverlay.snp.bottom).offset(Padding.small)
             make.left.right.equalToSuperview().inset(Padding.mediumSmall)
         }
 
@@ -125,19 +123,19 @@ class QRCodeScannerViewController: BaseSubViewController {
         errorContainer.alpha = 0.0
         qrView?.startScanning()
         qrErrorLabel.alpha = 0.0
-        qrOverlay.lineColor = .ns_purple
+        qrOverlay.scannerOverlay.lineColor = .ns_purple
     }
 
     private func showError() {
         qrErrorLabel.alpha = 1.0
-        qrOverlay.lineColor = .ns_red
+        qrOverlay.scannerOverlay.lineColor = .ns_red
 
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] _ in
             guard let strongSelf = self else { return }
             UIView.animate(withDuration: 0.2) {
                 strongSelf.qrErrorLabel.alpha = 0.0
-                strongSelf.qrOverlay.lineColor = .ns_purple
+                strongSelf.qrOverlay.scannerOverlay.lineColor = .ns_purple
             }
         })
     }

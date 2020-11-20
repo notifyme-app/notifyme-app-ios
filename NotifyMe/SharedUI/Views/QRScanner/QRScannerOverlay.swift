@@ -8,6 +8,49 @@
 
 import UIKit
 
+class QRScannerFullOverlayView: UIView {
+    public let scannerOverlay = QRScannerOverlay()
+    private let fillLayer = CAShapeLayer()
+
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
+
+    public required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    private func setup() {
+        layer.addSublayer(fillLayer)
+
+        addSubview(scannerOverlay)
+
+        scannerOverlay.snp.makeConstraints { make in
+            make.height.equalTo(self.scannerOverlay.snp.width)
+            make.top.equalToSuperview().inset(3.0 * Padding.large)
+            make.left.right.equalToSuperview().inset(Padding.large + Padding.small - scannerOverlay.lineWidth * 1.5)
+        }
+    }
+
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+
+        let pathBigRect = UIBezierPath(rect: bounds)
+        let inset = scannerOverlay.lineWidth * 1.5
+        let pathSmallRect = UIBezierPath(rect: scannerOverlay.frame.inset(by: UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)))
+
+        pathBigRect.append(pathSmallRect)
+        pathBigRect.usesEvenOddFillRule = true
+
+        fillLayer.path = pathBigRect.cgPath
+        fillLayer.fillRule = CAShapeLayerFillRule.evenOdd
+        fillLayer.fillColor = UIColor.ns_grayBackground.withAlphaComponent(0.75).cgColor
+
+        fillLayer.path = pathBigRect.cgPath
+    }
+}
+
 open class QRScannerOverlay: UIView {
     var lineWidth: CGFloat = 10 {
         didSet { setNeedsDisplay() }

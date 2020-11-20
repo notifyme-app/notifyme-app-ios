@@ -42,10 +42,6 @@ class QRScannerView: UIView {
     override var layer: AVCaptureVideoPreviewLayer {
         return super.layer as! AVCaptureVideoPreviewLayer
     }
-
-    override var intrinsicContentSize: CGSize {
-        .init(width: UIView.noIntrinsicMetric, height: 350)
-    }
 }
 
 extension QRScannerView {
