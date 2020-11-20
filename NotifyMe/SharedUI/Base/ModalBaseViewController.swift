@@ -12,7 +12,7 @@
 import Foundation
 
 class ModalBaseViewController: BaseViewController {
-    public let dismissButton = TextButton(text: "done_button".ub_localized)
+    public let dismissButton: UBButton
     private let leftButton = TextButton(text: "".ub_localized, lightFont: true)
     private let titleLabel = Label(.boldUppercase, textColor: .ns_text)
 
@@ -31,12 +31,16 @@ class ModalBaseViewController: BaseViewController {
     public var leftButtonTouchCallback: (() -> Void)?
 
     public let topBackgroundColor: UIColor
+    public let useXCloseButton: Bool
 
     // MARK: - Init
 
-    init(horizontalContentInset: CGFloat = 0, backgroundColor: UIColor = .white) {
+    init(horizontalContentInset: CGFloat = 0, backgroundColor: UIColor = .white, useXCloseButton: Bool = false) {
         topBackgroundColor = backgroundColor
         contentView = StackScrollView(stackViewHorizontalInset: horizontalContentInset)
+        self.useXCloseButton = useXCloseButton
+        dismissButton = useXCloseButton ? UBButton() : TextButton(text: "done_button".ub_localized)
+
         super.init()
     }
 
@@ -74,9 +78,21 @@ class ModalBaseViewController: BaseViewController {
 
         view.addSubview(dismissButton)
 
-        dismissButton.snp.makeConstraints { make in
-            make.top.equalToSuperview().inset(Padding.small)
-            make.right.equalToSuperview().inset(Padding.mediumSmall)
+        if useXCloseButton {
+            dismissButton.setImage(UIImage(named: "icons-ic-cross"), for: .normal)
+
+            dismissButton.snp.makeConstraints { make in
+                make.right.top.equalToSuperview().inset(Padding.small)
+                make.height.equalTo(44)
+                make.width.equalTo(44)
+            }
+
+            dismissButton.highlightCornerRadius = 22.0
+        } else {
+            dismissButton.snp.makeConstraints { make in
+                make.top.equalToSuperview().inset(Padding.small)
+                make.right.equalToSuperview().inset(Padding.mediumSmall)
+            }
         }
 
         view.addSubview(leftButton)

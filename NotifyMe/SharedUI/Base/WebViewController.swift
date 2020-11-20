@@ -16,7 +16,6 @@ class WebViewController: ModalBaseViewController {
 
     private let webView: WKWebView
     private var loadCount: Int = 0
-    private let closeable: Bool
     private let mode: Mode
 
     enum Mode {
@@ -25,9 +24,8 @@ class WebViewController: ModalBaseViewController {
 
     // MARK: - Init
 
-    init(mode: Mode, closeable: Bool = false) {
+    init(mode: Mode) {
         self.mode = mode
-        self.closeable = closeable
 
         let config = WKWebViewConfiguration()
         config.dataDetectorTypes = []
@@ -49,7 +47,7 @@ class WebViewController: ModalBaseViewController {
 
         webView = WKWebView(frame: .zero, configuration: config)
 
-        super.init()
+        super.init(useXCloseButton: true)
     }
 
     required init?(coder _: NSCoder) {
