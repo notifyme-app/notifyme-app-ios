@@ -71,7 +71,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Background refresh
 
-    private let minimumBackgroundFetchInterval: TimeInterval = UIApplication.backgroundFetchIntervalMinimum
+    private let minimumBackgroundFetchInterval: TimeInterval = .hour * 3
 
     private func setupBackgroundTasks() {
         UIApplication.shared.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)

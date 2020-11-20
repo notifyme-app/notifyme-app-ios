@@ -27,8 +27,8 @@ class ProblematicEventsManager {
 
     private let backend = Environment.current.backendService
 
-    @UBOptionalUserDefault(key: "ch.notify-me.exposure.lastSync")
-    private var lastSync: Int?
+    @UBOptionalUserDefault(key: "ch.notify-me.exposure.lastKeyBundleTag")
+    private var lastKeyBundleTag: Int?
 
     @UBUserDefault(key: "ch.notify-me.exposure.notifiedIds", defaultValue: [])
     private(set) var notifiedIds: [String]
@@ -47,15 +47,15 @@ class ProblematicEventsManager {
 
     public func sync(isBackgroundFetch: Bool = false, completion: @escaping (_ newData: Bool, _ needsNotification: Bool) -> Void) {
         var queryParameters = [String: String]()
-        if let sync = lastSync {
-            queryParameters["lastSync"] = "\(sync)"
+        if let tag = lastKeyBundleTag {
+            queryParameters["lastKeyBundleTag"] = "\(tag)"
         }
 
         let endpoint = backend.endpoint("traceKeys", queryParameters: queryParameters, headers: ["Accept": "application/protobuf"])
 
         lastSyncFailed = false
 
-        let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, _, error in
+        let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, response, error in
             guard let strongSelf = self else {
                 completion(false, false)
                 return
@@ -63,10 +63,10 @@ class ProblematicEventsManager {
 
             strongSelf.lastSyncFailed = error != nil
 
-            // TODO: N2STEP-24 check correct header field according to backend specification
-//            if let dateHeader = (response as? HTTPURLResponse)?.allHeaderFields["Date"] as? String, let date = strongSelf.dateFormatter.date(from: dateHeader) {
-//                strongSelf.lastSync = date.millisecondsSince1970
-//            }
+            if let bundleTagString = (response as? HTTPURLResponse)?.allHeaderFields.getCaseInsensitiveValue(key: "x-key-bundle-tag") as? String,
+               let bundleTag = Int(bundleTagString) {
+                strongSelf.lastKeyBundleTag = bundleTag
+            }
 
             let block = {
                 if let data = data {
