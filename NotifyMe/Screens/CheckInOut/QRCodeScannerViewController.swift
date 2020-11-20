@@ -170,7 +170,14 @@ extension QRCodeScannerViewController: QRScannerViewDelegate {
         case let .success(info):
             stopScanning()
             let vc = CheckInConfirmViewController(qrCode: str, venueInfo: info)
+
+            vc.dismissCallback = { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.startScanning()
+            }
+
             present(vc, animated: true, completion: nil)
+
         case .failure:
             if let url = URL(string: str), url.host == Environment.current.uploadHost {
                 UIApplication.shared.open(url)
