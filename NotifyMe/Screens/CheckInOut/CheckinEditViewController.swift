@@ -25,8 +25,7 @@ class CheckinEditViewController: ModalBaseViewController {
     private var endDate: Date = Date()
     private var comment: String?
 
-    // TODO: set highlighted color
-    private let removeFromDiaryButton = BigButton(style: .outlineSmall, text: "remove_from_diary_button".ub_localized, color: .ns_red)
+    private let removeFromDiaryButton = BigButton(style: .outlineSmall, text: "remove_from_diary_button".ub_localized, colorStyle: .red)
 
     private let isCurrentCheckin: Bool
 

@@ -22,6 +22,32 @@ enum BigButtonStyle {
     case checkedIn
 }
 
+enum BigButtonColorStyle {
+    case purple
+    case red
+
+    var color: UIColor {
+        switch self {
+        case .red: return .ns_red
+        case .purple: return .ns_purple
+        }
+    }
+
+    var lightColor: UIColor {
+        switch self {
+        case .red: return .ns_redLight
+        case .purple: return .ns_purpleLight
+        }
+    }
+
+    var darkColor: UIColor {
+        switch self {
+        case .red: return .ns_redDark
+        case .purple: return .ns_purpleDark
+        }
+    }
+}
+
 class BigButton: UBButton {
     private let label: Label
     private let style: BigButtonStyle
@@ -52,7 +78,7 @@ class BigButton: UBButton {
         highlightedBackgroundColor = .ns_purpleLight
     }
 
-    init(style: BigButtonStyle, icon: UIImage? = nil, text: String? = nil, color: UIColor = .ns_purple, highlightColor: UIColor = .ns_purpleLight, darkHighlightColor: UIColor = .ns_purpleDark) {
+    init(style: BigButtonStyle, icon: UIImage? = nil, text: String? = nil, colorStyle: BigButtonColorStyle = .purple) {
         self.style = style
         label = Label((style == .checkedIn) ? .navigationBarTitle : .boldUppercase)
 
@@ -64,16 +90,16 @@ class BigButton: UBButton {
         if isOutline || style == .checkedIn {
             setupIconAndText(icon: icon?.ub_image(with: .ns_purple), text: text)
 
-            label.textColor = color
+            label.textColor = colorStyle.color
             backgroundColor = UIColor.white
-            layer.borderColor = color.cgColor
+            layer.borderColor = colorStyle.color.cgColor
             layer.borderWidth = 3.0
-            highlightedBackgroundColor = highlightColor
+            highlightedBackgroundColor = colorStyle.lightColor
 
         } else {
             setupIconAndText(icon: icon?.ub_image(with: .white), text: text)
-            backgroundColor = color
-            highlightedBackgroundColor = darkHighlightColor
+            backgroundColor = colorStyle.color
+            highlightedBackgroundColor = colorStyle.darkColor
         }
     }
 
