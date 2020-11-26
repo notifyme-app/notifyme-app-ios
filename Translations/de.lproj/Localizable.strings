@@ -72,7 +72,7 @@
 "no_report_information_text" = "Bleiben Sie gesund.";
 
 /*Reports: Information title*/
-"report_information_title" = "Mögliche Ansteckung in den letzten 14 Tagen.";
+"report_information_title" = "Mögliche Ansteckung in den letzten 14 Tagen";
 
 /*Reports: Information text*/
 "report_information_text" = "Sie könnten ansteckend sein, ohne es zu merken.";
@@ -218,7 +218,7 @@
 "generator_category_other" = "Andere";
 "generator_category_meeting_room" = "Sitzungsraum";
 "generator_category_cafeteria" = "Kafeteria";
-"generator_category_private_party" = "Private Party";
+"generator_category_private_event" = "Privater Event";
 "generator_title_label" = "Titel";
 "generator_title_placeholder" = "z.B. Raum- oder Eventname";
 "generator_subtitle_label" = "Untertitel";
@@ -282,3 +282,40 @@
 
 /*Title of back button*/
 "back_button" = "Zurück";
+"generator_category_canteen" = "Kantine";
+"generator_category_library" = "Bibliothek";
+"generator_category_lecture_room" = "Vorlesungssaal";
+"generator_category_shop" = "Laden";
+"generator_category_gym" = "Fitnesscenter";
+"generator_category_kitchen_area" = "Küchenbereich";
+"generator_category_office_space" = "Büroräume";
+"error_force_update_title" = "Update benötigt";
+"error_force_update_text" = "Damit die App richtig funktioniert, ist ein Update notwendig.";
+
+/*Titel für den Update Button, wenn ein App Update notwending ist.*/
+"error_action_update" = "Jetzt updaten";
+
+/*Weiter Button Title beim Onboarding*/
+"onboarding_continue_button" = "Weiter";
+
+/*Titel des Onboarding Screens mit Hinweisen zur Nutzung*/
+"onboarding_hints_for_usage" = "Hinweis\nzur Nutzung";
+
+/*Der farbig markierte Teil des onboarding_hints_for_usage Strings.*/
+"onboarding_hints_for_usage_highlight" = "Hinweis";
+
+/*Erster Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
+"onboarding_hint1" = "Diese App kann nicht für die obligatorische Kontaktdatenerfassung verwendet werden, da Sie keinerlei Kontaktdaten erfasst.";
+
+/*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
+"onboarding_hint2" = "Bitte lesen Sie auch die Allgemeinen Geschäftsbedingungen";
+"onboarding_agb_link" = "https://notify-me.ch/agb";
+"onboarding_agb_link_title" = "www.notify-me.ch/agb";
+"qr_scanner_error_code_not_yet_valid" = "Code noch nicht gültig";
+"qr_scanner_error_code_not_valid_anymore" = "Code nicht mehr gültig";
+
+/*Onboarding: subtitle on first page*/
+"onboarding_subtitle" = "Dezentral gespeicherte Check-Ins für Meetings & Events";
+
+/*qr validity period label used in qr generator web app*/
+"qr_validity_period_label" = "Gültigkeit (max. 24h)";

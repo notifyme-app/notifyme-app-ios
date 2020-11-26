@@ -48,8 +48,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private func initializeWindow() {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKey()
-        window?.rootViewController = UINavigationController(rootViewController: HomescreenViewController())
+
+        let vc = HomescreenViewController()
+
+        window?.rootViewController = UINavigationController(rootViewController: vc)
         window?.makeKeyAndVisible()
+
+        if !UserStorage.shared.hasCompletedOnboarding {
+            let onboardingViewController = OnboardingViewController()
+            onboardingViewController.modalPresentationStyle = .fullScreen
+            window?.rootViewController?.present(onboardingViewController, animated: false)
+        }
     }
 
     private func clearBadge() {
@@ -105,6 +114,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if window == nil {
             initializeWindow()
+        }
+
+        if !UserStorage.shared.hasCompletedOnboarding {
+            return true
         }
 
         switch UIStateManager.shared.uiState.checkInState {

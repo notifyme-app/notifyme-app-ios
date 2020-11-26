@@ -15,7 +15,7 @@
 "checkin_button_title" = "Check-in";
 
 /*Homescreen: No Reports title*/
-"no_report_title" = "Pas de rapports";
+"no_report_title" = "Aucun rapport";
 
 /*Check-In: scan code*/
 "checkin_scan_code" = "Scannez le code QR pour vous enregistrer";
@@ -24,13 +24,13 @@
 "NSCameraUsageDescription" = "Votre caméra est utilisée pour scanner le code QR.";
 
 /*iOS Permission: Text to show for FaceID*/
-"NSFaceIDUsageDescription" = "L'autorisation du Face ID vous permet d'accéder à votre journal en toute sécurité.";
+"NSFaceIDUsageDescription" = "Activez l'identification par Face ID pour accéder à votre journal.";
 
 /*iOS FaceID: Text that is shown as reason for Face ID*/
 "face_id_reason_text" = "Authentifiez-vous pour accéder au journal";
 
 /*Homescreen: Text with no report*/
-"no_report_hero_text" = "Prenez soin de vous\n";
+"no_report_hero_text" = "Prenez soin de vous";
 
 /*Reminder Notification Title*/
 "checkout_reminder_title" = "Quitter le lieu - rappel";
@@ -63,16 +63,16 @@
 "qrscanner_scan_qr_text" = "Scannez le code QR pour vous enregistrer.";
 
 /*QR Code Scanner: no valid code text*/
-"qrscanner_error" = "Le code n'est pas valide.";
+"qrscanner_error" = "Le code n'est pas valide!";
 
 /*Reports: no reports information title*/
-"no_report_information_title" = "Aucun risque d'infection n'a été signalé au cours des 14 derniers  jours.";
+"no_report_information_title" = "Aucune infection potentielle n'a été signalée ces 14 derniers jours.";
 
 /*No report Information : Additional text*/
 "no_report_information_text" = "Restez en bonne santé.";
 
 /*Reports: Information title*/
-"report_information_title" = "Risque d'infection au cours des 14 derniers jours.";
+"report_information_title" = "Infections potentielles ces 14 derniers jours.";
 
 /*Reports: Information text*/
 "report_information_text" = "Vous pourriez être contagieu·x·se sans le savoir.";
@@ -108,7 +108,7 @@
 "diary_option_title" = "Ne pas afficher dans mon journal";
 
 /*Edit CheckIn: Text that is shown when not showing in diary is set*/
-"diary_option_subtext" = "Ce check-in ne sera pas affiché dans votre journal.\n\nCependant, l'application sauvegarde cette information pendant 14  jours afin de pouvoir vous avertir au cas où vous courez le risque d'avoir été exposé au virus";
+"diary_option_subtext" = "Ce check-in ne sera pas affiché dans votre journal.\n\nCependant, l'application sauvegarde cette information pendant 14  jours afin de pouvoir vous avertir au cas où il y a un risque d'infection.";
 
 /*Check In: Set Reminder title*/
 "checkin_set_reminder" = "Configurer un rappel";
@@ -117,7 +117,7 @@
 "reminder_option_off" = "Off";
 
 /*Edit Checkin: Remove from diary button title*/
-"remove_from_diary_button" = "Occulter du journal";
+"remove_from_diary_button" = "Occulter";
 
 /*Remove from Diary Warning view title*/
 "remove_diary_warning_title" = "Avertissement";
@@ -129,7 +129,7 @@
 "remove_diary_remove_now_button" = "Occulter maintenant";
 
 /*Remove from diary warning start text*/
-"remove_diary_warning_star_text" = "l'Application sauvegarde cette information pendant 14 jours afin de pouvoir vous avertir au cas où il y a un risque d'infection.";
+"remove_diary_warning_star_text" = "l'Application grade cette information en arrière-plan pendant 14 jours afin de pouvoir vous avertir au cas où il y a un risque d'infection.";
 
 /*Report: 1 day ago singular*/
 "report_message_one_day_ago" = "Il y a un jour";
@@ -162,7 +162,7 @@
 "checkin_reminder_settings_alert_title" = "Le rappel n'a pas pu être configuré";
 
 /*Checkin: Reminder Alert message when permission to send reminders not given*/
-"checkin_reminder_settings_alert_message" = "Afin de pouvoir vous envoyer des rappels, NotifyMe nécessite votre autorisation pour l'envoi de notifications.";
+"checkin_reminder_settings_alert_message" = "Veuillez modifier les paramètres pour pouvoir recevoir des rappels de départ.";
 
 /*Check In Reminder Alert Open Settings button*/
 "checkin_reminder_option_open_settings" = "Ajuster";
@@ -218,7 +218,9 @@
 "generator_category_other" = "Autre";
 "generator_category_meeting_room" = "Salle de réunion";
 "generator_category_cafeteria" = "Cafétéria";
-"generator_category_private_party" = "Soirée privée";
+
+/*Fuzzy*/
+"generator_category_private_event" = "Soirée privée";
 "generator_title_label" = "Titre";
 "generator_title_placeholder" = "p. ex. Nom de pièce ou d'événement";
 "generator_subtitle_label" = "Sous-titre";
@@ -234,8 +236,8 @@
 "generator_private_bulletpoint_2" = "Le code peut être scanné avec n'importe quel autre lecteur QR.";
 "generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information n'est transmise à l'organisateur.";
 "generator_pdf_button" = "Télécharger PDF";
-"generator_public_qr_title" = "Code QR <span>publique</span>\\\n";
-"generator_private_qr_title" = "Code QR <span>privé</span>\\";
+"generator_public_qr_title" = "Code QR\\\n<span>publique</span>\n";
+"generator_private_qr_title" = "Code QR\\\n<span>privé</span>";
 "generator_missing_input" = "Veuillez remplir le champ obligatoire";
 "upload_title" = "Informer le visiteur";
 "upload_period_label" = "Période concernée";
@@ -247,16 +249,16 @@
 "error_network_title" = "Erreur de réseau";
 "error_network_text" = "Vérifiez votre connexion internet.";
 "error_notification_deactivated_title" = "Notifications désactivées";
-"error_notification_deactivated_text" = "Changez les réglages pour être informé immédiatement au cas où vous avez reçu un rapport.";
-"error_background_refresh_title" = "Mise à jour éteinte.";
-"error_background_refresh_text" = "Changez les réglages pour également être informé des rapports en dehors de l'application.";
-"error_camera_permission_title" = "Pas d'accès à la caméra";
-"error_camera_permission_text" = "L'application a besoin d'avoir accès à la caméra pour pouvoir scanner le code QR.";
-"error_action_change_settings" = "Changer les réglages";
+"error_notification_deactivated_text" = "Veuillez modifier les paramètres pour pouvoir recevoir des rappels par notifications.";
+"error_background_refresh_title" = "Actualisation de l'arrière-plan désactivée";
+"error_background_refresh_text" = "Activez les notifications dans vos réglages pour être informé immédiatement au cas où vous avez reçu un rapport.";
+"error_camera_permission_title" = "Accès à la caméra bloqué.";
+"error_camera_permission_text" = "Autorisez l'accès à votre caméra pour pouvoir scanner le code QR.";
+"error_action_change_settings" = "Modifier les paramètres";
 "error_action_retry" = "Réessayer";
 "upload_success_message" = "Téléchargement réussi";
 "upload_error_message" = "Téléchargement échoué";
-"upload_missing_payload" = "Pas de code privé trouvé. Scannez un code QR valable.";
+"upload_missing_payload" = "Code privé invalable. Scannez un code QR valable.";
 
 /*Titel einer generischen Fehleranzeige*/
 "error_title" = "Erreur";
@@ -281,4 +283,41 @@
 "app_name_highlight" = "Me";
 
 /*Title of back button*/
-"back_button" = "Back";
+"back_button" = "Retour";
+"generator_category_canteen" = "Cantine";
+"generator_category_library" = "Bibliothèque";
+"generator_category_lecture_room" = "Auditoire";
+"generator_category_shop" = "Charger";
+"generator_category_gym" = "Centre de fitness";
+"generator_category_kitchen_area" = "Coin cuisine";
+"generator_category_office_space" = "Bureaux";
+"error_force_update_title" = "";
+"error_force_update_text" = "";
+
+/*Titel für den Update Button, wenn ein App Update notwending ist.*/
+"error_action_update" = "";
+
+/*Weiter Button Title beim Onboarding*/
+"onboarding_continue_button" = "Continue";
+
+/*Titel des Onboarding Screens mit Hinweisen zur Nutzung*/
+"onboarding_hints_for_usage" = "";
+
+/*Der farbig markierte Teil des onboarding_hints_for_usage Strings.*/
+"onboarding_hints_for_usage_highlight" = "";
+
+/*Erster Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
+"onboarding_hint1" = "";
+
+/*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
+"onboarding_hint2" = "";
+"onboarding_agb_link" = "";
+"onboarding_agb_link_title" = "";
+"qr_scanner_error_code_not_yet_valid" = "";
+"qr_scanner_error_code_not_valid_anymore" = "";
+
+/*Onboarding: subtitle on first page*/
+"onboarding_subtitle" = "Check-ins sauvé de manière décentralisé pour réunions et événements.";
+
+/*qr validity period label used in qr generator web app*/
+"qr_validity_period_label" = "";

@@ -1,6 +1,6 @@
 
 /*Language code: Technical code used in app (translations filled in by Ubique)*/
-"language_code" = "en";
+"language_code" = "it";
 
 /*Name of the app*/
 "app_name" = "NotifyMe";
@@ -63,7 +63,6 @@
 "qrscanner_scan_qr_text" = "Scan QR code to check in";
 
 /*QR Code Scanner: no valid code text*/
-/*Fuzzy*/
 "qrscanner_error" = "No valid code!";
 
 /*Reports: no reports information title*/
@@ -82,7 +81,6 @@
 "report_information_button_title" = "What to do?";
 
 /*Info Text that is displayed below the info about a new report.*/
-/*Fuzzy*/
 "report_message_days_ago" = "{NUMBER} days ago";
 
 /*Homescreen: Label you are checked in*/
@@ -101,11 +99,9 @@
 "edit_mode_addcomment" = "Add comment";
 
 /*Edit Mode: Add comment placeholder text*/
-/*Fuzzy*/
 "edit_mode_comment_placeholder" = "eg. Who were you with?";
 
 /*Done Button Title*/
-/*Fuzzy*/
 "done_button" = "Done";
 
 /*Edit CheckIn: Text for not showing in diary option*/
@@ -222,8 +218,6 @@
 "generator_category_other" = "Other";
 "generator_category_meeting_room" = "Meeting room";
 "generator_category_cafeteria" = "Cafeteria";
-
-/*Fuzzy*/
 "generator_category_private_event" = "Private party";
 "generator_title_label" = "Title";
 "generator_title_placeholder" = "e.g. Room or event name";
