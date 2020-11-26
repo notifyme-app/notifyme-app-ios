@@ -311,11 +311,29 @@
 "onboarding_hint2" = "Bitte lesen Sie auch die Allgemeinen Geschäftsbedingungen";
 "onboarding_agb_link" = "https://notify-me.ch/agb";
 "onboarding_agb_link_title" = "www.notify-me.ch/agb";
-"qr_scanner_error_code_not_yet_valid" = "Code noch nicht gültig";
-"qr_scanner_error_code_not_valid_anymore" = "Code nicht mehr gültig";
+"qr_scanner_error_code_not_yet_valid" = "QR-Code noch nicht gültig";
+"qr_scanner_error_code_not_valid_anymore" = "QR-Code nicht mehr gültig";
 
 /*Onboarding: subtitle on first page*/
 "onboarding_subtitle" = "Dezentral gespeicherte Check-Ins für Meetings & Events";
 
 /*qr validity period label used in qr generator web app*/
 "qr_validity_period_label" = "Gültigkeit (max. 24h)";
+
+/*qr validity period from label used in qr generator web app*/
+"qr_validity_period_from_label" = "Von";
+
+/*qr validity period to label used in qr generator web app*/
+"qr_validity_period_to_label" = "Bis";
+
+/*error message: max qr validity period. used in qr generator web app*/
+"max_qr_validity_period_error" = "Die maximale Gültigkeitsdauer liegt bei 24h";
+
+/*error message. used in qr generator web app*/
+"qr_validity_period_earliest_from_error" = "QR-Codes können höchstens 7 Tage im voraus erstellt werden";
+
+/*error message. generic, invalid time. used in qr generator web app*/
+"qr_validity_period_invalid_time" = "Ungültiger Zeitpunkt";
+
+/*Warnungs Text, welcher angezeigt wird, wenn ein inkompatibler QR Code (mit einem neueren QR Code Format) gescannt wurde.*/
+"error_update_text" = "Dieser QR Code ist nicht kompatibel mit der installierten App Version. Führen Sie ein Update der App durch, um den QR Code zu scannen.";

@@ -317,11 +317,29 @@
 "onboarding_hint2" = "";
 "onboarding_agb_link" = "";
 "onboarding_agb_link_title" = "";
-"qr_scanner_error_code_not_yet_valid" = "";
-"qr_scanner_error_code_not_valid_anymore" = "";
+"qr_scanner_error_code_not_yet_valid" = "Code is not valid yet";
+"qr_scanner_error_code_not_valid_anymore" = "Code is not valid anymore";
 
 /*Onboarding: subtitle on first page*/
 "onboarding_subtitle" = "Check-in for meetings and events.";
 
 /*qr validity period label used in qr generator web app*/
 "qr_validity_period_label" = "";
+
+/*qr validity period from label used in qr generator web app*/
+"qr_validity_period_from_label" = "from";
+
+/*qr validity period to label used in qr generator web app*/
+"qr_validity_period_to_label" = "to";
+
+/*error message: max qr validity period. used in qr generator web app*/
+"max_qr_validity_period_error" = "";
+
+/*error message. used in qr generator web app*/
+"qr_validity_period_earliest_from_error" = "";
+
+/*error message. generic, invalid time. used in qr generator web app*/
+"qr_validity_period_invalid_time" = "";
+
+/*Warnungs Text, welcher angezeigt wird, wenn ein inkompatibler QR Code (mit einem neueren QR Code Format) gescannt wurde.*/
+"error_update_text" = "";

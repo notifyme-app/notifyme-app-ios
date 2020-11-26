@@ -132,8 +132,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             case let .success(info):
                 let vc = CheckInConfirmViewController(qrCode: urlString, venueInfo: info)
                 window?.rootViewController?.present(vc, animated: true, completion: nil)
-            case .failure:
-                let vc = ErrorViewController(errorModel: .invalidQrCode)
+            case let .failure(failure):
+                let vc = ErrorViewController(errorModel: failure.errorViewModel)
                 window?.rootViewController?.present(vc, animated: true, completion: nil)
             }
         }

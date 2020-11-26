@@ -95,7 +95,6 @@ class QRCodeScannerViewController: BaseSubViewController {
         }
 
         view.addSubview(qrErrorLabel)
-        qrErrorLabel.text = "qrscanner_error".ub_localized
 
         qrErrorLabel.snp.makeConstraints { make in
             make.top.equalTo(qrOverlay.scannerOverlay.snp.bottom).offset(Padding.small)
@@ -126,18 +125,25 @@ class QRCodeScannerViewController: BaseSubViewController {
         qrOverlay.scannerOverlay.lineColor = .ns_purple
     }
 
-    private func showError() {
-        qrErrorLabel.alpha = 1.0
-        qrOverlay.scannerOverlay.lineColor = .ns_red
+    private func showError(_ error: ErrorViewModel) {
+        // show a popup if version invalid
+        if error == ErrorViewModel.qrCodeVersionInvalid {
+            let vc = ErrorViewController(errorModel: error)
+            present(vc, animated: true, completion: nil)
+        } else {
+            qrErrorLabel.alpha = 1.0
+            qrErrorLabel.text = error.text
+            qrOverlay.scannerOverlay.lineColor = .ns_red
 
-        timer?.invalidate()
-        timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            UIView.animate(withDuration: 0.2) {
-                strongSelf.qrErrorLabel.alpha = 0.0
-                strongSelf.qrOverlay.scannerOverlay.lineColor = .ns_purple
-            }
-        })
+            timer?.invalidate()
+            timer = Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false, block: { [weak self] _ in
+                guard let strongSelf = self else { return }
+                UIView.animate(withDuration: 0.2) {
+                    strongSelf.qrErrorLabel.alpha = 0.0
+                    strongSelf.qrOverlay.scannerOverlay.lineColor = .ns_purple
+                }
+            })
+        }
     }
 
     deinit {
@@ -178,11 +184,11 @@ extension QRCodeScannerViewController: QRScannerViewDelegate {
 
             present(vc, animated: true, completion: nil)
 
-        case .failure:
+        case let .failure(failure):
             if let url = URL(string: str), url.host == Environment.current.uploadHost {
                 UIApplication.shared.open(url)
             } else {
-                showError()
+                showError(failure.errorViewModel)
             }
         }
     }

@@ -18,6 +18,10 @@ class CenterContentViewController: BaseViewController {
 
     public var dismissCallback: (() -> Void)?
 
+    public var hasDismissButton: Bool = true {
+        didSet { centerView.dismissButton.isHidden = !hasDismissButton }
+    }
+
     private let centerView = CenterContentView(maxHeight: 450)
 
     override init() {
