@@ -76,6 +76,8 @@
 		6E77C586256FEB9A000CE918 /* OnboardingUsageNotesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E77C585256FEB9A000CE918 /* OnboardingUsageNotesViewController.swift */; };
 		6E77C58B256FEE6C000CE918 /* OnboardingStepViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E77C58A256FEE6C000CE918 /* OnboardingStepViewController.swift */; };
 		6E77C5992570158F000CE918 /* ExternalLinkButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E77C5982570158F000CE918 /* ExternalLinkButton.swift */; };
+		6E77C5A72570E926000CE918 /* ConfigManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E77C5A62570E926000CE918 /* ConfigManager.swift */; };
+		6E77C5AF2570EA1F000CE918 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E77C5AE2570EA1F000CE918 /* Config.swift */; };
 		6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */; };
 		6E7C0D20242CE1190017C4F9 /* UIColor+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */; };
 		6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E7C0D38242E02A20017C4F9 /* NSLayoutConstants.swift */; };
@@ -207,6 +209,8 @@
 		6E77C585256FEB9A000CE918 /* OnboardingUsageNotesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingUsageNotesViewController.swift; sourceTree = "<group>"; };
 		6E77C58A256FEE6C000CE918 /* OnboardingStepViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingStepViewController.swift; sourceTree = "<group>"; };
 		6E77C5982570158F000CE918 /* ExternalLinkButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalLinkButton.swift; sourceTree = "<group>"; };
+		6E77C5A62570E926000CE918 /* ConfigManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfigManager.swift; sourceTree = "<group>"; };
+		6E77C5AE2570EA1F000CE918 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
 		6E7C0D1D242CE02D0017C4F9 /* NSLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSLabelType.swift; sourceTree = "<group>"; };
 		6E7C0D1F242CE1190017C4F9 /* UIColor+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+NS.swift"; sourceTree = "<group>"; };
 		6E7C0D26242D04280017C4F9 /* Inter-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Inter-ExtraBold.ttf"; sourceTree = "<group>"; };
@@ -560,6 +564,15 @@
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
+		6E77C5A52570E913000CE918 /* ConfigManager */ = {
+			isa = PBXGroup;
+			children = (
+				6E77C5A62570E926000CE918 /* ConfigManager.swift */,
+				6E77C5AE2570EA1F000CE918 /* Config.swift */,
+			);
+			path = ConfigManager;
+			sourceTree = "<group>";
+		};
 		6E7C0D23242D01860017C4F9 /* Font */ = {
 			isa = PBXGroup;
 			children = (
@@ -678,6 +691,7 @@
 		DC286A24242CE0AD001D5344 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
+				6E77C5A52570E913000CE918 /* ConfigManager */,
 				6E77C568256FE99C000CE918 /* User */,
 				DC2B52A4255E947600BDD5E3 /* Notifications */,
 				6E64046525544C8E006D0498 /* ProblematicEventsManager */,
@@ -1028,6 +1042,7 @@
 				6E66295C254BF4FF00347F06 /* StackScrollView.swift in Sources */,
 				DC702B0E243F6FAE0066C773 /* UBRawRepresentable.swift in Sources */,
 				DCCB96E025679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift in Sources */,
+				6E77C5A72570E926000CE918 /* ConfigManager.swift in Sources */,
 				6E8FC0FA24518BF2002AB1E5 /* UIScrollView+UBKeyboardObserver.m in Sources */,
 				DC702B0C243F6FAE0066C773 /* UBUserDefault.swift in Sources */,
 				6E662985254C397800347F06 /* ReminderManager.swift in Sources */,
@@ -1091,6 +1106,7 @@
 				2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */,
 				DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */,
 				6E6629D52550482600347F06 /* UIStateManager.swift in Sources */,
+				6E77C5AF2570EA1F000CE918 /* Config.swift in Sources */,
 				DC9DA0972566AFF300784A4F /* ErrorHandling+ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

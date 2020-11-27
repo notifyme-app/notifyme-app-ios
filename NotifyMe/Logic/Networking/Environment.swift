@@ -37,6 +37,19 @@ enum Environment {
         }
     }
 
+    var configService: Backend {
+        switch self {
+        case .dev:
+            return Backend("https://app-dev-config.notify-me.ch", version: "v1")
+        case .prod:
+            return Backend("https://app-prod-config.notify-me.ch", version: "v1")
+        }
+    }
+
+    var appStoreUrl: URL {
+        return URL(string: "https://itunes.apple.com/app/id1537859001")!
+    }
+
     var uploadHost: String {
         switch self {
         case .dev:
@@ -53,5 +66,16 @@ enum Environment {
         case .prod:
             return "https://qr.notify-me.ch"
         }
+    }
+}
+
+extension Environment {
+    static var userAgentHeader: String {
+        let bundleIdentifier = Bundle.main.bundleIdentifier ?? ""
+        let appVersion = [Bundle.appVersion].joined(separator: ".")
+        let os = "iOS"
+        let systemVersion = UIDevice.current.systemVersion
+        let header = [bundleIdentifier, appVersion, os, systemVersion].joined(separator: ";")
+        return header
     }
 }

@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         initializeWindow()
 
         setupBackgroundTasks()
+        startForceUpdateCheck()
 
         return true
     }
@@ -43,6 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         clearBadge()
 
         NotificationManager.shared.checkAuthorization()
+        startForceUpdateCheck()
     }
 
     private func initializeWindow() {
@@ -103,6 +105,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 completionHandler(.newData)
             }
         }
+    }
+
+    // MARK: - Force update
+
+    private func startForceUpdateCheck() {
+        ConfigManager().startConfigRequest(window: window)
     }
 
     // MARK: - Universal links

@@ -46,9 +46,7 @@ class ErrorViewController: CenterContentViewController {
             guard let strongSelf = self else { return }
 
             if strongSelf.error.appUpdateNeeded {
-                if let url = URL(string: "https://itunes.apple.com/app/id1537859001") {
-                    UIApplication.shared.open(url, options: [:], completionHandler: nil)
-                }
+                UIApplication.shared.open(Environment.current.appStoreUrl, options: [:], completionHandler: nil)
             }
 
             if strongSelf.error.dismissPossible {
