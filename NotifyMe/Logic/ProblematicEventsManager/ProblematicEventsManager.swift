@@ -51,7 +51,7 @@ class ProblematicEventsManager {
             queryParameters["lastKeyBundleTag"] = "\(tag)"
         }
 
-        let endpoint = backend.endpoint("traceKeys", queryParameters: queryParameters, headers: ["Accept": "application/protobuf"])
+        let endpoint = backend.endpoint("traceKeys", queryParameters: queryParameters, headers: ["Accept": "application/x-protobuf"])
 
         lastSyncFailed = false
 
@@ -112,8 +112,9 @@ class ProblematicEventsManager {
             let entry: Date = Date(timeIntervalSince1970: TimeInterval(i.startTime / 1000))
             let exit: Date = Date(timeIntervalSince1970: TimeInterval(i.endTime / 1000))
             let message = i.message.bytes
+            let nonce = i.nonce.bytes
 
-            let info = ProblematicEventInfo(privateKey: sk, entry: entry, exit: exit, message: message)
+            let info = ProblematicEventInfo(privateKey: sk, entry: entry, exit: exit, message: message, nonce: nonce)
             problematicEvents.append(info)
         }
 

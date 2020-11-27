@@ -72,7 +72,7 @@ class NotifyMeTests: XCTestCase {
     func testMatching() {
         let privateKey: Bytes = [43, 251, 221, 2, 27, 157, 184, 187, 93, 206, 197, 146, 72, 110, 187, 109, 250, 171, 118, 22, 94, 68, 178, 181, 43, 243, 42, 4, 121, 199, 73, 131, 240, 71, 99, 163, 208, 29, 127, 92, 253, 86, 120, 39, 215, 68, 82, 13, 208, 92, 165, 113, 129, 143, 219, 177, 236, 18, 16, 13, 156, 77, 10, 19]
 
-        let problematicEvent = ProblematicEventInfo(privateKey: privateKey, entry: Date().addingTimeInterval(-7200), exit: Date().addingTimeInterval(7200), message: Bytes())
+        let problematicEvent = ProblematicEventInfo(privateKey: privateKey, entry: Date().addingTimeInterval(-7200), exit: Date().addingTimeInterval(7200), message: Bytes(), nonce: Bytes())
 
         let matches = CrowdNotifier.checkForMatches(publishedSKs: [problematicEvent])
 
@@ -82,7 +82,7 @@ class NotifyMeTests: XCTestCase {
     func testMatchingButDifferentTime() {
         let privateKey: Bytes = [43, 251, 221, 2, 27, 157, 184, 187, 93, 206, 197, 146, 72, 110, 187, 109, 250, 171, 118, 22, 94, 68, 178, 181, 43, 243, 42, 4, 121, 199, 73, 131, 240, 71, 99, 163, 208, 29, 127, 92, 253, 86, 120, 39, 215, 68, 82, 13, 208, 92, 165, 113, 129, 143, 219, 177, 236, 18, 16, 13, 156, 77, 10, 19]
 
-        let problematicEvent = ProblematicEventInfo(privateKey: privateKey, entry: Date().addingTimeInterval(-7200), exit: Date().addingTimeInterval(-3600), message: Bytes())
+        let problematicEvent = ProblematicEventInfo(privateKey: privateKey, entry: Date().addingTimeInterval(-7200), exit: Date().addingTimeInterval(-3600), message: Bytes(), nonce: Bytes())
 
         let matches = CrowdNotifier.checkForMatches(publishedSKs: [problematicEvent])
 
@@ -92,7 +92,7 @@ class NotifyMeTests: XCTestCase {
     func testNonMatching() {
         let privateKey: Bytes = [43, 251, 221, 2, 27, 157, 184, 187, 93, 206, 197, 146, 72, 110, 187, 109, 250, 171, 118, 22, 94, 68, 178, 181, 43, 242, 42, 4, 121, 199, 73, 131, 240, 71, 99, 163, 208, 29, 127, 92, 253, 86, 120, 39, 215, 68, 82, 13, 208, 92, 165, 113, 129, 143, 219, 177, 236, 18, 16, 13, 156, 77, 10, 19]
 
-        let problematicEvent = ProblematicEventInfo(privateKey: privateKey, entry: Date().addingTimeInterval(-7200), exit: Date().addingTimeInterval(7200), message: Bytes())
+        let problematicEvent = ProblematicEventInfo(privateKey: privateKey, entry: Date().addingTimeInterval(-7200), exit: Date().addingTimeInterval(7200), message: Bytes(), nonce: Bytes())
 
         let matches = CrowdNotifier.checkForMatches(publishedSKs: [problematicEvent])
 
