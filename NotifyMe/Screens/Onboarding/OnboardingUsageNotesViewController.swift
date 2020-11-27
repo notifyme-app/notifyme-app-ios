@@ -82,7 +82,7 @@ class OnboardingUsageNotesViewController: OnboardingStepViewController {
         let label = Label(.text, textColor: .ns_red)
         label.text = "onboarding_hint1".ub_localized
 
-        usageNotesStackview.alignment = .firstBaseline
+        usageNotesStackview.alignment = .top
         usageNotesStackview.spacing = Padding.small
         usageNotesStackview.addArrangedView(errorImageView)
         usageNotesStackview.addArrangedView(label)
@@ -115,7 +115,7 @@ class OnboardingUsageNotesViewController: OnboardingStepViewController {
         v.addArrangedView(agbLabel)
         v.addArrangedView(linkContainer)
 
-        infoStackView.alignment = .firstBaseline
+        infoStackView.alignment = .top
         infoStackView.spacing = Padding.small
         infoStackView.addArrangedView(infoImageView)
         infoStackView.addArrangedView(v)
