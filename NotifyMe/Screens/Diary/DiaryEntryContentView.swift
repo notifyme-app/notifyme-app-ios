@@ -117,11 +117,11 @@ class DiaryEntryContentView: UIView {
     private func update() {
         checkImageView.image = UIImage(named: "icons-ic-check-filled")
 
-        imageTextView.title = checkIn?.venue.location
+        imageTextView.title = checkIn?.venue.name
         imageTextView.image = checkIn?.venue.image(large: false)
 
         var texts: [String?] = []
-        texts.append(checkIn?.venue.room)
+        texts.append([checkIn?.venue.location, checkIn?.venue.room].compactMap { $0 }.joined(separator: ", "))
 
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"

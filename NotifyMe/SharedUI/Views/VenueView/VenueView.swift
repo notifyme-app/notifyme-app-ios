@@ -18,7 +18,6 @@ class VenueView: UIView {
     private let stackView = UIStackView()
 
     private let titleLabel = Label(.title, textAlignment: .center)
-    private let subtitleLabel = Label(.subtitle, textAlignment: .center)
     private let textLabel = Label(.text, textAlignment: .center)
 
     private let venueImageView = UIImageView()
@@ -59,8 +58,7 @@ class VenueView: UIView {
         }
 
         titleLabel.text = venue?.name
-        subtitleLabel.text = venue?.room
-        textLabel.text = venue?.location
+        textLabel.text = [venue?.location, venue?.room].compactMap { $0 }.joined(separator: ", ")
     }
 
     // MARK: - Setup
@@ -85,11 +83,7 @@ class VenueView: UIView {
         imageContentView.isHidden = true
 
         stackView.addArrangedSubview(titleLabel)
-        stackView.addSpacerView(4.0)
-
-        stackView.addArrangedSubview(subtitleLabel)
-        stackView.addSpacerView(Padding.small + 4.0)
-
+        stackView.addSpacerView(Padding.small)
         stackView.addArrangedSubview(textLabel)
     }
 }
