@@ -109,12 +109,13 @@ class ProblematicEventsManager {
 
         for i in wrapper.events {
             let sk = i.secretKey.bytes
+            let r2 = i.r2.bytes
             let entry: Date = Date(timeIntervalSince1970: TimeInterval(i.startTime / 1000))
             let exit: Date = Date(timeIntervalSince1970: TimeInterval(i.endTime / 1000))
             let message = i.message.bytes
             let nonce = i.nonce.bytes
 
-            let info = ProblematicEventInfo(privateKey: sk, entry: entry, exit: exit, message: message, nonce: nonce)
+            let info = ProblematicEventInfo(privateKey: sk, r2: r2, entry: entry, exit: exit, message: message, nonce: nonce)
             problematicEvents.append(info)
         }
 

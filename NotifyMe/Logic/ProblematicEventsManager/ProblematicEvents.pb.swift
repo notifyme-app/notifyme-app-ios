@@ -59,6 +59,16 @@ struct ProblematicEvent {
     /// Clears the value of `secretKey`. Subsequent reads from it will return its default value.
     mutating func clearSecretKey() { _secretKey = nil }
 
+    var r2: Data {
+        get { return _r2 ?? Data() }
+        set { _r2 = newValue }
+    }
+
+    /// Returns true if `r2` has been explicitly set.
+    var hasR2: Bool { return self._r2 != nil }
+    /// Clears the value of `r2`. Subsequent reads from it will return its default value.
+    mutating func clearR2() { _r2 = nil }
+
     var startTime: Int64 {
         get { return _startTime ?? 0 }
         set { _startTime = newValue }
@@ -104,6 +114,7 @@ struct ProblematicEvent {
     init() {}
 
     fileprivate var _secretKey: Data?
+    fileprivate var _r2: Data?
     fileprivate var _startTime: Int64?
     fileprivate var _endTime: Int64?
     fileprivate var _message: Data?
@@ -160,14 +171,16 @@ extension ProblematicEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
     static let protoMessageName: String = "ProblematicEvent"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
         1: .same(proto: "secretKey"),
-        2: .same(proto: "startTime"),
-        3: .same(proto: "endTime"),
-        4: .same(proto: "message"),
-        5: .same(proto: "nonce"),
+        2: .same(proto: "r2"),
+        3: .same(proto: "startTime"),
+        4: .same(proto: "endTime"),
+        5: .same(proto: "message"),
+        6: .same(proto: "nonce"),
     ]
 
     public var isInitialized: Bool {
         if self._secretKey == nil { return false }
+        if self._r2 == nil { return false }
         if self._startTime == nil { return false }
         if self._endTime == nil { return false }
         return true
@@ -180,10 +193,11 @@ extension ProblematicEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
             // enabled. https://github.com/apple/swift-protobuf/issues/1034
             switch fieldNumber {
             case 1: try { try decoder.decodeSingularBytesField(value: &self._secretKey) }()
-            case 2: try { try decoder.decodeSingularInt64Field(value: &self._startTime) }()
-            case 3: try { try decoder.decodeSingularInt64Field(value: &self._endTime) }()
-            case 4: try { try decoder.decodeSingularBytesField(value: &self._message) }()
-            case 5: try { try decoder.decodeSingularBytesField(value: &self._nonce) }()
+            case 2: try { try decoder.decodeSingularBytesField(value: &self._r2) }()
+            case 3: try { try decoder.decodeSingularInt64Field(value: &self._startTime) }()
+            case 4: try { try decoder.decodeSingularInt64Field(value: &self._endTime) }()
+            case 5: try { try decoder.decodeSingularBytesField(value: &self._message) }()
+            case 6: try { try decoder.decodeSingularBytesField(value: &self._nonce) }()
             default: break
             }
         }
@@ -193,23 +207,27 @@ extension ProblematicEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
         if let v = _secretKey {
             try visitor.visitSingularBytesField(value: v, fieldNumber: 1)
         }
-        if let v = _startTime {
-            try visitor.visitSingularInt64Field(value: v, fieldNumber: 2)
+        if let v = _r2 {
+            try visitor.visitSingularBytesField(value: v, fieldNumber: 2)
         }
-        if let v = _endTime {
+        if let v = _startTime {
             try visitor.visitSingularInt64Field(value: v, fieldNumber: 3)
         }
+        if let v = _endTime {
+            try visitor.visitSingularInt64Field(value: v, fieldNumber: 4)
+        }
         if let v = _message {
-            try visitor.visitSingularBytesField(value: v, fieldNumber: 4)
+            try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
         }
         if let v = _nonce {
-            try visitor.visitSingularBytesField(value: v, fieldNumber: 5)
+            try visitor.visitSingularBytesField(value: v, fieldNumber: 6)
         }
         try unknownFields.traverse(visitor: &visitor)
     }
 
     static func == (lhs: ProblematicEvent, rhs: ProblematicEvent) -> Bool {
         if lhs._secretKey != rhs._secretKey { return false }
+        if lhs._r2 != rhs._r2 { return false }
         if lhs._startTime != rhs._startTime { return false }
         if lhs._endTime != rhs._endTime { return false }
         if lhs._message != rhs._message { return false }

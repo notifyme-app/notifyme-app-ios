@@ -6,7 +6,7 @@
         "repositoryURL": "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
         "state": {
           "branch": "develop",
-          "revision": "7f6fb937c4671c8e81e96d4bb5a7f3967bf6f2fa",
+          "revision": "035eedc42280cf034a594905cc641d4f6be3e812",
           "version": null
         }
       },

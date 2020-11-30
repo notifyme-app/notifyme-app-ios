@@ -33,7 +33,7 @@ struct ErrorViewModel: Equatable {
 extension CrowdNotifierError {
     var errorViewModel: ErrorViewModel {
         switch self {
-        case .encryptionError, .invalidSignature, .invalidQRCode:
+        case .encryptionError, .invalidQRCode:
             return .invalidQrCode
         case .validFromError:
             return .qrValidFromError

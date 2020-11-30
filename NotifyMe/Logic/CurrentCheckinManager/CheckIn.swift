@@ -48,4 +48,8 @@ extension CheckIn {
     var venuePublicKey: Bytes {
         return venue.publicKey.bytes
     }
+
+    var r1: Bytes {
+        return venue.r1.bytes
+    }
 }
