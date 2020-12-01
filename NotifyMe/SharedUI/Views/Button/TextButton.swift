@@ -46,9 +46,10 @@ class TextButton: UBButton {
 
     override var title: String? {
         get {
-            label.text
+            super.title
         }
         set {
+            super.title = newValue
             label.text = newValue
             updateTitle()
         }
