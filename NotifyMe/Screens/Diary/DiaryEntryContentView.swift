@@ -120,7 +120,7 @@ class DiaryEntryContentView: UIView {
         imageTextView.image = checkIn?.venue.image(large: false)
 
         var texts: [String?] = []
-        texts.append([checkIn?.venue.location, checkIn?.venue.room].compactMap { $0 }.joined(separator: ", "))
+        texts.append(checkIn?.venue.subtitle)
 
         let formatter = DateFormatter()
         formatter.dateFormat = "HH:mm"

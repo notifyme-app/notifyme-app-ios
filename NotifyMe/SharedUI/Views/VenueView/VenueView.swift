@@ -58,7 +58,7 @@ class VenueView: UIView {
         }
 
         titleLabel.text = venue?.name
-        textLabel.text = [venue?.location, venue?.room].compactMap { $0 }.joined(separator: ", ")
+        textLabel.text = venue?.subtitle
     }
 
     // MARK: - Setup

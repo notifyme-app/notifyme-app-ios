@@ -53,3 +53,15 @@ extension CheckIn {
         return venue.r1.bytes
     }
 }
+
+extension VenueInfo {
+    var subtitle: String? {
+        return [location, room].compactMap {
+            if let s = $0 {
+                return s.isEmpty ? nil : s
+            }
+
+            return nil
+        }.joined(separator: ", ")
+    }
+}
