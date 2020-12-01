@@ -34,7 +34,16 @@ struct Backend {
         let url = components.url!
         let data = body?.jsonData
 
-        return Endpoint(method: method, url: url, headers: headers, body: data)
+        var allHeaders: [String: String] = [:]
+        if let headers = headers {
+            for h in headers {
+                allHeaders[h.key] = h.value
+            }
+        }
+
+        allHeaders["User-Agent"] = Environment.userAgentHeader
+
+        return Endpoint(method: method, url: url, headers: allHeaders, body: data)
     }
 }
 

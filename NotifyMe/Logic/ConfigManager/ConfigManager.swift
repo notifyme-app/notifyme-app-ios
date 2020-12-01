@@ -50,7 +50,7 @@ class ConfigManager {
     public func loadConfig(completion: @escaping ((Config?) -> Void)) {
         let backend = Environment.current.configService
 
-        let endpoint = backend.endpoint("config", headers: ["User-Agent": Environment.userAgentHeader])
+        let endpoint = backend.endpoint("config")
 
         let task = URLSession.shared.dataTask(with: endpoint.request()) { data, _, error in
 
