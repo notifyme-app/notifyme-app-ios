@@ -30,7 +30,7 @@ The app is a decentralised check-in system for meetings and events. Users can ch
 * Android Demo App: [notifyme-app-android](https://github.com/notifyme-app/notifyme-app-android)
 * iOS Demo App: [notifyme-app-ios](https://github.com/notifyme-app/notifyme-app-ios)
 * Backend SDK: [notifyme-sdk-backend](https://github.com/notifyme-app/notifyme-sdk-backend)
-* Web Apps: [notifyme-qrgenerator-web](https://github.com/notifyme-app/notifyme-webpages)
+* Web Apps: [notifyme-webpages](https://github.com/notifyme-app/notifyme-webpages)
 
 ## Work in Progress
 The NotifyMe App for iOS contains alpha-quality code only and is not yet complete. It has not yet been reviewed or audited for security and compatibility. We are both continuing the development and have started a security review. This project is truly open-source and we welcome any feedback on the code regarding both the implementation and security aspects.
