@@ -110,8 +110,7 @@ class DiaryEntryContentView: UIView {
         checkImageView.image = UIImage(named: "icons-ic-red-info")
 
         whatToDoView.message = exposure?.exposureEvent.message
-
-        bottomView.isHidden = false
+        bottomView.isHidden = exposure?.exposureEvent.message.isEmpty ?? true
     }
 
     private func update() {

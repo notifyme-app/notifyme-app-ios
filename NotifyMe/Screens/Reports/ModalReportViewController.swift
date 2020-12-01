@@ -57,8 +57,11 @@ class ModalReportViewController: ModalBaseViewController {
         contentView.addArrangedView(informationView)
 
         contentView.addSpacerView(Padding.medium)
-        contentView.addArrangedView(whatToDoView)
 
-        whatToDoView.message = exposure.exposureEvent.message
+        if !exposure.exposureEvent.message.isEmpty {
+            contentView.addArrangedView(whatToDoView)
+            whatToDoView.message = exposure.exposureEvent.message
+            contentView.addSpacerView(Padding.medium)
+        }
     }
 }
