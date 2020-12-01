@@ -37,7 +37,7 @@ class UIStateLogic {
     }
 
     private func buildExposureState() -> UIStateModel.ExposureState {
-        let events = ProblematicEventsManager.shared.getExposureEvents().sorted { $0.arrivalTime < $1.arrivalTime
+        let events = ProblematicEventsManager.shared.getExposureEvents().sorted { $0.arrivalTime > $1.arrivalTime
         }
 
         let diary = CheckInManager.shared.getDiary()
