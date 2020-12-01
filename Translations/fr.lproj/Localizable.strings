@@ -209,43 +209,103 @@
 "imprint_webview_more_info_link" = "https://notify-me.ch";
 "imprint_webview_legal_title" = "Indications légales";
 "imprint_webview_legal_link_text" = "Protection des données et conditions d'utilisation";
-"imprint_webview_legal_link_url" = "www.notify-me.ch/legal";
+"imprint_webview_legal_link_url" = "www.notify-me.ch/agb";
 "imprint_webview_sourcecode_title" = "Code source";
 "imprint_webview_sourcecode_text" = "Le code source actuel publié sous Licence Publique est disponible sur GitHub:";
 "imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
-"generator_title" = "Créer code QR démo";
-"generator_category_label" = "Catégorie";
-"generator_category_other" = "Autre";
-"generator_category_meeting_room" = "Salle de réunion";
-"generator_category_cafeteria" = "Cafétéria";
 
 /*Fuzzy*/
-"generator_category_private_event" = "Soirée privée";
-"generator_title_label" = "Titre";
-"generator_title_placeholder" = "p. ex. Nom de pièce ou d'événement";
-"generator_subtitle_label" = "Sous-titre";
-"generator_subtitle_placeholder" = "p. ex. Organisation ou organisateur·trice";
-"generator_addition_label" = "Additif";
-"generator_addition_placeholder" = "p. ex. Bâtiment ou lieu";
-"generator_generation_button_label" = "Générer un code QR";
-"generator_back" = "Retour";
-"generator_public_bulletpoint_1" = "Avec ce code QR les visiteurs peuvent s'enregistrer sur place.";
-"generator_public_bulletpoint_2" = "Le code peut être scanné avec NotifyMe";
-"generator_public_bulletpoint_3" = "Aucune données personnelles ne sont saisies. Les enregistrements ne sont pas visibles pour les propriétaires de lieux.";
-"generator_private_bulletpoint_1" = "Ce code QR informe les visiteurs en cas incident.";
-"generator_private_bulletpoint_2" = "Le code peut être scanné avec n'importe quel autre lecteur QR.";
-"generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information n'est transmise à l'organisateur.";
-"generator_pdf_button" = "Télécharger PDF";
-"generator_public_qr_title" = "Code QR\\\n<span>publique</span>\n";
-"generator_private_qr_title" = "Code QR\\\n<span>privé</span>";
-"generator_missing_input" = "Veuillez remplir le champ obligatoire";
-"upload_title" = "Informer le visiteur";
-"upload_period_label" = "Période concernée";
-"upload_period_from_label" = "de";
-"upload_period_to_label" = "à";
-"upload_note_label" = "Indication au visiteur";
-"upload_note_placeholder" = "Que faire?";
-"upload_upload_button" = "Informer le visiteur";
+"web_generator_title" = "Créer code QR démo";
+
+/*Fuzzy*/
+"web_generator_category_label" = "Catégorie";
+
+/*Fuzzy*/
+"web_generator_category_other" = "Autre";
+
+/*Fuzzy*/
+"web_generator_category_meeting_room" = "Salle de réunion";
+
+/*Fuzzy*/
+"web_generator_category_cafeteria" = "Cafétéria";
+
+/*Fuzzy*/
+"web_generator_category_private_event" = "Soirée privée";
+
+/*Fuzzy*/
+"web_generator_title_label" = "Titre";
+
+/*Fuzzy*/
+"web_generator_title_placeholder" = "p. ex. Nom de pièce ou d'événement";
+
+/*Fuzzy*/
+"web_generator_subtitle_label" = "Sous-titre";
+
+/*Fuzzy*/
+"web_generator_subtitle_placeholder" = "p. ex. Organisation ou organisateur·trice";
+
+/*Fuzzy*/
+"web_generator_addition_label" = "Additif";
+
+/*Fuzzy*/
+"web_generator_addition_placeholder" = "p. ex. Bâtiment ou lieu";
+
+/*Fuzzy*/
+"web_generator_generation_button_label" = "Générer un code QR";
+
+/*Fuzzy*/
+"web_generator_back" = "Retour";
+
+/*Fuzzy*/
+"web_generator_public_bulletpoint_1" = "Avec ce code QR les visiteurs peuvent s'enregistrer sur place.";
+
+/*Fuzzy*/
+"web_generator_public_bulletpoint_2" = "Le code peut être scanné avec NotifyMe";
+
+/*Fuzzy*/
+"web_generator_public_bulletpoint_3" = "Aucune données personnelles ne sont saisies. Les enregistrements ne sont pas visibles pour les propriétaires de lieux.";
+
+/*Fuzzy*/
+"web_generator_private_bulletpoint_1" = "Ce code QR informe les visiteurs en cas incident.";
+
+/*Fuzzy*/
+"web_generator_private_bulletpoint_2" = "Le code peut être scanné avec n'importe quel autre lecteur QR.";
+
+/*Fuzzy*/
+"web_generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information n'est transmise à l'organisateur.";
+
+/*Fuzzy*/
+"web_generator_pdf_button" = "Télécharger PDF";
+
+/*Fuzzy*/
+"web_generator_public_qr_title" = "Code QR\\\n<span>publique</span>\n";
+
+/*Fuzzy*/
+"web_generator_private_qr_title" = "Code QR\\\n<span>privé</span>";
+
+/*Fuzzy*/
+"web_generator_missing_input" = "Veuillez remplir le champ obligatoire";
+
+/*Fuzzy*/
+"web_upload_title" = "Informer le visiteur";
+
+/*Fuzzy*/
+"web_upload_period_label" = "Période concernée";
+
+/*Fuzzy*/
+"web_upload_period_from_label" = "de";
+
+/*Fuzzy*/
+"web_upload_period_to_label" = "à";
+
+/*Fuzzy*/
+"web_upload_note_label" = "Indication au visiteur";
+
+/*Fuzzy*/
+"web_upload_note_placeholder" = "Que faire?";
+
+/*Fuzzy*/
+"web_upload_upload_button" = "Informer le visiteur";
 "error_network_title" = "Erreur de réseau";
 "error_network_text" = "Vérifiez votre connexion internet.";
 "error_notification_deactivated_title" = "Notifications désactivées";
@@ -256,9 +316,15 @@
 "error_camera_permission_text" = "Autorisez l'accès à votre caméra pour pouvoir scanner le code QR.";
 "error_action_change_settings" = "Modifier les paramètres";
 "error_action_retry" = "Réessayer";
-"upload_success_message" = "Téléchargement réussi";
-"upload_error_message" = "Téléchargement échoué";
-"upload_missing_payload" = "Code privé invalable. Scannez un code QR valable.";
+
+/*Fuzzy*/
+"web_upload_success_message" = "Téléchargement réussi";
+
+/*Fuzzy*/
+"web_upload_error_message" = "Téléchargement échoué";
+
+/*Fuzzy*/
+"web_upload_missing_payload" = "Code privé invalable. Scannez un code QR valable.";
 
 /*Titel einer generischen Fehleranzeige*/
 "error_title" = "Erreur";
@@ -268,10 +334,20 @@
 
 /*Titel eines Ok-Buttons*/
 "ok_button" = "Ok";
-"landing_description" = "Check-ins sauvé de manière décentralisé pour réunions et événements.";
-"landing_app_store_link" = "https://example.com";
-"landing_play_store_link" = "https://example.com";
-"generator_pdf_created_on_format" = "Créé le %d.%m.%Y à %H:%M h";
+
+/*Fuzzy*/
+"web_landing_description" = "Check-ins sauvé de manière décentralisé pour réunions et événements.";
+
+/*Landing page: iOS app store link URL*/
+/*Fuzzy*/
+"web_landing_app_store_link" = "https://itunes.apple.com/app/id1537859001";
+
+/*Fuzzy*/
+"web_landing_play_store_link" = "https://example.com";
+
+/*https://github.com/samsonjs/strftime#supported-specifiers*/
+/*Fuzzy*/
+"web_generator_pdf_created_on_format" = "Créé le %d.%m.%Y à %H:%M h";
 
 /*Title of the diary entry edit screen.*/
 "edit_controller_title" = "Éditer";
@@ -284,58 +360,96 @@
 
 /*Title of back button*/
 "back_button" = "Retour";
-"generator_category_canteen" = "Cantine";
-"generator_category_library" = "Bibliothèque";
-"generator_category_lecture_room" = "Auditoire";
-"generator_category_shop" = "Charger";
-"generator_category_gym" = "Centre de fitness";
-"generator_category_kitchen_area" = "Coin cuisine";
-"generator_category_office_space" = "Bureaux";
-"error_force_update_title" = "";
-"error_force_update_text" = "";
+
+/*Fuzzy*/
+"web_generator_category_canteen" = "Cantine";
+
+/*Fuzzy*/
+"web_generator_category_library" = "Bibliothèque";
+
+/*Fuzzy*/
+"web_generator_category_lecture_room" = "Auditoire";
+
+/*Fuzzy*/
+"web_generator_category_shop" = "Charger";
+
+/*Fuzzy*/
+"web_generator_category_gym" = "Centre de fitness";
+
+/*Fuzzy*/
+"web_generator_category_kitchen_area" = "Coin cuisine";
+
+/*Fuzzy*/
+"web_generator_category_office_space" = "Bureaux";
+"error_force_update_title" = "Mise à jour nécessaire";
+"error_force_update_text" = "Une mise à jour est nécessaire pour que l'application puisse fonctionner.";
 
 /*Titel für den Update Button, wenn ein App Update notwending ist.*/
-"error_action_update" = "";
+"error_action_update" = "Mettre à jour maintenant.";
 
 /*Weiter Button Title beim Onboarding*/
-"onboarding_continue_button" = "Continue";
+"onboarding_continue_button" = "Continuer";
 
 /*Titel des Onboarding Screens mit Hinweisen zur Nutzung*/
-"onboarding_hints_for_usage" = "";
+"onboarding_hints_for_usage" = "Indication d'utilisation";
 
 /*Der farbig markierte Teil des onboarding_hints_for_usage Strings.*/
-"onboarding_hints_for_usage_highlight" = "";
+"onboarding_hints_for_usage_highlight" = "Indication";
 
 /*Erster Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint1" = "";
+"onboarding_hint1" = "Cette application ne saisit pas des données de contacts obligatoirement et ne peut pas être utilisée à cet effet.";
 
 /*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint2" = "";
-"onboarding_agb_link" = "";
-"onboarding_agb_link_title" = "";
-"qr_scanner_error_code_not_yet_valid" = "Code is not valid yet";
-"qr_scanner_error_code_not_valid_anymore" = "Code is not valid anymore";
+"onboarding_hint2" = "Veuillez aussi lire les conditions générales.";
+"onboarding_agb_link" = "https://notify-me.ch/agb";
+"onboarding_agb_link_title" = "www.notify-me.ch/agb";
+"qr_scanner_error_code_not_yet_valid" = "Le code QR n'est pas valide.";
+"qr_scanner_error_code_not_valid_anymore" = "Le code QR n'est plus valide.";
 
 /*Onboarding: subtitle on first page*/
 "onboarding_subtitle" = "Check-ins sauvé de manière décentralisé pour réunions et événements.";
 
 /*qr validity period label used in qr generator web app*/
-"qr_validity_period_label" = "";
+"web_qr_validity_period_label" = "Validité (24h max.)";
 
 /*qr validity period from label used in qr generator web app*/
-"qr_validity_period_from_label" = "de";
+/*Fuzzy*/
+"web_qr_validity_period_from_label" = "de";
 
 /*qr validity period to label used in qr generator web app*/
-"qr_validity_period_to_label" = "à";
+/*Fuzzy*/
+"web_qr_validity_period_to_label" = "à";
 
-/*error message: max qr validity period. used in qr generator web app*/
-"max_qr_validity_period_error" = "";
+/*error message: %d is the number of hours, max qr validity period. used in qr generator web app*/
+"web_max_qr_validity_period_error" = "La durée de validité maximale est %d heures.";
 
-/*error message. used in qr generator web app*/
-"qr_validity_period_earliest_from_error" = "";
+/*error message, %d is the number of days*/
+"web_qr_validity_period_earliest_from_error" = "Les codes QR peuvent être générés maximum 12 jours en avance.";
 
 /*error message. generic, invalid time. used in qr generator web app*/
-"qr_validity_period_invalid_time" = "";
+"web_qr_validity_period_invalid_time" = "Date/heure invalide.";
 
 /*Warnungs Text, welcher angezeigt wird, wenn ein inkompatibler QR Code (mit einem neueren QR Code Format) gescannt wurde.*/
-"error_update_text" = "";
+"error_update_text" = "Ce code QR n'est pas compatible avec la version actuelle de l'application. Faite une mise à jour de l'application pour pouvoir scanner le Code QR.";
+"web_generator_date_label" = "Valide le";
+"web_generator_date_placeholder" = "Choisir date";
+"web_generator_validity_information" = "Le code QR démo est uniquement valide le jour même.";
+
+/*https://github.com/samsonjs/strftime#supported-specifiers*/
+"web_generator_code_validity_message" = "Ce code QR démo est valable le **%d.%m.%Y**";
+
+/*https://github.com/samsonjs/strftime#supported-specifiers*/
+"web_pdf_code_valid_date_format" = "%d.%m.%Y";
+
+/*https://flatpickr.js.org/formatting/*/
+"web_date_picker_format" = "d.m.Y";
+
+/*https://flatpickr.js.org/formatting/*/
+"web_date_picker_format_with_time" = "d.m.Y";
+
+/*For sharing on Twitter and Facebook*/
+"web_page_title" = "NotifyMe";
+
+/*For sharing on Twitter and Facebook*/
+/*Fuzzy*/
+"web_page_description" = "Un système d'enregistrement décentralisé pour réunions, rencontres et événements.";

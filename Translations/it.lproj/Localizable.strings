@@ -209,41 +209,41 @@
 "imprint_webview_more_info_link" = "www.notify-me.ch";
 "imprint_webview_legal_title" = "Legal";
 "imprint_webview_legal_link_text" = "Terms of use and privacy policy";
-"imprint_webview_legal_link_url" = "www.notify-me.ch/legal";
+"imprint_webview_legal_link_url" = "www.notify-me.ch/agb";
 "imprint_webview_sourcecode_title" = "Source code";
 "imprint_webview_sourcecode_text" = "The current source code is available under a Public License on GitHub:";
 "imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
-"generator_title" = "Generate a QR code demo";
-"generator_category_label" = "Category";
-"generator_category_other" = "Other";
-"generator_category_meeting_room" = "Meeting room";
-"generator_category_cafeteria" = "Cafeteria";
-"generator_category_private_event" = "Private party";
-"generator_title_label" = "Title";
-"generator_title_placeholder" = "e.g. Room or event name";
-"generator_subtitle_label" = "Subtitle";
-"generator_subtitle_placeholder" = "E.g. organization or organizer";
-"generator_addition_label" = "Addition";
-"generator_addition_placeholder" = "E.g. building or place";
-"generator_generation_button_label" = "Generate QR codes";
-"generator_back" = "Back";
-"generator_public_bulletpoint_1" = "This QR code enables visitors to check-in on site.";
-"generator_public_bulletpoint_2" = "NotifyMe can't scan the code.";
-"generator_public_bulletpoint_3" = "Check-ins are not registered. No private are seized.";
-"generator_private_bulletpoint_1" = "This QR code informs visitors in case of an incident.";
-"generator_private_bulletpoint_2" = "The code can be scanned with any QR code reader.";
-"generator_private_bulletpoint_3" = "A decryption key is published. No data of the organizer.";
-"generator_pdf_button" = "Dowload PDF";
-"generator_public_qr_title" = "<span>Public</span>\\\nQR Code";
-"generator_private_qr_title" = "<span>Private</span>\\\nQR Code";
-"generator_missing_input" = "Please fill in the mandatory field";
-"upload_title" = "Report about a possible infection.";
-"upload_period_label" = "Concerned time period";
-"upload_period_from_label" = "from";
-"upload_period_to_label" = "to";
-"upload_note_label" = "Advice to the visitor";
-"upload_note_placeholder" = "What should the visitors do?";
-"upload_upload_button" = "Inform visitors";
+"web_generator_title" = "Generate a QR code demo";
+"web_generator_category_label" = "Category";
+"web_generator_category_other" = "Other";
+"web_generator_category_meeting_room" = "Meeting room";
+"web_generator_category_cafeteria" = "Cafeteria";
+"web_generator_category_private_event" = "Private party";
+"web_generator_title_label" = "Title";
+"web_generator_title_placeholder" = "e.g. Room or event name";
+"web_generator_subtitle_label" = "Subtitle";
+"web_generator_subtitle_placeholder" = "E.g. organization or organizer";
+"web_generator_addition_label" = "Addition";
+"web_generator_addition_placeholder" = "E.g. building or place";
+"web_generator_generation_button_label" = "Generate QR codes";
+"web_generator_back" = "Back";
+"web_generator_public_bulletpoint_1" = "This QR code enables visitors to check-in on site.";
+"web_generator_public_bulletpoint_2" = "NotifyMe can't scan the code.";
+"web_generator_public_bulletpoint_3" = "Check-ins are not registered. No private are seized.";
+"web_generator_private_bulletpoint_1" = "This QR code informs visitors in case of an incident.";
+"web_generator_private_bulletpoint_2" = "The code can be scanned with any QR code reader.";
+"web_generator_private_bulletpoint_3" = "A decryption key is published. No data of the organizer.";
+"web_generator_pdf_button" = "Dowload PDF";
+"web_generator_public_qr_title" = "<span>Public</span>\\\nQR Code";
+"web_generator_private_qr_title" = "<span>Private</span>\\\nQR Code";
+"web_generator_missing_input" = "Please fill in the mandatory field";
+"web_upload_title" = "Report about a possible infection.";
+"web_upload_period_label" = "Concerned time period";
+"web_upload_period_from_label" = "from";
+"web_upload_period_to_label" = "to";
+"web_upload_note_label" = "Advice to the visitor";
+"web_upload_note_placeholder" = "What should the visitors do?";
+"web_upload_upload_button" = "Inform visitors";
 "error_network_title" = "Connection error";
 "error_network_text" = "Check your internet connection";
 "error_notification_deactivated_title" = "Deactivate notifications";
@@ -254,9 +254,9 @@
 "error_camera_permission_text" = "The app needs camera access to scan the QR code.";
 "error_action_change_settings" = "Edit settings";
 "error_action_retry" = "Try again";
-"upload_success_message" = "Information successful";
-"upload_error_message" = "Information failed";
-"upload_missing_payload" = "No private key found. Please scan a valid QR code.";
+"web_upload_success_message" = "Information successful";
+"web_upload_error_message" = "Information failed";
+"web_upload_missing_payload" = "No private key found. Please scan a valid QR code.";
 
 /*Titel einer generischen Fehleranzeige*/
 "error_title" = "Error";
@@ -266,10 +266,15 @@
 
 /*Titel eines Ok-Buttons*/
 "ok_button" = "Ok";
-"landing_description" = "Check-in for meetings and events.";
-"landing_app_store_link" = "https://example.com";
-"landing_play_store_link" = "https://example.com";
-"generator_pdf_created_on_format" = "Created on %d.%m.%Y at %H:%M";
+"web_landing_description" = "Check-in for meetings and events.";
+
+/*Landing page: iOS app store link URL*/
+/*Fuzzy*/
+"web_landing_app_store_link" = "https://itunes.apple.com/app/id1537859001";
+"web_landing_play_store_link" = "https://example.com";
+
+/*https://github.com/samsonjs/strftime#supported-specifiers*/
+"web_generator_pdf_created_on_format" = "Created on %e %B %Y at %H:%M";
 
 /*Title of the diary entry edit screen.*/
 "edit_controller_title" = "Edit";
@@ -282,35 +287,35 @@
 
 /*Title of back button*/
 "back_button" = "Back";
-"generator_category_canteen" = "Canteen";
-"generator_category_library" = "Library";
-"generator_category_lecture_room" = "Lecture Room";
-"generator_category_shop" = "Shop";
-"generator_category_gym" = "Gym";
-"generator_category_kitchen_area" = "Kitchen Area";
-"generator_category_office_space" = "Office Space";
-"error_force_update_title" = "";
-"error_force_update_text" = "";
+"web_generator_category_canteen" = "Canteen";
+"web_generator_category_library" = "Library";
+"web_generator_category_lecture_room" = "Lecture Room";
+"web_generator_category_shop" = "Shop";
+"web_generator_category_gym" = "Gym";
+"web_generator_category_kitchen_area" = "Kitchen Area";
+"web_generator_category_office_space" = "Office Space";
+"error_force_update_title" = "Update required";
+"error_force_update_text" = "An update is required for the app to work effectively.";
 
 /*Titel für den Update Button, wenn ein App Update notwending ist.*/
-"error_action_update" = "";
+"error_action_update" = "Update now";
 
 /*Weiter Button Title beim Onboarding*/
 "onboarding_continue_button" = "Continue";
 
 /*Titel des Onboarding Screens mit Hinweisen zur Nutzung*/
-"onboarding_hints_for_usage" = "";
+"onboarding_hints_for_usage" = "How to use";
 
 /*Der farbig markierte Teil des onboarding_hints_for_usage Strings.*/
-"onboarding_hints_for_usage_highlight" = "";
+"onboarding_hints_for_usage_highlight" = "Note";
 
 /*Erster Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint1" = "";
+"onboarding_hint1" = "This app does not collect obligatory contact data and cannot be used for this purpose.";
 
 /*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint2" = "";
-"onboarding_agb_link" = "";
-"onboarding_agb_link_title" = "";
+"onboarding_hint2" = "Please read the terms and conditions as well";
+"onboarding_agb_link" = "https://notify-me.ch/agb";
+"onboarding_agb_link_title" = "www.notify-me.ch/agb";
 "qr_scanner_error_code_not_yet_valid" = "Code is not valid yet";
 "qr_scanner_error_code_not_valid_anymore" = "Code is not valid anymore";
 
@@ -318,22 +323,43 @@
 "onboarding_subtitle" = "Check-in for meetings and events.";
 
 /*qr validity period label used in qr generator web app*/
-"qr_validity_period_label" = "";
+"web_qr_validity_period_label" = "Validity (24h max)";
 
 /*qr validity period from label used in qr generator web app*/
-"qr_validity_period_from_label" = "from";
+"web_qr_validity_period_from_label" = "from";
 
 /*qr validity period to label used in qr generator web app*/
-"qr_validity_period_to_label" = "to";
+"web_qr_validity_period_to_label" = "to";
 
-/*error message: max qr validity period. used in qr generator web app*/
-"max_qr_validity_period_error" = "";
+/*error message: %d is the number of hours, max qr validity period. used in qr generator web app*/
+"web_max_qr_validity_period_error" = "The maximum validity period is %d.";
 
-/*error message. used in qr generator web app*/
-"qr_validity_period_earliest_from_error" = "";
+/*error message, %d is the number of days*/
+"web_qr_validity_period_earliest_from_error" = "QR codes can only be generated %d in advance.";
 
 /*error message. generic, invalid time. used in qr generator web app*/
-"qr_validity_period_invalid_time" = "";
+"web_qr_validity_period_invalid_time" = "Invalid time";
 
 /*Warnungs Text, welcher angezeigt wird, wenn ein inkompatibler QR Code (mit einem neueren QR Code Format) gescannt wurde.*/
-"error_update_text" = "";
+"error_update_text" = "This QR code is not compatible with the current version of the app. Please update the app to scan it the code.";
+"web_generator_date_label" = "Valid on";
+"web_generator_date_placeholder" = "Pick date";
+"web_generator_validity_information" = "The demo QR codes are only available on the same day.";
+
+/*https://github.com/samsonjs/strftime#supported-specifiers*/
+"web_generator_code_validity_message" = "This demo QR code is valid on **%e %B %Y**";
+
+/*https://github.com/samsonjs/strftime#supported-specifiers*/
+"web_pdf_code_valid_date_format" = "%e %B %Y";
+
+/*https://flatpickr.js.org/formatting/*/
+"web_date_picker_format" = "j F Y";
+
+/*https://flatpickr.js.org/formatting/*/
+"web_date_picker_format_with_time" = "j F Y H:i";
+
+/*For sharing on Twitter and Facebook*/
+"web_page_title" = "NotifyMe";
+
+/*For sharing on Twitter and Facebook*/
+"web_page_description" = "A decentralised check-in system for meetings and events";
