@@ -31,7 +31,7 @@ class CheckInButton: UIView {
 
     private let checkInButton = BigButton(style: .normal, icon: UIImage(named: "icons-ic-qr"), text: "checkin_button_title".ub_localized)
 
-    private let checkedInButton = BigButton(style: .checkedIn, icon: UIImage(named: "icons-ic-qr"), text: "")
+    private let checkedInButton = BigButton(style: .checkedIn, icon: UIImage(named: "icons-ic-check-filled")?.ub_image(with: .ns_purple), text: "")
 
     private let textLabel = Label(.boldUppercaseSmall, textColor: .ns_text)
     private let textContainer = UIView()
