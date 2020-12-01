@@ -71,7 +71,12 @@ class HomescreenViewController: BaseViewController {
     private func setupLayout() {
         view.addSubview(stackScrollView)
         stackScrollView.snp.makeConstraints { make in
-            make.edges.equalToSuperview()
+            if #available(iOS 11.0, *) {
+                make.edges.equalToSuperview()
+            } else {
+                make.top.equalToSuperview().inset(Padding.medium)
+                make.bottom.left.right.equalToSuperview()
+            }
         }
 
         stackScrollView.scrollView.refreshControl = refreshControl
