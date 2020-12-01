@@ -14,7 +14,7 @@ import Foundation
 class CheckinEditViewController: ModalBaseViewController {
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
 
-    private let venueView = VenueView(icon: false)
+    private let venueView = VenueView(icon: true)
     private let startDateLabel = Label(.textBold, textAlignment: .center)
 
     private let fromTimePickerControl = TimePickerControl(text: "datepicker_from".ub_localized, isStart: true)

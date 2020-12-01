@@ -14,7 +14,7 @@ import Foundation
 class CurrentCheckinViewController: BaseSubViewController {
     private let contentView = StackScrollView()
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
-    private let venueView = VenueView(icon: false)
+    private let venueView = VenueView(icon: true)
     private let reminderControl = ReminderControl()
 
     public var checkIn: CheckIn? {
