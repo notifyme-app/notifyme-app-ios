@@ -120,6 +120,7 @@ class ProblematicEventsManager {
         }
 
         CrowdNotifier.cleanUpOldData(maxDaysToKeep: 14)
+        CheckInManager.shared.cleanUpOldData(maxDaysToKeep: 14)
         exposureEvents = CrowdNotifier.checkForMatches(publishedSKs: problematicEvents)
     }
 }

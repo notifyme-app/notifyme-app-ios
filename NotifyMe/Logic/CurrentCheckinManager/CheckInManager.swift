@@ -37,6 +37,17 @@ class CheckInManager {
         return diary
     }
 
+    public func cleanUpOldData(maxDaysToKeep: Int) {
+        guard maxDaysToKeep > 0 else {
+            diary = []
+            return
+        }
+
+        let daysLimit = Date().daysSince1970 - maxDaysToKeep
+        let infos = diary.filter { $0.checkInTime.daysSince1970 >= daysLimit }
+        diary = infos
+    }
+
     public func hideFromDiary(identifier: String) {
         removeFromDiary(identifier: identifier)
     }
