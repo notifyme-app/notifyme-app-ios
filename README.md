@@ -27,6 +27,7 @@ The app is a decentralised check-in system for meetings and events. Users can ch
 ## Repositories
 * Android SDK: [crowdnotifier-sdk-android](https://github.com/CrowdNotifier/crowdnotifier-sdk-android)
 * iOS SDK: [crowdnotifier-sdk-ios](https://github.com/CrowdNotifier/crowdnotifier-sdk-ios)
+* TypeScript Reference Implementation: [crowdnotifier-ts](https://github.com/CrowdNotifier/crowdnotifier-ts)
 * Android Demo App: [notifyme-app-android](https://github.com/notifyme-app/notifyme-app-android)
 * iOS Demo App: [notifyme-app-ios](https://github.com/notifyme-app/notifyme-app-ios)
 * Backend SDK: [notifyme-sdk-backend](https://github.com/notifyme-app/notifyme-sdk-backend)
