@@ -277,6 +277,7 @@
 		DCA019E52563F86B00AF8C37 /* NotifyMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotifyMe.entitlements; sourceTree = "<group>"; };
 		DCA01A172565270500AF8C37 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		DCA01A1C25652B7700AF8C37 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		DCBC0FB125A763910032B913 /* ProblematicEvents.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = ProblematicEvents.proto; sourceTree = "<group>"; };
 		DCCB96DF25679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+CaseInsensitiveKey.swift"; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
@@ -400,6 +401,7 @@
 			children = (
 				6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */,
 				6E64047425546061006D0498 /* ProblematicEvents.pb.swift */,
+				DCBC0FB125A763910032B913 /* ProblematicEvents.proto */,
 			);
 			path = ProblematicEventsManager;
 			sourceTree = "<group>";
@@ -1233,6 +1235,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRIMARY_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1358,6 +1361,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRIMARY_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1470,6 +1474,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				OTHER_LDFLAGS = "-lstdc++";
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRIMARY_BUNDLE_IDENTIFIER}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1578,7 +1583,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git";
 			requirement = {
-				branch = release/v1.1;
+				branch = "feature/crypto-v2";
 				kind = branch;
 			};
 		};
