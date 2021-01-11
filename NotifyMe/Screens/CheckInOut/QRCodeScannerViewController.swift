@@ -187,6 +187,7 @@ extension QRCodeScannerViewController: QRScannerViewDelegate {
         case let .failure(failure):
             if let url = URL(string: str), url.host == Environment.current.uploadHost {
                 UIApplication.shared.open(url)
+                navigationController?.popViewController(animated: true)
             } else {
                 showError(failure.errorViewModel)
             }
