@@ -5,8 +5,8 @@
         "package": "CrowdNotifierSDK",
         "repositoryURL": "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
         "state": {
-          "branch": "feature/mcl-armv7-and-mac-m1",
-          "revision": "e65ced8ce0db33b02561d1d2bfb0a7a35c3d79b8",
+          "branch": "feature/crypto-v2",
+          "revision": "c71fc545007d932cb12907c0bde0cb9de49fa2b2",
           "version": null
         }
       },
