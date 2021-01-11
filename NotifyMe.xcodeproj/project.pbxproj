@@ -27,6 +27,7 @@
 		24780B34242FDF4C003BB26C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24780B33242FDF4C003BB26C /* Launch Screen.storyboard */; };
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
 		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
+		4893375525AC7B4800D93A03 /* libmcl in Frameworks */ = {isa = PBXBuildFile; productRef = 4893375425AC7B4800D93A03 /* libmcl */; };
 		6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5505712552D56C000D27B1 /* TimePickerControl.swift */; };
 		6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E550579255301FD000D27B1 /* AddCommentControl.swift */; };
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
@@ -289,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
+				4893375525AC7B4800D93A03 /* libmcl in Frameworks */,
 				DC6CF891255D676100DFCE8F /* CrowdNotifierSDK in Frameworks */,
 				DC61828D255E5EBA006B79D4 /* Clibsodium in Frameworks */,
 			);
@@ -828,6 +830,7 @@
 				8E81CCCE241FD813006F2437 /* SnapKit */,
 				DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */,
 				DC61828C255E5EBA006B79D4 /* Clibsodium */,
+				4893375425AC7B4800D93A03 /* libmcl */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* NotifyMe.app */;
@@ -1590,6 +1593,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4893375425AC7B4800D93A03 /* libmcl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6CF88F255D676100DFCE8F /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */;
+			productName = libmcl;
+		};
 		8E81CCCE241FD813006F2437 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */;
