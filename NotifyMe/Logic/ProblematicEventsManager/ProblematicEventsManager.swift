@@ -70,16 +70,15 @@ class ProblematicEventsManager {
 
             let block = {
                 if let data = data {
-                    CrowdNotifier.checkForMatches(problematicEventInfos: [ProblematicEventInfo.sample])
-//                    let wrapper = try? ProblematicEventWrapper(serializedData: data)
-//                    strongSelf.checkForMatches(wrapper: wrapper)
-//
-//                    // Only if there is a checkin id that has not triggered a notification yet,
-//                    // a notification needs to be triggered
-//                    let newCheckinIds = strongSelf.exposureEvents.map { $0.checkinId }.filter { !strongSelf.notifiedIds.contains($0) }
-//                    strongSelf.notifiedIds.append(contentsOf: newCheckinIds)
-//                    let needsNewNotification = !newCheckinIds.isEmpty
-//                    completion(true, needsNewNotification)
+                    let wrapper = try? ProblematicEventWrapper(serializedData: data)
+                    strongSelf.checkForMatches(wrapper: wrapper)
+
+                    // Only if there is a checkin id that has not triggered a notification yet,
+                    // a notification needs to be triggered
+                    let newCheckinIds = strongSelf.exposureEvents.map { $0.checkinId }.filter { !strongSelf.notifiedIds.contains($0) }
+                    strongSelf.notifiedIds.append(contentsOf: newCheckinIds)
+                    let needsNewNotification = !newCheckinIds.isEmpty
+                    completion(true, needsNewNotification)
                 } else {
                     completion(false, false)
                 }
