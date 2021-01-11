@@ -1583,7 +1583,7 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git";
 			requirement = {
-				branch = "feature/crypto-v2";
+				branch = "feature/mcl-armv7-and-mac-m1";
 				kind = branch;
 			};
 		};
