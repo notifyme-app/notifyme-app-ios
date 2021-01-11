@@ -17,11 +17,10 @@ class NotifyMeTests: XCTestCase {
 
     private let baseUrl = "https://qr.notify-me.ch"
 
-    private let qrCode = "https://qr.notify-me.ch/#CAESZAgBEiDwR2Oj0B1_XP1WeCfXRFIN0FylcYGP27HsEhANnE0KExoKSG9tZW9mZmljZSIHWnVoYXVzZSoFQsO8cm8wADogIiO_NrgF7RtaIoQqvPhCN1GoCKGK93p3XNYV7QJ7AjgaQNssfMm583dl88rNfgD8ZPMyRna_xO87g3sNp8zhYi9cbRJ1TKB_UWTBFiO5Tx9G0xbSSOx7qW54wrPwUzjDYQ4"
-    private let wrongQrCode = "https://qr.notify-me.ch/#CAESZAgBEiDwR2Oj0B1_XP1WeCfRFIN0FylcYGP27HsEhANnE0KExoKSG9tZW9mZmljZSIHWnVoYXVzZSoFQsO8cm8wADogIiO_NrgF7RtaIoQqvPhCN1GoCKGK93p3XNYV7QJ7AjgaQNssfMm583dl88rNfgD8ZPMyRna_xO87g3sNp8zhYi9cbRJ1TKB_UWTBFiO5Tx9G0xbSSOx7qW54wrPwUzjDYQ4"
+    private let qrCode = "https://qr.notify-me.ch/?v=2#CAISRgoETmFtZRIITG9jYXRpb24aBFJvb20qIJbXvr28KWGTrw5IApWO3OBHi5vmtWfYWhzp3AypFCnnMOSPhOjuLjjk_7a67y4aYNt7LapzxnV4bvXCLhxQp8YkKI_DInWJATZLJvK_fOGHDXse_51wr0R5cK73g9vQGETiJ1jD58yvJSDTPVCfGMVWZkOrK2fXGb8FiJVuRycyUIHLkBtIjWvPtwfnXUR2DCI0ChhsRr9rIl7X7RimrDeIi5n70CcX8LYQEMgSGJOZUmLKwG0N-_EXQn6ltnw42dmMJS7Ejw"
+//    private let wrongQrCode = "https://qr.notify-me.ch/#CAESZAgBEiDwR2Oj0B1_XP1WeCfRFIN0FylcYGP27HsEhANnE0KExoKSG9tZW9mZmljZSIHWnVoYXVzZSoFQsO8cm8wADogIiO_NrgF7RtaIoQqvPhCN1GoCKGK93p3XNYV7QJ7AjgaQNssfMm583dl88rNfgD8ZPMyRna_xO87g3sNp8zhYi9cbRJ1TKB_UWTBFiO5Tx9G0xbSSOx7qW54wrPwUzjDYQ4"
 
     override class func setUp() {
-        CrowdNotifier.initialize()
         CrowdNotifier.cleanUpOldData(maxDaysToKeep: 0)
     }
 
@@ -40,6 +39,33 @@ class NotifyMeTests: XCTestCase {
 
         let date5 = date1.addingTimeInterval(.hour * 20 - .second * 1)
         assert(date1.hoursUntil(date5).count == 20, "There should be 20 hours")
+    }
+
+    func testCheckin() {
+        let result = CrowdNotifier.getVenueInfo(qrCode: qrCode, baseUrl: baseUrl)
+        switch result {
+        case let .success(venue):
+            let arrivalTime = Date()
+            let checkinResult = CrowdNotifier.addCheckin(venueInfo: venue, arrivalTime: arrivalTime, departureTime: arrivalTime.addingTimeInterval(.hour * 4))
+
+            switch checkinResult {
+            case let .success(id):
+
+                let problematicEvent = ProblematicEventInfo(identity: [19, 51, 0, 151, 144, 173, 120, 199, 246, 19, 49, 214, 242, 211, 6, 8, 43, 239, 8, 147, 203, 77, 78, 43, 172, 83, 199, 238, 48, 83, 71, 250],
+                                                            secretKeyForIdentity: [7, 123, 215, 57, 193, 27, 32, 107, 147, 7, 72, 156, 63, 184, 104, 149, 40, 187, 88, 217, 53, 156, 18, 9, 214, 182, 252, 238, 141, 176, 69, 172, 167, 105, 127, 60, 192, 136, 22, 249, 186, 115, 186, 244, 88, 71, 197, 146],
+                                                            startTimestamp: Date().addingTimeInterval(.hour * -2),
+                                                            endTimestamp: Date().addingTimeInterval(.hour * 2),
+                                                            nonce: [230, 228, 145, 105, 55, 153, 41, 198, 64, 194, 188, 81, 98, 97, 18, 170, 193, 83, 246, 228, 72, 84, 53, 53],
+                                                            encryptedMessage: [228, 73, 181, 230, 56, 137, 170, 166, 58, 201, 207, 101, 198, 150, 149, 68, 205, 152, 193, 31, 9, 203, 142, 30, 110, 183, 224, 175, 24, 189, 25, 148, 160, 14])
+
+                let events = CrowdNotifier.checkForMatches(problematicEventInfos: [problematicEvent])
+                XCTAssert(events.count > 0, "There should be a match")
+            case .failure:
+                XCTFail("Checkin failed")
+            }
+        case .failure:
+            XCTFail("Invalid QR Code")
+        }
     }
 
 //    func testCorrectQrCode() {
