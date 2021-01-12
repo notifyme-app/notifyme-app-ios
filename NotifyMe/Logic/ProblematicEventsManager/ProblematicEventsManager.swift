@@ -115,7 +115,12 @@ class ProblematicEventsManager {
             let nonce = i.nonce.bytes
             let message = i.message.bytes
 
-            let info = ProblematicEventInfo(identity: identity, secretKeyForIdentity: sk, startTimestamp: startTime, endTimestamp: endTime, nonce: nonce, encryptedMessage: message)
+            let info = ProblematicEventInfo(identity: identity,
+                                            secretKeyForIdentity: sk,
+                                            startTimestamp: startTime,
+                                            endTimestamp: endTime,
+                                            encryptedMessage: message,
+                                            nonce: nonce)
             problematicEvents.append(info)
         }
 

@@ -50,12 +50,6 @@ public extension VenueInfo {
     }
 
     var subtitle: String? {
-        return [location, room].compactMap {
-            if let s = $0 {
-                return s.isEmpty ? nil : s
-            }
-
-            return nil
-        }.joined(separator: ", ")
+        return [location, room].compactMap { $0.isEmpty ? nil : $0 }.joined(separator: ", ")
     }
 }
