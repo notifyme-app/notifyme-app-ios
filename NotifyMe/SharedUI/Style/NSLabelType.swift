@@ -39,6 +39,7 @@ public enum LabelType: UBLabelType {
     case boldUppercase
     case lightUppercase
     case boldUppercaseSmall
+    case timerUltraLarge
 
     public var font: UIFont {
         let bfs = NSFontSize.bodyFontSize()
@@ -59,6 +60,8 @@ public enum LabelType: UBLabelType {
         switch self {
         case .navigationBarTitle:
             return monospacedDigitFont(fontName: boldFontName, size: bfs + 10.0)
+        case .timerUltraLarge:
+            return monospacedDigitFont(fontName: boldFontName, size: bfs + 44.0)
         case .heroTitle:
             return UIFont(name: boldFontName, size: bfs + 24.0)!
         case .title:
@@ -89,7 +92,7 @@ public enum LabelType: UBLabelType {
 
     public var lineSpacing: CGFloat {
         switch self {
-        case .navigationBarTitle:
+        case .navigationBarTitle, .timerUltraLarge:
             return 1.0
         case .heroTitle:
             return 45.0 / 40.0

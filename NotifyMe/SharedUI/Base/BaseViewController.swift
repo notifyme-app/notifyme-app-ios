@@ -61,7 +61,19 @@ class BaseViewController: UIViewController {
 
     public var titleChangeCallback: ((String?) -> Void)? {
         didSet {
-            self.titleChangeCallback?(self.title)
+            titleChangeCallback?(title)
+        }
+    }
+
+    public var customTitleChangeCallback: ((LargeTitleNavigationControllerCustomTitle?) -> Void)? {
+        didSet {
+            customTitleChangeCallback?(customTitle)
+        }
+    }
+
+    var customTitle: LargeTitleNavigationControllerCustomTitle? {
+        didSet {
+            self.customTitleChangeCallback?(customTitle)
         }
     }
 
