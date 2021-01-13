@@ -88,7 +88,7 @@ class OnboardingUsageNotesViewController: OnboardingStepViewController {
         usageNotesStackview.addArrangedView(label)
 
         // Info / AGB
-        let infoImageView = UIImageView(image: UIImage(named: "icons-ic-red-info")?.ub_image(with: .ns_purple))
+        let infoImageView = UIImageView(image: UIImage(named: "icons-ic-info-outline")?.ub_image(with: .ns_purple))
         infoImageView.ub_setContentPriorityRequired()
 
         let agbLabel = Label(.text)
