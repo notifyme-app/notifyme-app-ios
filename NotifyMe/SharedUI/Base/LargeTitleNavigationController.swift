@@ -11,6 +11,12 @@
 
 import Foundation
 
+struct LargeTitleNavigationControllerCustomTitle {
+    let image: UIImage
+    let color: UIColor
+    let title: String
+}
+
 class LargeTitleNavigationController: UIViewController {
     private static let headerHeight = 92.0
 
@@ -20,13 +26,24 @@ class LargeTitleNavigationController: UIViewController {
 
     private let contentView = UIView()
 
+    private let customTitleView = CustomTitleView()
+
     init(contentViewController: BaseViewController) {
         self.contentViewController = contentViewController
         super.init(nibName: nil, bundle: nil)
 
         self.contentViewController.titleChangeCallback = { [weak self] title in
             guard let strongSelf = self else { return }
+            strongSelf.customTitleView.alpha = 0.0
+            strongSelf.titleLabel.alpha = 1.0
             strongSelf.titleLabel.text = title
+        }
+
+        self.contentViewController.customTitleChangeCallback = { [weak self] customTitle in
+            guard let strongSelf = self else { return }
+            strongSelf.titleLabel.alpha = 0.0
+            strongSelf.customTitleView.alpha = 1.0
+            strongSelf.customTitleView.customTitle = customTitle
         }
     }
 
@@ -95,6 +112,15 @@ class LargeTitleNavigationController: UIViewController {
             guard let strongSelf = self else { return }
             strongSelf.navigationController?.popViewController(animated: true)
         }
+
+        contentView.addSubview(customTitleView)
+
+        customTitleView.snp.makeConstraints { make in
+            make.left.greaterThanOrEqualTo(titleLabel)
+            make.centerX.equalToSuperview()
+            make.centerY.equalTo(titleLabel)
+            make.height.equalTo(50.0)
+        }
     }
 
     private func setupLine() {
@@ -122,5 +148,55 @@ class LargeTitleNavigationController: UIViewController {
 extension LargeTitleNavigationController: ScrollViewContentOffsetUpdateDelegate {
     func didUpdateContentOffset(s: CGPoint) {
         lineView.updateColor(offset: s.y)
+    }
+}
+
+private class CustomTitleView: UIView {
+    private let imageView = UIImageView()
+    private let label = Label(.boldUppercase)
+
+    var customTitle: LargeTitleNavigationControllerCustomTitle? {
+        didSet { update() }
+    }
+
+    init() {
+        super.init(frame: .zero)
+        setup()
+    }
+
+    required init?(coder _: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
+    // MARK: - Setup
+
+    private func setup() {
+        let stackView = UIStackView()
+        stackView.alignment = .center
+        stackView.spacing = 10
+
+        imageView.ub_setContentPriorityRequired()
+        label.ub_setContentPriorityRequired()
+
+        addSubview(stackView)
+
+        stackView.snp.makeConstraints { make in
+            make.centerX.top.bottom.equalToSuperview()
+            make.left.greaterThanOrEqualToSuperview()
+            make.right.lessThanOrEqualToSuperview()
+        }
+
+        stackView.addArrangedView(imageView)
+        stackView.addArrangedView(label)
+    }
+
+    // MARK: - Update
+
+    private func update() {
+        guard let ct = customTitle else { return }
+
+        label.text = ct.title
+        label.textColor = ct.color
+        imageView.image = ct.image.ub_image(with: ct.color)
     }
 }

@@ -16,9 +16,14 @@ class CurrentCheckinViewController: BaseSubViewController {
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
     private let venueView = VenueView(icon: true)
     private let reminderControl = ReminderControl()
+    private var timeLabel = Label(.timerUltraLarge, textAlignment: .center)
 
     public var checkIn: CheckIn? {
-        didSet { self.update() }
+        didSet { update() }
+    }
+
+    public var time: String? {
+        didSet { self.updateTime(time: time) }
     }
 
     // MARK: - View
@@ -93,25 +98,16 @@ class CurrentCheckinViewController: BaseSubViewController {
             make.edges.equalToSuperview()
         }
 
-        contentView.backgroundColor = .ns_grayBackground
+        contentView.addSpacerView(Padding.small)
 
-        let isSmaller = view.frame.size.width < 375
-
-        let imageView = UIImageView(image: UIImage(named: "illus-checked-in-time")?.ub_image(byScaling: isSmaller ? 0.6 : 1.0))
-        imageView.ub_setContentPriorityRequired()
-
-        let v = UIView()
-        v.addSubview(imageView)
-        imageView.snp.makeConstraints { make in
-            make.top.bottom.centerX.equalToSuperview()
-            make.left.greaterThanOrEqualToSuperview().inset(Padding.medium)
-            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
+        let isSmall = view.frame.size.width <= 375
+        if isSmall {
+            timeLabel = Label(.timerLarge, textAlignment: .center)
         }
 
-        contentView.addSpacerView(Padding.large)
-        contentView.addArrangedView(v)
+        contentView.addArrangedView(timeLabel)
 
-        contentView.addSpacerView(Padding.large + Padding.small)
+        contentView.addSpacerView(Padding.mediumSmall)
 
         let vView = UIView()
         vView.addSubview(venueView)
@@ -121,7 +117,25 @@ class CurrentCheckinViewController: BaseSubViewController {
 
         contentView.addArrangedView(vView)
 
-        contentView.addSpacerView(Padding.large)
+        contentView.addSpacerView(Padding.large + Padding.small)
+
+        let reminderView = UIView()
+
+        let reminderLabel = Label(.boldUppercaseSmall, textColor: .ns_purple, textAlignment: .center)
+        reminderLabel.text = "checkin_set_reminder".ub_localized
+        reminderView.addSubview(reminderLabel)
+
+        reminderLabel.snp.makeConstraints { make in
+            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: Padding.medium, bottom: 0, right: Padding.medium))
+        }
+
+        contentView.addArrangedView(reminderView)
+
+        contentView.addSpacerView(Padding.medium - Padding.small)
+
+        contentView.addArrangedView(reminderControl)
+
+        contentView.addSpacerView(Padding.large + Padding.small)
 
         let v2 = UIView()
         v2.addSubview(checkOutButton)
@@ -139,38 +153,6 @@ class CurrentCheckinViewController: BaseSubViewController {
 
         contentView.addSpacerView(Padding.large)
 
-        let reminderView = UIView()
-
-        let reminderLabel = Label(.boldUppercaseSmall, textColor: .ns_text, textAlignment: .center)
-        reminderLabel.text = "checkin_set_reminder".ub_localized
-        reminderView.addSubview(reminderLabel)
-
-        reminderLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: Padding.medium, bottom: 0, right: Padding.medium))
-        }
-
-        contentView.addArrangedView(reminderView)
-
-        contentView.addSpacerView(Padding.medium - Padding.small)
-
-        contentView.addArrangedView(reminderControl)
-
-        contentView.addSpacerView(Padding.large)
-
-        let whiteView = UIView()
-        whiteView.backgroundColor = UIColor.white
-        contentView.insertSubview(whiteView, at: 0)
-
-        whiteView.snp.makeConstraints { make in
-            make.bottom.equalTo(checkOutButton.snp.centerY)
-            make.left.right.equalToSuperview()
-            make.top.equalToSuperview().offset(-100.0)
-        }
-
-        whiteView.layer.cornerRadius = 36.0
-        whiteView.ub_addShadow(radius: 20.0, opacity: 0.17, xOffset: 0, yOffset: 2.0)
-        contentView.clipsToBounds = true
-
         contentView.scrollView.delegate = self
     }
 
@@ -185,6 +167,10 @@ class CurrentCheckinViewController: BaseSubViewController {
     private func update() {
         venueView.venue = checkIn?.venue
         reminderControl.setOption(ReminderManager.shared.currentReminder)
+    }
+
+    private func updateTime(time: String?) {
+        timeLabel.text = time
     }
 
     deinit {

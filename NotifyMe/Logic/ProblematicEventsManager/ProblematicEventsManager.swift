@@ -73,7 +73,7 @@ class ProblematicEventsManager {
                     let wrapper = try? ProblematicEventWrapper(serializedData: data)
                     strongSelf.checkForMatches(wrapper: wrapper)
 
-                    // Only if there is a checkin id that has not trigered a notification yet,
+                    // Only if there is a checkin id that has not triggered a notification yet,
                     // a notification needs to be triggered
                     let newCheckinIds = strongSelf.exposureEvents.map { $0.checkinId }.filter { !strongSelf.notifiedIds.contains($0) }
                     strongSelf.notifiedIds.append(contentsOf: newCheckinIds)
@@ -108,19 +108,24 @@ class ProblematicEventsManager {
         var problematicEvents: [ProblematicEventInfo] = []
 
         for i in wrapper.events {
-            let sk = i.secretKey.bytes
-            let r2 = i.r2.bytes
-            let entry: Date = Date(timeIntervalSince1970: TimeInterval(i.startTime / 1000))
-            let exit: Date = Date(timeIntervalSince1970: TimeInterval(i.endTime / 1000))
-            let message = i.message.bytes
+            let identity = i.identity.bytes
+            let sk = i.secretKeyForIdentity.bytes
+            let startTime = Date(millisecondsSince1970: Int(i.startTime))
+            let endTime = Date(millisecondsSince1970: Int(i.endTime))
             let nonce = i.nonce.bytes
+            let message = i.message.bytes
 
-            let info = ProblematicEventInfo(privateKey: sk, r2: r2, entry: entry, exit: exit, message: message, nonce: nonce)
+            let info = ProblematicEventInfo(identity: identity,
+                                            secretKeyForIdentity: sk,
+                                            startTimestamp: startTime,
+                                            endTimestamp: endTime,
+                                            encryptedMessage: message,
+                                            nonce: nonce)
             problematicEvents.append(info)
         }
 
         CrowdNotifier.cleanUpOldData(maxDaysToKeep: 14)
         CheckInManager.shared.cleanUpOldData(maxDaysToKeep: 14)
-        exposureEvents = CrowdNotifier.checkForMatches(publishedSKs: problematicEvents)
+        exposureEvents = CrowdNotifier.checkForMatches(problematicEventInfos: problematicEvents)
     }
 }

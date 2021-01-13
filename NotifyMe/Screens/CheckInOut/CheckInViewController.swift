@@ -64,6 +64,7 @@ class CheckInViewController: BaseViewController {
 
             self.checkIn = checkIn
             currentCheckinViewController?.checkIn = checkIn
+            customTitle = LargeTitleNavigationControllerCustomTitle(image: UIImage(named: "icons-ic-check-filled")!, color: UIColor.ns_purple, title: "homescreen_checkedin_label".ub_localized)
             startTitleTimer()
         }
     }
@@ -87,7 +88,7 @@ class CheckInViewController: BaseViewController {
     private func startTitleTimer() {
         titleTimer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true, block: { [weak self] _ in
             guard let strongSelf = self else { return }
-            strongSelf.title = strongSelf.checkIn?.timeSinceCheckIn() ?? ""
+            strongSelf.currentCheckinViewController?.time = strongSelf.checkIn?.timeSinceCheckIn() ?? ""
         })
         titleTimer?.fire()
     }

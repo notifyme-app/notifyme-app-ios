@@ -78,7 +78,7 @@
 "report_information_text" = "Sie könnten ansteckend sein, ohne es zu merken.";
 
 /*Report Information What to do Button title*/
-"report_information_button_title" = "Was soll ich tun?";
+"report_information_button_title" = "Hinweis";
 
 /*Info Text that is displayed below the info about a new report.*/
 "report_message_days_ago" = "Vor {NUMBER} Tagen";
@@ -201,14 +201,14 @@
 "imprint_webview_collaboration_title" = "In Zusammenarbeit mit";
 
 /*CrowdNotifier Paper text*/
-"imprint_webview_paper_text" = "Dieses Projekt basiert auf dem Paper CrowdNotifier by Wouter Lueks (EPFL) et al.:";
+"imprint_webview_paper_text" = "Dieses Projekt implementiert das Protokoll CrowdNotifier by Wouter Lueks (EPFL) et al.";
 
 /*CrowdNotifier Paper link*/
 "imprint_webview_paper_link" = "github.com/CrowdNotifier/documents";
 "imprint_webview_more_info_title" = "Weitere Informationen";
 "imprint_webview_more_info_link" = "www.notify-me.ch";
 "imprint_webview_legal_title" = "Rechtliches";
-"imprint_webview_legal_link_text" = "Datenschutz &  Nutzungsbestimmungen";
+"imprint_webview_legal_link_text" = "Datenschutz & Nutzungsbestimmungen";
 "imprint_webview_legal_link_url" = "www.notify-me.ch/agb";
 "imprint_webview_sourcecode_title" = "Quellcode";
 "imprint_webview_sourcecode_text" = "Den aktuellen Quellcode finden Sie auf GitHub, veröffentlicht unter Public-License:";
@@ -340,10 +340,10 @@
 
 /*Landing page: iOS app store link URL*/
 /*Fuzzy*/
-"web_landing_app_store_link" = "https://itunes.apple.com/app/id1537859001";
+"web_landing_app_store_link" = "https://apps.apple.com/app/id1537859001";
 
 /*Fuzzy*/
-"web_landing_play_store_link" = "https://example.com";
+"web_landing_play_store_link" = "https://play.google.com/store/apps/details?id=ch.ubique.notifyme";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 /*Fuzzy*/

@@ -48,4 +48,8 @@ public extension VenueInfo {
     static func defaultImage(large: Bool) -> UIImage {
         return UIImage(named: large ? "illus-other" : "illus-other-small")!
     }
+
+    var subtitle: String? {
+        return [location, room].compactMap { $0.isEmpty ? nil : $0 }.joined(separator: ", ")
+    }
 }

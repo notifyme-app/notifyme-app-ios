@@ -5,8 +5,8 @@
         "package": "CrowdNotifierSDK",
         "repositoryURL": "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
         "state": {
-          "branch": "release/v1.1",
-          "revision": "f3e9d50364bdda526d86bf4eab3b109a6eccf8c3",
+          "branch": "feature/crypto-v2",
+          "revision": "a1b66ade334db271df914b4459e85f190ebf6e2e",
           "version": null
         }
       },

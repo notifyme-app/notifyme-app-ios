@@ -39,26 +39,21 @@ public enum LabelType: UBLabelType {
     case boldUppercase
     case lightUppercase
     case boldUppercaseSmall
+    case timerUltraLarge
+    case timerLarge
 
     public var font: UIFont {
         let bfs = NSFontSize.bodyFontSize()
-
-        var boldFontName = "Inter-Bold"
-        var lightFontName = "Inter-Light"
-
-        if #available(iOS 13.0, *) {
-            switch UITraitCollection.current.legibilityWeight {
-            case .bold:
-                boldFontName = "Inter-ExtraBold"
-                lightFontName = "Inter-Medium"
-            default:
-                break
-            }
-        }
+        let boldFontName = LabelType.boldFontName()
+        let lightFontName = LabelType.lightFontName()
 
         switch self {
         case .navigationBarTitle:
-            return monospacedDigitFont(fontName: boldFontName, size: bfs + 10.0)
+            return LabelType.monospacedDigitFont(fontName: boldFontName, size: bfs + 10.0)
+        case .timerUltraLarge:
+            return LabelType.monospacedDigitFont(fontName: boldFontName, size: bfs + 44.0)
+        case .timerLarge:
+            return LabelType.monospacedDigitFont(fontName: boldFontName, size: bfs + 24.0)
         case .heroTitle:
             return UIFont(name: boldFontName, size: bfs + 24.0)!
         case .title:
@@ -89,7 +84,7 @@ public enum LabelType: UBLabelType {
 
     public var lineSpacing: CGFloat {
         switch self {
-        case .navigationBarTitle:
+        case .navigationBarTitle, .timerUltraLarge, .timerLarge:
             return 1.0
         case .heroTitle:
             return 45.0 / 40.0
@@ -138,7 +133,7 @@ public enum LabelType: UBLabelType {
     }
 
     /// Returns a font with monospaced digits of the given size
-    func monospacedDigitFont(fontName: String, size: CGFloat) -> UIFont {
+    private static func monospacedDigitFont(fontName: String, size: CGFloat) -> UIFont {
         let originalDescriptor = UIFont(name: fontName, size: size)!.fontDescriptor
         let featureArray: [[UIFontDescriptor.FeatureKey: Any]] = [
             [
@@ -148,6 +143,36 @@ public enum LabelType: UBLabelType {
         ]
         let descriptor = originalDescriptor.addingAttributes([.featureSettings: featureArray])
         return UIFont(descriptor: descriptor, size: 0)
+    }
+
+    private static func boldFontName() -> String {
+        var boldFontName = "Inter-Bold"
+
+        if #available(iOS 13.0, *) {
+            switch UITraitCollection.current.legibilityWeight {
+            case .bold:
+                boldFontName = "Inter-ExtraBold"
+            default:
+                break
+            }
+        }
+
+        return boldFontName
+    }
+
+    private static func lightFontName() -> String {
+        var lightFontName = "Inter-Light"
+
+        if #available(iOS 13.0, *) {
+            switch UITraitCollection.current.legibilityWeight {
+            case .bold:
+                lightFontName = "Inter-Medium"
+            default:
+                break
+            }
+        }
+
+        return lightFontName
     }
 }
 

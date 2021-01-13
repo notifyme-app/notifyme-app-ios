@@ -78,7 +78,7 @@
 "report_information_text" = "Vous pourriez être contagieu·x·se sans le savoir.";
 
 /*Report Information What to do Button title*/
-"report_information_button_title" = "Que faire?";
+"report_information_button_title" = "Indication";
 
 /*Info Text that is displayed below the info about a new report.*/
 "report_message_days_ago" = "Il y a {NUMBER} jours";
@@ -201,7 +201,7 @@
 "imprint_webview_collaboration_title" = "En collaboration avec";
 
 /*CrowdNotifier Paper text*/
-"imprint_webview_paper_text" = "Ce projet est basé sur l'article CrowdNotifier de Wouter Lueks (EPFL) et al.:";
+"imprint_webview_paper_text" = "Ce projet implémente le protocole CrowdNotifier de Wouter Lueks (EPFL) et al.";
 
 /*CrowdNotifier Paper link*/
 "imprint_webview_paper_link" = "github.com/CrowdNotifier/documents";
@@ -340,10 +340,10 @@
 
 /*Landing page: iOS app store link URL*/
 /*Fuzzy*/
-"web_landing_app_store_link" = "https://itunes.apple.com/app/id1537859001";
+"web_landing_app_store_link" = "https://apps.apple.com/app/id1537859001";
 
 /*Fuzzy*/
-"web_landing_play_store_link" = "https://example.com";
+"web_landing_play_store_link" = "https://play.google.com/store/apps/details?id=ch.ubique.notifyme";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 /*Fuzzy*/

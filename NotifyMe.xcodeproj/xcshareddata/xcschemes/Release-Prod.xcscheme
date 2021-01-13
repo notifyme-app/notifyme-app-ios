@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1220"
+   LastUpgradeVersion = "1230"
    version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/libsodium.a&quot;&#10;">
+               scriptText = "rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/libsodium.a&quot;&#10;rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/libmcl.a&quot;&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"

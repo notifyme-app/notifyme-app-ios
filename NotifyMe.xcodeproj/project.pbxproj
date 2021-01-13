@@ -27,6 +27,7 @@
 		24780B34242FDF4C003BB26C /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24780B33242FDF4C003BB26C /* Launch Screen.storyboard */; };
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
 		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
+		4893375525AC7B4800D93A03 /* libmcl in Frameworks */ = {isa = PBXBuildFile; productRef = 4893375425AC7B4800D93A03 /* libmcl */; };
 		6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5505712552D56C000D27B1 /* TimePickerControl.swift */; };
 		6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E550579255301FD000D27B1 /* AddCommentControl.swift */; };
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
@@ -277,6 +278,7 @@
 		DCA019E52563F86B00AF8C37 /* NotifyMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotifyMe.entitlements; sourceTree = "<group>"; };
 		DCA01A172565270500AF8C37 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		DCA01A1C25652B7700AF8C37 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
+		DCBC0FB125A763910032B913 /* ProblematicEvents.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = ProblematicEvents.proto; sourceTree = "<group>"; };
 		DCCB96DF25679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+CaseInsensitiveKey.swift"; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
@@ -288,6 +290,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */,
+				4893375525AC7B4800D93A03 /* libmcl in Frameworks */,
 				DC6CF891255D676100DFCE8F /* CrowdNotifierSDK in Frameworks */,
 				DC61828D255E5EBA006B79D4 /* Clibsodium in Frameworks */,
 			);
@@ -400,6 +403,7 @@
 			children = (
 				6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */,
 				6E64047425546061006D0498 /* ProblematicEvents.pb.swift */,
+				DCBC0FB125A763910032B913 /* ProblematicEvents.proto */,
 			);
 			path = ProblematicEventsManager;
 			sourceTree = "<group>";
@@ -826,6 +830,7 @@
 				8E81CCCE241FD813006F2437 /* SnapKit */,
 				DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */,
 				DC61828C255E5EBA006B79D4 /* Clibsodium */,
+				4893375425AC7B4800D93A03 /* libmcl */,
 			);
 			productName = IVC;
 			productReference = 8E81CC95241FCC7D006F2437 /* NotifyMe.app */;
@@ -857,7 +862,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1220;
+				LastUpgradeCheck = 1230;
 				ORGANIZATIONNAME = "Ubique Innovation AG";
 				TargetAttributes = {
 					8E81CC94241FCC7D006F2437 = {
@@ -1204,9 +1209,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lstdc++";
 				OTHER_SWIFT_FLAGS = "-D RELEASE_DEV";
 				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.n2step.debug;
 				SDKROOT = iphoneos;
@@ -1330,10 +1336,11 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lstdc++";
 				OTHER_SWIFT_FLAGS = "-D DEBUG";
 				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.n2step.debug;
 				SDKROOT = iphoneos;
@@ -1441,9 +1448,10 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 1.0.1;
+				MARKETING_VERSION = 1.0.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lstdc++";
 				OTHER_SWIFT_FLAGS = "-D RELEASE_PROD";
 				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.n2step.debug;
 				SDKROOT = iphoneos;
@@ -1578,13 +1586,18 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git";
 			requirement = {
-				branch = release/v1.1;
+				branch = "feature/crypto-v2";
 				kind = branch;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		4893375425AC7B4800D93A03 /* libmcl */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DC6CF88F255D676100DFCE8F /* XCRemoteSwiftPackageReference "crowdnotifier-sdk-ios" */;
+			productName = libmcl;
+		};
 		8E81CCCE241FD813006F2437 /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 8E81CCCD241FD813006F2437 /* XCRemoteSwiftPackageReference "SnapKit" */;
