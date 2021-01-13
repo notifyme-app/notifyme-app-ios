@@ -16,7 +16,7 @@ class CurrentCheckinViewController: BaseSubViewController {
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
     private let venueView = VenueView(icon: true)
     private let reminderControl = ReminderControl()
-    private let timeLabel = Label(.timerUltraLarge, textAlignment: .center)
+    private var timeLabel = Label(.timerUltraLarge, textAlignment: .center)
 
     public var checkIn: CheckIn? {
         didSet { update() }
@@ -99,6 +99,11 @@ class CurrentCheckinViewController: BaseSubViewController {
         }
 
         contentView.addSpacerView(Padding.small)
+
+        let isSmall = view.frame.size.width <= 375
+        if isSmall {
+            timeLabel = Label(.timerLarge, textAlignment: .center)
+        }
 
         contentView.addArrangedView(timeLabel)
 

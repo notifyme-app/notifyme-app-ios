@@ -78,7 +78,7 @@
 "report_information_text" = "You could be infectious without realising it.";
 
 /*Report Information What to do Button title*/
-"report_information_button_title" = "What to do?";
+"report_information_button_title" = "Advice";
 
 /*Info Text that is displayed below the info about a new report.*/
 "report_message_days_ago" = "{NUMBER} days ago";
@@ -201,7 +201,7 @@
 "imprint_webview_collaboration_title" = "In collaboration with";
 
 /*CrowdNotifier Paper text*/
-"imprint_webview_paper_text" = "This project relies on the paper CrowdNotifier by Wouter Lueks (EPFL) et al.:";
+"imprint_webview_paper_text" = "This project implements the protocol CrowdNotifier by Wouter Lueks (EPFL) et al.";
 
 /*CrowdNotifier Paper link*/
 "imprint_webview_paper_link" = "github.com/CrowdNotifier/documents";
@@ -270,8 +270,8 @@
 
 /*Landing page: iOS app store link URL*/
 /*Fuzzy*/
-"web_landing_app_store_link" = "https://itunes.apple.com/app/id1537859001";
-"web_landing_play_store_link" = "https://example.com";
+"web_landing_app_store_link" = "https://apps.apple.com/app/id1537859001";
+"web_landing_play_store_link" = "https://play.google.com/store/apps/details?id=ch.ubique.notifyme";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 "web_generator_pdf_created_on_format" = "Created on %e %B %Y at %H:%M";
@@ -307,7 +307,7 @@
 "onboarding_hints_for_usage" = "How to use";
 
 /*Der farbig markierte Teil des onboarding_hints_for_usage Strings.*/
-"onboarding_hints_for_usage_highlight" = "Note";
+"onboarding_hints_for_usage_highlight" = "How";
 
 /*Erster Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
 "onboarding_hint1" = "This app does not collect obligatory contact data and cannot be used for this purpose.";
