@@ -42,7 +42,7 @@
 "check_in_now_button_title" = "Enregistrez-vous maintenant";
 
 /*CheckIn: Check out Button title*/
-"checkout_button_title" = "Quitter le lieu";
+"checkout_button_title" = "Check out";
 
 /*Title for 1 report*/
 "report_title_singular" = "1 rapport";
@@ -78,7 +78,7 @@
 "report_information_text" = "Vous pourriez être contagieu·x·se sans le savoir.";
 
 /*Report Information What to do Button title*/
-"report_information_button_title" = "Indication";
+"report_information_button_title" = "Recommandation";
 
 /*Info Text that is displayed below the info about a new report.*/
 "report_message_days_ago" = "Il y a {NUMBER} jours";
@@ -299,7 +299,7 @@
 "web_upload_period_to_label" = "à";
 
 /*Fuzzy*/
-"web_upload_note_label" = "Indication au visiteur";
+"web_upload_note_label" = "Recommandation au visiteur";
 
 /*Fuzzy*/
 "web_upload_note_placeholder" = "Que faire?";

@@ -397,7 +397,7 @@
 "onboarding_hints_for_usage_highlight" = "Hinweis";
 
 /*Erster Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint1" = "Diese App kann nicht für die obligatorische Kontaktdatenerfassung verwendet werden, da Sie keinerlei Kontaktdaten erfasst.";
+"onboarding_hint1" = "Diese App kann nicht für die obligatorische Kontaktdatenerfassung verwendet werden, da sie keinerlei Kontaktdaten erfasst.";
 
 /*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
 "onboarding_hint2" = "Bitte lesen Sie auch die Allgemeinen Geschäftsbedingungen";
