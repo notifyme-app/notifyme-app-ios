@@ -123,13 +123,13 @@
 "remove_diary_warning_title" = "Warning";
 
 /*Remove from diary warning view explanation text*/
-"remove_diary_warning_text" = "You are about to remove “{LOCATION_INFO}” from your diary. This action is irreversible.* Please confirm you are sure about this.";
+"remove_diary_warning_text" = "Are you sure you want to hide “{LOCATION_INFO}” from your diary? This action is irreversible. Please confirm you are sure about this.";
 
 /*Remove from diary warning view remove button title*/
-"remove_diary_remove_now_button" = "Hide now";
+"remove_diary_remove_now_button" = "Hide from diary";
 
 /*Remove from diary warning start text*/
-"remove_diary_warning_star_text" = "The app stores this entry during 14 days to warn you in case of potential infections.";
+"remove_diary_warning_star_text" = "The app stores this entry in an encrypted way during 14 days to warn you in case of a potential infection.";
 
 /*Report: 1 day ago singular*/
 "report_message_one_day_ago" = "1 day ago";

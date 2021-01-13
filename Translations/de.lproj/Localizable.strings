@@ -117,19 +117,19 @@
 "reminder_option_off" = "Aus";
 
 /*Edit Checkin: Remove from diary button title*/
-"remove_from_diary_button" = "Entfernen";
+"remove_from_diary_button" = "Nicht mehr anzeigen";
 
 /*Remove from Diary Warning view title*/
 "remove_diary_warning_title" = "Achtung";
 
 /*Remove from diary warning view explanation text*/
-"remove_diary_warning_text" = "Sind Sie sicher, dass Sie “{LOCATION_INFO}” aus Ihrem Tagebuch entfernen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
+"remove_diary_warning_text" = "Sind Sie sicher, dass Sie “{LOCATION_INFO}” in ihrem Tagebuch nicht mehr anzeigen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
 
 /*Remove from diary warning view remove button title*/
-"remove_diary_remove_now_button" = "Jetzt entfernen";
+"remove_diary_remove_now_button" = "Nicht mehr anzeigen";
 
 /*Remove from diary warning start text*/
-"remove_diary_warning_star_text" = "Die App speichert diesen Eintrag noch für 14 Tage im Hintergrund, um sie bei einer möglichen Ansteckung zu warnen.";
+"remove_diary_warning_star_text" = "Die App speichert diesen Eintrag noch für 14 Tage verschlüsselt im Hintergrund, damit Sie bei einer möglichen Ansteckung trotzdem gewarnt werden können.";
 
 /*Report: 1 day ago singular*/
 "report_message_one_day_ago" = "Vor 1 Tag";
