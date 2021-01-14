@@ -14,7 +14,7 @@ import Foundation
 enum Environment {
     case dev
     case prod
-    case abnahme
+    case abnahme // for BIT
 
     /// The current environment, as configured in build settings.
     static var current: Environment {
