@@ -26,8 +26,8 @@ platform :ios do
   build_app(
     scheme: ENV["APP_SCHEME"],
     output_directory: "build/",
-    output_name: "CrowdNotifier.ipa",
-    archive_path: "build/CrowdNotifier.xcarchive",
+    output_name: "NotifyMe.ipa",
+    archive_path: "build/NotifyMe.xcarchive",
     buildlog_path: "build/build.log",
     xcargs: "BUILD_NUMBER=#{build_number}"
   )
