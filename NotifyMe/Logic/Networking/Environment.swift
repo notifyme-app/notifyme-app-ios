@@ -14,6 +14,7 @@ import Foundation
 enum Environment {
     case dev
     case prod
+    case abnahme
 
     /// The current environment, as configured in build settings.
     static var current: Environment {
@@ -23,6 +24,8 @@ enum Environment {
             return .dev
         #elseif RELEASE_PROD
             return .prod
+        #elseif RELEASE_ABNAHME
+            return .abnahme
         #else
             fatalError("Missing build setting for environment")
         #endif
@@ -34,6 +37,8 @@ enum Environment {
             return Backend("https://app-dev-ws.notify-me.ch", version: "v1")
         case .prod:
             return Backend("https://app-prod-ws.notify-me.ch", version: "v1")
+        case .abnahme:
+            return Backend("https://cn-a.bit.admin.ch/", version: "v1")
         }
     }
 
@@ -43,6 +48,8 @@ enum Environment {
             return Backend("https://app-dev-config.notify-me.ch", version: "v1")
         case .prod:
             return Backend("https://app-prod-config.notify-me.ch", version: "v1")
+        case .abnahme:
+            return Backend("https://cn-a.bit.admin.ch/", version: "v1")
         }
     }
 
@@ -56,6 +63,8 @@ enum Environment {
             return "upload-dev.notify-me.ch"
         case .prod:
             return "upload.notify-me.ch"
+        case .abnahme:
+            return "qr-uploader-a.bit.admin.ch"
         }
     }
 
@@ -65,6 +74,8 @@ enum Environment {
             return "https://qr-dev.notify-me.ch"
         case .prod:
             return "https://qr.notify-me.ch"
+        case .abnahme:
+            return "https://qr-gen-abn-bit.notify-me.ch/"
         }
     }
 }
