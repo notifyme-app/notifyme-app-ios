@@ -75,7 +75,7 @@ enum Environment {
         case .prod:
             return "https://qr.notify-me.ch"
         case .abnahme:
-            return "https://qr-gen-abn-bit.notify-me.ch/"
+            return "https://qr-abn.notify-me.ch"
         }
     }
 }
