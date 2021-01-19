@@ -4,7 +4,9 @@
 <dict>
 	<key>com.apple.developer.parent-application-identifiers</key>
 	<array>
-		<string>$(PRIMARY_BUNDLE_IDENTIFIER)</string>
+		<string>ch.ubique.n2step</string>
+		<string>ch.ubique.n2step.dev</string>
+		<string>ch.ubique.n2step.abnahme</string>
 	</array>
 </dict>
 </plist>
