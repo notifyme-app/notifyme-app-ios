@@ -10,5 +10,9 @@
 		<string>applinks:qr-abn.notify-me.ch</string>
 		<string>applinks:qr.notify-me.ch</string>
 	</array>
+	<key>com.apple.security.application-groups</key>
+	<array>
+		<string>group.$(PRIMARY_BUNDLE_IDENTIFIER)</string>
+	</array>
 </dict>
 </plist>
