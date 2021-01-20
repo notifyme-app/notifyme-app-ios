@@ -14,6 +14,7 @@ import LocalAuthentication
 
 class DiaryViewController: BaseViewController {
     private let collectionView: DiaryCollectionView
+    private let emptyView: DiaryEmptyView
 
     private var diary: [[CheckIn]] = []
     private var exposures: [Exposure] = []
@@ -22,6 +23,7 @@ class DiaryViewController: BaseViewController {
 
     override init() {
         collectionView = DiaryCollectionView()
+        emptyView = DiaryEmptyView()
 
         super.init()
         title = "diary_title".ub_localized
@@ -50,6 +52,14 @@ class DiaryViewController: BaseViewController {
         }
 
         setupCollectionView()
+
+        view.addSubview(emptyView)
+
+        emptyView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+
+        setupEmptyView()
     }
 
     private func setupCollectionView() {
@@ -58,6 +68,10 @@ class DiaryViewController: BaseViewController {
         collectionView.setup()
 
         collectionView.alpha = 0.0
+    }
+
+    private func setupEmptyView() {
+        emptyView.alpha = 0.0
     }
 
     // MARK: - Authentication
@@ -92,8 +106,6 @@ class DiaryViewController: BaseViewController {
             guard let strongSelf = self else { return }
             strongSelf.update(state)
         }
-
-        collectionView.alpha = 1.0
     }
 
     private func update(_ state: UIStateModel) {
@@ -105,6 +117,9 @@ class DiaryViewController: BaseViewController {
         case .noExposure:
             exposures = []
         }
+
+        emptyView.alpha = exposures.count == 0 ? 1.0 : 0.0
+        collectionView.alpha = (exposures.count == 0) ? 0.0 : 1.0
 
         collectionView.reloadData()
     }

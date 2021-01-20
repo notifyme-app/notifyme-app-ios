@@ -206,7 +206,7 @@
 /*CrowdNotifier Paper link*/
 "imprint_webview_paper_link" = "github.com/CrowdNotifier/documents";
 "imprint_webview_more_info_title" = "Informations supplémentaires";
-"imprint_webview_more_info_link" = "https://notify-me.ch";
+"imprint_webview_more_info_link" = "www.notify-me.ch";
 "imprint_webview_legal_title" = "Indications légales";
 "imprint_webview_legal_link_text" = "Protection des données et conditions d'utilisation";
 "imprint_webview_legal_link_url" = "www.notify-me.ch/agb";
@@ -453,3 +453,36 @@
 /*For sharing on Twitter and Facebook*/
 /*Fuzzy*/
 "web_page_description" = "Un système d'enregistrement décentralisé pour réunions, rencontres et événements.";
+"imprint_webview_feedback" = "Questions, suggestions ou réactions?";
+
+/*Button Text des Löschen-Buttons für eine Exposure-Meldung.*/
+"delete_exposure_button_title" = "Supprimer";
+
+/*Text that is displayed in a Dialog asking the user if the exposure should really be deleted.*/
+"delete_exposure_warning_dialog_text" = "Vous êtes sur le point de retirer ce rapport d'exposition. Cette action est irréversible. Veuillez confirmer que vous en êtes sûr.";
+
+/*Title of the instant app/app clips onboarding screen*/
+"onboarding_install_app_title" = "La dernière étape...";
+
+/*Explanation of the instant app/app clips onboarding screen*/
+"onboarding_install_app_explanation" = "Installez l'application pour vous enregistrer et pour rester informé en cas d'incidents.";
+
+/*Button text of the instant app/app clips onboarding screen*/
+"onboarding_install_app_button" = "Installer l'application";
+"delete_now_exposure_button_title" = "Supprimer maintenant";
+
+/*Tagebuch: Titel bei leerem Tagebuch*/
+"empty_diary_title" = "No diary entries yet";
+
+/*Tagebuch: Text bei leerem Tagebuch*/
+"empty_diary_text" = "The meetings & events you attended to can be shown in your diary after checking out.";
+
+/*Text, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_text" = "NotifyMe requires access to your camera. The camera will only be used for scanning QR codes.";
+
+/*Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+/*Fuzzy*/
+"camera_permission_dialog_title" = "l'Accès à votre caméra";
+
+/*Button titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_action" = "Autoriser l'accès aux caméras";

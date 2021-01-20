@@ -363,3 +363,35 @@
 
 /*For sharing on Twitter and Facebook*/
 "web_page_description" = "A decentralised check-in system for meetings and events";
+"imprint_webview_feedback" = "Questions, suggestions or feedback?";
+
+/*Button Text des Löschen-Buttons für eine Exposure-Meldung.*/
+"delete_exposure_button_title" = "Remove";
+
+/*Text that is displayed in a Dialog asking the user if the exposure should really be deleted.*/
+"delete_exposure_warning_dialog_text" = "You are about to remove this exposure report. This action is irreversible. Please confirm you are sure about this.";
+
+/*Title of the instant app/app clips onboarding screen*/
+"onboarding_install_app_title" = "One last step…";
+
+/*Explanation of the instant app/app clips onboarding screen*/
+"onboarding_install_app_explanation" = "Install the NotifyMe app to check-in and to be informed in case of an incident.";
+
+/*Button text of the instant app/app clips onboarding screen*/
+"onboarding_install_app_button" = "Install app";
+"delete_now_exposure_button_title" = "Remove now";
+
+/*Tagebuch: Titel bei leerem Tagebuch*/
+"empty_diary_title" = "No diary entries yet";
+
+/*Tagebuch: Text bei leerem Tagebuch*/
+"empty_diary_text" = "The meetings & events you attended to can be shown in your diary after checking out.";
+
+/*Text, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_text" = "NotifyMe requires access to your camera. The camera will only be used for scanning QR codes.";
+
+/*Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_title" = "Camera access";
+
+/*Button titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_action" = "Grant camera access";

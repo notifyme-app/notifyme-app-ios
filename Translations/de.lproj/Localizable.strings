@@ -290,7 +290,7 @@
 "web_upload_title" = "Besucher informieren";
 
 /*Fuzzy*/
-"web_upload_period_label" = "Betroffener Zeitraum";
+"web_upload_period_label" = "Betroffener Zeitraum Von/Bis";
 
 /*Fuzzy*/
 "web_upload_period_from_label" = "Von";
@@ -465,3 +465,37 @@
 /*For sharing on Twitter and Facebook*/
 /*Fuzzy*/
 "web_page_description" = "Dezentral gespeicherte Check-Ins für Meetings & Events";
+"imprint_webview_feedback" = "Fragen, Anregungen oder Feedback?";
+
+/*Button Text des Löschen-Buttons für eine Exposure-Meldung.*/
+"delete_exposure_button_title" = "Entfernen";
+
+/*Text that is displayed in a Dialog asking the user if the exposure should really be deleted.*/
+"delete_exposure_warning_dialog_text" = "Wollen Sie diese Meldung wirklich entfernen? Diese Aktion kann nicht rückgängig gemacht werden.";
+
+/*Title of the instant app/app clips onboarding screen*/
+"onboarding_install_app_title" = "One last step…";
+
+/*Explanation of the instant app/app clips onboarding screen*/
+"onboarding_install_app_explanation" = "Install the NotifyMe app to check-in and to be informed in case of an incident.";
+
+/*Button text of the instant app/app clips onboarding screen*/
+"onboarding_install_app_button" = "Install app";
+"delete_now_exposure_button_title" = "Jetzt entfernen";
+
+/*Tagebuch: Titel bei leerem Tagebuch*/
+"empty_diary_title" = "Noch keine Tagebucheinträge vorhanden";
+
+/*Tagebuch: Text bei leerem Tagebuch*/
+"empty_diary_text" = "Die Meetings & Events, die besucht wurden, erscheinen im Tagebuch nach dem Check-out.";
+
+/*Text, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+/*Fuzzy*/
+"camera_permission_dialog_text" = "NotifyMe benötigt Zugriff auf die Kamera Ihres Gerätes. Die Kamera wird nur verwendet, um QR Codes zu scannen.";
+
+/*Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+/*Fuzzy*/
+"camera_permission_dialog_title" = "Kamera Zugriff";
+
+/*Button titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_action" = "Kamera-Zugriff erlauben";
