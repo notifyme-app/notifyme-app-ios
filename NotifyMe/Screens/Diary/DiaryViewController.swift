@@ -118,8 +118,8 @@ class DiaryViewController: BaseViewController {
             exposures = []
         }
 
-        emptyView.alpha = exposures.count == 0 ? 1.0 : 0.0
-        collectionView.alpha = (exposures.count == 0) ? 0.0 : 1.0
+        emptyView.alpha = diary.count == 0 ? 1.0 : 0.0
+        collectionView.alpha = (diary.count == 0) ? 0.0 : 1.0
 
         collectionView.reloadData()
     }
