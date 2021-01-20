@@ -45,6 +45,11 @@ class ProblematicEventsManager {
         return exposureEvents
     }
 
+    public func removeExposure(_ exposure: ExposureEvent) {
+        CrowdNotifier.removeExposure(exposure: exposure)
+        exposureEvents = CrowdNotifier.getExposureEvents()
+    }
+
     public func sync(isBackgroundFetch: Bool = false, completion: @escaping (_ newData: Bool, _ needsNotification: Bool) -> Void) {
         var queryParameters = [String: String]()
         if let tag = lastKeyBundleTag {
