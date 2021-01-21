@@ -116,5 +116,14 @@
    <ArchiveAction
       buildConfiguration = "Debug"
       revealArchiveInOrganizer = "YES">
+      <PostActions>
+         <ExecutionAction
+            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
+            <ActionContent
+               title = "Run Script"
+               scriptText = "#https://github.com/firebase/firebase-ios-sdk/issues/6472&#10;&#10;full_frameworks_path=&quot;${ARCHIVE_PRODUCTS_PATH}/Applications/${FRAMEWORKS_FOLDER_PATH}&quot;&#10;&#10;rm -rf &quot;${full_frameworks_path}/../AppClips/libmcl.a&quot;&#10;rm -rf &quot;${full_frameworks_path}/../AppClips/libsodium.a&quot;&#10;rm -rf &quot;${full_frameworks_path}/../AppClips/NotifyMeAppClip.app/Frameworks/libsodium.a&quot;&#10;">
+            </ActionContent>
+         </ExecutionAction>
+      </PostActions>
    </ArchiveAction>
 </Scheme>
