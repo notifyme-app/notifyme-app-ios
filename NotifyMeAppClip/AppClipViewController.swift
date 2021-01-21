@@ -9,10 +9,11 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierSDK
 import Foundation
 import StoreKit
 import UIKit
+
+import CrowdNotifierBaseSDK
 
 class AppClipViewController: BaseViewController {
     // MARK: - Views
@@ -33,7 +34,7 @@ class AppClipViewController: BaseViewController {
     // MARK: - Init
 
     init(url: URL?) {
-        CrowdNotifier.initialize()
+        CrowdNotifierBase.initialize()
         self.url = url
         super.init()
     }
@@ -116,7 +117,7 @@ class AppClipViewController: BaseViewController {
         defaults?.setValue(urlString, forKey: Environment.shareURLKey)
 
         // get venue info from crowdnotifier
-        let result = CrowdNotifier.getVenueInfo(qrCode: urlString, baseUrl: Environment.current.qrGenBaseUrl)
+        let result = CrowdNotifierBase.getVenueInfo(qrCode: urlString, baseUrl: Environment.current.qrGenBaseUrl)
 
         switch result {
         case let .success(info):

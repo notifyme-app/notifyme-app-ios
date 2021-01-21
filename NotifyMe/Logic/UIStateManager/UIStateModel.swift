@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierSDK
+import CrowdNotifierBaseSDK
 import Foundation
 
 /// Global state model for all screens that are connected to tracing state and results
