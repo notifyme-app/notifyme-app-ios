@@ -103,12 +103,16 @@ class CurrentCheckinViewController: BaseSubViewController {
 
     public func presentCheckOutScreen() {
         let vc = CheckinEditViewController()
+<<<<<<< HEAD
         vc.userWillCheckOutCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.userWillCheckOutCallback?()
         }
 
         present(vc, animated: true, completion: nil)
+=======
+        present(CheckinEditViewController(), animated: true, completion: nil)
+>>>>>>> adds basic appclip implementation
     }
 
     // MARK: - Update

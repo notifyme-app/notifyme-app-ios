@@ -26,6 +26,7 @@ class VenueView: UIView {
     // MARK: - Properties
 
     private let icon: Bool
+
     public var venue: VenueInfo? {
         didSet {
             update()

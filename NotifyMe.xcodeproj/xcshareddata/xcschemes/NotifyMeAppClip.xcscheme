@@ -53,8 +53,8 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCAppClipURL"
-            value = "https://example.com"
-            isEnabled = "NO">
+            value = "https://qr-dev.notify-me.ch?v=2#CAISVwoHTWVldGluZxIUVWJpcXVlIElubm92YXRpb24gQUcaBlp1c2F0eiogts5gT2OiBP_AdRdm3oIXu4xV7M7GHLfCSWA0NxDpr4owgKuB5_EuOIDjmpDyLhpgibCoff2X1_Kyznta5f4dNds145KQ7uWbE7xle2FWVNeMsgRlMNkLi0gB5FpTbvMNNLdFg-Ls262EoPDZDdrNUYwETpiCB_Bpz6aA3vF78mRMXyKO01uLi8HORplqJFAUIkQKIFyIq86IdqlSvfsdyJV5dzUDNQ2MolJQwjE6CJmVazGZEiBfIdswjsrmlLQVEtJhKPCduTAz1Iil58yBnE8GHa3EJw"
+            isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
    </LaunchAction>
