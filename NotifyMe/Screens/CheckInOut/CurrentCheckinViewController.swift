@@ -104,15 +104,21 @@ class CurrentCheckinViewController: BaseSubViewController {
     public func presentCheckOutScreen() {
         let vc = CheckinEditViewController()
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> fixes qrcode scanner starting and fixes memory problem
         vc.userWillCheckOutCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.userWillCheckOutCallback?()
         }
 
         present(vc, animated: true, completion: nil)
+<<<<<<< HEAD
 =======
         present(CheckinEditViewController(), animated: true, completion: nil)
 >>>>>>> adds basic appclip implementation
+=======
+>>>>>>> fixes qrcode scanner starting and fixes memory problem
     }
 
     // MARK: - Update

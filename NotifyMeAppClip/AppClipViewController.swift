@@ -115,20 +115,17 @@ class AppClipViewController: BaseViewController {
         let bi = (Bundle.main.bundleIdentifier ?? "").replacingOccurrences(of: ".appclip", with: "")
         let defaults = UserDefaults(suiteName: "group." + bi)
         defaults?.setValue(urlString, forKey: Environment.shareURLKey)
+        defaults?.synchronize()
 
         // get venue info from crowdnotifier
         let result = CrowdNotifierBase.getVenueInfo(qrCode: urlString, baseUrl: Environment.current.qrGenBaseUrl)
 
         switch result {
         case let .success(info):
-
             venueInfoView.venue = info
             venueInfoView.isHidden = false
         case .failure:
             venueInfoView.isHidden = true
         }
-
-        defaults?.setValue(nil, forKey: Environment.shareURLKey)
-        defaults?.synchronize()
     }
 }

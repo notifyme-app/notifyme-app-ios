@@ -185,6 +185,6 @@ class HomescreenViewController: BaseViewController {
             }
         }
 
-        // defaults?.removeObject(forKey: Environment.shareURLKey)
+        defaults?.removeObject(forKey: Environment.shareURLKey)
     }
 }
