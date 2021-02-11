@@ -400,7 +400,7 @@
 "onboarding_hint1" = "Diese App kann nicht für die obligatorische Kontaktdatenerfassung verwendet werden, da sie keinerlei Kontaktdaten erfasst.";
 
 /*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint2" = "Bitte lesen Sie auch die Allgemeinen Geschäftsbedingungen";
+"onboarding_hint2" = "Bitte lesen Sie die Allgemeinen Geschäftsbedingungen:";
 "onboarding_agb_link" = "https://notify-me.ch/agb";
 "onboarding_agb_link_title" = "www.notify-me.ch/agb";
 "qr_scanner_error_code_not_yet_valid" = "QR-Code noch nicht gültig";
@@ -442,8 +442,10 @@
 /*Fuzzy*/
 "web_generator_date_placeholder" = "Datum wählen";
 
+/*Vorschlag zur Formulierung: 
+Die Demo QR-Codes sind jeweils nur an einem Tag gültig. Für QR-Codes mit dauerhafter Gültigkeit nehmen Sie bitte mit uns Kontakt auf.*/
 /*Fuzzy*/
-"web_generator_validity_information" = "Die Demo QR-Codes sind jeweils nur an einem Tag gültig";
+"web_generator_validity_information" = "Die Demo QR-Codes sind jeweils nur an einem Tag gültig.  Für QR-Codes mit dauerhafter Gültigkeit nehmen Sie bitte <a href=\"mailto:info@notify-me.ch\">mit uns Kontakt</a> auf.";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 /*Fuzzy*/
@@ -474,13 +476,13 @@
 "delete_exposure_warning_dialog_text" = "Wollen Sie diese Meldung wirklich entfernen? Diese Aktion kann nicht rückgängig gemacht werden.";
 
 /*Title of the instant app/app clips onboarding screen*/
-"onboarding_install_app_title" = "One last step…";
+"onboarding_install_app_title" = "Noch ein Schritt…";
 
 /*Explanation of the instant app/app clips onboarding screen*/
-"onboarding_install_app_explanation" = "Install the NotifyMe app to check-in and to be informed in case of an incident.";
+"onboarding_install_app_explanation" = "Installieren Sie die NotifyMe App für Check-Ins und Meldungen bei einem Vorfall.";
 
 /*Button text of the instant app/app clips onboarding screen*/
-"onboarding_install_app_button" = "Install app";
+"onboarding_install_app_button" = "App installieren";
 "delete_now_exposure_button_title" = "Jetzt entfernen";
 
 /*Tagebuch: Titel bei leerem Tagebuch*/
@@ -493,9 +495,17 @@
 /*Fuzzy*/
 "camera_permission_dialog_text" = "NotifyMe benötigt Zugriff auf die Kamera Ihres Gerätes. Die Kamera wird nur verwendet, um QR Codes zu scannen.";
 
-/*Titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
-/*Fuzzy*/
-"camera_permission_dialog_title" = "Kamera Zugriff";
-
 /*Button titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
 "camera_permission_dialog_action" = "Kamera-Zugriff erlauben";
+
+/*Notification Channel name for Ongoing Checkin Notifications on Android Devices (Only visible in System Settings)*/
+"android_ongoing_checkin_notification_channel_name" = "Permanente Checkin Meldung";
+
+/*Titel der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center.*/
+"ongoing_notification_title" = "Sie sind eingecheckt seit {TIME} Uhr.";
+
+/*Quick Action der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center.*/
+"ongoing_notification_checkout_quick_action" = "Check out";
+
+/*Quick Action bei einer Reminder Notification, welche einen neuen Reminder setzt in 30 Minuten.*/
+"reminder_notification_snooze_action" = "Snooze";
