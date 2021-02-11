@@ -18,6 +18,8 @@ class CheckInViewController: BaseViewController {
     private var titleTimer: Timer?
     private var checkIn: CheckIn?
 
+    public var justCheckedOutByUser: Bool = false
+
     // MARK: - Init
 
     override init() {
@@ -49,6 +51,12 @@ class CheckInViewController: BaseViewController {
     // MARK: - Update
 
     private func update(_ state: UIStateModel) {
+        if justCheckedOutByUser {
+            // user got checked out by the check-out-button, so this
+            // viewcontroller will be popped, do not start scanning or anything
+            return
+        }
+
         switch state.checkInState {
         case .noCheckIn:
             currentCheckinViewController?.view.isHidden = true
@@ -79,6 +87,13 @@ class CheckInViewController: BaseViewController {
 
     private func setupCheckinView() {
         let vc = CurrentCheckinViewController()
+
+        vc.userWillCheckOutCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.justCheckedOutByUser = true
+            strongSelf.qrCodeViewController?.justCheckedOutByUser = true
+        }
+
         addSubviewController(vc: vc)
         currentCheckinViewController = vc
     }

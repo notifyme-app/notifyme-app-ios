@@ -23,8 +23,10 @@ class CurrentCheckinViewController: BaseSubViewController {
     }
 
     public var time: String? {
-        didSet { self.updateTime(time: time) }
+        didSet { updateTime(time: time) }
     }
+
+    public var userWillCheckOutCallback: (() -> Void)?
 
     // MARK: - View
 
@@ -159,7 +161,13 @@ class CurrentCheckinViewController: BaseSubViewController {
     // MARK: - Present
 
     public func presentCheckOutScreen() {
-        present(CheckinEditViewController(), animated: true, completion: nil)
+        let vc = CheckinEditViewController()
+        vc.userWillCheckOutCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.userWillCheckOutCallback?()
+        }
+
+        present(vc, animated: true, completion: nil)
     }
 
     // MARK: - Update
