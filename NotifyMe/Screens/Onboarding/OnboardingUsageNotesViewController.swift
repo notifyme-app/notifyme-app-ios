@@ -69,8 +69,10 @@ class OnboardingUsageNotesViewController: OnboardingStepViewController {
         setupStackViews()
 
         stackView.addSpacerView(2.0 * Padding.medium)
-        stackView.addArrangedView(usageNotesStackview)
-        stackView.addSpacerView(Padding.medium)
+
+//        stackView.addArrangedView(usageNotesStackview)
+//        stackView.addSpacerView(Padding.medium)
+
         stackView.addArrangedView(infoStackView)
     }
 

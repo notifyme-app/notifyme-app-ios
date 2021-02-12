@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CrowdNotifierSDK
 import Foundation
 
 class ModalReportViewController: ModalBaseViewController {
@@ -17,6 +18,7 @@ class ModalReportViewController: ModalBaseViewController {
     private let heroTitle = Label(.heroTitle)
     private let whatToDoView = ReportWhatToDoView()
     private let informationView: ModalReportInformationView
+    private let removeButton = BigButton(style: .outlineSmall, text: "delete_exposure_button_title".ub_localized, colorStyle: .red)
 
     // MARK: - Init
 
@@ -35,6 +37,7 @@ class ModalReportViewController: ModalBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
+        setupRemoveButton()
     }
 
     // MARK: - Setup
@@ -56,12 +59,48 @@ class ModalReportViewController: ModalBaseViewController {
         contentView.addSpacerView(Padding.medium)
         contentView.addArrangedView(informationView)
 
-        contentView.addSpacerView(Padding.medium)
-
         if !exposure.exposureEvent.message.isEmpty {
+            contentView.addSpacerView(Padding.medium)
             contentView.addArrangedView(whatToDoView)
             whatToDoView.message = exposure.exposureEvent.message
             contentView.addSpacerView(Padding.medium)
         }
+
+        contentView.addSpacerView(Padding.large)
+
+        let remove = UIView()
+        remove.addSubview(removeButton)
+
+        removeButton.snp.makeConstraints { make in
+            make.top.bottom.equalToSuperview()
+            make.centerX.equalToSuperview()
+        }
+
+        contentView.addArrangedView(remove)
+        contentView.addSpacerView(Padding.medium)
+    }
+
+    private func setupRemoveButton() {
+        removeButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.presentDeletePopup()
+        }
+    }
+
+    private func presentDeletePopup() {
+        let vc = ReportDeleteWarningViewController()
+        vc.removeCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.removeExposure()
+        }
+
+        present(vc, animated: true, completion: nil)
+    }
+
+    // MARK: - Logic
+
+    private func removeExposure() {
+        ProblematicEventsManager.shared.removeExposure(exposure.exposureEvent)
+        dismiss(animated: true, completion: nil)
     }
 }

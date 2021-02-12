@@ -28,6 +28,8 @@
 		2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F4772456185000C3D8C3 /* DebugLog.swift */; };
 		2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2485F47F2459631A00C3D8C3 /* NetworkError.swift */; };
 		4893375525AC7B4800D93A03 /* libmcl in Frameworks */ = {isa = PBXBuildFile; productRef = 4893375425AC7B4800D93A03 /* libmcl */; };
+		6E02AC1925B82B600010429A /* DiaryEmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E02AC1825B82B600010429A /* DiaryEmptyView.swift */; };
+		6E02AC2625B850980010429A /* ReportDeleteWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E02AC2525B850980010429A /* ReportDeleteWarningViewController.swift */; };
 		6E5505722552D56C000D27B1 /* TimePickerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E5505712552D56C000D27B1 /* TimePickerControl.swift */; };
 		6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E550579255301FD000D27B1 /* AddCommentControl.swift */; };
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
@@ -161,6 +163,8 @@
 		24780B33242FDF4C003BB26C /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		2485F4772456185000C3D8C3 /* DebugLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DebugLog.swift; sourceTree = "<group>"; };
 		2485F47F2459631A00C3D8C3 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		6E02AC1825B82B600010429A /* DiaryEmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryEmptyView.swift; sourceTree = "<group>"; };
+		6E02AC2525B850980010429A /* ReportDeleteWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportDeleteWarningViewController.swift; sourceTree = "<group>"; };
 		6E5505712552D56C000D27B1 /* TimePickerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimePickerControl.swift; sourceTree = "<group>"; };
 		6E550579255301FD000D27B1 /* AddCommentControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCommentControl.swift; sourceTree = "<group>"; };
 		6E55057E2553058C000D27B1 /* TextButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextButton.swift; sourceTree = "<group>"; };
@@ -442,6 +446,7 @@
 				6E662968254BFF1C00347F06 /* DiaryCollectionViewFlowLayout.swift */,
 				6E55058B25536219000D27B1 /* DiaryEntryContentView.swift */,
 				6E640375255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift */,
+				6E02AC1825B82B600010429A /* DiaryEmptyView.swift */,
 			);
 			path = Diary;
 			sourceTree = "<group>";
@@ -455,6 +460,7 @@
 				6E6628FA254AF28800347F06 /* ReportsViewController.swift */,
 				6EB4C7A92551BA99005070ED /* ReportsInformationViewController.swift */,
 				6EA6A5E9255E73AC00A66212 /* ModalReportViewController.swift */,
+				6E02AC2525B850980010429A /* ReportDeleteWarningViewController.swift */,
 			);
 			path = Reports;
 			sourceTree = "<group>";
@@ -1072,6 +1078,7 @@
 				242D227B245D6557005DAEA8 /* Backend.swift in Sources */,
 				6E55057F2553058C000D27B1 /* TextButton.swift in Sources */,
 				6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */,
+				6E02AC1925B82B600010429A /* DiaryEmptyView.swift in Sources */,
 				DC702B10243F6FAE0066C773 /* UBUserDefaultValue.swift in Sources */,
 				6E7515802567ADD600EDB6A7 /* Venue+NS.swift in Sources */,
 				6E662974254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift in Sources */,
@@ -1111,6 +1118,7 @@
 				2485F4802459631A00C3D8C3 /* NetworkError.swift in Sources */,
 				DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */,
 				6E6629D52550482600347F06 /* UIStateManager.swift in Sources */,
+				6E02AC2625B850980010429A /* ReportDeleteWarningViewController.swift in Sources */,
 				6E77C5AF2570EA1F000CE918 /* Config.swift in Sources */,
 				DC9DA0972566AFF300784A4F /* ErrorHandling+ViewController.swift in Sources */,
 			);
@@ -1209,7 +1217,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-lstdc++";
@@ -1280,6 +1288,127 @@
 			};
 			name = "Release-Dev";
 		};
+		6ED673E125B07D65009451C9 /* Release-Abnahme */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUILD_NUMBER = 20200000.0.0;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_BITCODE = NO;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = "RELEASE_ABNAHME=1";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MARKETING_VERSION = 1.1.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-lstdc++";
+				OTHER_SWIFT_FLAGS = "-D RELEASE_ABNAHME";
+				PRIMARY_BUNDLE_IDENTIFIER = ch.ubique.n2step.debug;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = RELEASE_ABNAHME;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "Release-Abnahme";
+		};
+		6ED673E225B07D65009451C9 /* Release-Abnahme */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = NotifyMe/NotifyMe.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = "${BUILD_NUMBER}";
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				INFOPLIST_FILE = "NotifyMe/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "${PRIMARY_BUNDLE_IDENTIFIER}";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "NotifyMe/Supporting Files/NotifyMe-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = "Release-Abnahme";
+		};
+		6ED673E325B07D65009451C9 /* Release-Abnahme */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				INFOPLIST_FILE = NotifyMeTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = ch.ubique.n2step.tests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/NotifyMe.app/NotifyMe";
+			};
+			name = "Release-Abnahme";
+		};
+		6ED673E425B07D65009451C9 /* Release-Abnahme */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = JH7CQD4MLU;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = "Release-Abnahme";
+		};
 		8E81CCB2241FCC7F006F2437 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -1336,7 +1465,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1448,7 +1577,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				MARKETING_VERSION = 1.1;
+				MARKETING_VERSION = 1.1.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-lstdc++";
@@ -1537,6 +1666,7 @@
 				8E81CCB2241FCC7F006F2437 /* Debug */,
 				486EAFC5247492A500D686BE /* Release-Dev */,
 				8E81CCBB241FCE08006F2437 /* Release-Prod */,
+				6ED673E125B07D65009451C9 /* Release-Abnahme */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -1547,6 +1677,7 @@
 				8E81CCB5241FCC7F006F2437 /* Debug */,
 				486EAFC6247492A500D686BE /* Release-Dev */,
 				8E81CCBC241FCE08006F2437 /* Release-Prod */,
+				6ED673E225B07D65009451C9 /* Release-Abnahme */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -1557,6 +1688,7 @@
 				8E81CCB8241FCC7F006F2437 /* Debug */,
 				486EAFC8247492A500D686BE /* Release-Dev */,
 				8E81CCBD241FCE08006F2437 /* Release-Prod */,
+				6ED673E325B07D65009451C9 /* Release-Abnahme */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
@@ -1567,6 +1699,7 @@
 				8E81CCC4241FD475006F2437 /* Debug */,
 				486EAFC9247492A500D686BE /* Release-Dev */,
 				8E81CCC6241FD475006F2437 /* Release-Prod */,
+				6ED673E425B07D65009451C9 /* Release-Abnahme */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

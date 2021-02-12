@@ -31,6 +31,8 @@ class CheckinEditViewController: ModalBaseViewController {
 
     private var checkIn: CheckIn?
 
+    public var userWillCheckOutCallback: (() -> Void)?
+
     // MARK: - Init
 
     init(checkIn: CheckIn? = nil) {
@@ -155,6 +157,8 @@ class CheckinEditViewController: ModalBaseViewController {
 
             if strongSelf.isCurrentCheckin {
                 strongSelf.updateCheckIn()
+
+                strongSelf.userWillCheckOutCallback?()
                 CheckInManager.shared.checkOut()
 
                 let presentingVC = strongSelf.presentingViewController

@@ -5,6 +5,7 @@
 	<key>com.apple.developer.associated-domains</key>
 	<array>
 		<string>applinks:qr-dev.notify-me.ch</string>
+		<string>applinks:qr-abn.notify-me.ch</string>
 		<string>applinks:qr.notify-me.ch</string>
 	</array>
 </dict>

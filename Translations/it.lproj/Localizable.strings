@@ -223,17 +223,17 @@
 "web_generator_title_placeholder" = "e.g. Room or event name";
 "web_generator_subtitle_label" = "Subtitle";
 "web_generator_subtitle_placeholder" = "E.g. organization or organizer";
-"web_generator_addition_label" = "Addition";
+"web_generator_addition_label" = "Additional information";
 "web_generator_addition_placeholder" = "E.g. building or place";
 "web_generator_generation_button_label" = "Generate QR codes";
 "web_generator_back" = "Back";
 "web_generator_public_bulletpoint_1" = "This QR code enables visitors to check-in on site.";
 "web_generator_public_bulletpoint_2" = "NotifyMe can't scan the code.";
-"web_generator_public_bulletpoint_3" = "Check-ins are not registered. No private are seized.";
+"web_generator_public_bulletpoint_3" = "Check-ins are only saved on the users’ devices.";
 "web_generator_private_bulletpoint_1" = "This QR code informs visitors in case of an incident.";
 "web_generator_private_bulletpoint_2" = "The code can be scanned with any QR code reader.";
-"web_generator_private_bulletpoint_3" = "A decryption key is published. No data of the organizer.";
-"web_generator_pdf_button" = "Dowload PDF";
+"web_generator_private_bulletpoint_3" = "A decryption key is published. No data of the organizer is published.";
+"web_generator_pdf_button" = "Download PDF";
 "web_generator_public_qr_title" = "<span>Public</span>\\\nQR Code";
 "web_generator_private_qr_title" = "<span>Private</span>\\\nQR Code";
 "web_generator_missing_input" = "Please fill in the mandatory field";
@@ -249,7 +249,7 @@
 "error_notification_deactivated_title" = "Deactivate notifications";
 "error_notification_deactivated_text" = "Edit the app settings to receive report-notifications.";
 "error_background_refresh_title" = "Background updates are off";
-"error_background_refresh_text" = "Edit the app settings to be informed when there is a report outside of the app as well.";
+"error_background_refresh_text" = "Edit the app settings to be informed at all times.";
 "error_camera_permission_title" = "No camera access";
 "error_camera_permission_text" = "The app needs camera access to scan the QR code.";
 "error_action_change_settings" = "Edit settings";
@@ -313,7 +313,7 @@
 "onboarding_hint1" = "This app does not collect obligatory contact data and cannot be used for this purpose.";
 
 /*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint2" = "Please read the terms and conditions as well";
+"onboarding_hint2" = "Please read the terms and conditions:";
 "onboarding_agb_link" = "https://notify-me.ch/agb";
 "onboarding_agb_link_title" = "www.notify-me.ch/agb";
 "qr_scanner_error_code_not_yet_valid" = "Code is not valid yet";
@@ -344,7 +344,7 @@
 "error_update_text" = "This QR code is not compatible with the current version of the app. Please update the app to scan it the code.";
 "web_generator_date_label" = "Valid on";
 "web_generator_date_placeholder" = "Pick date";
-"web_generator_validity_information" = "The demo QR codes are only available on the same day.";
+"web_generator_validity_information" = "The demo QR codes are only valid for one day at a time. For QR codes with permanent validity, please <a href=\"mailto:info@notify-me.ch\">contact us</a>.";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 "web_generator_code_validity_message" = "This demo QR code is valid on **%e %B %Y**";
@@ -363,3 +363,44 @@
 
 /*For sharing on Twitter and Facebook*/
 "web_page_description" = "A decentralised check-in system for meetings and events";
+"imprint_webview_feedback" = "Questions, suggestions or feedback?";
+
+/*Button Text des Löschen-Buttons für eine Exposure-Meldung.*/
+"delete_exposure_button_title" = "Remove";
+
+/*Text that is displayed in a Dialog asking the user if the exposure should really be deleted.*/
+"delete_exposure_warning_dialog_text" = "You are about to remove this exposure report. This action is irreversible. Please confirm you are sure about this.";
+
+/*Title of the instant app/app clips onboarding screen*/
+"onboarding_install_app_title" = "One last step…";
+
+/*Explanation of the instant app/app clips onboarding screen*/
+"onboarding_install_app_explanation" = "Install the NotifyMe app to check-in and to be informed in case of an incident.";
+
+/*Button text of the instant app/app clips onboarding screen*/
+"onboarding_install_app_button" = "Install app";
+"delete_now_exposure_button_title" = "Remove now";
+
+/*Tagebuch: Titel bei leerem Tagebuch*/
+"empty_diary_title" = "No diary entries yet";
+
+/*Tagebuch: Text bei leerem Tagebuch*/
+"empty_diary_text" = "The meetings & events you attended to can be shown in your diary after checking out.";
+
+/*Text, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_text" = "NotifyMe requires access to your camera. The camera will only be used for scanning QR codes.";
+
+/*Button titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_action" = "Grant camera access";
+
+/*Notification Channel name for Ongoing Checkin Notifications on Android Devices (Only visible in System Settings)*/
+"android_ongoing_checkin_notification_channel_name" = "Ongoing Check-in Notification";
+
+/*Titel der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center.*/
+"ongoing_notification_title" = "You are checked in since {TIME}.";
+
+/*Quick Action der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center.*/
+"ongoing_notification_checkout_quick_action" = "Check out";
+
+/*Quick Action bei einer Reminder Notification, welche einen neuen Reminder setzt in 30 Minuten.*/
+"reminder_notification_snooze_action" = "Snooze";

@@ -1,2 +1,2 @@
-"NSCameraUsageDescription" = "Votre caméra est utilisée pour scanner le code QR.";
+"NSCameraUsageDescription" = "Votre caméra est utilisée pour scanner le QR code.";
 "NSFaceIDUsageDescription" = "Activez l'identification par Face ID pour accéder à votre journal.";

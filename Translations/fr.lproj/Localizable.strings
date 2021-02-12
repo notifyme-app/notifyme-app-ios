@@ -15,13 +15,13 @@
 "checkin_button_title" = "Check-in";
 
 /*Homescreen: No Reports title*/
-"no_report_title" = "Aucun rapport";
+"no_report_title" = "Aucune alerte";
 
 /*Check-In: scan code*/
-"checkin_scan_code" = "Scannez le code QR pour vous enregistrer";
+"checkin_scan_code" = "Scannez le QR code pour vous enregistrer";
 
 /*iOS: Text bei Berechtigung für Kamera*/
-"NSCameraUsageDescription" = "Votre caméra est utilisée pour scanner le code QR.";
+"NSCameraUsageDescription" = "Votre caméra est utilisée pour scanner le QR code.";
 
 /*iOS Permission: Text to show for FaceID*/
 "NSFaceIDUsageDescription" = "Activez l'identification par Face ID pour accéder à votre journal.";
@@ -45,22 +45,22 @@
 "checkout_button_title" = "Check out";
 
 /*Title for 1 report*/
-"report_title_singular" = "1 rapport";
+"report_title_singular" = "1 alerte";
 
 /*Reports: Title for multiple reports*/
-"report_title_plural" = "{NUMBER} rapports";
+"report_title_plural" = "{NUMBER} alertes";
 
 /*Reports: Infection text*/
 "report_message_text" = "Il y a un risque d'infection";
 
 /*Highlighted part of Term no_report_hero_text (has to match exactly)*/
-"no_report_hero_text_highlight" = "de vous";
+"no_report_hero_text_highlight" = "Prenez soin de vous";
 
 /*Highlight text of report_message_text (must be exactly as in this text)*/
 "report_message_text_highlight" = "Une infection";
 
 /*QR-Scanner: request for scan text*/
-"qrscanner_scan_qr_text" = "Scannez le code QR pour vous enregistrer.";
+"qrscanner_scan_qr_text" = "Scannez le QR code pour vous enregistrer.";
 
 /*QR Code Scanner: no valid code text*/
 "qrscanner_error" = "Le code n'est pas valide!";
@@ -129,7 +129,7 @@
 "remove_diary_remove_now_button" = "Cacher du journal";
 
 /*Remove from diary warning start text*/
-"remove_diary_warning_star_text" = "l'Application garde cette information de manière cryptée en arrière-plan pendant 14 jours afin de pouvoir vous avertir au cas où il y a un risque d'infection.";
+"remove_diary_warning_star_text" = "L'application garde cette information de manière cryptée en arrière-plan pendant 14 jours afin de pouvoir vous avertir au cas où il y a un risque d'infection.";
 
 /*Report: 1 day ago singular*/
 "report_message_one_day_ago" = "Il y a un jour";
@@ -165,13 +165,13 @@
 "checkin_reminder_settings_alert_message" = "Veuillez modifier les paramètres pour pouvoir recevoir des rappels de départ.";
 
 /*Check In Reminder Alert Open Settings button*/
-"checkin_reminder_option_open_settings" = "Ajuster";
+"checkin_reminder_option_open_settings" = "Réglages";
 
 /*Cancel button title*/
 "cancel" = "Annuler";
 
 /*QR Scanner: camera has no permission explanation text*/
-"qr_scanner_no_camera_permission" = "l'Accès à votre caméra est nécessaire pour scanner le code QR.";
+"qr_scanner_no_camera_permission" = "L'accès à votre caméra est nécessaire pour scanner le QR code.";
 
 /*Title for an exposure notification.*/
 "exposure_notification_title" = "Nouveau message";
@@ -206,7 +206,7 @@
 /*CrowdNotifier Paper link*/
 "imprint_webview_paper_link" = "github.com/CrowdNotifier/documents";
 "imprint_webview_more_info_title" = "Informations supplémentaires";
-"imprint_webview_more_info_link" = "https://notify-me.ch";
+"imprint_webview_more_info_link" = "www.notify-me.ch";
 "imprint_webview_legal_title" = "Indications légales";
 "imprint_webview_legal_link_text" = "Protection des données et conditions d'utilisation";
 "imprint_webview_legal_link_url" = "www.notify-me.ch/agb";
@@ -215,7 +215,7 @@
 "imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
 
 /*Fuzzy*/
-"web_generator_title" = "Créer code QR démo";
+"web_generator_title" = "Créer QR code démo";
 
 /*Fuzzy*/
 "web_generator_category_label" = "Catégorie";
@@ -242,52 +242,52 @@
 "web_generator_subtitle_label" = "Sous-titre";
 
 /*Fuzzy*/
-"web_generator_subtitle_placeholder" = "p. ex. Organisation ou organisateur·trice";
+"web_generator_subtitle_placeholder" = "p. ex. organisation ou organisateur·trice";
 
 /*Fuzzy*/
-"web_generator_addition_label" = "Additif";
+"web_generator_addition_label" = "Complément";
 
 /*Fuzzy*/
-"web_generator_addition_placeholder" = "p. ex. Bâtiment ou lieu";
+"web_generator_addition_placeholder" = "p. ex. bâtiment ou lieu";
 
 /*Fuzzy*/
-"web_generator_generation_button_label" = "Générer un code QR";
+"web_generator_generation_button_label" = "Générer les QR codes";
 
 /*Fuzzy*/
 "web_generator_back" = "Retour";
 
 /*Fuzzy*/
-"web_generator_public_bulletpoint_1" = "Avec ce code QR les visiteurs peuvent s'enregistrer sur place.";
+"web_generator_public_bulletpoint_1" = "Avec ce QR code les visiteurs peuvent s'enregistrer en arrivant.";
 
 /*Fuzzy*/
-"web_generator_public_bulletpoint_2" = "Le code peut être scanné avec NotifyMe";
+"web_generator_public_bulletpoint_2" = "Le code ne peut être scanné avec NotifyMe";
 
 /*Fuzzy*/
-"web_generator_public_bulletpoint_3" = "Aucune données personnelles ne sont saisies. Les enregistrements ne sont pas visibles pour les propriétaires de lieux.";
+"web_generator_public_bulletpoint_3" = "Les check-ins ne seront enregistrés que sur l'appareil des utilisateurs.";
 
 /*Fuzzy*/
-"web_generator_private_bulletpoint_1" = "Ce code QR informe les visiteurs en cas incident.";
+"web_generator_private_bulletpoint_1" = "Ce QR code permet aux visiteurs d'être notifiés en cas incident.";
 
 /*Fuzzy*/
 "web_generator_private_bulletpoint_2" = "Le code peut être scanné avec n'importe quel autre lecteur QR.";
 
 /*Fuzzy*/
-"web_generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information n'est transmise à l'organisateur.";
+"web_generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information sur l'organisateur n'est transmise au serveur.";
 
 /*Fuzzy*/
-"web_generator_pdf_button" = "Télécharger PDF";
+"web_generator_pdf_button" = "Télécharger le PDF";
 
 /*Fuzzy*/
-"web_generator_public_qr_title" = "Code QR\\\n<span>publique</span>\n";
+"web_generator_public_qr_title" = "QR Code\\\n<span>publique</span>\n";
 
 /*Fuzzy*/
-"web_generator_private_qr_title" = "Code QR\\\n<span>privé</span>";
+"web_generator_private_qr_title" = "QR Code\\\n<span>privé</span>";
 
 /*Fuzzy*/
 "web_generator_missing_input" = "Veuillez remplir le champ obligatoire";
 
 /*Fuzzy*/
-"web_upload_title" = "Informer le visiteur";
+"web_upload_title" = "Informer les visiteurs d'un risque d'infection.";
 
 /*Fuzzy*/
 "web_upload_period_label" = "Période concernée";
@@ -299,21 +299,21 @@
 "web_upload_period_to_label" = "à";
 
 /*Fuzzy*/
-"web_upload_note_label" = "Recommandation au visiteur";
+"web_upload_note_label" = "Recommandations aux visiteurs";
 
 /*Fuzzy*/
 "web_upload_note_placeholder" = "Que faire?";
 
 /*Fuzzy*/
-"web_upload_upload_button" = "Informer le visiteur";
+"web_upload_upload_button" = "Informer les visiteurs";
 "error_network_title" = "Erreur de réseau";
 "error_network_text" = "Vérifiez votre connexion internet.";
 "error_notification_deactivated_title" = "Notifications désactivées";
 "error_notification_deactivated_text" = "Veuillez modifier les paramètres pour pouvoir recevoir des rappels par notifications.";
-"error_background_refresh_title" = "Actualisation de l'arrière-plan désactivée";
-"error_background_refresh_text" = "Activez les notifications dans vos réglages pour être informé immédiatement au cas où vous avez reçu un rapport.";
+"error_background_refresh_title" = "Actualisation en arrière-plan désactivée";
+"error_background_refresh_text" = "Activez les notifications dans vos réglages pour être informé immédiatement au cas où vous recevez une alerte.";
 "error_camera_permission_title" = "Accès à la caméra bloqué.";
-"error_camera_permission_text" = "Autorisez l'accès à votre caméra pour pouvoir scanner le code QR.";
+"error_camera_permission_text" = "Autorisez l'accès à votre caméra pour pouvoir scanner le QR code .";
 "error_action_change_settings" = "Modifier les paramètres";
 "error_action_retry" = "Réessayer";
 
@@ -324,7 +324,7 @@
 "web_upload_error_message" = "Téléchargement échoué";
 
 /*Fuzzy*/
-"web_upload_missing_payload" = "Code privé invalable. Scannez un code QR valable.";
+"web_upload_missing_payload" = "Code privé non valable. Scannez un QR code valable.";
 
 /*Titel einer generischen Fehleranzeige*/
 "error_title" = "Erreur";
@@ -336,7 +336,7 @@
 "ok_button" = "Ok";
 
 /*Fuzzy*/
-"web_landing_description" = "Check-ins sauvé de manière décentralisé pour réunions et événements.";
+"web_landing_description" = "Système de check-in pour réunions et événements.";
 
 /*Landing page: iOS app store link URL*/
 /*Fuzzy*/
@@ -371,7 +371,7 @@
 "web_generator_category_lecture_room" = "Auditoire";
 
 /*Fuzzy*/
-"web_generator_category_shop" = "Charger";
+"web_generator_category_shop" = "Commerce";
 
 /*Fuzzy*/
 "web_generator_category_gym" = "Centre de fitness";
@@ -391,23 +391,23 @@
 "onboarding_continue_button" = "Continuer";
 
 /*Titel des Onboarding Screens mit Hinweisen zur Nutzung*/
-"onboarding_hints_for_usage" = "Indication d'utilisation";
+"onboarding_hints_for_usage" = "Conseils d'utilisation";
 
 /*Der farbig markierte Teil des onboarding_hints_for_usage Strings.*/
-"onboarding_hints_for_usage_highlight" = "Indication";
+"onboarding_hints_for_usage_highlight" = "Conseils";
 
 /*Erster Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint1" = "Cette application ne saisit pas des données de contacts obligatoirement et ne peut pas être utilisée à cet effet.";
+"onboarding_hint1" = "Cette application ne remplace pas la collecte obligatoire d'informations.";
 
 /*Zweiter Hinweis auf dem Onboarding Screen mit Hinweisen zur Nutzung*/
-"onboarding_hint2" = "Veuillez aussi lire les conditions générales.";
+"onboarding_hint2" = "Veuillez lire les conditions générales:";
 "onboarding_agb_link" = "https://notify-me.ch/agb";
 "onboarding_agb_link_title" = "www.notify-me.ch/agb";
-"qr_scanner_error_code_not_yet_valid" = "Le code QR n'est pas valide.";
-"qr_scanner_error_code_not_valid_anymore" = "Le code QR n'est plus valide.";
+"qr_scanner_error_code_not_yet_valid" = "Le QR code n'est pas encore valide.";
+"qr_scanner_error_code_not_valid_anymore" = "Le QR code n'est plus valide.";
 
 /*Onboarding: subtitle on first page*/
-"onboarding_subtitle" = "Check-ins sauvé de manière décentralisé pour réunions et événements.";
+"onboarding_subtitle" = "Check-in pour réunions et événements.";
 
 /*qr validity period label used in qr generator web app*/
 "web_qr_validity_period_label" = "Validité (24h max.)";
@@ -430,13 +430,15 @@
 "web_qr_validity_period_invalid_time" = "Date/heure invalide.";
 
 /*Warnungs Text, welcher angezeigt wird, wenn ein inkompatibler QR Code (mit einem neueren QR Code Format) gescannt wurde.*/
-"error_update_text" = "Ce code QR n'est pas compatible avec la version actuelle de l'application. Faite une mise à jour de l'application pour pouvoir scanner le Code QR.";
+"error_update_text" = "Ce QR code n'est pas compatible avec la version actuelle de l'application. Veuillez mettre à jour l'application pour pouvoir scanner le QR code.";
 "web_generator_date_label" = "Valide le";
 "web_generator_date_placeholder" = "Choisir date";
-"web_generator_validity_information" = "Le code QR démo est uniquement valide le jour même.";
+
+/*Fuzzy*/
+"web_generator_validity_information" = "Les codes QR de démonstration ne sont valables que pour un jour à la fois. Pour les codes QR à validité permanente, veuillez <a href=\"mailto:info@notify-me.ch\">nous contacter</a>.";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
-"web_generator_code_validity_message" = "Ce code QR démo est valable le **%d.%m.%Y**";
+"web_generator_code_validity_message" = "Ce code QR de démonstration est valable le **%d.%m.%Y**";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 "web_pdf_code_valid_date_format" = "%d.%m.%Y";
@@ -453,3 +455,44 @@
 /*For sharing on Twitter and Facebook*/
 /*Fuzzy*/
 "web_page_description" = "Un système d'enregistrement décentralisé pour réunions, rencontres et événements.";
+"imprint_webview_feedback" = "Questions, suggestions ou réactions?";
+
+/*Button Text des Löschen-Buttons für eine Exposure-Meldung.*/
+"delete_exposure_button_title" = "Supprimer";
+
+/*Text that is displayed in a Dialog asking the user if the exposure should really be deleted.*/
+"delete_exposure_warning_dialog_text" = "Vous êtes sur le point de supprimer ce rapport d'exposition. Cette action est irréversible. Veuillez confirmer que vous en êtes sûr.";
+
+/*Title of the instant app/app clips onboarding screen*/
+"onboarding_install_app_title" = "La dernière étape...";
+
+/*Explanation of the instant app/app clips onboarding screen*/
+"onboarding_install_app_explanation" = "Installez l'application pour vous enregistrer et pour rester informé en cas d'incidents.";
+
+/*Button text of the instant app/app clips onboarding screen*/
+"onboarding_install_app_button" = "Installer l'application";
+"delete_now_exposure_button_title" = "Supprimer maintenant";
+
+/*Tagebuch: Titel bei leerem Tagebuch*/
+"empty_diary_title" = "Votre journal est vide.";
+
+/*Tagebuch: Text bei leerem Tagebuch*/
+"empty_diary_text" = "Les réunions et événements auxquels vous assistez peuvent être affiché dans votre journal après le check-out.";
+
+/*Text, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_text" = "NotifyMe nécessite l'accès à votre caméra. La caméra ne sera utilisée que pour scanner des QR codes.";
+
+/*Button titel, welcher in einem Popup erscheint um die Camera Permission Abfrage zu erklären.*/
+"camera_permission_dialog_action" = "Accorder l'accès à la caméra.";
+
+/*Notification Channel name for Ongoing Checkin Notifications on Android Devices (Only visible in System Settings)*/
+"android_ongoing_checkin_notification_channel_name" = "Rappel de participation à l'événement";
+
+/*Titel der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center.*/
+"ongoing_notification_title" = "Vous êtes enregistré depuis {TIME}.";
+
+/*Quick Action der Ongoing Notification, welche während des ganzen Check Ins angezeigt wird im Notificaiton Center.*/
+"ongoing_notification_checkout_quick_action" = "Check out";
+
+/*Quick Action bei einer Reminder Notification, welche einen neuen Reminder setzt in 30 Minuten.*/
+"reminder_notification_snooze_action" = "Répéter la notification";

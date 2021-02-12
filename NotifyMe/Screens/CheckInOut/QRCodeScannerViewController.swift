@@ -26,6 +26,8 @@ class QRCodeScannerViewController: BaseSubViewController {
 
     private var timer: Timer?
 
+    public var justCheckedOutByUser: Bool = false
+
     // MARK: - Init
 
     override init() {
@@ -40,6 +42,10 @@ class QRCodeScannerViewController: BaseSubViewController {
     // MARK: - Scanning
 
     public func startScanning() {
+        if justCheckedOutByUser {
+            return
+        }
+
         lastQrCode = nil
         startScanningProcess()
     }
@@ -113,7 +119,10 @@ class QRCodeScannerViewController: BaseSubViewController {
             make.leading.trailing.equalToSuperview().inset(Padding.mediumSmall)
         }
 
-        errorView.errorCallback = handleError(_:)
+        errorView.errorCallback = { [weak self] error in
+            guard let strongSelf = self else { return }
+            strongSelf.handleError(error)
+        }
     }
 
     // MARK: - Start scanning & error

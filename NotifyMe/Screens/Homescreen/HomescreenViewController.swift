@@ -103,7 +103,9 @@ class HomescreenViewController: BaseViewController {
             make.bottom.equalTo(stackView.snp.top).offset(-1.5 * Padding.small)
         }
 
-        // nonProductiveLabel.text = "non_productive_warning".ub_localized
+        #if DEBUG || RELEASE_DEV
+            nonProductiveLabel.text = "non_productive_warning".ub_localized
+        #endif
     }
 
     private func setupButtons() {
