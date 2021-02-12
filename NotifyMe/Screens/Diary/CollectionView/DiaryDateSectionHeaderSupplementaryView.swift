@@ -71,7 +71,7 @@ class DiaryDateSectionHeaderSupplementaryView: UICollectionReusableView {
             }
         } else {
             label.snp.remakeConstraints { make in
-                make.bottom.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: Padding.small))
+                make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: Padding.small))
             }
         }
     }

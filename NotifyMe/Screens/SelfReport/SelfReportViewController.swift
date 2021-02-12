@@ -9,6 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CrowdNotifierSDK
 import UIKit
 
 class SelfReportViewController: LocalAuthenticationViewController {
@@ -16,8 +17,12 @@ class SelfReportViewController: LocalAuthenticationViewController {
 
     private let diaryViewController = DiaryViewController(bypassAuthentication: true) // We already authenticate with the parent view controller
 
+    private let thankyouMessage = Label(.title)
+
     private let bottomContainer = UIView()
     private let bottomButton = BigButton(style: .small, text: "Tagebuch teilen")
+
+    private let backend = Environment.current.backendService
 
     override func handleSuccess() {
         addSubviews()
@@ -30,6 +35,14 @@ class SelfReportViewController: LocalAuthenticationViewController {
         view.addSubview(cancelButton)
         cancelButton.snp.makeConstraints { make in
             make.top.trailing.equalToSuperview().inset(Padding.mediumSmall)
+        }
+
+        thankyouMessage.text = "Vielen Dank & Gute Besserung"
+        thankyouMessage.alpha = 0
+        view.addSubview(thankyouMessage)
+        thankyouMessage.snp.makeConstraints { make in
+            make.top.equalTo(cancelButton.snp.bottom).offset(Padding.mediumSmall)
+            make.leading.trailing.equalToSuperview().inset(Padding.mediumSmall)
         }
 
         addChild(diaryViewController)
@@ -65,6 +78,11 @@ class SelfReportViewController: LocalAuthenticationViewController {
             guard let strongSelf = self else { return }
             strongSelf.dismiss(animated: true)
         }
+
+        bottomButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.uploadDiary()
+        }
     }
 
     private func addContent() {
@@ -90,7 +108,72 @@ class SelfReportViewController: LocalAuthenticationViewController {
         diaryViewController.customHeaderView = headerContainer
     }
 
+    private func uploadDiary() {
+        var entries = DiaryEntryWrapper()
+        entries.diaryEntries = CheckInManager.shared.getDiary().compactMap {
+            guard let checkOutTime = $0.checkOutTime else { return nil }
+
+            var entry = DiaryEntry()
+            entry.name = $0.venue.name
+            entry.location = $0.venue.location
+            entry.room = $0.venue.room
+            entry.venueType = $0.venue.venueType.diaryEntryVenueType
+            entry.checkinTime = UInt64($0.checkInTime.millisecondsSince1970)
+            entry.checkOutTime = UInt64(checkOutTime.millisecondsSince1970)
+            return entry
+        }
+
+        if let body = try? entries.serializedData() {
+            let endpoint = backend.endpoint("debug/diaryEntries", method: .post, body: body)
+
+            let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] _, _, error in
+                guard let strongSelf = self else { return }
+
+                if let e = error {
+                    DispatchQueue.main.async {
+                        let errorModel = ErrorViewModel(title: "Fehler", text: e.localizedDescription, buttonText: "Ok")
+                        let errorVC = ErrorViewController(errorModel: errorModel)
+                        strongSelf.present(errorVC, animated: true, completion: nil)
+                    }
+                } else {
+                    DispatchQueue.main.async {
+                        strongSelf.setFinishedMessage()
+                    }
+                }
+            }
+
+            task.resume()
+        }
+    }
+
+    private func setFinishedMessage() {
+        UIView.animate(withDuration: 0.25) {
+            self.diaryViewController.view.alpha = 0
+            self.thankyouMessage.alpha = 1
+        }
+        bottomButton.title = "Fertig"
+        bottomButton.touchUpCallback = cancelButton.touchUpCallback
+    }
+
     override func handleError(_: Error) {
         dismiss(animated: true)
+    }
+}
+
+extension VenueInfo.VenueType {
+    var diaryEntryVenueType: DiaryEntry.VenueType {
+        switch self {
+        case .other: return .other
+        case .meetingRoom: return .meetingRoom
+        case .cafeteria: return .cafeteria
+        case .privateEvent: return .privateEvent
+        case .canteen: return .canteen
+        case .library: return .library
+        case .lectureRoom: return .lectureRoom
+        case .shop: return .shop
+        case .gym: return .gym
+        case .kitchenArea: return .kitchenArea
+        case .officeSpace: return .officeSpace
+        }
     }
 }
