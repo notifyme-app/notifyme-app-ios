@@ -1,7 +1,7 @@
 <h1 align="center">NotifyMe for iOS</h1>
 <br />
 <div align="center">
-  <img width="180" height="180" src="NotifyMe/Resources/Assets.xcassets/AppIcon.appiconset/appicon@180x180-1.png" />
+  <img width="180" height="180" src="NotifyMe/Resources/Assets.xcassets/AppIcon.appiconset/appicon@1024x1024-60@3x.png" />
   <br />
   <a href="https://testflight.apple.com/join/OqONONgv" target="_blank">Download iOS App</a>
 </div>
