@@ -14,6 +14,15 @@ import Foundation
 class DiaryDateSectionHeaderSupplementaryView: UICollectionReusableView {
     private let label = Label(.boldUppercaseSmall, textColor: .ns_text)
 
+    var customHeaderView: UIView? {
+        willSet {
+            customHeaderView?.removeFromSuperview()
+        }
+        didSet {
+            update()
+        }
+    }
+
     public var date: Date? {
         didSet {
             if let d = date {
@@ -46,6 +55,24 @@ class DiaryDateSectionHeaderSupplementaryView: UICollectionReusableView {
 
         label.snp.makeConstraints { make in
             make.bottom.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: Padding.small))
+        }
+    }
+
+    private func update() {
+        if let view = customHeaderView {
+            addSubview(view)
+            view.snp.makeConstraints { make in
+                make.top.leading.trailing.equalToSuperview()
+            }
+
+            label.snp.remakeConstraints { make in
+                make.top.equalTo(view.snp.bottom).offset(Padding.large)
+                make.bottom.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: Padding.small))
+            }
+        } else {
+            label.snp.remakeConstraints { make in
+                make.bottom.left.right.equalToSuperview().inset(UIEdgeInsets(top: 0, left: 0, bottom: Padding.small, right: Padding.small))
+            }
         }
     }
 }

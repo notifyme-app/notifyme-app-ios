@@ -13,11 +13,10 @@ import CrowdNotifierSDK
 import Foundation
 
 struct CheckIn: UBCodable, Equatable {
-    init(identifier: String, qrCode: String, checkInTime: Date, venue: VenueInfo, hideFromDiary: Bool = false) {
+    init(identifier: String, qrCode: String, checkInTime: Date, venue: VenueInfo) {
         self.identifier = identifier
         self.venue = venue
         self.checkInTime = checkInTime
-        self.hideFromDiary = hideFromDiary
         self.qrCode = qrCode
     }
 
@@ -27,7 +26,6 @@ struct CheckIn: UBCodable, Equatable {
     public var checkInTime: Date
     public var comment: String?
     public var checkOutTime: Date?
-    public var hideFromDiary: Bool
 
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {
         return lhs.identifier == rhs.identifier
@@ -47,11 +45,9 @@ extension CheckIn {
 
     var venuePublicKey: Bytes {
         return Bytes()
-//        return venue.publicKey.bytes
     }
 
     var r1: Bytes {
         return Bytes()
-//        return venue.r1.bytes
     }
 }

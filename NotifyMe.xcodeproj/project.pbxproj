@@ -104,6 +104,8 @@
 		8E81CCA2241FCC7F006F2437 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E81CCA1241FCC7F006F2437 /* Assets.xcassets */; };
 		8E81CCCF241FD813006F2437 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 8E81CCCE241FD813006F2437 /* SnapKit */; };
 		AAF73668242F3D030051E34A /* UIStackView+NS.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAF73667242F3D030051E34A /* UIStackView+NS.swift */; };
+		DC02180A25D413E9003D2612 /* SelfReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC02180925D413E9003D2612 /* SelfReportViewController.swift */; };
+		DC02181225D42879003D2612 /* LocalAuthenticationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC02181125D42879003D2612 /* LocalAuthenticationViewController.swift */; };
 		DC286A26242CE0B9001D5344 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC286A25242CE0B9001D5344 /* Environment.swift */; };
 		DC2B52A6255E948800BDD5E3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B52A5255E948800BDD5E3 /* NotificationManager.swift */; };
 		DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8C22549B08300C2145A /* BaseViewController.swift */; };
@@ -256,6 +258,8 @@
 		8E81CCAB241FCC7F006F2437 /* NotifyMeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NotifyMeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E81CCB1241FCC7F006F2437 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAF73667242F3D030051E34A /* UIStackView+NS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+NS.swift"; sourceTree = "<group>"; };
+		DC02180925D413E9003D2612 /* SelfReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelfReportViewController.swift; sourceTree = "<group>"; };
+		DC02181125D42879003D2612 /* LocalAuthenticationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalAuthenticationViewController.swift; sourceTree = "<group>"; };
 		DC286A25242CE0B9001D5344 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		DC2B52A5255E948800BDD5E3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DC4DD8C22549B08300C2145A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +356,7 @@
 				6EA6A5E3255E6E8E00A66212 /* ModalBaseViewController.swift */,
 				6EA6A614255EE09800A66212 /* NavigationLineView.swift */,
 				DCA01A172565270500AF8C37 /* ErrorViewController.swift */,
+				DC02181125D42879003D2612 /* LocalAuthenticationViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -698,6 +703,14 @@
 			path = NotifyMeTests;
 			sourceTree = "<group>";
 		};
+		DC02180825D413D5003D2612 /* SelfReport */ = {
+			isa = PBXGroup;
+			children = (
+				DC02180925D413E9003D2612 /* SelfReportViewController.swift */,
+			);
+			path = SelfReport;
+			sourceTree = "<group>";
+		};
 		DC286A24242CE0AD001D5344 /* Logic */ = {
 			isa = PBXGroup;
 			children = (
@@ -719,6 +732,7 @@
 		DC286A27242CE1D2001D5344 /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				DC02180825D413D5003D2612 /* SelfReport */,
 				6E77C574256FEAF4000CE918 /* Onboarding */,
 				6E6628F9254AF27900347F06 /* Reports */,
 				6E6628F0254AF24E00347F06 /* Diary */,
@@ -1060,6 +1074,7 @@
 				DC702B17243F70060066C773 /* UIView+NS.swift in Sources */,
 				6E6629A2254C43AD00347F06 /* CenterContentViewController.swift in Sources */,
 				6E66297E254C029700347F06 /* ReusableView.swift in Sources */,
+				DC02181225D42879003D2612 /* LocalAuthenticationViewController.swift in Sources */,
 				6EFF9AE3245AAFC800C98FF3 /* UIImage+UBHelpers.m in Sources */,
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
 				6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */,
@@ -1074,6 +1089,7 @@
 				6E77C576256FEB02000CE918 /* OnboardingViewController.swift in Sources */,
 				DC702B01243F6F640066C773 /* String+NS.swift in Sources */,
 				DC9DA0922566AD1300784A4F /* ErrorCollectionViewCell.swift in Sources */,
+				DC02180A25D413E9003D2612 /* SelfReportViewController.swift in Sources */,
 				6E6628DE254AF1F100347F06 /* CheckInViewController.swift in Sources */,
 				242D227B245D6557005DAEA8 /* Backend.swift in Sources */,
 				6E55057F2553058C000D27B1 /* TextButton.swift in Sources */,

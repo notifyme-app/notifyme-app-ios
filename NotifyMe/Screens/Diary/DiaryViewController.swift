@@ -10,22 +10,29 @@
  */
 
 import Foundation
-import LocalAuthentication
 
-class DiaryViewController: BaseViewController {
-    private let collectionView: DiaryCollectionView
+class DiaryViewController: LocalAuthenticationViewController {
+    let collectionView: DiaryCollectionView
     private let emptyView: DiaryEmptyView
 
     private var diary: [[CheckIn]] = []
     private var exposures: [Exposure] = []
 
+    var customHeaderView: UIView? {
+        didSet {
+            collectionView.reloadData()
+        }
+    }
+
     // MARK: - Init
 
-    override init() {
+    init(bypassAuthentication: Bool = false) {
         collectionView = DiaryCollectionView()
         emptyView = DiaryEmptyView()
 
         super.init()
+
+        self.bypassAuthentication = bypassAuthentication
         title = "diary_title".ub_localized
     }
 
@@ -36,10 +43,9 @@ class DiaryViewController: BaseViewController {
     // MARK: - View
 
     override func viewDidLoad() {
-        super.viewDidLoad()
-
         setup()
-        authenticate()
+
+        super.viewDidLoad()
     }
 
     // MARK: - Collection View
@@ -74,33 +80,6 @@ class DiaryViewController: BaseViewController {
         emptyView.alpha = 0.0
     }
 
-    // MARK: - Authentication
-
-    func authenticate() {
-        let context = LAContext()
-        var error: NSError?
-
-        // check whether biometric authentication is possible
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
-            context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "face_id_reason_text".ub_localized) { success, authenticationError in
-                DispatchQueue.main.async {
-                    if success {
-                        self.showDiary()
-                    } else {
-                        if let err = authenticationError {
-                            self.handleError(err)
-                        } else {
-                            self.showDiary()
-                        }
-                    }
-                }
-            }
-        } else {
-            // no biometrics
-            showDiary()
-        }
-    }
-
     private func showDiary() {
         UIStateManager.shared.addObserver(self) { [weak self] state in
             guard let strongSelf = self else { return }
@@ -124,7 +103,11 @@ class DiaryViewController: BaseViewController {
         collectionView.reloadData()
     }
 
-    private func handleError(_: Error) {
+    override func handleSuccess() {
+        showDiary()
+    }
+
+    override internal func handleError(_: Error) {
         navigationController?.popViewController(animated: true)
     }
 }
@@ -134,8 +117,14 @@ extension DiaryViewController: UICollectionViewDelegateFlowLayout {
         return diary.count
     }
 
-    func collectionView(_: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection _: Int) -> CGSize {
-        return CGSize(width: view.bounds.width, height: 56.0)
+    func collectionView(_ collectionView: UICollectionView, layout _: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        if section == 0 {
+            let indexPath = IndexPath(item: 0, section: section)
+            let headerView = self.collectionView(collectionView, viewForSupplementaryElementOfKind: UICollectionView.elementKindSectionHeader, at: indexPath)
+            return headerView.systemLayoutSizeFitting(CGSize(width: collectionView.frame.width, height: UIView.layoutFittingExpandedSize.height), withHorizontalFittingPriority: .required, verticalFittingPriority: .fittingSizeLevel)
+        } else {
+            return CGSize(width: view.bounds.width, height: 56.0)
+        }
     }
 
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -169,6 +158,10 @@ extension DiaryViewController: UICollectionViewDataSource {
 
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, for: indexPath) as DiaryDateSectionHeaderSupplementaryView
         headerView.date = diary[indexPath.section].first?.checkInTime
+
+        if indexPath.section == 0 {
+            headerView.customHeaderView = customHeaderView
+        }
 
         return headerView
     }

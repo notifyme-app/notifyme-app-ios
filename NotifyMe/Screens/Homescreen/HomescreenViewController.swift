@@ -17,6 +17,7 @@ class HomescreenViewController: BaseViewController {
     private let reportViewController = HomescreenReportViewController()
     private let headerView = HomescreenHeaderView()
 
+    private let selfReportButton = BigButton(style: .small, text: "Positiv?")
     private let checkInButton = CheckInButton()
     private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
     private let nonProductiveLabel = Label(.boldUppercaseSmall, textColor: .ns_red)
@@ -103,6 +104,12 @@ class HomescreenViewController: BaseViewController {
             make.bottom.equalTo(stackView.snp.top).offset(-1.5 * Padding.small)
         }
 
+        view.addSubview(selfReportButton)
+        selfReportButton.snp.makeConstraints { make in
+            make.leading.equalTo(stackView)
+            make.bottom.equalTo(nonProductiveLabel.snp.top).offset(-Padding.small)
+        }
+
         #if DEBUG || RELEASE_DEV
             nonProductiveLabel.text = "non_productive_warning".ub_localized
         #endif
@@ -132,6 +139,11 @@ class HomescreenViewController: BaseViewController {
             let vc = WebViewController(mode: .local("impressum"))
             strongSelf.present(vc, animated: true, completion: nil)
         }
+
+        selfReportButton.touchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.present(SelfReportViewController(), animated: true)
+        }
     }
 
     private func setupPersonView() {
@@ -146,7 +158,7 @@ class HomescreenViewController: BaseViewController {
         let padding = small ? Padding.medium : 2.0 * Padding.medium
 
         personImageView.snp.makeConstraints { make in
-            make.bottom.greaterThanOrEqualTo(nonProductiveLabel.snp.top).offset(-padding).priority(.medium)
+            make.bottom.greaterThanOrEqualTo(selfReportButton.snp.top).offset(-padding).priority(.medium)
             make.right.equalToSuperview().inset(Padding.medium + 8.0)
         }
     }
