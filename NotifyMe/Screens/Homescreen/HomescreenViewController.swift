@@ -17,7 +17,7 @@ class HomescreenViewController: BaseViewController {
     private let reportViewController = HomescreenReportViewController()
     private let headerView = HomescreenHeaderView()
 
-    private let selfReportButton = BigButton(style: .small, text: "Positiv?")
+    private let selfReportButton = BigButton(style: .small, text: "report_positive_button_title".ub_localized)
     private let checkInButton = CheckInButton()
     private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
     private let nonProductiveLabel = Label(.boldUppercaseSmall, textColor: .ns_red)

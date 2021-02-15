@@ -447,7 +447,7 @@
 "web_date_picker_format" = "d.m.Y";
 
 /*https://flatpickr.js.org/formatting/*/
-"web_date_picker_format_with_time" = "d.m.Y";
+"web_date_picker_format_with_time" = "d.m.Y H:i";
 
 /*For sharing on Twitter and Facebook*/
 "web_page_title" = "NotifyMe";
@@ -496,3 +496,18 @@
 
 /*Quick Action bei einer Reminder Notification, welche einen neuen Reminder setzt in 30 Minuten.*/
 "reminder_notification_snooze_action" = "Répéter la notification";
+
+/*Text des Homescreen Buttons um sich als positiv getestet zu melden*/
+"report_positive_button_title" = "";
+
+/*Titel des Tagebuch teilen Screens*/
+"report_positive_share_diary_title" = "";
+
+/*Untertitel des Tagebuch teilen Screens*/
+"report_positive_share_diary_subtitle" = "";
+
+/*Test des Tagebuch teilen Buttons*/
+"report_positive_share_diary_button_title" = "";
+
+/*Titel nach erfolgreichem Tagebuch teilen*/
+"report_positive_success_title" = "";

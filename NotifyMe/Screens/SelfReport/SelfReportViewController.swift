@@ -13,14 +13,14 @@ import CrowdNotifierSDK
 import UIKit
 
 class SelfReportViewController: LocalAuthenticationViewController {
-    private let cancelButton = TextButton(text: "Abbrechen")
+    private let cancelButton = TextButton(text: "cancel".ub_localized)
 
     private let diaryViewController = DiaryViewController(bypassAuthentication: true) // We already authenticate with the parent view controller
 
     private let thankyouMessage = Label(.title)
 
     private let bottomContainer = UIView()
-    private let bottomButton = BigButton(style: .small, text: "Tagebuch teilen")
+    private let bottomButton = BigButton(style: .small, text: "report_positive_share_diary_button_title".ub_localized)
 
     private let backend = Environment.current.backendService
 
@@ -37,7 +37,7 @@ class SelfReportViewController: LocalAuthenticationViewController {
             make.top.trailing.equalToSuperview().inset(Padding.mediumSmall)
         }
 
-        thankyouMessage.text = "Vielen Dank & Gute Besserung"
+        thankyouMessage.text = "report_positive_success_title".ub_localized
         thankyouMessage.alpha = 0
         view.addSubview(thankyouMessage)
         thankyouMessage.snp.makeConstraints { make in
@@ -87,10 +87,10 @@ class SelfReportViewController: LocalAuthenticationViewController {
 
     private func addContent() {
         let title = Label(.title)
-        title.text = "Sie wurden positiv getestet?"
+        title.text = "report_positive_share_diary_title".ub_localized
 
         let explanation = Label(.text)
-        explanation.text = "Unterstützen Sie das Contact Tracing, indem Sie Ihr Tagebuch teilen."
+        explanation.text = "report_positive_share_diary_subtitle".ub_localized
 
         let headerContainer = UIView()
         headerContainer.addSubview(title)
@@ -110,6 +110,7 @@ class SelfReportViewController: LocalAuthenticationViewController {
 
     private func uploadDiary() {
         var entries = DiaryEntryWrapper()
+        entries.version = 1
         entries.diaryEntries = CheckInManager.shared.getDiary().compactMap {
             guard let checkOutTime = $0.checkOutTime else { return nil }
 
@@ -124,19 +125,20 @@ class SelfReportViewController: LocalAuthenticationViewController {
         }
 
         if let body = try? entries.serializedData() {
-            let endpoint = backend.endpoint("debug/diaryEntries", method: .post, body: body)
+            let endpoint = backend.endpoint("debug/diaryEntries",
+                                            method: .post,
+                                            headers: ["Content-Type": "application/x-protobuf"],
+                                            body: body)
 
             let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] _, _, error in
                 guard let strongSelf = self else { return }
 
-                if let e = error {
-                    DispatchQueue.main.async {
-                        let errorModel = ErrorViewModel(title: "Fehler", text: e.localizedDescription, buttonText: "Ok")
+                DispatchQueue.main.async {
+                    if let e = error {
+                        let errorModel = ErrorViewModel(title: "error_title".ub_localized, text: e.localizedDescription, buttonText: "ok_button".ub_localized)
                         let errorVC = ErrorViewController(errorModel: errorModel)
                         strongSelf.present(errorVC, animated: true, completion: nil)
-                    }
-                } else {
-                    DispatchQueue.main.async {
+                    } else {
                         strongSelf.setFinishedMessage()
                     }
                 }
@@ -151,7 +153,7 @@ class SelfReportViewController: LocalAuthenticationViewController {
             self.diaryViewController.view.alpha = 0
             self.thankyouMessage.alpha = 1
         }
-        bottomButton.title = "Fertig"
+        bottomButton.title = "done_button".ub_localized
         bottomButton.touchUpCallback = cancelButton.touchUpCallback
     }
 
