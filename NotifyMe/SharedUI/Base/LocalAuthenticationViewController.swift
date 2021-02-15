@@ -30,7 +30,7 @@ class LocalAuthenticationViewController: BaseViewController {
         var error: NSError?
 
         // check whether biometric authentication is possible
-        if context.canEvaluatePolicy(.deviceOwnerAuthenticationWithBiometrics, error: &error) {
+        if context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) {
             context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: "face_id_reason_text".ub_localized) { success, authenticationError in
                 DispatchQueue.main.async {
                     if success {
