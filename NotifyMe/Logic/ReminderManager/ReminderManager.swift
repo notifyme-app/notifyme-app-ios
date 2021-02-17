@@ -23,7 +23,11 @@ enum ReminderOption: Int, UBCodable, CaseIterable {
         case .off:
             return "reminder_option_off".ub_localized.uppercased()
         case .thirtyMinutes:
-            return "reminder_option_minutes".ub_localized.replacingOccurrences(of: "{MINUTES}", with: "30")
+            #if RELEASE_DEV
+                return "reminder_option_minutes".ub_localized.replacingOccurrences(of: "{MINUTES}", with: "5")
+            #else
+                return "reminder_option_minutes".ub_localized.replacingOccurrences(of: "{MINUTES}", with: "30")
+            #endif
         case .oneHour:
             return "reminder_option_hours".ub_localized.replacingOccurrences(of: "{HOURS}", with: "1")
         case .twoHours:
@@ -40,6 +44,8 @@ enum ReminderOption: Int, UBCodable, CaseIterable {
         case .thirtyMinutes:
             #if DEBUG
                 return 30 * .second
+            #elseif RELEASE_DEV
+                return 5 * .minute
             #else
                 return 30 * .minute
             #endif
@@ -71,13 +77,11 @@ class ReminderManager: NSObject {
             return
         }
 
-        NotificationManager.shared.requestAuthorization { granted, _ in
-            if granted {
+        NotificationManager.shared.requestAuthorization { granted, error in
+            if granted && error == nil {
                 NotificationManager.shared.scheduleReminderNotification(after: option.timeInterval)
             } else {
-                DispatchQueue.main.async {
-                    didFailCallback()
-                }
+                didFailCallback()
             }
         }
     }

@@ -35,8 +35,8 @@ class NotificationManager {
 
             DispatchQueue.main.async {
                 UIStateManager.shared.stateChanged()
+                completion(success, error)
             }
-            completion(success, error)
         }
     }
 
