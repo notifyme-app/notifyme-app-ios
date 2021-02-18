@@ -30,7 +30,10 @@ class UIStateManager: NSObject {
     // MARK: - Refresh triggers
 
     public func stateChanged() {
-        refresh()
+        DispatchQueue.main.async {
+            guard UIApplication.shared.applicationState == .active else { return }
+            self.refresh()
+        }
     }
 
     // MARK: - UI State Update

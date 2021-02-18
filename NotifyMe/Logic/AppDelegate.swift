@@ -43,7 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_: UIApplication) {
         clearBadge()
 
+        ProblematicEventsManager.shared.sync { _, _ in }
+
         NotificationManager.shared.checkAuthorization()
+        NotificationManager.shared.resetBackgroundTaskWarningTriggers()
+
         startForceUpdateCheck()
     }
 
@@ -83,12 +87,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Background refresh
 
     private let minimumBackgroundFetchInterval: TimeInterval = .hour * 3
+    private var backgroundTask = UIBackgroundTaskIdentifier.invalid
 
     private func setupBackgroundTasks() {
         UIApplication.shared.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
     }
 
     func application(_: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        if backgroundTask == .invalid {
+            backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+                guard let self = self else {
+                    return
+                }
+
+                if self.backgroundTask != .invalid {
+                    UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                    self.backgroundTask = .invalid
+                }
+            }
+        }
+
         #if DEBUG || RELEASE_DEV
             NotificationManager.shared.showDebugNotification(title: "Background fetch started", body: "Time: \(Date())")
         #endif
@@ -102,7 +120,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if needsNotification {
                     NotificationManager.shared.showExposureNotification()
                 }
+
+                // data are updated -> reschedule background task warning triggers
+                NotificationManager.shared.resetBackgroundTaskWarningTriggers()
+
                 completionHandler(.newData)
+            }
+
+            if self.backgroundTask != .invalid {
+                UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                self.backgroundTask = .invalid
             }
         }
     }

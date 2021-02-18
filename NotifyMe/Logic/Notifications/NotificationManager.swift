@@ -14,6 +14,7 @@ import Foundation
 struct NotificationType {
     static let reminder = "ch.notify-me.notificationtype.reminder"
     static let exposure = "ch.notify-me.notificationtype.exposure"
+    static let backgroundTaskWarningTrigger = "ch.notify-me.notificationtype.backgroundtaskwarning"
 }
 
 class NotificationManager {
@@ -21,12 +22,20 @@ class NotificationManager {
 
     private let notificationCenter = UNUserNotificationCenter.current()
 
+    private let syncNotificationIdentifier1 = "ch.notifyme.notification.syncWarning1"
+    private let syncNotificationIdentifier2 = "ch.notifyme.notification.syncWarning2"
+
+    @UBOptionalUserDefault(key: "ch.notify-me.reminderNotificationId")
     private var reminderNotificationId: String?
+
+    @UBUserDefault(key: "ch.notify-me.hasCheckedOutOnce", defaultValue: false)
+    var hasCheckedOutOnce: Bool
 
     var notificationCategories: Set<UNNotificationCategory> {
         return Set(arrayLiteral:
             UNNotificationCategory(identifier: NotificationType.reminder, actions: [], intentIdentifiers: [], options: []),
-            UNNotificationCategory(identifier: NotificationType.exposure, actions: [], intentIdentifiers: [], options: []))
+            UNNotificationCategory(identifier: NotificationType.exposure, actions: [], intentIdentifiers: [], options: []),
+            UNNotificationCategory(identifier: NotificationType.backgroundTaskWarningTrigger, actions: [], intentIdentifiers: [], options: []))
     }
 
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
@@ -35,8 +44,8 @@ class NotificationManager {
 
             DispatchQueue.main.async {
                 UIStateManager.shared.stateChanged()
+                completion(success, error)
             }
-            completion(success, error)
         }
     }
 
@@ -84,6 +93,24 @@ class NotificationManager {
         notification.sound = .default
 
         notificationCenter.add(UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil))
+    }
+
+    func resetBackgroundTaskWarningTriggers() {
+        guard hasCheckedOutOnce else { return }
+
+        // Adding a request with the same identifier again automatically cancels an existing request with that identifier, if present
+        scheduleSyncWarningNotification(delay: .day * 2, identifier: syncNotificationIdentifier1)
+        scheduleSyncWarningNotification(delay: .day * 7, identifier: syncNotificationIdentifier2)
+    }
+
+    private func scheduleSyncWarningNotification(delay: TimeInterval, identifier: String) {
+        let content = UNMutableNotificationContent()
+        content.categoryIdentifier = NotificationType.backgroundTaskWarningTrigger
+        content.title = "sync_warning_notification_title".ub_localized
+        content.body = "sync_warning_notification_text".ub_localized
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        notificationCenter.add(request, withCompletionHandler: nil)
     }
 
     func showDebugNotification(title: String, body: String) {
