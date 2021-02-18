@@ -509,3 +509,25 @@ Die Demo QR-Codes sind jeweils nur an einem Tag gültig. Für QR-Codes mit dauer
 
 /*Quick Action bei einer Reminder Notification, welche einen neuen Reminder setzt in 30 Minuten.*/
 "reminder_notification_snooze_action" = "Snooze";
+
+/*Text des Homescreen Buttons um sich als positiv getestet zu melden*/
+"report_positive_button_title" = "Positiv?";
+
+/*Titel des Tagebuch teilen Screens*/
+"report_positive_share_diary_title" = "Sie wurden positiv getestet?";
+
+/*Untertitel des Tagebuch teilen Screens*/
+"report_positive_share_diary_subtitle" = "Unterstützen Sie das Contact Tracing, indem Sie Ihr Tagebuch teilen.";
+
+/*Test des Tagebuch teilen Buttons*/
+"report_positive_share_diary_button_title" = "Tagebuch teilen";
+
+/*Titel nach erfolgreichem Tagebuch teilen*/
+"report_positive_success_title" = "Vielen Dank & Gute Besserung";
+
+/*iOS: Titel Popup nach 2 Tagen*/
+"sync_warning_notification_title" = "App synchronisieren";
+
+/*Sync Warning: Popup nach 2 Tagen Text*/
+/*Fuzzy*/
+"sync_warning_notification_text" = "Öffnen Sie die App, um die Liste der gemeldeten zufälligen IDs abzugleichen.";

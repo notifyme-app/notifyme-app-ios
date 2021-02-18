@@ -43,7 +43,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidBecomeActive(_: UIApplication) {
         clearBadge()
 
+        ProblematicEventsManager.shared.sync { _, _ in }
+
         NotificationManager.shared.checkAuthorization()
+        NotificationManager.shared.scheduleTwoDayCheck()
+
         startForceUpdateCheck()
     }
 
