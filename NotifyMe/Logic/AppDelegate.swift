@@ -98,6 +98,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
                 if self.backgroundTask != .invalid {
                     UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                    self.backgroundTask = .invalid
                 }
             }
         }
@@ -120,6 +121,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
             if self.backgroundTask != .invalid {
                 UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                self.backgroundTask = .invalid
             }
         }
     }
