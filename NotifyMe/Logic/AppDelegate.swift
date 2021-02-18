@@ -46,7 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ProblematicEventsManager.shared.sync { _, _ in }
 
         NotificationManager.shared.checkAuthorization()
-        NotificationManager.shared.scheduleTwoDayCheck()
+        NotificationManager.shared.resetBackgroundTaskWarningTriggers()
 
         startForceUpdateCheck()
     }
@@ -120,6 +120,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 if needsNotification {
                     NotificationManager.shared.showExposureNotification()
                 }
+
+                // data are updated -> reschedule background task warning triggers
+                NotificationManager.shared.resetBackgroundTaskWarningTriggers()
+
                 completionHandler(.newData)
             }
 

@@ -14,7 +14,7 @@ import Foundation
 struct NotificationType {
     static let reminder = "ch.notify-me.notificationtype.reminder"
     static let exposure = "ch.notify-me.notificationtype.exposure"
-    static let twoDayCheck = "ch.notify-me.notificationtype.twoDayCheck"
+    static let backgroundTaskWarningTrigger = "ch.notify-me.notificationtype.backgroundtaskwarning"
 }
 
 class NotificationManager {
@@ -22,11 +22,11 @@ class NotificationManager {
 
     private let notificationCenter = UNUserNotificationCenter.current()
 
+    private let syncNotificationIdentifier1 = "ch.notifyme.notification.syncWarning1"
+    private let syncNotificationIdentifier2 = "ch.notifyme.notification.syncWarning2"
+
     @UBOptionalUserDefault(key: "ch.notify-me.reminderNotificationId")
     private var reminderNotificationId: String?
-
-    @UBOptionalUserDefault(key: "ch.notify-me.twoDayCheckNotificationId")
-    private var twoDayCheckNotificationId: String?
 
     @UBUserDefault(key: "ch.notify-me.hasCheckedOutOnce", defaultValue: false)
     var hasCheckedOutOnce: Bool
@@ -35,7 +35,7 @@ class NotificationManager {
         return Set(arrayLiteral:
             UNNotificationCategory(identifier: NotificationType.reminder, actions: [], intentIdentifiers: [], options: []),
             UNNotificationCategory(identifier: NotificationType.exposure, actions: [], intentIdentifiers: [], options: []),
-            UNNotificationCategory(identifier: NotificationType.twoDayCheck, actions: [], intentIdentifiers: [], options: []))
+            UNNotificationCategory(identifier: NotificationType.backgroundTaskWarningTrigger, actions: [], intentIdentifiers: [], options: []))
     }
 
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
@@ -95,28 +95,22 @@ class NotificationManager {
         notificationCenter.add(UNNotificationRequest(identifier: UUID().uuidString, content: notification, trigger: nil))
     }
 
-    func scheduleTwoDayCheck() {
+    func resetBackgroundTaskWarningTriggers() {
         guard hasCheckedOutOnce else { return }
 
-        removeCurrentTwoDayCheckNotification()
-
-        let notification = UNMutableNotificationContent()
-        notification.categoryIdentifier = NotificationType.twoDayCheck
-        notification.title = "sync_warning_notification_title".ub_localized
-        notification.body = "sync_warning_notification_text".ub_localized
-        notification.sound = .default
-
-        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: .day * 2, repeats: false)
-        let id = UUID().uuidString
-        notificationCenter.add(UNNotificationRequest(identifier: id, content: notification, trigger: trigger))
-        twoDayCheckNotificationId = id
+        // Adding a request with the same identifier again automatically cancels an existing request with that identifier, if present
+        scheduleSyncWarningNotification(delay: .day * 2, identifier: syncNotificationIdentifier1)
+        scheduleSyncWarningNotification(delay: .day * 7, identifier: syncNotificationIdentifier2)
     }
 
-    private func removeCurrentTwoDayCheckNotification() {
-        if let id = twoDayCheckNotificationId {
-            notificationCenter.removePendingNotificationRequests(withIdentifiers: [id])
-            twoDayCheckNotificationId = nil
-        }
+    private func scheduleSyncWarningNotification(delay: TimeInterval, identifier: String) {
+        let content = UNMutableNotificationContent()
+        content.categoryIdentifier = NotificationType.backgroundTaskWarningTrigger
+        content.title = "sync_warning_notification_title".ub_localized
+        content.body = "sync_warning_notification_text".ub_localized
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        notificationCenter.add(request, withCompletionHandler: nil)
     }
 
     func showDebugNotification(title: String, body: String) {

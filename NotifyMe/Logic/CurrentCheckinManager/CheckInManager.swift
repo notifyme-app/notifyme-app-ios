@@ -69,7 +69,7 @@ class CheckInManager {
             switch result {
             case let .success(id):
                 NotificationManager.shared.hasCheckedOutOnce = true
-                NotificationManager.shared.scheduleTwoDayCheck()
+                NotificationManager.shared.resetBackgroundTaskWarningTriggers()
                 cc.identifier = id
                 saveAdditionalInfo(checkIn: cc)
             case .failure:
