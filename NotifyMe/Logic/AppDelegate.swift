@@ -90,9 +90,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var backgroundTask = UIBackgroundTaskIdentifier.invalid
 
     private func setupBackgroundTasks() {
-        UIApplication.shared.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
+        if #available(iOS 13.0, *) {
+            BackgroundTaskManager.shared.setup()
+        } else {
+            UIApplication.shared.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
+        }
     }
 
+    // Only for iOS <= 12. For iOS > 12, the `BackgroundTaskManager` class is used.
     func application(_: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if backgroundTask == .invalid {
             backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
