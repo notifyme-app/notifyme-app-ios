@@ -199,7 +199,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if category == NotificationType.exposure {
             switch UIStateManager.shared.uiState.exposureState {
             case let .exposure(exposures, _):
-                guard let newest = exposures.last else {
+                guard let newest = exposures.first else {
                     return
                 }
 
