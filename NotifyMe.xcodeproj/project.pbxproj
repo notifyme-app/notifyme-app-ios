@@ -879,7 +879,7 @@
 			attributes = {
 				CLASSPREFIX = "";
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1230;
+				LastUpgradeCheck = 1240;
 				ORGANIZATIONNAME = "Ubique Innovation AG";
 				TargetAttributes = {
 					8E81CC94241FCC7D006F2437 = {

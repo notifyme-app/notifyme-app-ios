@@ -112,4 +112,10 @@ class CheckInViewController: BaseViewController {
         titleTimer?.invalidate()
         titleTimer = nil
     }
+
+    // MARK: - Scanning
+
+    func startScanning() {
+        qrCodeViewController?.startScanning()
+    }
 }

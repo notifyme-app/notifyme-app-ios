@@ -69,7 +69,7 @@ class ReminderManager: NSObject {
 
     // MARK: - Public API
 
-    public func scheduleReminder(for _: String, with option: ReminderOption, didFailCallback: @escaping (() -> Void)) {
+    public func scheduleReminder(with option: ReminderOption, didFailCallback: @escaping (() -> Void)) {
         currentReminder = option
 
         if option == .off {
