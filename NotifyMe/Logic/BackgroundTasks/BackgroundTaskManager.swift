@@ -39,12 +39,12 @@ class BackgroundTaskManager {
 
     private func handleRefreshTask(_ task: BGTask) {
         #if DEBUG || RELEASE_DEV
-            NotificationManager.shared.showDebugNotification(title: "Background fetch started", body: "Time: \(Date())")
+            NotificationManager.shared.showDebugNotification(title: "[iOS >= 13 BGTask] Background fetch started", body: "Time: \(Date())")
         #endif
         scheduleBackgroundTasks()
         ProblematicEventsManager.shared.sync(isBackgroundFetch: true) { newData, needsNotification in
             #if DEBUG || RELEASE_DEV
-                NotificationManager.shared.showDebugNotification(title: "Sync completed", body: "Time: \(Date()), newData: \(newData), needsNotification: \(needsNotification)")
+                NotificationManager.shared.showDebugNotification(title: "[iOS >= 13 BGTask] Sync completed", body: "Time: \(Date()), newData: \(newData), needsNotification: \(needsNotification)")
             #endif
             if newData {
                 if needsNotification {

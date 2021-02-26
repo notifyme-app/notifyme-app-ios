@@ -29,7 +29,7 @@ class CheckInConfirmViewController: BaseViewController {
         self.venueInfo = venueInfo
         super.init()
 
-        customTitle = LargeTitleNavigationControllerCustomTitle(image: nil, color: .ns_purple, title: "Hier einchecken?")
+        customTitle = LargeTitleNavigationControllerCustomTitle(image: nil, color: .ns_purple, title: "check_in_screen_title".ub_localized)
     }
 
     required init?(coder _: NSCoder) {

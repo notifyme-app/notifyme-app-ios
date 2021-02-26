@@ -121,11 +121,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         #if DEBUG || RELEASE_DEV
-            NotificationManager.shared.showDebugNotification(title: "Background fetch started", body: "Time: \(Date())")
+            NotificationManager.shared.showDebugNotification(title: "[iOS <= 12 BGTask] Background fetch started", body: "Time: \(Date())")
         #endif
         ProblematicEventsManager.shared.sync(isBackgroundFetch: true) { newData, needsNotification in
             #if DEBUG || RELEASE_DEV
-                NotificationManager.shared.showDebugNotification(title: "Sync completed", body: "Time: \(Date()), newData: \(newData), needsNotification: \(needsNotification)")
+                NotificationManager.shared.showDebugNotification(title: "[iOS <= 12 BGTask] Sync completed", body: "Time: \(Date()), newData: \(newData), needsNotification: \(needsNotification)")
             #endif
             if !newData {
                 completionHandler(.noData)
