@@ -138,6 +138,14 @@
 		DCB4430D242DD34700F19AA5 /* Inter-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D2B242D04290017C4F9 /* Inter-Regular.ttf */; };
 		DCB4430E242DD34700F19AA5 /* Inter-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 6E7C0D27242D04280017C4F9 /* Inter-SemiBold.ttf */; };
 		DCCB96E025679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCB96DF25679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift */; };
+		DCD9758925E8CBC1004B63DB /* UBPushRegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9758325E8CBC1004B63DB /* UBPushRegistrationManager.swift */; };
+		DCD9758A25E8CBC1004B63DB /* UBPushHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9758425E8CBC1004B63DB /* UBPushHandler.swift */; };
+		DCD9758B25E8CBC1004B63DB /* UBPushLocalStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9758525E8CBC1004B63DB /* UBPushLocalStorage.swift */; };
+		DCD9758C25E8CBC1004B63DB /* UBPushManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9758625E8CBC1004B63DB /* UBPushManagerError.swift */; };
+		DCD9758D25E8CBC1004B63DB /* UBPushManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9758725E8CBC1004B63DB /* UBPushManager.swift */; };
+		DCD9759A25E8CE8E004B63DB /* PushRegistrationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9759925E8CE8E004B63DB /* PushRegistrationManager.swift */; };
+		DCD975A025E8CEB5004B63DB /* PushHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD9759F25E8CEB5004B63DB /* PushHandler.swift */; };
+		DCD975A925E8D045004B63DB /* PushRegistration.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCD975A825E8D045004B63DB /* PushRegistration.pb.swift */; };
 		DCDC9B2225E3EA5E00C2AA0A /* BackgroundTaskManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC9B2125E3EA5E00C2AA0A /* BackgroundTaskManager.swift */; };
 		F84089EC2493695200A66CD1 /* Keychain.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089EB2493695200A66CD1 /* Keychain.swift */; };
 		F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F84089ED2493696500A66CD1 /* KeychainPersisted.swift */; };
@@ -285,6 +293,15 @@
 		DCA01A1C25652B7700AF8C37 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		DCBC0FB125A763910032B913 /* ProblematicEvents.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = ProblematicEvents.proto; sourceTree = "<group>"; };
 		DCCB96DF25679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+CaseInsensitiveKey.swift"; sourceTree = "<group>"; };
+		DCD9758325E8CBC1004B63DB /* UBPushRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushRegistrationManager.swift; sourceTree = "<group>"; };
+		DCD9758425E8CBC1004B63DB /* UBPushHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushHandler.swift; sourceTree = "<group>"; };
+		DCD9758525E8CBC1004B63DB /* UBPushLocalStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushLocalStorage.swift; sourceTree = "<group>"; };
+		DCD9758625E8CBC1004B63DB /* UBPushManagerError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushManagerError.swift; sourceTree = "<group>"; };
+		DCD9758725E8CBC1004B63DB /* UBPushManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushManager.swift; sourceTree = "<group>"; };
+		DCD9759925E8CE8E004B63DB /* PushRegistrationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushRegistrationManager.swift; sourceTree = "<group>"; };
+		DCD9759F25E8CEB5004B63DB /* PushHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushHandler.swift; sourceTree = "<group>"; };
+		DCD975A725E8D008004B63DB /* PushRegistration.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = PushRegistration.proto; sourceTree = "<group>"; };
+		DCD975A825E8D045004B63DB /* PushRegistration.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushRegistration.pb.swift; sourceTree = "<group>"; };
 		DCDC9B2125E3EA5E00C2AA0A /* BackgroundTaskManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundTaskManager.swift; sourceTree = "<group>"; };
 		F84089EB2493695200A66CD1 /* Keychain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keychain.swift; sourceTree = "<group>"; };
 		F84089ED2493696500A66CD1 /* KeychainPersisted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainPersisted.swift; sourceTree = "<group>"; };
@@ -714,6 +731,7 @@
 				24780AFF242DF970003BB26C /* Networking */,
 				DCDC9B2025E3EA4400C2AA0A /* BackgroundTasks */,
 				DC8B5D8F2549675600B922DB /* Helpers */,
+				DCD9758125E8CBA4004B63DB /* Push */,
 				DC9DA087256665E000784A4F /* ErrorViewModel.swift */,
 			);
 			path = Logic;
@@ -814,6 +832,30 @@
 				DC9DA08C2566A69800784A4F /* SmallErrorView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		DCD9758125E8CBA4004B63DB /* Push */ = {
+			isa = PBXGroup;
+			children = (
+				DCD9759925E8CE8E004B63DB /* PushRegistrationManager.swift */,
+				DCD9759F25E8CEB5004B63DB /* PushHandler.swift */,
+				DCD975A825E8D045004B63DB /* PushRegistration.pb.swift */,
+				DCD975A725E8D008004B63DB /* PushRegistration.proto */,
+				DCD9759E25E8CEA4004B63DB /* UBPush */,
+			);
+			path = Push;
+			sourceTree = "<group>";
+		};
+		DCD9759E25E8CEA4004B63DB /* UBPush */ = {
+			isa = PBXGroup;
+			children = (
+				DCD9758425E8CBC1004B63DB /* UBPushHandler.swift */,
+				DCD9758525E8CBC1004B63DB /* UBPushLocalStorage.swift */,
+				DCD9758725E8CBC1004B63DB /* UBPushManager.swift */,
+				DCD9758625E8CBC1004B63DB /* UBPushManagerError.swift */,
+				DCD9758325E8CBC1004B63DB /* UBPushRegistrationManager.swift */,
+			);
+			path = UBPush;
 			sourceTree = "<group>";
 		};
 		DCDC9B2025E3EA4400C2AA0A /* BackgroundTasks */ = {
@@ -1034,6 +1076,7 @@
 				6E6628FB254AF28800347F06 /* ReportsViewController.swift in Sources */,
 				2485F4782456185100C3D8C3 /* DebugLog.swift in Sources */,
 				DC702AFD243F6E410066C773 /* UBButton.swift in Sources */,
+				DCD975A925E8D045004B63DB /* PushRegistration.pb.swift in Sources */,
 				AAF73668242F3D030051E34A /* UIStackView+NS.swift in Sources */,
 				DCA01A1D25652B7700AF8C37 /* ErrorView.swift in Sources */,
 				6E662964254BF7FD00347F06 /* BaseSubViewController.swift in Sources */,
@@ -1062,6 +1105,7 @@
 				6E662979254C024F00347F06 /* UICollection+NS.swift in Sources */,
 				6E640376255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift in Sources */,
 				6E66295C254BF4FF00347F06 /* StackScrollView.swift in Sources */,
+				DCD9759A25E8CE8E004B63DB /* PushRegistrationManager.swift in Sources */,
 				DC702B0E243F6FAE0066C773 /* UBRawRepresentable.swift in Sources */,
 				DCCB96E025679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift in Sources */,
 				6E77C5A72570E926000CE918 /* ConfigManager.swift in Sources */,
@@ -1078,6 +1122,7 @@
 				DC702B0B243F6FAE0066C773 /* UBPListValue.swift in Sources */,
 				6EA6A60A255E828000A66212 /* ImageTextView.swift in Sources */,
 				6E6629CA2550376400347F06 /* QRCodeScannerViewController.swift in Sources */,
+				DCD9758B25E8CBC1004B63DB /* UBPushLocalStorage.swift in Sources */,
 				6EB4C78825519C22005070ED /* DateHelpers+NS.swift in Sources */,
 				242D227D245D6581005DAEA8 /* Endpoint.swift in Sources */,
 				DC286A26242CE0B9001D5344 /* Environment.swift in Sources */,
@@ -1092,14 +1137,18 @@
 				DCDC9B2225E3EA5E00C2AA0A /* BackgroundTaskManager.swift in Sources */,
 				6E02AC1925B82B600010429A /* DiaryEmptyView.swift in Sources */,
 				DC702B10243F6FAE0066C773 /* UBUserDefaultValue.swift in Sources */,
+				DCD975A025E8CEB5004B63DB /* PushHandler.swift in Sources */,
+				DCD9758C25E8CBC1004B63DB /* UBPushManagerError.swift in Sources */,
 				6E7515802567ADD600EDB6A7 /* Venue+NS.swift in Sources */,
 				6E662974254C014B00347F06 /* DiaryDateSectionHeaderSupplementaryView.swift in Sources */,
 				6E6629FF255135BA00347F06 /* ReportButton.swift in Sources */,
 				6E7C0D39242E02A20017C4F9 /* NSLayoutConstants.swift in Sources */,
+				DCD9758D25E8CBC1004B63DB /* UBPushManager.swift in Sources */,
 				6EA6A5EA255E73AC00A66212 /* ModalReportViewController.swift in Sources */,
 				DC8B5D912549676100B922DB /* Bundle+BuildInfo.swift in Sources */,
 				6E66292C254AF7CC00347F06 /* BigButton.swift in Sources */,
 				6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */,
+				DCD9758A25E8CBC1004B63DB /* UBPushHandler.swift in Sources */,
 				6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */,
 				6E6629B625500C8400347F06 /* CheckInManager.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
@@ -1133,6 +1182,7 @@
 				6E02AC2625B850980010429A /* ReportDeleteWarningViewController.swift in Sources */,
 				6E77C5AF2570EA1F000CE918 /* Config.swift in Sources */,
 				DC9DA0972566AFF300784A4F /* ErrorHandling+ViewController.swift in Sources */,
+				DCD9758925E8CBC1004B63DB /* UBPushRegistrationManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -77,8 +77,8 @@ class ReminderManager: NSObject {
             return
         }
 
-        NotificationManager.shared.requestAuthorization { granted, error in
-            if granted && error == nil {
+        NotificationManager.shared.requestAuthorization { granted in
+            if granted {
                 NotificationManager.shared.scheduleReminderNotification(after: option.timeInterval)
             } else {
                 didFailCallback()

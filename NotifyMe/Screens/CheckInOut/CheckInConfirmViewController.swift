@@ -89,13 +89,13 @@ class CheckInConfirmViewController: BaseViewController {
 
             CheckInManager.shared.checkIn(qrCode: strongSelf.qrCode, venueInfo: strongSelf.venueInfo)
 
-            if let option = strongSelf.reminderOption {
-                strongSelf.scheduleReminder(option: option)
-            }
-
-            NotificationManager.shared.requestAuthorization { (success, error) in
-                if success && error == nil {
+            NotificationManager.shared.requestAuthorization { success in
+                if success {
                     NotificationManager.shared.scheduleAutomaticReminderAndCheckoutNotifications()
+
+                    if let option = strongSelf.reminderOption {
+                        strongSelf.scheduleReminder(option: option)
+                    }
                 }
             }
 

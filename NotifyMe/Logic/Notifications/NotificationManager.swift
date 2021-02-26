@@ -39,13 +39,20 @@ class NotificationManager {
         )
     }
 
-    func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
-        notificationCenter.requestAuthorization(options: [.alert, .badge, .sound]) { success, error in
+    func requestAuthorization(completion: @escaping (Bool) -> Void) {
+        UBPushManager.shared.requestPushPermissions { result in
+            let success: Bool
+            switch result {
+            case .success:
+                success = true
+            case .nonRecoverableFailure, .recoverableFailure:
+                success = false
+            }
             self.hasDeniedNotificationPermission = !success
 
             DispatchQueue.main.async {
                 UIStateManager.shared.stateChanged()
-                completion(success, error)
+                completion(success)
             }
         }
     }

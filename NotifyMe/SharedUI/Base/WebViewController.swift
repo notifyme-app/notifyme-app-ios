@@ -78,6 +78,7 @@ class WebViewController: ModalBaseViewController {
             string = string.replacingOccurrences(of: "{VERSION}", with: Bundle.appVersion)
             string = string.replacingOccurrences(of: "{BUILD}", with: Bundle.buildNumber + Bundle.environment)
             string = string.replacingOccurrences(of: "{APPVERSION}", with: Bundle.appVersion)
+            string = string.replacingOccurrences(of: "{PUSHTOKEN}", with: UBPushManager.shared.pushToken?.suffix(6) ?? "-")
 
             webView.loadHTMLString(string, baseURL: url.deletingLastPathComponent())
         } catch {}

@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @UBUserDefault(key: "ch.notify-me.isFirstRun", defaultValue: true)
     private var isFirstRun: Bool
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions options: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         CrowdNotifier.initialize()
 
         if isFirstRun {
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstRun = false
         }
 
-        setupNotificationDelegate()
+        setupPushManager(launchOptions: options)
 
         setAppearance()
 
@@ -71,9 +71,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
-    private func setupNotificationDelegate() {
-        UNUserNotificationCenter.current().delegate = self
+    private func setupPushManager(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         UNUserNotificationCenter.current().setNotificationCategories(NotificationManager.shared.notificationCategories)
+        UBPushManager.shared.didFinishLaunchingWithOptions(launchOptions, pushHandler: PushHandler(), pushRegistrationManager: PushRegistrationManager())
+    }
+
+    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        UBPushManager.shared.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+    }
+
+    func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        UBPushManager.shared.didFailToRegisterForRemoteNotifications(with: error)
     }
 
     // MARK: - Appearance
@@ -180,23 +188,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-}
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        handleNotification(notification)
-        completionHandler([.alert, .badge, .sound])
+    func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        UBPushManager.shared.pushHandler.handleDidReceiveResponse(userInfo) {
+            completionHandler(.newData)
+        }
     }
 
-    func userNotificationCenter(_: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        handleNotification(response.notification)
-        completionHandler()
-    }
-
-    private func handleNotification(_ notification: UNNotification) {
-        guard let category = NotificationType(rawValue: notification.request.content.categoryIdentifier) else { return }
-
-        switch category {
+    func handleNotification(type: NotificationType) {
+        switch type {
         case .exposure:
             switch UIStateManager.shared.uiState.exposureState {
             case let .exposure(exposures, _):
