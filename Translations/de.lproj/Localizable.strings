@@ -123,7 +123,7 @@
 "remove_diary_warning_title" = "Achtung";
 
 /*Remove from diary warning view explanation text*/
-"remove_diary_warning_text" = "Sind Sie sicher, dass Sie “{LOCATION_INFO}” in ihrem Tagebuch nicht mehr anzeigen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
+"remove_diary_warning_text" = "Sind Sie sicher, dass Sie “{LOCATION_INFO}” in Ihrem Tagebuch nicht mehr anzeigen möchten? Diese Aktion kann nicht rückgängig gemacht werden.";
 
 /*Remove from diary warning view remove button title*/
 "remove_diary_remove_now_button" = "Nicht mehr anzeigen";
@@ -531,3 +531,12 @@ Die Demo QR-Codes sind jeweils nur an einem Tag gültig. Für QR-Codes mit dauer
 /*Sync Warning: Popup nach 2 Tagen Text*/
 /*Fuzzy*/
 "sync_warning_notification_text" = "Öffnen Sie die App, um die Liste der gemeldeten zufälligen IDs abzugleichen.";
+
+/*Titel der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden.*/
+"auto_checkout_title" = "Automatischer Checkout";
+
+/*Nachrichttext der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden.*/
+"auto_checkout_body" = "Sie wurden automatisch ausgecheckt.";
+
+/*Titel des Check-In Screens*/
+"check_in_screen_title" = "Einchecken";

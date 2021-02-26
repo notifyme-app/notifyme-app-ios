@@ -11,10 +11,12 @@
 
 import Foundation
 
-struct NotificationType {
-    static let reminder = "ch.notify-me.notificationtype.reminder"
-    static let exposure = "ch.notify-me.notificationtype.exposure"
-    static let backgroundTaskWarningTrigger = "ch.notify-me.notificationtype.backgroundtaskwarning"
+enum NotificationType: String, CaseIterable {
+    case reminder = "ch.notify-me.notificationtype.reminder"
+    case automaticReminder = "ch.notify-me.notificationtype.automaticReminder"
+    case automaticCheckout = "ch.notify-me.notificationtype.automaticCheckout"
+    case exposure = "ch.notify-me.notificationtype.exposure"
+    case backgroundTaskWarningTrigger = "ch.notify-me.notificationtype.backgroundtaskwarning"
 }
 
 class NotificationManager {
@@ -24,18 +26,17 @@ class NotificationManager {
 
     private let syncNotificationIdentifier1 = "ch.notifyme.notification.syncWarning1"
     private let syncNotificationIdentifier2 = "ch.notifyme.notification.syncWarning2"
-
-    @UBOptionalUserDefault(key: "ch.notify-me.reminderNotificationId")
-    private var reminderNotificationId: String?
+    private let reminderNotificationId: String = "ch.notify-me.notification.reminder"
+    private let automaticReminderNotificationId: String = "ch.notify-me.notification.automaticReminder"
+    private let automaticCheckoutNotificationId: String = "ch.notify-me.notification.automaticCheckout"
 
     @UBUserDefault(key: "ch.notify-me.hasCheckedOutOnce", defaultValue: false)
     var hasCheckedOutOnce: Bool
 
     var notificationCategories: Set<UNNotificationCategory> {
-        return Set(arrayLiteral:
-            UNNotificationCategory(identifier: NotificationType.reminder, actions: [], intentIdentifiers: [], options: []),
-            UNNotificationCategory(identifier: NotificationType.exposure, actions: [], intentIdentifiers: [], options: []),
-            UNNotificationCategory(identifier: NotificationType.backgroundTaskWarningTrigger, actions: [], intentIdentifiers: [], options: []))
+        return Set(
+            NotificationType.allCases.map { UNNotificationCategory(identifier: $0.rawValue, actions: [], intentIdentifiers: [], options: []) }
+        )
     }
 
     func requestAuthorization(completion: @escaping (Bool, Error?) -> Void) {
@@ -63,31 +64,23 @@ class NotificationManager {
     }
 
     func scheduleReminderNotification(after timeInterval: TimeInterval) {
-        removeCurrentReminderNotification()
-
         let notification = UNMutableNotificationContent()
-        notification.categoryIdentifier = NotificationType.reminder
+        notification.categoryIdentifier = NotificationType.reminder.rawValue
         notification.title = "checkout_reminder_title".ub_localized
         notification.body = "checkout_reminder_text".ub_localized
         notification.sound = .default
 
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: timeInterval, repeats: false)
-        let id = UUID().uuidString
-        notificationCenter.add(UNNotificationRequest(identifier: id, content: notification, trigger: trigger))
-
-        reminderNotificationId = id
+        notificationCenter.add(UNNotificationRequest(identifier: reminderNotificationId, content: notification, trigger: trigger))
     }
 
-    func removeCurrentReminderNotification() {
-        if let id = reminderNotificationId {
-            notificationCenter.removePendingNotificationRequests(withIdentifiers: [id])
-            reminderNotificationId = nil
-        }
+    func removeAllReminders() {
+        notificationCenter.removePendingNotificationRequests(withIdentifiers: [reminderNotificationId, automaticReminderNotificationId, automaticCheckoutNotificationId])
     }
 
     func showExposureNotification() {
         let notification = UNMutableNotificationContent()
-        notification.categoryIdentifier = NotificationType.exposure
+        notification.categoryIdentifier = NotificationType.exposure.rawValue
         notification.title = "exposure_notification_title".ub_localized
         notification.body = "exposure_notification_body".ub_localized
         notification.sound = .default
@@ -103,15 +96,47 @@ class NotificationManager {
         scheduleSyncWarningNotification(delay: .day * 7, identifier: syncNotificationIdentifier2)
     }
 
+    func scheduleAutomaticReminderAndCheckoutNotifications() {
+        // Reminder after 8 hours
+        let notification = UNMutableNotificationContent()
+        notification.categoryIdentifier = NotificationType.automaticReminder.rawValue
+        notification.title = "checkout_reminder_title".ub_localized
+        notification.body = "checkout_reminder_text".ub_localized
+        notification.sound = .default
+
+        #if DEBUG
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: .minute * 8, repeats: false)
+        #else
+            let trigger = UNTimeIntervalNotificationTrigger(timeInterval: .hour * 8, repeats: false)
+        #endif
+        notificationCenter.add(UNNotificationRequest(identifier: automaticReminderNotificationId, content: notification, trigger: trigger))
+
+        // Reminder after 12 hours
+        let notification2 = UNMutableNotificationContent()
+        notification2.categoryIdentifier = NotificationType.automaticCheckout.rawValue
+        notification2.title = "auto_checkout_title".ub_localized
+        notification2.body = "auto_checkout_body".ub_localized
+        notification2.sound = .default
+
+        #if DEBUG
+            let trigger2 = UNTimeIntervalNotificationTrigger(timeInterval: .minute * 12, repeats: false)
+        #else
+            let trigger2 = UNTimeIntervalNotificationTrigger(timeInterval: .hour * 12, repeats: false)
+        #endif
+        notificationCenter.add(UNNotificationRequest(identifier: automaticCheckoutNotificationId, content: notification2, trigger: trigger2))
+    }
+
     private func scheduleSyncWarningNotification(delay: TimeInterval, identifier: String) {
         let content = UNMutableNotificationContent()
-        content.categoryIdentifier = NotificationType.backgroundTaskWarningTrigger
+        content.categoryIdentifier = NotificationType.backgroundTaskWarningTrigger.rawValue
         content.title = "sync_warning_notification_title".ub_localized
         content.body = "sync_warning_notification_text".ub_localized
         let trigger = UNTimeIntervalNotificationTrigger(timeInterval: delay, repeats: false)
         let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
         notificationCenter.add(request, withCompletionHandler: nil)
     }
+
+    // MARK: - Debug notifications
 
     func showDebugNotification(title: String, body: String) {
         let notification = UNMutableNotificationContent()

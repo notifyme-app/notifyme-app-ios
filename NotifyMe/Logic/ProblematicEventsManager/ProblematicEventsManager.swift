@@ -51,6 +51,9 @@ class ProblematicEventsManager {
     }
 
     public func sync(isBackgroundFetch: Bool = false, completion: @escaping (_ newData: Bool, _ needsNotification: Bool) -> Void) {
+        // Before every sync, check if user has been checked in for more than 12 hours and if so, automatically check out and set the checkout time to 12 hours after checkin
+        CheckInManager.shared.checkoutAfter12HoursIfNecessary()
+
         var queryParameters = [String: String]()
         if let tag = lastKeyBundleTag {
             queryParameters["lastKeyBundleTag"] = "\(tag)"

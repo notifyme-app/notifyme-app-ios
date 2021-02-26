@@ -498,19 +498,19 @@
 "reminder_notification_snooze_action" = "Répéter la notification";
 
 /*Text des Homescreen Buttons um sich als positiv getestet zu melden*/
-"report_positive_button_title" = "";
+"report_positive_button_title" = "Positif?";
 
 /*Titel des Tagebuch teilen Screens*/
-"report_positive_share_diary_title" = "";
+"report_positive_share_diary_title" = "Avez-vous été testé positif?";
 
 /*Untertitel des Tagebuch teilen Screens*/
-"report_positive_share_diary_subtitle" = "";
+"report_positive_share_diary_subtitle" = "Facilitez le traçage des contacts en partageant votre journal.";
 
 /*Test des Tagebuch teilen Buttons*/
-"report_positive_share_diary_button_title" = "";
+"report_positive_share_diary_button_title" = "Partager journal";
 
 /*Titel nach erfolgreichem Tagebuch teilen*/
-"report_positive_success_title" = "";
+"report_positive_success_title" = "Merci beaucoup et bon rétablissement.";
 
 /*iOS: Titel Popup nach 2 Tagen*/
 "sync_warning_notification_title" = "Synchroniser l'application";
@@ -518,3 +518,12 @@
 /*Sync Warning: Popup nach 2 Tagen Text*/
 /*Fuzzy*/
 "sync_warning_notification_text" = "Ouvrez l'application afin de comparer la liste des ID aléatoires déclarés.";
+
+/*Titel der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden.*/
+"auto_checkout_title" = "Check-out automatique";
+
+/*Nachrichttext der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden.*/
+"auto_checkout_body" = "Vous avez quitté le lieu automatiquement.";
+
+/*Titel des Check-In Screens*/
+"check_in_screen_title" = "Check-in en cours";

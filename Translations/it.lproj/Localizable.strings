@@ -406,19 +406,19 @@
 "reminder_notification_snooze_action" = "Snooze";
 
 /*Text des Homescreen Buttons um sich als positiv getestet zu melden*/
-"report_positive_button_title" = "";
+"report_positive_button_title" = "Positive?";
 
 /*Titel des Tagebuch teilen Screens*/
-"report_positive_share_diary_title" = "";
+"report_positive_share_diary_title" = "Have you been tested positive?";
 
 /*Untertitel des Tagebuch teilen Screens*/
-"report_positive_share_diary_subtitle" = "";
+"report_positive_share_diary_subtitle" = "Share your diary to foster contact tracing.";
 
 /*Test des Tagebuch teilen Buttons*/
-"report_positive_share_diary_button_title" = "";
+"report_positive_share_diary_button_title" = "Share diary";
 
 /*Titel nach erfolgreichem Tagebuch teilen*/
-"report_positive_success_title" = "";
+"report_positive_success_title" = "Thanks and get well soon";
 
 /*iOS: Titel Popup nach 2 Tagen*/
 "sync_warning_notification_title" = "Sincronizzare l'app";
@@ -426,3 +426,12 @@
 /*Sync Warning: Popup nach 2 Tagen Text*/
 /*Fuzzy*/
 "sync_warning_notification_text" = "Apri l'app per sincronizzare l'elenco degli ID casuali segnalati.";
+
+/*Titel der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden.*/
+"auto_checkout_title" = "Automated checkout";
+
+/*Nachrichttext der Notification, welche erscheint, wenn der Benutzer automatisch ausgecheckt wurde nach 12 Stunden.*/
+"auto_checkout_body" = "You were checked out automatically.";
+
+/*Titel des Check-In Screens*/
+"check_in_screen_title" = "Checking in";

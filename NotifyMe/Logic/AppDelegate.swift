@@ -194,10 +194,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 
     private func handleNotification(_ notification: UNNotification) {
-        let category = notification.request.content.categoryIdentifier
+        guard let category = NotificationType(rawValue: notification.request.content.categoryIdentifier) else { return }
 
         switch category {
-        case NotificationType.exposure:
+        case .exposure:
             switch UIStateManager.shared.uiState.exposureState {
             case let .exposure(exposures, _):
                 guard let newest = exposures.first else {
@@ -213,7 +213,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             case .noExposure:
                 break
             }
-        case NotificationType.reminder:
+
+        case .reminder, .automaticReminder:
             if window == nil {
                 initializeWindow()
             }
@@ -221,6 +222,13 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
             let vc = LargeTitleNavigationController(contentViewController: CheckInViewController())
             (window?.rootViewController as? UINavigationController)?.pushViewController(vc, animated: true)
+
+        case .automaticCheckout:
+            if window == nil {
+                initializeWindow()
+            } else {
+                (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
+            }
         default:
             break
         }

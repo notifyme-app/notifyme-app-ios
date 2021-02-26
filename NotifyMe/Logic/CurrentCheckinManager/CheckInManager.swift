@@ -80,6 +80,18 @@ class CheckInManager {
         }
     }
 
+    public func checkoutAfter12HoursIfNecessary() {
+        #if DEBUG
+            let timeInterval: TimeInterval = .minute * 12
+        #else
+            let timeInterval: TimeInterval = .hour * 12
+        #endif
+        if let checkin = currentCheckin, checkin.checkInTime.addingTimeInterval(timeInterval) < Date() {
+            currentCheckin?.checkOutTime = checkin.checkInTime.addingTimeInterval(timeInterval)
+            checkOut()
+        }
+    }
+
     public func updateCheckIn(checkIn: CheckIn) {
         guard let checkOutTime = checkIn.checkOutTime else { return }
 

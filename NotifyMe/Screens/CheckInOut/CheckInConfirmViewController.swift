@@ -93,6 +93,12 @@ class CheckInConfirmViewController: BaseViewController {
                 strongSelf.scheduleReminder(option: option)
             }
 
+            NotificationManager.shared.requestAuthorization { (success, error) in
+                if success && error == nil {
+                    NotificationManager.shared.scheduleAutomaticReminderAndCheckoutNotifications()
+                }
+            }
+
             strongSelf.navigationController?.popToRootViewController(animated: true)
         }
     }

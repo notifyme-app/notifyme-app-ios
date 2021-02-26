@@ -89,6 +89,6 @@ class ReminderManager: NSObject {
     public func removeAllReminders() {
         currentReminder = .off
 
-        NotificationManager.shared.removeCurrentReminderNotification()
+        NotificationManager.shared.removeAllReminders()
     }
 }
