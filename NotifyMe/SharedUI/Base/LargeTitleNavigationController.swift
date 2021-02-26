@@ -12,7 +12,7 @@
 import Foundation
 
 struct LargeTitleNavigationControllerCustomTitle {
-    let image: UIImage
+    let image: UIImage?
     let color: UIColor
     let title: String
 }
@@ -21,7 +21,7 @@ class LargeTitleNavigationController: UIViewController {
     private static let headerHeight = 92.0
 
     let contentViewController: BaseViewController
-    private let titleLabel = Label(.title, numberOfLines: 1)
+    private let titleLabel = Label(.title, numberOfLines: 1, textAlignment: .center)
     private let lineView = NavigationLineView()
 
     private let contentView = UIView()
@@ -60,7 +60,7 @@ class LargeTitleNavigationController: UIViewController {
 
     private func setupHeader() {
         let background = UIView()
-        background.backgroundColor = UIColor.white
+        background.backgroundColor = .white
 
         view.addSubview(background)
 
@@ -87,10 +87,16 @@ class LargeTitleNavigationController: UIViewController {
 
         contentView.addSubview(stackView)
         stackView.addArrangedView(imageView)
-        stackView.addArrangedView(titleLabel)
+
+        contentView.addSubview(titleLabel)
+        titleLabel.snp.makeConstraints { make in
+            make.centerY.equalTo(stackView)
+            make.centerX.equalToSuperview()
+            make.leading.equalTo(imageView.snp.trailing).offset(6)
+        }
 
         stackView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview().inset(20.0)
+            make.left.equalToSuperview().inset(20.0)
             make.bottom.equalToSuperview().inset(30.0)
         }
 
@@ -197,6 +203,7 @@ private class CustomTitleView: UIView {
 
         label.text = ct.title
         label.textColor = ct.color
-        imageView.image = ct.image.ub_image(with: ct.color)
+        imageView.isHidden = ct.image == nil
+        imageView.image = ct.image?.ub_image(with: ct.color)
     }
 }

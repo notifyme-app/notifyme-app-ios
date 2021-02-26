@@ -12,11 +12,15 @@
 import CrowdNotifierSDK
 import Foundation
 
-class CheckInConfirmViewController: CenterContentViewController {
+class CheckInConfirmViewController: BaseViewController {
     private let qrCode: String
     private let venueInfo: VenueInfo
 
-    private let checkInButton = BigButton(style: .outline, text: "check_in_now_button_title".ub_localized)
+    private let reminderLabel = Label(.boldUppercaseSmall, textColor: .ns_purple, textAlignment: .center)
+    private let reminderControl = ReminderControl()
+    private let checkInButton = BigButton(style: .normal, text: "check_in_now_button_title".ub_localized)
+
+    private var reminderOption: ReminderOption?
 
     // MARK: - Init
 
@@ -25,8 +29,7 @@ class CheckInConfirmViewController: CenterContentViewController {
         self.venueInfo = venueInfo
         super.init()
 
-        title = venueInfo.name
-        modalPresentationStyle = .overCurrentContext
+        customTitle = LargeTitleNavigationControllerCustomTitle(image: nil, color: .ns_purple, title: "check_in_screen_title".ub_localized)
     }
 
     required init?(coder _: NSCoder) {
@@ -39,6 +42,43 @@ class CheckInConfirmViewController: CenterContentViewController {
         super.viewDidLoad()
         setup()
         setupCheckin()
+
+        reminderControl.changeCallback = { self.reminderOption = $0 }
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        if let checkinVC = (navigationController?.topViewController as? LargeTitleNavigationController)?.contentViewController as? CheckInViewController {
+            checkinVC.startScanning()
+        }
+        super.viewWillDisappear(animated)
+    }
+
+    // MARK: - Reminder Control
+
+    private func scheduleReminder(option: ReminderOption) {
+        ReminderManager.shared.scheduleReminder(with: option, didFailCallback: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.handleReminderError()
+        })
+    }
+
+    private func handleReminderError() {
+        let alertController = UIAlertController(title: "checkin_reminder_settings_alert_title".ub_localized, message: "checkin_reminder_settings_alert_message".ub_localized, preferredStyle: .alert)
+
+        alertController.addAction(UIAlertAction(title: "checkin_reminder_option_open_settings".ub_localized, style: .default, handler: { [weak self] _ in
+            guard let strongSelf = self else { return }
+            strongSelf.openAppSettings()
+        }))
+
+        alertController.addAction(UIAlertAction(title: "cancel".ub_localized, style: .cancel, handler: { _ in }))
+
+        present(alertController, animated: true, completion: nil)
+    }
+
+    private func openAppSettings() {
+        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
+            UIApplication.shared.open(settingsURL)
+        }
     }
 
     // MARK: - Setup
@@ -48,14 +88,53 @@ class CheckInConfirmViewController: CenterContentViewController {
             guard let strongSelf = self else { return }
 
             CheckInManager.shared.checkIn(qrCode: strongSelf.qrCode, venueInfo: strongSelf.venueInfo)
-            strongSelf.dismiss(animated: true, completion: nil)
+
+            NotificationManager.shared.requestAuthorization { success in
+                if success {
+                    NotificationManager.shared.scheduleAutomaticReminderAndCheckoutNotifications()
+
+                    if let option = strongSelf.reminderOption {
+                        strongSelf.scheduleReminder(option: option)
+                    }
+                }
+            }
+
+            strongSelf.navigationController?.popToRootViewController(animated: true)
         }
     }
 
     private func setup() {
+        view.addSubview(checkInButton)
+        checkInButton.snp.makeConstraints { make in
+            make.centerX.equalToSuperview()
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(view.safeAreaLayoutGuide).offset(-Padding.medium)
+            } else {
+                make.bottom.equalToSuperview().offset(-Padding.medium)
+            }
+        }
+
+        let container = UIView()
+        view.addSubview(container)
+        container.snp.makeConstraints { make in
+            make.top.leading.trailing.equalToSuperview()
+            make.bottom.equalTo(checkInButton.snp.top)
+        }
+
         let venueView = VenueView(venue: venueInfo)
-        contentView.addArrangedView(venueView)
-        contentView.addSpacerView(Padding.mediumSmall)
-        contentView.addArrangedView(checkInButton)
+        reminderLabel.text = "checkin_set_reminder".ub_localized
+
+        let stackView = UIStackView()
+        stackView.axis = .vertical
+        stackView.addArrangedView(venueView)
+        stackView.addSpacerView(50)
+        stackView.addArrangedView(reminderLabel)
+        stackView.addSpacerView(Padding.small)
+        stackView.addArrangedView(reminderControl)
+
+        container.addSubview(stackView)
+        stackView.snp.makeConstraints { make in
+            make.leading.trailing.centerY.equalToSuperview()
+        }
     }
 }

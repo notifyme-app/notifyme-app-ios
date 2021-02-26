@@ -69,7 +69,7 @@ class ReminderManager: NSObject {
 
     // MARK: - Public API
 
-    public func scheduleReminder(for _: String, with option: ReminderOption, didFailCallback: @escaping (() -> Void)) {
+    public func scheduleReminder(with option: ReminderOption, didFailCallback: @escaping (() -> Void)) {
         currentReminder = option
 
         if option == .off {
@@ -77,8 +77,8 @@ class ReminderManager: NSObject {
             return
         }
 
-        NotificationManager.shared.requestAuthorization { granted, error in
-            if granted && error == nil {
+        NotificationManager.shared.requestAuthorization { granted in
+            if granted {
                 NotificationManager.shared.scheduleReminderNotification(after: option.timeInterval)
             } else {
                 didFailCallback()
@@ -89,6 +89,6 @@ class ReminderManager: NSObject {
     public func removeAllReminders() {
         currentReminder = .off
 
-        NotificationManager.shared.removeCurrentReminderNotification()
+        NotificationManager.shared.removeAllReminders()
     }
 }

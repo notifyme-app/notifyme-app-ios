@@ -18,7 +18,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     @UBUserDefault(key: "ch.notify-me.isFirstRun", defaultValue: true)
     private var isFirstRun: Bool
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions options: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         CrowdNotifier.initialize()
 
         if isFirstRun {
@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstRun = false
         }
 
-        setupNotificationDelegate()
+        setupPushManager(launchOptions: options)
 
         setAppearance()
 
@@ -71,9 +71,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.shared.applicationIconBadgeNumber = 0
     }
 
-    private func setupNotificationDelegate() {
-        UNUserNotificationCenter.current().delegate = self
+    private func setupPushManager(launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
         UNUserNotificationCenter.current().setNotificationCategories(NotificationManager.shared.notificationCategories)
+        UBPushManager.shared.didFinishLaunchingWithOptions(launchOptions, pushHandler: PushHandler(), pushRegistrationManager: PushRegistrationManager())
+    }
+
+    func application(_: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        UBPushManager.shared.didRegisterForRemoteNotificationsWithDeviceToken(deviceToken)
+    }
+
+    func application(_: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        UBPushManager.shared.didFailToRegisterForRemoteNotifications(with: error)
     }
 
     // MARK: - Appearance
@@ -90,9 +98,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     private var backgroundTask = UIBackgroundTaskIdentifier.invalid
 
     private func setupBackgroundTasks() {
-        UIApplication.shared.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
+        if #available(iOS 13.0, *) {
+            BackgroundTaskManager.shared.setup()
+        } else {
+            UIApplication.shared.setMinimumBackgroundFetchInterval(minimumBackgroundFetchInterval)
+        }
     }
 
+    // Only for iOS <= 12. For iOS > 12, the `BackgroundTaskManager` class is used.
     func application(_: UIApplication, performFetchWithCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
         if backgroundTask == .invalid {
             backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
@@ -108,11 +121,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
 
         #if DEBUG || RELEASE_DEV
-            NotificationManager.shared.showDebugNotification(title: "Background fetch started", body: "Time: \(Date())")
+            NotificationManager.shared.showDebugNotification(title: "[iOS <= 12 BGTask] Background fetch started", body: "Time: \(Date())")
         #endif
         ProblematicEventsManager.shared.sync(isBackgroundFetch: true) { newData, needsNotification in
             #if DEBUG || RELEASE_DEV
-                NotificationManager.shared.showDebugNotification(title: "Sync completed", body: "Time: \(Date()), newData: \(newData), needsNotification: \(needsNotification)")
+                NotificationManager.shared.showDebugNotification(title: "[iOS <= 12 BGTask] Sync completed", body: "Time: \(Date()), newData: \(newData), needsNotification: \(needsNotification)")
             #endif
             if !newData {
                 completionHandler(.noData)
@@ -175,26 +188,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         return true
     }
-}
 
-extension AppDelegate: UNUserNotificationCenterDelegate {
-    func userNotificationCenter(_: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-        handleNotification(notification)
-        completionHandler([.alert, .badge, .sound])
+    func application(_: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        UBPushManager.shared.pushHandler.handleDidReceiveResponse(userInfo) {
+            completionHandler(.newData)
+        }
     }
 
-    func userNotificationCenter(_: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        handleNotification(response.notification)
-        completionHandler()
-    }
-
-    private func handleNotification(_ notification: UNNotification) {
-        let category = notification.request.content.categoryIdentifier
-
-        if category == NotificationType.exposure {
+    func handleNotification(type: NotificationType) {
+        switch type {
+        case .exposure:
             switch UIStateManager.shared.uiState.exposureState {
             case let .exposure(exposures, _):
-                guard let newest = exposures.last else {
+                guard let newest = exposures.first else {
                     return
                 }
 
@@ -207,6 +213,24 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             case .noExposure:
                 break
             }
+
+        case .reminder, .automaticReminder:
+            if window == nil {
+                initializeWindow()
+            }
+
+            (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
+            let vc = LargeTitleNavigationController(contentViewController: CheckInViewController())
+            (window?.rootViewController as? UINavigationController)?.pushViewController(vc, animated: true)
+
+        case .automaticCheckout:
+            if window == nil {
+                initializeWindow()
+            } else {
+                (window?.rootViewController as? UINavigationController)?.popToRootViewController(animated: false)
+            }
+        default:
+            break
         }
     }
 }

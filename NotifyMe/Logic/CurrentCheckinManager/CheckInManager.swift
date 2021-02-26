@@ -60,7 +60,7 @@ class CheckInManager {
         if var cc = currentCheckin, let outTime = cc.checkOutTime {
             // This is the last moment we can ask the user for the required notification permission.
             // After the first checkout, it's possible that a background update triggers a match and therefore a notification
-            NotificationManager.shared.requestAuthorization { _, _ in }
+            NotificationManager.shared.requestAuthorization { _ in }
 
             ReminderManager.shared.removeAllReminders()
 
@@ -77,6 +77,18 @@ class CheckInManager {
             }
 
             currentCheckin = nil
+        }
+    }
+
+    public func checkoutAfter12HoursIfNecessary() {
+        #if DEBUG
+            let timeInterval: TimeInterval = .minute * 12
+        #else
+            let timeInterval: TimeInterval = .hour * 12
+        #endif
+        if let checkin = currentCheckin, checkin.checkInTime.addingTimeInterval(timeInterval) < Date() {
+            currentCheckin?.checkOutTime = checkin.checkInTime.addingTimeInterval(timeInterval)
+            checkOut()
         }
     }
 

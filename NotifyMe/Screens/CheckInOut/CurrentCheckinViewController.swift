@@ -15,7 +15,6 @@ class CurrentCheckinViewController: BaseSubViewController {
     private let contentView = StackScrollView()
     private let checkOutButton = BigButton(style: .normal, text: "checkout_button_title".ub_localized)
     private let venueView = VenueView(icon: true)
-    private let reminderControl = ReminderControl()
     private var timeLabel = Label(.timerUltraLarge, textAlignment: .center)
 
     public var checkIn: CheckIn? {
@@ -33,7 +32,6 @@ class CurrentCheckinViewController: BaseSubViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        setupReminderControl()
 
         UIStateManager.shared.addObserver(self) { [weak self] state in
             guard let strongSelf = self else { return }
@@ -49,45 +47,6 @@ class CurrentCheckinViewController: BaseSubViewController {
             checkIn = nil
         case let .checkIn(checkIn):
             self.checkIn = checkIn
-        }
-    }
-
-    // MARK: - Reminder Control
-
-    private func setupReminderControl() {
-        reminderControl.changeCallback = { [weak self] option in
-            guard let strongSelf = self else { return }
-            strongSelf.scheduleReminder(option: option)
-        }
-    }
-
-    private func scheduleReminder(option: ReminderOption) {
-        if let checkIn = self.checkIn {
-            ReminderManager.shared.scheduleReminder(for: checkIn.identifier, with: option, didFailCallback: { [weak self] in
-                guard let strongSelf = self else { return }
-                strongSelf.handleReminderError()
-            })
-        }
-    }
-
-    private func handleReminderError() {
-        reminderControl.setOption(ReminderOption.off)
-
-        let alertController = UIAlertController(title: "checkin_reminder_settings_alert_title".ub_localized, message: "checkin_reminder_settings_alert_message".ub_localized, preferredStyle: .alert)
-
-        alertController.addAction(UIAlertAction(title: "checkin_reminder_option_open_settings".ub_localized, style: .default, handler: { [weak self] _ in
-            guard let strongSelf = self else { return }
-            strongSelf.openAppSettings()
-        }))
-
-        alertController.addAction(UIAlertAction(title: "cancel".ub_localized, style: .cancel, handler: { _ in }))
-
-        present(alertController, animated: true, completion: nil)
-    }
-
-    private func openAppSettings() {
-        if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-            UIApplication.shared.open(settingsURL)
         }
     }
 
@@ -118,24 +77,6 @@ class CurrentCheckinViewController: BaseSubViewController {
         }
 
         contentView.addArrangedView(vView)
-
-        contentView.addSpacerView(Padding.large + Padding.small)
-
-        let reminderView = UIView()
-
-        let reminderLabel = Label(.boldUppercaseSmall, textColor: .ns_purple, textAlignment: .center)
-        reminderLabel.text = "checkin_set_reminder".ub_localized
-        reminderView.addSubview(reminderLabel)
-
-        reminderLabel.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(UIEdgeInsets(top: 0, left: Padding.medium, bottom: 0, right: Padding.medium))
-        }
-
-        contentView.addArrangedView(reminderView)
-
-        contentView.addSpacerView(Padding.medium - Padding.small)
-
-        contentView.addArrangedView(reminderControl)
 
         contentView.addSpacerView(Padding.large + Padding.small)
 
@@ -174,7 +115,6 @@ class CurrentCheckinViewController: BaseSubViewController {
 
     private func update() {
         venueView.venue = checkIn?.venue
-        reminderControl.setOption(ReminderManager.shared.currentReminder)
     }
 
     private func updateTime(time: String?) {
