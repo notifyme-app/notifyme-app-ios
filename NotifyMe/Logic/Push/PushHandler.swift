@@ -24,7 +24,9 @@ class PushHandler: UBPushHandler {
         (UIApplication.shared.delegate as? AppDelegate)?.handleNotification(type: category)
     }
 
-    override func updateLocalData(withSilent _: Bool, remoteNotification _: UBPushNotification) {
+    override func updateLocalData(withSilent isSilent: Bool, remoteNotification _: UBPushNotification) {
+        guard isSilent else { return }
+
         #if DEBUG || RELEASE_DEV
             NotificationManager.shared.showDebugNotification(title: "[PushHandler] Background fetch started", body: "Time: \(Date())")
         #endif
