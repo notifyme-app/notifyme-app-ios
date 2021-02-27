@@ -107,7 +107,6 @@ open class UBPushHandler {
         if !notification.isSilentPush {
             updateLocalData(withSilent: false, remoteNotification: notification)
             showNonSilent(notification, isActive: isActive)
-
         } else {
             updateLocalData(withSilent: true, remoteNotification: notification)
         }

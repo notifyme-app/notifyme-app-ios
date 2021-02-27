@@ -26,6 +26,7 @@ class ProblematicEventsManager {
     public static let shared = ProblematicEventsManager()
 
     private let backend = Environment.current.backendService
+    private var task: URLSessionDataTask?
 
     @UBOptionalUserDefault(key: "ch.notify-me.exposure.lastKeyBundleTag")
     private var lastKeyBundleTag: Int?
@@ -63,7 +64,8 @@ class ProblematicEventsManager {
 
         lastSyncFailed = false
 
-        let task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, response, error in
+        task?.cancel()
+        task = URLSession.shared.dataTask(with: endpoint.request()) { [weak self] data, response, error in
             guard let strongSelf = self else {
                 completion(false, false)
                 return
@@ -99,7 +101,7 @@ class ProblematicEventsManager {
             }
         }
 
-        task.resume()
+        task?.resume()
     }
 
     // MARK: - Init
