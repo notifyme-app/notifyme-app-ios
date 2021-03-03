@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UIKit
 
 class PushHandler: UBPushHandler {
     override func showInAppPushDetails(for notification: UBPushNotification) {
@@ -24,8 +25,23 @@ class PushHandler: UBPushHandler {
         (UIApplication.shared.delegate as? AppDelegate)?.handleNotification(type: category)
     }
 
+    private var backgroundTask = UIBackgroundTaskIdentifier.invalid
+
     override func updateLocalData(withSilent isSilent: Bool, remoteNotification _: UBPushNotification) {
         guard isSilent else { return }
+
+        if backgroundTask == .invalid {
+            backgroundTask = UIApplication.shared.beginBackgroundTask { [weak self] in
+                guard let self = self else {
+                    return
+                }
+
+                if self.backgroundTask != .invalid {
+                    UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                    self.backgroundTask = .invalid
+                }
+            }
+        }
 
         #if DEBUG || RELEASE_DEV
             NotificationManager.shared.showDebugNotification(title: "[PushHandler] Background fetch started", body: "Time: \(Date())")
@@ -41,6 +57,11 @@ class PushHandler: UBPushHandler {
 
                 // data are updated -> reschedule background task warning triggers
                 NotificationManager.shared.resetBackgroundTaskWarningTriggers()
+            }
+
+            if self.backgroundTask != .invalid {
+                UIApplication.shared.endBackgroundTask(self.backgroundTask)
+                self.backgroundTask = .invalid
             }
         }
     }

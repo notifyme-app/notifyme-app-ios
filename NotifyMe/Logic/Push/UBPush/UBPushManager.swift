@@ -100,6 +100,9 @@ open class UBPushManager: NSObject {
         self.pushRegistrationManager = pushRegistrationManager
         self.pushRegistrationManager.sendPushRegistrationIfOutdated()
         self.pushHandler.handleLaunchOptions(launchOptions)
+
+        // Request APNS token on startup
+        registerForPushNotification()
     }
 
     /// Needs to be called upon `applicationDidBecomeActiveNotification`
@@ -109,6 +112,16 @@ open class UBPushManager: NSObject {
     }
 
     // MARK: - Push Permission Request Flow
+
+    /// Requests APNS token (if .authorized)
+    ///
+    private func registerForPushNotification() {
+        UNUserNotificationCenter.current().getNotificationSettings { settings in
+            if settings.authorizationStatus == .authorized {
+                DispatchQueue.main.async { UIApplication.shared.registerForRemoteNotifications() }
+            }
+        }
+    }
 
     /// Requests push permissions
     ///
