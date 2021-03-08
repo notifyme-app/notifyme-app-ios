@@ -40,6 +40,9 @@ This repository contains the open prototype Application, so please focus your fe
 ## Further Documentation
 The full set of documents for CrowdNotifier is at https://github.com/CrowdNotifier/documents. Please refer to the technical documents and whitepapers for a description of the implementation.
 
+### Push Notifications
+A detailed explanation of why and how push notifications are used in NotifyMe can be found [here](PushNotifications.md).
+
 ## Installation and Building
 
 ### Direct installation
