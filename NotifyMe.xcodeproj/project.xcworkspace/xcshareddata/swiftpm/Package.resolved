@@ -5,9 +5,9 @@
         "package": "CrowdNotifierSDK",
         "repositoryURL": "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
         "state": {
-          "branch": "develop",
-          "revision": "89845ff8808141e0375e534b5dacead7a170c1e0",
-          "version": null
+          "branch": null,
+          "revision": "15c976ebe77a23b01da68536b32ae1cb081292fb",
+          "version": "2.0.1"
         }
       },
       {
@@ -23,9 +23,9 @@
         "package": "SwiftProtobuf",
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
-          "branch": "1.13.0",
+          "branch": null,
           "revision": "426bef0ddfdc6449b7bd1418baafad6bbc56110b",
-          "version": null
+          "version": "1.13.0"
         }
       }
     ]
