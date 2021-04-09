@@ -10,7 +10,7 @@
             ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
             <ActionContent
                title = "Run Script"
-               scriptText = "rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/libsodium.a&quot;&#10;rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app/Frameworks/libmcl.a&quot;&#10;">
+               scriptText = "rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app&quot;/Frameworks/*.a&#10;rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app&quot;/AppClips/*.a&#10;rm -rf &quot;${TARGET_BUILD_DIR}/${TARGET_NAME}.app&quot;/AppClips/NotifyMeAppClip.app/Frameworks/*.a&#10;">
                <EnvironmentBuildable>
                   <BuildableReference
                      BuildableIdentifier = "primary"
@@ -101,23 +101,5 @@
    <ArchiveAction
       buildConfiguration = "Release-Dev"
       revealArchiveInOrganizer = "YES">
-      <PostActions>
-         <ExecutionAction
-            ActionType = "Xcode.IDEStandardExecutionActionsCore.ExecutionActionType.ShellScriptAction">
-            <ActionContent
-               title = "Run Script"
-               scriptText = "#https://github.com/firebase/firebase-ios-sdk/issues/6472&#10;&#10;full_frameworks_path=&quot;${ARCHIVE_PRODUCTS_PATH}/Applications/${FRAMEWORKS_FOLDER_PATH}&quot;&#10;&#10;rm -rf &quot;${full_frameworks_path}/../AppClips/libmcl.a&quot;&#10;rm -rf &quot;${full_frameworks_path}/../AppClips/libsodium.a&quot;&#10;rm -rf &quot;${full_frameworks_path}/../AppClips/NotifyMeAppClip.app/Frameworks/libsodium.a&quot;&#10;">
-               <EnvironmentBuildable>
-                  <BuildableReference
-                     BuildableIdentifier = "primary"
-                     BlueprintIdentifier = "8E81CC94241FCC7D006F2437"
-                     BuildableName = "NotifyMe.app"
-                     BlueprintName = "NotifyMe"
-                     ReferencedContainer = "container:NotifyMe.xcodeproj">
-                  </BuildableReference>
-               </EnvironmentBuildable>
-            </ActionContent>
-         </ExecutionAction>
-      </PostActions>
    </ArchiveAction>
 </Scheme>
