@@ -215,7 +215,7 @@
 "imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
 
 /*Fuzzy*/
-"web_generator_title" = "Demo QR-Codes erstellen";
+"web_generator_title" = "QR-Codes erstellen";
 
 /*Fuzzy*/
 "web_generator_category_label" = "Kategorie";
@@ -275,7 +275,7 @@
 "web_generator_private_bulletpoint_3" = "Es wird nur ein Entschlüsselungs-Schlüssel veröffentlicht. Keine Angaben zum Veranstalter.";
 
 /*Fuzzy*/
-"web_generator_pdf_button" = "PDF herunterladen";
+"web_generator_pdf_button" = "PDF anzeigen";
 
 /*Fuzzy*/
 "web_generator_public_qr_title" = "<span>Public</span>\\\nQR-Code";
@@ -411,7 +411,7 @@
 
 /*qr validity period label used in qr generator web app*/
 /*Fuzzy*/
-"web_qr_validity_period_label" = "Gültigkeit (max. 24h)";
+"web_qr_validity_period_label" = "Gültigkeit";
 
 /*qr validity period from label used in qr generator web app*/
 /*Fuzzy*/
@@ -445,7 +445,7 @@
 /*Vorschlag zur Formulierung: 
 Die Demo QR-Codes sind jeweils nur an einem Tag gültig. Für QR-Codes mit dauerhafter Gültigkeit nehmen Sie bitte mit uns Kontakt auf.*/
 /*Fuzzy*/
-"web_generator_validity_information" = "Die Demo QR-Codes sind jeweils nur an einem Tag gültig.  Für QR-Codes mit dauerhafter Gültigkeit nehmen Sie bitte <a href=\"mailto:info@notify-me.ch\">mit uns Kontakt</a> auf.";
+"web_generator_validity_information" = "NotifyMe erfasst keine persönlichen Daten. Es ist daher kein Ersatz für Teilnehmerlisten, sofern sie vom Kanton eingefordert werden. Es kann aber als Ergänzung eingesetzt werden, um Teilnehmende rasch über eine mögliche Ansteckung zu informieren.";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 /*Fuzzy*/
@@ -540,3 +540,4 @@ Die Demo QR-Codes sind jeweils nur an einem Tag gültig. Für QR-Codes mit dauer
 
 /*Titel des Check-In Screens*/
 "check_in_screen_title" = "Einchecken";
+"web_generator_validity_information_title" = "NotifyMe vs. Kontaktlisten";

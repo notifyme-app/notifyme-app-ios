@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1230"
+   LastUpgradeVersion = "1240"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "6E730A6925B43E1F007DAA9D"
+               BlueprintIdentifier = "6EBED105262030BE00B08324"
                BuildableName = "NotifyMeAppClip.app"
                BlueprintName = "NotifyMeAppClip"
                ReferencedContainer = "container:NotifyMe.xcodeproj">
@@ -44,7 +44,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E730A6925B43E1F007DAA9D"
+            BlueprintIdentifier = "6EBED105262030BE00B08324"
             BuildableName = "NotifyMeAppClip.app"
             BlueprintName = "NotifyMeAppClip"
             ReferencedContainer = "container:NotifyMe.xcodeproj">
@@ -68,7 +68,7 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "6E730A6925B43E1F007DAA9D"
+            BlueprintIdentifier = "6EBED105262030BE00B08324"
             BuildableName = "NotifyMeAppClip.app"
             BlueprintName = "NotifyMeAppClip"
             ReferencedContainer = "container:NotifyMe.xcodeproj">
