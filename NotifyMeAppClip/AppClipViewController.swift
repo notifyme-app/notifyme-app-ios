@@ -68,7 +68,7 @@ class AppClipViewController: BaseViewController {
 
         stackView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
-            make.top.equalToSuperview().inset(Padding.large)
+            make.top.equalToSuperview().inset(3 * Padding.large)
             make.bottom.equalTo(self.installButton.snp.top)
         }
 
