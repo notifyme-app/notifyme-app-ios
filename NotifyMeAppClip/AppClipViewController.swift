@@ -124,8 +124,13 @@ class AppClipViewController: BaseViewController {
         case let .success(info):
             venueInfoView.venue = info
             venueInfoView.isHidden = false
-        case .failure:
+        case let .failure(failure):
             venueInfoView.isHidden = true
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.25) {
+                let vc = ErrorViewController(errorModel: failure.errorViewModel)
+                self.present(vc, animated: true, completion: nil)
+            }
         }
     }
 }

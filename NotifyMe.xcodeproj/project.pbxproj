@@ -35,6 +35,12 @@
 		6E55057F2553058C000D27B1 /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
 		6E55058725535A77000D27B1 /* ReminderControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55058625535A77000D27B1 /* ReminderControl.swift */; };
 		6E55058C25536219000D27B1 /* DiaryEntryContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55058B25536219000D27B1 /* DiaryEntryContentView.swift */; };
+		6E5B4A5526242194005A6FBC /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA01A172565270500AF8C37 /* ErrorViewController.swift */; };
+		6E5B4A5A262421B9005A6FBC /* ErrorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC9DA087256665E000784A4F /* ErrorViewModel.swift */; };
+		6E5B4A5F262421C5005A6FBC /* CenterContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6629A1254C43AD00347F06 /* CenterContentViewController.swift */; };
+		6E5B4A64262421CD005A6FBC /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCA01A1C25652B7700AF8C37 /* ErrorView.swift */; };
+		6E5B4A69262421D4005A6FBC /* TextButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E55057E2553058C000D27B1 /* TextButton.swift */; };
+		6E5B4A6E262421DB005A6FBC /* CenterContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E662995254C422500347F06 /* CenterContentView.swift */; };
 		6E64035F2553E365006D0498 /* DiaryCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E64035E2553E365006D0498 /* DiaryCollectionView.swift */; };
 		6E6403672553E680006D0498 /* ReportInformationViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */; };
 		6E640376255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E640375255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift */; };
@@ -1207,18 +1213,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6E5B4A69262421D4005A6FBC /* TextButton.swift in Sources */,
 				6EBED188262033B200B08324 /* UIStackView+NS.swift in Sources */,
 				6EBED197262033D700B08324 /* String+NS.swift in Sources */,
 				6EBED16F2620337D00B08324 /* NavigationLineView.swift in Sources */,
 				6EBED12E262031BC00B08324 /* AppClipViewController.swift in Sources */,
+				6E5B4A6E262421DB005A6FBC /* CenterContentView.swift in Sources */,
 				6EBED13D2620330A00B08324 /* BaseViewController.swift in Sources */,
 				6EBED1562620334300B08324 /* UBLabelType.swift in Sources */,
 				6EBED1822620339E00B08324 /* UIColor+NS.swift in Sources */,
 				6EBED1792620339200B08324 /* UIImage+UBHelpers.m in Sources */,
 				6EBED1B62620349900B08324 /* Backend.swift in Sources */,
+				6E5B4A5A262421B9005A6FBC /* ErrorViewModel.swift in Sources */,
 				6EBED18D262033C500B08324 /* StackScrollView.swift in Sources */,
 				6EBED109262030BE00B08324 /* AppDelegate.swift in Sources */,
 				6EBED192262033CD00B08324 /* UIScrollView+UBKeyboardObserver.m in Sources */,
+				6E5B4A5526242194005A6FBC /* ErrorViewController.swift in Sources */,
+				6E5B4A5F262421C5005A6FBC /* CenterContentViewController.swift in Sources */,
+				6E5B4A64262421CD005A6FBC /* ErrorView.swift in Sources */,
 				6EBED1742620338600B08324 /* DebugLog.swift in Sources */,
 				6EBED1602620335D00B08324 /* UIColor+HEX.swift in Sources */,
 				6EBED1B12620348C00B08324 /* Environment.swift in Sources */,
