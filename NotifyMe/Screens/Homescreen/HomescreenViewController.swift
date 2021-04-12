@@ -164,7 +164,9 @@ class HomescreenViewController: BaseViewController {
         let bi = (Bundle.main.bundleIdentifier ?? "")
         let defaults = UserDefaults(suiteName: "group." + bi)
 
-        guard let urlString = defaults?.value(forKey: Environment.shareURLKey) as? String else {
+        // url from appclip must be set and onboarding completed
+        guard let urlString = defaults?.value(forKey: Environment.shareURLKey) as? String,
+              UserStorage.shared.hasCompletedOnboarding else {
             return
         }
 
