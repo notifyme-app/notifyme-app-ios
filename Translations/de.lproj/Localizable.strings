@@ -541,3 +541,12 @@ Die Demo QR-Codes sind jeweils nur an einem Tag gültig. Für QR-Codes mit dauer
 /*Titel des Check-In Screens*/
 "check_in_screen_title" = "Einchecken";
 "web_generator_validity_information_title" = "NotifyMe vs. Kontaktlisten";
+
+/*AppClip: Willkommen Titel*/
+"appclip_welcome" = "Willkommen bei...";
+
+/*AppClip: Willkommen Text*/
+"appclip_welcome_text" = "Hier sind alle Informationen zu diesem Meeting oder Event";
+
+/*AppClip: Text der sagt, wieso man App installieren muss*/
+"appclip_download_text" = "";

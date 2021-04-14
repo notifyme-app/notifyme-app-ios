@@ -531,3 +531,12 @@
 /*Titel des Check-In Screens*/
 "check_in_screen_title" = "Checking in";
 "web_generator_validity_information_title" = "NotifyMe vs. lists of attendees";
+
+/*AppClip: Willkommen Titel*/
+"appclip_welcome" = "";
+
+/*AppClip: Willkommen Text*/
+"appclip_welcome_text" = "";
+
+/*AppClip: Text der sagt, wieso man App installieren muss*/
+"appclip_download_text" = "";

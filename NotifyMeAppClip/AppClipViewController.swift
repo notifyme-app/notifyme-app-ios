@@ -25,6 +25,8 @@ class AppClipViewController: BaseViewController {
 
     private let explanationLabel = Label(.text, textAlignment: .center)
 
+    private let explanationLabelInstall = Label(.text, textAlignment: .center)
+
     private let venueInfoView = VenueView(venue: nil)
 
     // MARK: - URL
@@ -60,26 +62,43 @@ class AppClipViewController: BaseViewController {
         view.addSubview(installButton)
         installButton.snp.makeConstraints { make in
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview().inset(Padding.large)
+            if #available(iOS 11.0, *) {
+                make.bottom.equalTo(view.safeAreaLayoutGuide).inset(Padding.medium)
+            } else {
+                make.bottom.equalToSuperview().offset(-Padding.medium)
+            }
+
+            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
+            make.left.greaterThanOrEqualToSuperview().inset(Padding.medium)
+        }
+
+        view.addSubview(explanationLabelInstall)
+
+        explanationLabelInstall.text = "onboarding_install_app_explanation".ub_localized
+
+        explanationLabelInstall.snp.makeConstraints { make in
+            make.right.lessThanOrEqualToSuperview().inset(Padding.medium)
+            make.left.greaterThanOrEqualToSuperview().inset(Padding.medium)
+            make.bottom.equalTo(installButton.snp.top).offset(-Padding.medium)
         }
 
         stackView.scrollView.alwaysBounceVertical = false
         view.addSubview(stackView)
 
         stackView.snp.makeConstraints { make in
-            make.left.right.equalToSuperview()
+            make.left.right.equalToSuperview().inset(Padding.medium)
             make.top.equalToSuperview().inset(3 * Padding.large)
-            make.bottom.equalTo(self.installButton.snp.top)
+            make.bottom.equalTo(self.explanationLabelInstall.snp.top).inset(Padding.mediumSmall)
         }
 
         stackView.addSpacerView(Padding.small + Padding.medium)
 
-        titleLabel.text = "onboarding_install_app_title".ub_localized
+        titleLabel.text = "appclip_welcome".ub_localized
         stackView.addArrangedView(titleLabel)
 
         stackView.addSpacerView(Padding.mediumSmall)
 
-        explanationLabel.text = "onboarding_install_app_explanation".ub_localized
+        explanationLabel.text = "appclip_welcome_text".ub_localized
         stackView.addArrangedView(explanationLabel)
 
         stackView.addSpacerView(Padding.large)

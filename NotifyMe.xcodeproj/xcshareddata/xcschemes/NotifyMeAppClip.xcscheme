@@ -53,7 +53,7 @@
       <EnvironmentVariables>
          <EnvironmentVariable
             key = "_XCAppClipURL"
-            value = "https://qr-dev.notify-me.ch?v=2#CAISSAoFVGl0ZWwSBlRpdGVsMhoHa2xqYXNkZiogsRIzwFRLm6yUgBubColC5gluUH5QErHRtzL7XUOI4BEwgNC2n4svOIDY6L-NLxpgfl7pJ0m0ZVxUiE6qmVeb2er5JqNCdqKwNSxXCizRaBRTCkfBL6ClFoB9WSVj35UPeyWIsH3yME5RTt_nOqxilO3_Raf8_XQf4i_x9hYtUfi-g9mf76SWIAE0dpVG18wIIkQKIGhLjOFcnN4hZ8vB2zNedDOIyMMYg0FPZ_WaJ1GtTjCMEiAIM-5GZz-OEgLfzk3LsDXkw1f7Y494osscisZMYegEgg"
+            value = "https://qr-dev.notify-me.ch?v=2#CAIScwoWVWJpcXVlIFNwcmludGFic2NobHVzcxIUVWJpcXVlIElubm92YXRpb24gQUcaE05pZWRlcmRvcmYsIFrDvHJpY2gqICw-aL3FXJihNYTQHi4kD7p9d7jeo4wHy4RAiutynVhvMIDote2MLziAmLSJkC8aYN4o-GTr0xhy_-M3hajp9k3vm1TeV67ann2tyZ-ECoot_lSDQn1KBFIbgn99HY3KACQMGjJ1L7HpROSk6LLX4-WYd-yj9lqZ1AimjGgFdaA-wttqJJ_iv7SJrkPyIQSDkiJECiBDKhIlj_Dihjg0IfzmdG4a569TvXhxmAs1TN9mYX9I5RIgfG_oCNZIM0lnVD3OvSYTZnkj3T6Mn03OQrGghFp6i4A"
             isEnabled = "YES">
          </EnvironmentVariable>
       </EnvironmentVariables>
