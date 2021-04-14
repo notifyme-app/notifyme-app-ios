@@ -94,12 +94,13 @@ class AppClipViewController: BaseViewController {
         stackView.addSpacerView(Padding.small + Padding.medium)
 
         titleLabel.text = "appclip_welcome".ub_localized
-        stackView.addArrangedView(titleLabel)
+        explanationLabel.text = "appclip_welcome_text".ub_localized
+
+        stackView.addArrangedView(explanationLabel)
 
         stackView.addSpacerView(Padding.mediumSmall)
 
-        explanationLabel.text = "appclip_welcome_text".ub_localized
-        stackView.addArrangedView(explanationLabel)
+        stackView.addArrangedView(titleLabel)
 
         stackView.addSpacerView(Padding.large)
 
