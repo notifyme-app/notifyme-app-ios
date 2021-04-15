@@ -39,6 +39,8 @@ struct ProblematicEvent {
     // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
     // methods supported on all messages.
 
+    var version: Int32 = 0
+
     var identity: Data = Data()
 
     var secretKeyForIdentity: Data = Data()
@@ -47,14 +49,83 @@ struct ProblematicEvent {
 
     var endTime: Int64 = 0
 
-    var nonce: Data = Data()
+    var encryptedAssociatedData: Data = Data()
 
-    var message: Data = Data()
+    var cipherTextNonce: Data = Data()
 
     var unknownFields = SwiftProtobuf.UnknownStorage()
 
     init() {}
 }
+
+struct AssociatedData {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var version: Int32 = 0
+
+    var message: Data = Data()
+
+    var countryData: Data = Data()
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    init() {}
+}
+
+struct NMAssociatedData {
+    // SwiftProtobuf.Message conformance is added in an extension below. See the
+    // `Message` and `Message+*Additions` files in the SwiftProtobuf library for
+    // methods supported on all messages.
+
+    var version: Int32 = 0
+
+    var criticality: NMAssociatedData.EventCriticality = .low
+
+    var unknownFields = SwiftProtobuf.UnknownStorage()
+
+    enum EventCriticality: SwiftProtobuf.Enum {
+        typealias RawValue = Int
+        case low // = 0
+        case high // = 1
+        case UNRECOGNIZED(Int)
+
+        init() {
+            self = .low
+        }
+
+        init?(rawValue: Int) {
+            switch rawValue {
+            case 0: self = .low
+            case 1: self = .high
+            default: self = .UNRECOGNIZED(rawValue)
+            }
+        }
+
+        var rawValue: Int {
+            switch self {
+            case .low: return 0
+            case .high: return 1
+            case let .UNRECOGNIZED(i): return i
+            }
+        }
+    }
+
+    init() {}
+}
+
+#if swift(>=4.2)
+
+    extension NMAssociatedData.EventCriticality: CaseIterable {
+        // The compiler won't synthesize support with the UNRECOGNIZED case.
+        static var allCases: [NMAssociatedData.EventCriticality] = [
+            .low,
+            .high,
+        ]
+    }
+
+#endif // swift(>=4.2)
 
 // MARK: - Code below here is support for the SwiftProtobuf runtime.
 
@@ -99,12 +170,13 @@ extension ProblematicEventWrapper: SwiftProtobuf.Message, SwiftProtobuf._Message
 extension ProblematicEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
     static let protoMessageName: String = "ProblematicEvent"
     static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
-        1: .same(proto: "identity"),
-        2: .same(proto: "secretKeyForIdentity"),
-        3: .same(proto: "startTime"),
-        4: .same(proto: "endTime"),
-        5: .same(proto: "nonce"),
-        6: .same(proto: "message"),
+        1: .same(proto: "version"),
+        2: .same(proto: "identity"),
+        3: .same(proto: "secretKeyForIdentity"),
+        4: .same(proto: "startTime"),
+        5: .same(proto: "endTime"),
+        6: .same(proto: "encryptedAssociatedData"),
+        7: .same(proto: "cipherTextNonce"),
     ]
 
     mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
@@ -113,47 +185,141 @@ extension ProblematicEvent: SwiftProtobuf.Message, SwiftProtobuf._MessageImpleme
             // allocates stack space for every case branch when no optimizations are
             // enabled. https://github.com/apple/swift-protobuf/issues/1034
             switch fieldNumber {
-            case 1: try { try decoder.decodeSingularBytesField(value: &self.identity) }()
-            case 2: try { try decoder.decodeSingularBytesField(value: &self.secretKeyForIdentity) }()
-            case 3: try { try decoder.decodeSingularInt64Field(value: &self.startTime) }()
-            case 4: try { try decoder.decodeSingularInt64Field(value: &self.endTime) }()
-            case 5: try { try decoder.decodeSingularBytesField(value: &self.nonce) }()
-            case 6: try { try decoder.decodeSingularBytesField(value: &self.message) }()
+            case 1: try { try decoder.decodeSingularInt32Field(value: &self.version) }()
+            case 2: try { try decoder.decodeSingularBytesField(value: &self.identity) }()
+            case 3: try { try decoder.decodeSingularBytesField(value: &self.secretKeyForIdentity) }()
+            case 4: try { try decoder.decodeSingularInt64Field(value: &self.startTime) }()
+            case 5: try { try decoder.decodeSingularInt64Field(value: &self.endTime) }()
+            case 6: try { try decoder.decodeSingularBytesField(value: &self.encryptedAssociatedData) }()
+            case 7: try { try decoder.decodeSingularBytesField(value: &self.cipherTextNonce) }()
             default: break
             }
         }
     }
 
     func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if version != 0 {
+            try visitor.visitSingularInt32Field(value: version, fieldNumber: 1)
+        }
         if !identity.isEmpty {
-            try visitor.visitSingularBytesField(value: identity, fieldNumber: 1)
+            try visitor.visitSingularBytesField(value: identity, fieldNumber: 2)
         }
         if !secretKeyForIdentity.isEmpty {
-            try visitor.visitSingularBytesField(value: secretKeyForIdentity, fieldNumber: 2)
+            try visitor.visitSingularBytesField(value: secretKeyForIdentity, fieldNumber: 3)
         }
         if startTime != 0 {
-            try visitor.visitSingularInt64Field(value: startTime, fieldNumber: 3)
+            try visitor.visitSingularInt64Field(value: startTime, fieldNumber: 4)
         }
         if endTime != 0 {
-            try visitor.visitSingularInt64Field(value: endTime, fieldNumber: 4)
+            try visitor.visitSingularInt64Field(value: endTime, fieldNumber: 5)
         }
-        if !nonce.isEmpty {
-            try visitor.visitSingularBytesField(value: nonce, fieldNumber: 5)
+        if !encryptedAssociatedData.isEmpty {
+            try visitor.visitSingularBytesField(value: encryptedAssociatedData, fieldNumber: 6)
         }
-        if !message.isEmpty {
-            try visitor.visitSingularBytesField(value: message, fieldNumber: 6)
+        if !cipherTextNonce.isEmpty {
+            try visitor.visitSingularBytesField(value: cipherTextNonce, fieldNumber: 7)
         }
         try unknownFields.traverse(visitor: &visitor)
     }
 
     static func == (lhs: ProblematicEvent, rhs: ProblematicEvent) -> Bool {
+        if lhs.version != rhs.version { return false }
         if lhs.identity != rhs.identity { return false }
         if lhs.secretKeyForIdentity != rhs.secretKeyForIdentity { return false }
         if lhs.startTime != rhs.startTime { return false }
         if lhs.endTime != rhs.endTime { return false }
-        if lhs.nonce != rhs.nonce { return false }
-        if lhs.message != rhs.message { return false }
+        if lhs.encryptedAssociatedData != rhs.encryptedAssociatedData { return false }
+        if lhs.cipherTextNonce != rhs.cipherTextNonce { return false }
         if lhs.unknownFields != rhs.unknownFields { return false }
         return true
     }
+}
+
+extension AssociatedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = "AssociatedData"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "version"),
+        2: .same(proto: "message"),
+        3: .same(proto: "countryData"),
+    ]
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try { try decoder.decodeSingularInt32Field(value: &self.version) }()
+            case 2: try { try decoder.decodeSingularBytesField(value: &self.message) }()
+            case 3: try { try decoder.decodeSingularBytesField(value: &self.countryData) }()
+            default: break
+            }
+        }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if version != 0 {
+            try visitor.visitSingularInt32Field(value: version, fieldNumber: 1)
+        }
+        if !message.isEmpty {
+            try visitor.visitSingularBytesField(value: message, fieldNumber: 2)
+        }
+        if !countryData.isEmpty {
+            try visitor.visitSingularBytesField(value: countryData, fieldNumber: 3)
+        }
+        try unknownFields.traverse(visitor: &visitor)
+    }
+
+    static func == (lhs: AssociatedData, rhs: AssociatedData) -> Bool {
+        if lhs.version != rhs.version { return false }
+        if lhs.message != rhs.message { return false }
+        if lhs.countryData != rhs.countryData { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
+}
+
+extension NMAssociatedData: SwiftProtobuf.Message, SwiftProtobuf._MessageImplementationBase, SwiftProtobuf._ProtoNameProviding {
+    static let protoMessageName: String = "NMAssociatedData"
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        1: .same(proto: "version"),
+        2: .same(proto: "criticality"),
+    ]
+
+    mutating func decodeMessage<D: SwiftProtobuf.Decoder>(decoder: inout D) throws {
+        while let fieldNumber = try decoder.nextFieldNumber() {
+            // The use of inline closures is to circumvent an issue where the compiler
+            // allocates stack space for every case branch when no optimizations are
+            // enabled. https://github.com/apple/swift-protobuf/issues/1034
+            switch fieldNumber {
+            case 1: try { try decoder.decodeSingularInt32Field(value: &self.version) }()
+            case 2: try { try decoder.decodeSingularEnumField(value: &self.criticality) }()
+            default: break
+            }
+        }
+    }
+
+    func traverse<V: SwiftProtobuf.Visitor>(visitor: inout V) throws {
+        if version != 0 {
+            try visitor.visitSingularInt32Field(value: version, fieldNumber: 1)
+        }
+        if criticality != .low {
+            try visitor.visitSingularEnumField(value: criticality, fieldNumber: 2)
+        }
+        try unknownFields.traverse(visitor: &visitor)
+    }
+
+    static func == (lhs: NMAssociatedData, rhs: NMAssociatedData) -> Bool {
+        if lhs.version != rhs.version { return false }
+        if lhs.criticality != rhs.criticality { return false }
+        if lhs.unknownFields != rhs.unknownFields { return false }
+        return true
+    }
+}
+
+extension NMAssociatedData.EventCriticality: SwiftProtobuf._ProtoNameProviding {
+    static let _protobuf_nameMap: SwiftProtobuf._NameMap = [
+        0: .same(proto: "LOW"),
+        1: .same(proto: "HIGH"),
+    ]
 }

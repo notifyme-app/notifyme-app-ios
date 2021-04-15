@@ -27,6 +27,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             isFirstRun = false
         }
 
+        CheckInManager.shared.migrate()
+
         setupPushManager(launchOptions: options)
 
         setAppearance()

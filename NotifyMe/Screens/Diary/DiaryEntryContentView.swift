@@ -117,7 +117,7 @@ class DiaryEntryContentView: UIView {
     private func update() {
         checkImageView.image = UIImage(named: "icons-ic-check-filled")
 
-        imageTextView.title = checkIn?.venue.name
+        imageTextView.title = checkIn?.venue.description
         imageTextView.image = checkIn?.venue.image(large: false)
 
         var texts: [String?] = []

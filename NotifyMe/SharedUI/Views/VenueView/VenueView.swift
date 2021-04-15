@@ -58,7 +58,7 @@ class VenueView: UIView {
             imageContentView.isHidden = false
         }
 
-        titleLabel.text = venue?.name
+        titleLabel.text = venue?.description
         textLabel.text = venue?.subtitle
     }
 

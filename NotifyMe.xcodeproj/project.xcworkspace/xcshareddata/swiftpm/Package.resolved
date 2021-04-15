@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "Cryptor",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueCryptor.git",
+        "state": {
+          "branch": null,
+          "revision": "ee5880e031da4c609f372cf7472476ab51d5dd19",
+          "version": "1.0.200"
+        }
+      },
+      {
         "package": "CrowdNotifierSDK",
         "repositoryURL": "https://github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
         "state": {
-          "branch": "develop",
-          "revision": "4d8d8e4a1589a332c138b69e63ce70f73c64fc77",
+          "branch": "feature/crypto-v3",
+          "revision": "deea08a23729523065fdb38bb2a6bd115de0c1b1",
           "version": null
+        }
+      },
+      {
+        "package": "HKDF",
+        "repositoryURL": "https://github.com/Bouke/HKDF.git",
+        "state": {
+          "branch": null,
+          "revision": "9b9e521b49e5b529c33f4abe35a00e144af51e00",
+          "version": "3.1.0"
         }
       },
       {
