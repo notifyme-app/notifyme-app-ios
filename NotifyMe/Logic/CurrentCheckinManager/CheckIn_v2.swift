@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierSDK
+import CrowdNotifierBaseSDK
 import Foundation
 
 struct CheckIn_v2: UBCodable, Equatable {
