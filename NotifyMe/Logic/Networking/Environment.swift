@@ -89,4 +89,6 @@ extension Environment {
         let header = [bundleIdentifier, appVersion, os, systemVersion].joined(separator: ";")
         return header
     }
+
+    static let shareURLKey: String = "ch.n2step.appclip.url.key"
 }

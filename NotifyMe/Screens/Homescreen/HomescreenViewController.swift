@@ -9,6 +9,8 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
+import CrowdNotifierBaseSDK
+import CrowdNotifierSDK
 import Foundation
 
 class HomescreenViewController: BaseViewController {
@@ -51,6 +53,11 @@ class HomescreenViewController: BaseViewController {
         }
 
         startRefresh()
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showCheckInIfNeeded()
     }
 
     // MARK: - Update
@@ -149,5 +156,37 @@ class HomescreenViewController: BaseViewController {
             make.bottom.greaterThanOrEqualTo(nonProductiveLabel.snp.top).offset(-padding).priority(.medium)
             make.right.equalToSuperview().inset(Padding.medium + 8.0)
         }
+    }
+
+    // MARK: - Check-In via AppClip
+
+    private func showCheckInIfNeeded() {
+        let bi = (Bundle.main.bundleIdentifier ?? "")
+        let defaults = UserDefaults(suiteName: "group." + bi)
+
+        // url from appclip must be set and onboarding completed
+        guard let urlString = defaults?.value(forKey: Environment.shareURLKey) as? String,
+              UserStorage.shared.hasCompletedOnboarding else {
+            return
+        }
+
+        switch UIStateManager.shared.uiState.checkInState {
+        case .checkIn:
+            break
+        case .noCheckIn:
+            // Try checkin
+            let result = CrowdNotifier.getVenueInfo(qrCode: urlString, baseUrl: Environment.current.qrGenBaseUrl)
+
+            switch result {
+            case let .success(info):
+                let vc = CheckInConfirmViewController(qrCode: urlString, venueInfo: info)
+                present(vc, animated: true, completion: nil)
+            case let .failure(failure):
+                let vc = ErrorViewController(errorModel: failure.errorViewModel)
+                present(vc, animated: true, completion: nil)
+            }
+        }
+
+        defaults?.removeObject(forKey: Environment.shareURLKey)
     }
 }

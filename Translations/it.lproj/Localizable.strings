@@ -213,7 +213,7 @@
 "imprint_webview_sourcecode_title" = "Source code";
 "imprint_webview_sourcecode_text" = "The current source code is available under a Public License on GitHub:";
 "imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
-"web_generator_title" = "Generate a QR code demo";
+"web_generator_title" = "Generate a QR code";
 "web_generator_category_label" = "Category";
 "web_generator_category_other" = "Other";
 "web_generator_category_meeting_room" = "Meeting room";
@@ -233,7 +233,7 @@
 "web_generator_private_bulletpoint_1" = "This QR code informs visitors in case of an incident.";
 "web_generator_private_bulletpoint_2" = "The code can be scanned with any QR code reader.";
 "web_generator_private_bulletpoint_3" = "A decryption key is published. No data of the organizer is published.";
-"web_generator_pdf_button" = "Download PDF";
+"web_generator_pdf_button" = "Show PDF";
 "web_generator_public_qr_title" = "<span>Public</span>\\\nQR Code";
 "web_generator_private_qr_title" = "<span>Private</span>\\\nQR Code";
 "web_generator_missing_input" = "Please fill in the mandatory field";
@@ -323,7 +323,7 @@
 "onboarding_subtitle" = "Check-in for meetings and events.";
 
 /*qr validity period label used in qr generator web app*/
-"web_qr_validity_period_label" = "Validity (24h max)";
+"web_qr_validity_period_label" = "Validity";
 
 /*qr validity period from label used in qr generator web app*/
 "web_qr_validity_period_from_label" = "from";
@@ -344,7 +344,7 @@
 "error_update_text" = "This QR code is not compatible with the current version of the app. Please update the app to scan it the code.";
 "web_generator_date_label" = "Valid on";
 "web_generator_date_placeholder" = "Pick date";
-"web_generator_validity_information" = "The demo QR codes are only valid for one day at a time. For QR codes with permanent validity, please <a href=\"mailto:info@notify-me.ch\">contact us</a>.";
+"web_generator_validity_information" = "NotifyMe does not collect personal data. It is therefore not a substitute for a participants' list if this is required by the canton. However, it can be used in addition to other tools by quickly informing participants about a possible infection.";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 "web_generator_code_validity_message" = "This demo QR code is valid on **%e %B %Y**";
@@ -435,3 +435,13 @@
 
 /*Titel des Check-In Screens*/
 "check_in_screen_title" = "Checking in";
+"web_generator_validity_information_title" = "NotifyMe vs. lists of attendees";
+
+/*AppClip: Willkommen Titel*/
+"appclip_welcome" = "";
+
+/*AppClip: Willkommen Text*/
+"appclip_welcome_text" = "";
+
+/*AppClip: Text der sagt, wieso man App installieren muss*/
+"appclip_download_text" = "";

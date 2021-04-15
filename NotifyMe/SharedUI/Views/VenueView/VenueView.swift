@@ -9,7 +9,7 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierSDK
+import CrowdNotifierBaseSDK
 import Foundation
 
 class VenueView: UIView {
@@ -26,6 +26,7 @@ class VenueView: UIView {
     // MARK: - Properties
 
     private let icon: Bool
+
     public var venue: VenueInfo? {
         didSet {
             update()

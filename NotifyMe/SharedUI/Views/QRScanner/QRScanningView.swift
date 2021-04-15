@@ -26,7 +26,6 @@ class QRScannerView: UIView {
     init(delegate: QRScannerViewDelegate) {
         super.init(frame: .zero)
         self.delegate = delegate
-        doInitialSetup()
     }
 
     required init?(coder _: NSCoder) {

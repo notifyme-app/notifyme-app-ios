@@ -215,7 +215,7 @@
 "imprint_webview_sourcecode_link" = "github.com/notifyme-app/readme";
 
 /*Fuzzy*/
-"web_generator_title" = "Créer QR code démo";
+"web_generator_title" = "Créer QR code";
 
 /*Fuzzy*/
 "web_generator_category_label" = "Catégorie";
@@ -275,7 +275,7 @@
 "web_generator_private_bulletpoint_3" = "Seulement une clé de déchiffrement est publiée. Aucune information sur l'organisateur n'est transmise au serveur.";
 
 /*Fuzzy*/
-"web_generator_pdf_button" = "Télécharger le PDF";
+"web_generator_pdf_button" = "Affiche PDF";
 
 /*Fuzzy*/
 "web_generator_public_qr_title" = "QR Code\\\n<span>publique</span>\n";
@@ -410,7 +410,7 @@
 "onboarding_subtitle" = "Check-in pour réunions et événements.";
 
 /*qr validity period label used in qr generator web app*/
-"web_qr_validity_period_label" = "Validité (24h max.)";
+"web_qr_validity_period_label" = "Validité";
 
 /*qr validity period from label used in qr generator web app*/
 /*Fuzzy*/
@@ -433,9 +433,7 @@
 "error_update_text" = "Ce QR code n'est pas compatible avec la version actuelle de l'application. Veuillez mettre à jour l'application pour pouvoir scanner le QR code.";
 "web_generator_date_label" = "Valide le";
 "web_generator_date_placeholder" = "Choisir date";
-
-/*Fuzzy*/
-"web_generator_validity_information" = "Les codes QR de démonstration ne sont valables que pour un jour à la fois. Pour les codes QR à validité permanente, veuillez <a href=\"mailto:info@notify-me.ch\">nous contacter</a>.";
+"web_generator_validity_information" = "NotifyMe ne collecte pas de données personnelles. L’application ne remplace donc pas les listes de participants si celles-ci sont exigées par le canton. Cependant, elle peut être utilisée en complément d’autres outils pour informer rapidement les participants d'une éventuelle infection.";
 
 /*https://github.com/samsonjs/strftime#supported-specifiers*/
 "web_generator_code_validity_message" = "Ce code QR de démonstration est valable le **%d.%m.%Y**";
@@ -527,3 +525,13 @@
 
 /*Titel des Check-In Screens*/
 "check_in_screen_title" = "Check-in en cours";
+"web_generator_validity_information_title" = "NotifyMe vs. listes de participants";
+
+/*AppClip: Willkommen Titel*/
+"appclip_welcome" = "";
+
+/*AppClip: Willkommen Text*/
+"appclip_welcome_text" = "";
+
+/*AppClip: Text der sagt, wieso man App installieren muss*/
+"appclip_download_text" = "";
