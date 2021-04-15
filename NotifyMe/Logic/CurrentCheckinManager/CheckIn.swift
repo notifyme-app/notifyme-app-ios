@@ -9,7 +9,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierBaseSDK
 import CrowdNotifierSDK
 import Foundation
 
@@ -36,13 +35,5 @@ struct CheckIn: UBCodable, Equatable {
 
     public func timeSinceCheckIn() -> String {
         return Date().timeIntervalSince(checkInTime).ns_formatTime()
-    }
-}
-
-extension CheckIn {
-    // MARK: - Convenience getters
-
-    var notificationKey: Bytes {
-        return venue.notificationKey.bytes
     }
 }

@@ -9,7 +9,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierBaseSDK
 import CrowdNotifierSDK
 import Foundation
 import SwiftProtobuf
