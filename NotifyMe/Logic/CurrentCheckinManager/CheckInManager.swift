@@ -154,7 +154,7 @@ class CheckInManager {
                                   nonce2: oldCheckin.venue.nonce2,
                                   validFrom: oldCheckin.venue.validFrom,
                                   validTo: oldCheckin.venue.validTo,
-                                  infoBytes: nil,
+                                  qrCodePayload: nil,
                                   countryData: countryData)
 
         return CheckIn(identifier: oldCheckin.identifier,
