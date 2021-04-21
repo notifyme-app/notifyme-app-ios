@@ -528,10 +528,8 @@
 "web_generator_validity_information_title" = "NotifyMe vs. listes de participants";
 
 /*AppClip: Willkommen Titel*/
-"appclip_welcome" = "";
+"appclip_welcome" = "Bienvenue chez...";
 
 /*AppClip: Willkommen Text*/
-"appclip_welcome_text" = "";
-
-/*AppClip: Text der sagt, wieso man App installieren muss*/
-"appclip_download_text" = "";
+"appclip_welcome_text" = "Voici tous les informations pour cette réunion ou événement";
+"web_generator_contact_button" = "Enregistrer l'utilisation NotifyMe";
