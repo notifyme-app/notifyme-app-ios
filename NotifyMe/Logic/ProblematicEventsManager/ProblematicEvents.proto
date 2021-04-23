@@ -1,15 +1,10 @@
 syntax = "proto3";
 
-message ProblematicEventWrapper {
+message NotifyMeMAssociatedData {
     int32 version = 1;
-    repeated ProblematicEvent events = 2;
-}
-
-message ProblematicEvent {
-    bytes identity = 1;
-    bytes secretKeyForIdentity = 2;
-    int64 startTime = 3;
-    int64 endTime = 4;
-    bytes nonce = 5;
-    bytes message = 6;
+    enum EventCriticality {
+        LOW = 0;
+        HIGH = 1;
+    }
+    EventCriticality criticality = 2;
 }

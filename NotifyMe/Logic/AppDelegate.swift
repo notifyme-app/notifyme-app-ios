@@ -8,7 +8,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierBaseSDK
 import CrowdNotifierSDK
 import UIKit
 
@@ -26,6 +25,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             Keychain().deleteAll()
             isFirstRun = false
         }
+
+        CheckInManager.shared.migrate()
 
         setupPushManager(launchOptions: options)
 

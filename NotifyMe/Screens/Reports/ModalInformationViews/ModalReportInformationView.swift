@@ -98,7 +98,7 @@ class ModalReportInformationView: UIView {
 
         // set Where
 
-        whereImageTextView.title = exposure.diaryEntry?.venue.name
+        whereImageTextView.title = exposure.diaryEntry?.venue.description
         whereImageTextView.text = exposure.diaryEntry?.venue.subtitle
         whereImageTextView.image = exposure.diaryEntry?.venue.image(large: false)
     }

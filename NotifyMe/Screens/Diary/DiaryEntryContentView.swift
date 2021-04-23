@@ -9,7 +9,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierBaseSDK
 import CrowdNotifierSDK
 import Foundation
 
@@ -117,7 +116,7 @@ class DiaryEntryContentView: UIView {
     private func update() {
         checkImageView.image = UIImage(named: "icons-ic-check-filled")
 
-        imageTextView.title = checkIn?.venue.name
+        imageTextView.title = checkIn?.venue.description
         imageTextView.image = checkIn?.venue.image(large: false)
 
         var texts: [String?] = []

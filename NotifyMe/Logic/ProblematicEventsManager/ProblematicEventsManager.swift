@@ -9,7 +9,6 @@
  * SPDX-License-Identifier: MPL-2.0
  */
 
-import CrowdNotifierBaseSDK
 import CrowdNotifierSDK
 import Foundation
 import SwiftProtobuf
@@ -123,15 +122,13 @@ class ProblematicEventsManager {
             let sk = i.secretKeyForIdentity.bytes
             let startTime = Date(millisecondsSince1970: Int(i.startTime))
             let endTime = Date(millisecondsSince1970: Int(i.endTime))
-            let nonce = i.nonce.bytes
-            let message = i.message.bytes
 
             let info = ProblematicEventInfo(identity: identity,
                                             secretKeyForIdentity: sk,
                                             startTimestamp: startTime,
                                             endTimestamp: endTime,
-                                            encryptedMessage: message,
-                                            nonce: nonce)
+                                            encryptedAssociatedData: i.encryptedAssociatedData.bytes,
+                                            cipherTextNonce: i.cipherTextNonce.bytes)
             problematicEvents.append(info)
         }
 
