@@ -30,7 +30,11 @@ struct CheckIn: UBCodable, Equatable {
     public var hideFromDiary: Bool
 
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {
-        return lhs.identifier == rhs.identifier
+        let sameId = lhs.identifier == rhs.identifier
+        let sameComment = lhs.comment ?? "" == rhs.comment ?? ""
+        let sameCheckinTime = lhs.checkInTime == rhs.checkInTime
+        let sameCheckoutTime = rhs.checkOutTime == lhs.checkOutTime
+        return sameId && sameComment && sameCheckinTime && sameCheckoutTime
     }
 
     public func timeSinceCheckIn() -> String {
