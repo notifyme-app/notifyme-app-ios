@@ -45,7 +45,6 @@
 		6E6403672553E680006D0498 /* ReportInformationViewCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */; };
 		6E640376255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E640375255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift */; };
 		6E64046725544C9F006D0498 /* ProblematicEventsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */; };
-		6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E64047425546061006D0498 /* ProblematicEvents.pb.swift */; };
 		6E6628CF254AF0C200347F06 /* HomescreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */; };
 		6E6628DE254AF1F100347F06 /* CheckInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628DD254AF1F100347F06 /* CheckInViewController.swift */; };
 		6E6628E9254AF21D00347F06 /* CheckinEditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */; };
@@ -154,6 +153,7 @@
 		DC2B52A6255E948800BDD5E3 /* NotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC2B52A5255E948800BDD5E3 /* NotificationManager.swift */; };
 		DC4DD8C32549B08300C2145A /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8C22549B08300C2145A /* BaseViewController.swift */; };
 		DC4DD8EA2549E7A200C2145A /* NotifyMeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4DD8E92549E7A200C2145A /* NotifyMeTests.swift */; };
+		DC57D098263C0BE00016BFDB /* NotifyMeAssociatedData.pb.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC57D097263C0BE00016BFDB /* NotifyMeAssociatedData.pb.swift */; };
 		DC61828D255E5EBA006B79D4 /* Clibsodium in Frameworks */ = {isa = PBXBuildFile; productRef = DC61828C255E5EBA006B79D4 /* Clibsodium */; };
 		DC6CF891255D676100DFCE8F /* CrowdNotifierSDK in Frameworks */ = {isa = PBXBuildFile; productRef = DC6CF890255D676100DFCE8F /* CrowdNotifierSDK */; };
 		DC702AFB243F6D870066C773 /* UBLabelType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC702AFA243F6D870066C773 /* UBLabelType.swift */; };
@@ -247,7 +247,6 @@
 		6E6403662553E680006D0498 /* ReportInformationViewCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportInformationViewCollectionViewCell.swift; sourceTree = "<group>"; };
 		6E640375255430A5006D0498 /* RemoveFromDiaryWarningViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RemoveFromDiaryWarningViewController.swift; sourceTree = "<group>"; };
 		6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProblematicEventsManager.swift; sourceTree = "<group>"; };
-		6E64047425546061006D0498 /* ProblematicEvents.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProblematicEvents.pb.swift; sourceTree = "<group>"; };
 		6E6628CE254AF0C200347F06 /* HomescreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomescreenViewController.swift; sourceTree = "<group>"; };
 		6E6628DD254AF1F100347F06 /* CheckInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckInViewController.swift; sourceTree = "<group>"; };
 		6E6628E8254AF21D00347F06 /* CheckinEditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckinEditViewController.swift; sourceTree = "<group>"; };
@@ -339,6 +338,7 @@
 		DC2B52A5255E948800BDD5E3 /* NotificationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationManager.swift; sourceTree = "<group>"; };
 		DC4DD8C22549B08300C2145A /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		DC4DD8E92549E7A200C2145A /* NotifyMeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotifyMeTests.swift; sourceTree = "<group>"; };
+		DC57D097263C0BE00016BFDB /* NotifyMeAssociatedData.pb.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotifyMeAssociatedData.pb.swift; sourceTree = "<group>"; };
 		DC702AFA243F6D870066C773 /* UBLabelType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBLabelType.swift; sourceTree = "<group>"; };
 		DC702AFC243F6E410066C773 /* UBButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UBButton.swift; sourceTree = "<group>"; };
 		DC702AFE243F6ED90066C773 /* UIColor+HEX.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+HEX.swift"; sourceTree = "<group>"; };
@@ -361,7 +361,7 @@
 		DCA019E52563F86B00AF8C37 /* NotifyMe.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NotifyMe.entitlements; sourceTree = "<group>"; };
 		DCA01A172565270500AF8C37 /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		DCA01A1C25652B7700AF8C37 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
-		DCBC0FB125A763910032B913 /* ProblematicEvents.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = ProblematicEvents.proto; sourceTree = "<group>"; };
+		DCBC0FB125A763910032B913 /* NotifyMeAssociatedData.proto */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.protobuf; path = NotifyMeAssociatedData.proto; sourceTree = "<group>"; };
 		DCCB96DF25679AFB00030DD4 /* Dictionary+CaseInsensitiveKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary+CaseInsensitiveKey.swift"; sourceTree = "<group>"; };
 		DCD9758325E8CBC1004B63DB /* UBPushRegistrationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushRegistrationManager.swift; sourceTree = "<group>"; };
 		DCD9758425E8CBC1004B63DB /* UBPushHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UBPushHandler.swift; sourceTree = "<group>"; };
@@ -506,8 +506,8 @@
 			isa = PBXGroup;
 			children = (
 				6E64046625544C9F006D0498 /* ProblematicEventsManager.swift */,
-				6E64047425546061006D0498 /* ProblematicEvents.pb.swift */,
-				DCBC0FB125A763910032B913 /* ProblematicEvents.proto */,
+				DC57D097263C0BE00016BFDB /* NotifyMeAssociatedData.pb.swift */,
+				DCBC0FB125A763910032B913 /* NotifyMeAssociatedData.proto */,
 			);
 			path = ProblematicEventsManager;
 			sourceTree = "<group>";
@@ -1301,7 +1301,6 @@
 				6E66297E254C029700347F06 /* ReusableView.swift in Sources */,
 				6EFF9AE3245AAFC800C98FF3 /* UIImage+UBHelpers.m in Sources */,
 				6E7C0D1E242CE02D0017C4F9 /* NSLabelType.swift in Sources */,
-				6E64047525546062006D0498 /* ProblematicEvents.pb.swift in Sources */,
 				6E6629DF255050DE00347F06 /* UIStateLogic.swift in Sources */,
 				DC702B0B243F6FAE0066C773 /* UBPListValue.swift in Sources */,
 				6EA6A60A255E828000A66212 /* ImageTextView.swift in Sources */,
@@ -1335,6 +1334,7 @@
 				DCD9758A25E8CBC1004B63DB /* UBPushHandler.swift in Sources */,
 				6E55057A255301FD000D27B1 /* AddCommentControl.swift in Sources */,
 				6E6629B625500C8400347F06 /* CheckInManager.swift in Sources */,
+				DC57D098263C0BE00016BFDB /* NotifyMeAssociatedData.pb.swift in Sources */,
 				F84089EE2493696500A66CD1 /* KeychainPersisted.swift in Sources */,
 				6EB4C79C2551B130005070ED /* ReportInformationView.swift in Sources */,
 				6E6629DA255048AE00347F06 /* UIStateModel.swift in Sources */,
