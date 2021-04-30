@@ -66,7 +66,7 @@ class CheckInManager {
     }
 
     public func checkIn(qrCode: String, venueInfo: VenueInfo) {
-        currentCheckin = CheckIn(identifier: "", qrCode: qrCode, checkInTime: Date(), venue: venueInfo)
+        currentCheckin = CheckIn(identifier: "", qrCode: qrCode, venue: venueInfo, checkInTime: Date())
     }
 
     public func checkOut() {
@@ -159,8 +159,10 @@ class CheckInManager {
 
         return CheckIn(identifier: oldCheckin.identifier,
                        qrCode: oldCheckin.qrCode,
-                       checkInTime: oldCheckin.checkInTime,
                        venue: venueInfo,
+                       checkInTime: oldCheckin.checkInTime,
+                       checkOutTime: oldCheckin.checkOutTime,
+                       comment: oldCheckin.comment,
                        hideFromDiary: oldCheckin.hideFromDiary)
     }
 

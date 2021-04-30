@@ -13,21 +13,23 @@ import CrowdNotifierSDK
 import Foundation
 
 struct CheckIn: UBCodable, Equatable {
-    init(identifier: String, qrCode: String, checkInTime: Date, venue: VenueInfo, hideFromDiary: Bool = false) {
+    var identifier: String
+    let qrCode: String
+    var venue: VenueInfo
+    var checkInTime: Date
+    var checkOutTime: Date?
+    var comment: String?
+    var hideFromDiary: Bool
+
+    init(identifier: String, qrCode: String, venue: VenueInfo, checkInTime: Date, checkOutTime: Date? = nil, comment: String? = nil, hideFromDiary: Bool = false) {
         self.identifier = identifier
+        self.qrCode = qrCode
         self.venue = venue
         self.checkInTime = checkInTime
+        self.checkOutTime = checkOutTime
+        self.comment = comment
         self.hideFromDiary = hideFromDiary
-        self.qrCode = qrCode
     }
-
-    public var identifier: String
-    public let qrCode: String
-    public var venue: VenueInfo
-    public var checkInTime: Date
-    public var comment: String?
-    public var checkOutTime: Date?
-    public var hideFromDiary: Bool
 
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {
         let sameId = lhs.identifier == rhs.identifier
