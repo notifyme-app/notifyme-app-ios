@@ -10,6 +10,8 @@
  */
 
 import Foundation
+import SnapKit
+import UIKit
 
 struct LargeTitleNavigationControllerCustomTitle {
     let image: UIImage?

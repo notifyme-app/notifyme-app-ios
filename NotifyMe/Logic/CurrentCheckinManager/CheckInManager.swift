@@ -10,6 +10,7 @@
  */
 
 import CrowdNotifierSDK
+
 import Foundation
 
 protocol CheckinStateUpdate {
@@ -21,12 +22,24 @@ class CheckInManager {
 
     public static let shared = CheckInManager()
 
+    private init() {}
+
     @KeychainPersisted(key: "ch.notify-me.current.diary.key", defaultValue: [])
+    private var diaryV2: [CheckIn_v2] {
+        didSet { UIStateManager.shared.stateChanged() }
+    }
+
+    @KeychainPersisted(key: "ch.notify-me.current.diary-v3.key", defaultValue: [])
     private var diary: [CheckIn] {
         didSet { UIStateManager.shared.stateChanged() }
     }
 
     @UBOptionalUserDefault(key: "ch.notify-me.current.checkin.key")
+    public var currentCheckinV2: CheckIn_v2? {
+        didSet { UIStateManager.shared.stateChanged() }
+    }
+
+    @UBOptionalUserDefault(key: "ch.notify-me.current.checkin-v3.key")
     public var currentCheckin: CheckIn? {
         didSet { UIStateManager.shared.stateChanged() }
     }
@@ -53,7 +66,7 @@ class CheckInManager {
     }
 
     public func checkIn(qrCode: String, venueInfo: VenueInfo) {
-        currentCheckin = CheckIn(identifier: "", qrCode: qrCode, checkInTime: Date(), venue: venueInfo)
+        currentCheckin = CheckIn(identifier: "", qrCode: qrCode, venue: venueInfo, checkInTime: Date())
     }
 
     public func checkOut() {
@@ -104,6 +117,53 @@ class CheckInManager {
         case .failure:
             break
         }
+    }
+
+    // MARK: - V3 Migration
+
+    @UBUserDefault(key: "ch.notify-me.hasMigratedToV3.key", defaultValue: false)
+    private var hasMigratedToV3: Bool
+
+    public func migrate() {
+        if !hasMigratedToV3 {
+            if let current = currentCheckinV2 {
+                currentCheckin = createCheckinFromV2(current)
+                currentCheckinV2 = nil
+            }
+
+            diary = diaryV2.compactMap { createCheckinFromV2($0) }
+            diaryV2 = []
+
+            hasMigratedToV3 = true
+        }
+    }
+
+    private func createCheckinFromV2(_ oldCheckin: CheckIn_v2) -> CheckIn? {
+        var location = NotifyMeLocationData()
+        location.room = oldCheckin.venue.room
+        location.type = .fromVenueType(oldCheckin.venue.venueType)
+
+        guard let countryData = try? location.serializedData() else {
+            return nil
+        }
+        let venueInfo = VenueInfo(description: oldCheckin.venue.name,
+                                  address: oldCheckin.venue.location,
+                                  notificationKey: oldCheckin.venue.notificationKey,
+                                  publicKey: oldCheckin.venue.masterPublicKey,
+                                  noncePreId: oldCheckin.venue.nonce1,
+                                  nonceTimekey: oldCheckin.venue.nonce2,
+                                  validFrom: oldCheckin.venue.validFrom,
+                                  validTo: oldCheckin.venue.validTo,
+                                  qrCodePayload: nil,
+                                  countryData: countryData)
+
+        return CheckIn(identifier: oldCheckin.identifier,
+                       qrCode: oldCheckin.qrCode,
+                       venue: venueInfo,
+                       checkInTime: oldCheckin.checkInTime,
+                       checkOutTime: oldCheckin.checkOutTime,
+                       comment: oldCheckin.comment,
+                       hideFromDiary: oldCheckin.hideFromDiary)
     }
 
     // MARK: - Helpers

@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UIKit
 
 class BaseSubViewController: UIViewController {
     public weak var baseViewController: BaseViewController?

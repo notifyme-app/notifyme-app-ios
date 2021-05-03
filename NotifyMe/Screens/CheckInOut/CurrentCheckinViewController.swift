@@ -103,6 +103,7 @@ class CurrentCheckinViewController: BaseSubViewController {
 
     public func presentCheckOutScreen() {
         let vc = CheckinEditViewController()
+
         vc.userWillCheckOutCallback = { [weak self] in
             guard let strongSelf = self else { return }
             strongSelf.userWillCheckOutCallback?()

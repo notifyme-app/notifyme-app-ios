@@ -13,45 +13,33 @@ import CrowdNotifierSDK
 import Foundation
 
 struct CheckIn: UBCodable, Equatable {
-    init(identifier: String, qrCode: String, checkInTime: Date, venue: VenueInfo, hideFromDiary: Bool = false) {
+    var identifier: String
+    let qrCode: String
+    var venue: VenueInfo
+    var checkInTime: Date
+    var checkOutTime: Date?
+    var comment: String?
+    var hideFromDiary: Bool
+
+    init(identifier: String, qrCode: String, venue: VenueInfo, checkInTime: Date, checkOutTime: Date? = nil, comment: String? = nil, hideFromDiary: Bool = false) {
         self.identifier = identifier
+        self.qrCode = qrCode
         self.venue = venue
         self.checkInTime = checkInTime
+        self.checkOutTime = checkOutTime
+        self.comment = comment
         self.hideFromDiary = hideFromDiary
-        self.qrCode = qrCode
     }
 
-    public var identifier: String
-    public let qrCode: String
-    public var venue: VenueInfo
-    public var checkInTime: Date
-    public var comment: String?
-    public var checkOutTime: Date?
-    public var hideFromDiary: Bool
-
     static func == (lhs: CheckIn, rhs: CheckIn) -> Bool {
-        return lhs.identifier == rhs.identifier
+        let sameId = lhs.identifier == rhs.identifier
+        let sameComment = lhs.comment ?? "" == rhs.comment ?? ""
+        let sameCheckinTime = lhs.checkInTime == rhs.checkInTime
+        let sameCheckoutTime = rhs.checkOutTime == lhs.checkOutTime
+        return sameId && sameComment && sameCheckinTime && sameCheckoutTime
     }
 
     public func timeSinceCheckIn() -> String {
         return Date().timeIntervalSince(checkInTime).ns_formatTime()
-    }
-}
-
-extension CheckIn {
-    // MARK: - Convenience getters
-
-    var notificationKey: Bytes {
-        return venue.notificationKey.bytes
-    }
-
-    var venuePublicKey: Bytes {
-        return Bytes()
-//        return venue.publicKey.bytes
-    }
-
-    var r1: Bytes {
-        return Bytes()
-//        return venue.r1.bytes
     }
 }

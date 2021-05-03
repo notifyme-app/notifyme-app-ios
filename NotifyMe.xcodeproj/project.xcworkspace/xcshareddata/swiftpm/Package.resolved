@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "Cryptor",
+        "repositoryURL": "https://github.com/IBM-Swift/BlueCryptor.git",
+        "state": {
+          "branch": null,
+          "revision": "ee5880e031da4c609f372cf7472476ab51d5dd19",
+          "version": "1.0.200"
+        }
+      },
+      {
         "package": "CrowdNotifierSDK",
-        "repositoryURL": "ssh://git@github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
+        "repositoryURL": "https://github.com/CrowdNotifier/crowdnotifier-sdk-ios.git",
         "state": {
           "branch": "develop",
-          "revision": "89845ff8808141e0375e534b5dacead7a170c1e0",
+          "revision": "ff7b56fb7ac3944e83eb6585fe34369c23a46d9b",
           "version": null
+        }
+      },
+      {
+        "package": "HKDF",
+        "repositoryURL": "https://github.com/Bouke/HKDF.git",
+        "state": {
+          "branch": null,
+          "revision": "9b9e521b49e5b529c33f4abe35a00e144af51e00",
+          "version": "3.1.0"
         }
       },
       {
@@ -23,9 +41,9 @@
         "package": "SwiftProtobuf",
         "repositoryURL": "https://github.com/apple/swift-protobuf.git",
         "state": {
-          "branch": "1.13.0",
+          "branch": null,
           "revision": "426bef0ddfdc6449b7bd1418baafad6bbc56110b",
-          "version": null
+          "version": "1.13.0"
         }
       }
     ]

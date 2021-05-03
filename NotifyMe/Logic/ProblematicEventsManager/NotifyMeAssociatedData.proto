@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+message NotifyMeAssociatedData {
+  int32 version = 1;
+  EventCriticality criticality = 2;
+}
+
+enum EventCriticality {
+  LOW = 0;
+  HIGH = 1;
+}

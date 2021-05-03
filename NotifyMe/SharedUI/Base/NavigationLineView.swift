@@ -10,6 +10,7 @@
  */
 
 import Foundation
+import UIKit
 
 class NavigationLineView: UIView {
     // MARK: - Init

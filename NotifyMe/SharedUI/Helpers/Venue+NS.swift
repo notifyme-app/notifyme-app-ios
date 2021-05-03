@@ -13,12 +13,19 @@ import CrowdNotifierSDK
 import Foundation
 
 public extension VenueInfo {
-    // MARK: - Image for UI
+    var locationData: NotifyMeLocationData? {
+        return try? NotifyMeLocationData(serializedData: countryData)
+    }
 
+    // Image for UI
     func image(large: Bool) -> UIImage? {
+        guard let venueType = locationData?.type else {
+            return nil
+        }
+
         var imageName: String = ""
         switch venueType {
-        case .other:
+        case .other, .UNRECOGNIZED:
             imageName = "illus-other"
         case .meetingRoom:
             imageName = "illus-meeting"
@@ -50,6 +57,6 @@ public extension VenueInfo {
     }
 
     var subtitle: String? {
-        return [location, room].compactMap { $0.isEmpty ? nil : $0 }.joined(separator: ", ")
+        return [address, locationData?.room ?? ""].compactMap { $0.isEmpty ? nil : $0 }.joined(separator: ", ")
     }
 }

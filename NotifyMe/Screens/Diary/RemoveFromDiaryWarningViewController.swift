@@ -55,7 +55,7 @@ class RemoveFromDiaryWarningViewController: CenterContentViewController {
     private func setup() {
         titleLabel.text = "remove_diary_warning_title".ub_localized
 
-        let text = [venueInfo.name, venueInfo.location]
+        let text = [venueInfo.description, venueInfo.address]
 
         textLabel.text = "remove_diary_warning_text".ub_localized.replacingOccurrences(of: "{LOCATION_INFO}", with: text.joined(separator: ", "))
 

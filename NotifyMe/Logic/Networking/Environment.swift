@@ -34,11 +34,11 @@ enum Environment {
     var backendService: Backend {
         switch self {
         case .dev:
-            return Backend("https://app-dev-ws.notify-me.ch", version: "v1")
+            return Backend("https://app-dev-ws.notify-me.ch", version: "v3")
         case .prod:
-            return Backend("https://app-prod-ws.notify-me.ch", version: "v1")
+            return Backend("https://app-prod-ws.notify-me.ch", version: "v3")
         case .abnahme:
-            return Backend("https://cn-a.bit.admin.ch/", version: "v1")
+            return Backend("https://cn-a.bit.admin.ch/", version: "v3")
         }
     }
 
@@ -89,4 +89,6 @@ extension Environment {
         let header = [bundleIdentifier, appVersion, os, systemVersion].joined(separator: ";")
         return header
     }
+
+    static let shareURLKey: String = "ch.n2step.appclip.url.key"
 }

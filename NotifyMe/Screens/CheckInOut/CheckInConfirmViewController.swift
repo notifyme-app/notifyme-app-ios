@@ -10,6 +10,7 @@
  */
 
 import CrowdNotifierSDK
+
 import Foundation
 
 class CheckInConfirmViewController: BaseViewController {
@@ -99,7 +100,11 @@ class CheckInConfirmViewController: BaseViewController {
                 }
             }
 
-            strongSelf.navigationController?.popToRootViewController(animated: true)
+            if let navVC = strongSelf.navigationController {
+                navVC.popToRootViewController(animated: true)
+            } else {
+                strongSelf.dismiss(animated: true, completion: nil)
+            }
         }
     }
 
