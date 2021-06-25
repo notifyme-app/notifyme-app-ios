@@ -533,3 +533,14 @@
 /*AppClip: Willkommen Text*/
 "appclip_welcome_text" = "Voici tous les informations pour cette réunion ou événement";
 "web_generator_contact_button" = "Enregistrer l'utilisation NotifyMe";
+"web_upload_criticality_label" = "Criticité";
+
+/*Fuzzy*/
+"web_upload_criticality_low" = "Faible";
+"web_upload_criticality_high" = "Élevée";
+"app_termination_homescreen_button_title" = "lire la note";
+"app_termination_homescreen_text" = "NotifyMe a été intégré dans SwissCovid";
+"app_termination_title" = "NotifyMe a été intégré dans SwissCovid";
+"app_termination_text" = "Veuillez utiliser la fonction d'enregistrement de l'application SwissCovid à partir de maintenant. NotifyMe ne sera en service que jusqu'à la fin août 2021.<br><br><b>Important :</b> Veuillez remplacer vos codes QR créés par de nouveaux codes QR SwissCovid.";
+"app_termination_button_title" = "Plus d’informations";
+"app_termination_detail_url" = "https://www.bag.admin.ch/bag/fr/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/swisscovid-app-und-contact-tracing.html";

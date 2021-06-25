@@ -39,7 +39,8 @@ class CenterContentView: UIView {
 
         addSubview(contentView)
         contentView.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview().inset(Padding.large + Padding.small)
+            make.top.equalToSuperview().inset(Padding.large + Padding.mediumSmall)
+            make.bottom.equalToSuperview().inset(Padding.large)
             make.left.right.equalToSuperview().inset(Padding.medium)
         }
 

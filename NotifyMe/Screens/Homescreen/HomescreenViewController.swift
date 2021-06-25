@@ -13,6 +13,10 @@ import CrowdNotifierSDK
 import Foundation
 
 class HomescreenViewController: BaseViewController {
+    private let backgroundView = UIView()
+    private let contentBackgroundView = UIView()
+    private let terminationView = HomescreenTerminationView()
+
     private let stackScrollView = StackScrollView(axis: .vertical)
 
     private let reportViewController = HomescreenReportViewController()
@@ -21,8 +25,6 @@ class HomescreenViewController: BaseViewController {
     private let checkInButton = CheckInButton()
     private let diaryButton = BigButton(icon: UIImage(named: "icons-ic-diary"))
     private let nonProductiveLabel = Label(.boldUppercaseSmall, textColor: .ns_red)
-
-    private let personImageView = UIImageView()
 
     private let refreshControl = UIRefreshControl()
 
@@ -43,26 +45,14 @@ class HomescreenViewController: BaseViewController {
 
         setupLayout()
         setupButtons()
-        setupPersonView()
         addOval()
-
-        UIStateManager.shared.addObserver(self) { [weak self] state in
-            guard let strongSelf = self else { return }
-            strongSelf.update(state)
-        }
-
+        setupTerminationView()
         startRefresh()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         showCheckInIfNeeded()
-    }
-
-    // MARK: - Update
-
-    private func update(_ state: UIStateModel) {
-        personImageView.isHidden = state.exposureState != .noExposure
     }
 
     // MARK: - Setup
@@ -75,6 +65,19 @@ class HomescreenViewController: BaseViewController {
     }
 
     private func setupLayout() {
+        backgroundView.backgroundColor = .ns_red
+        contentBackgroundView.backgroundColor = .white
+        contentBackgroundView.ub_roundCorners([.layerMinXMinYCorner, .layerMaxXMinYCorner], radius: 36.0)
+
+        view.addSubview(backgroundView)
+        backgroundView.snp.makeConstraints { make in
+            make.edges.equalToSuperview()
+        }
+        view.addSubview(contentBackgroundView)
+        contentBackgroundView.snp.makeConstraints { make in
+            make.bottom.left.right.equalToSuperview()
+        }
+
         view.addSubview(stackScrollView)
         stackScrollView.snp.makeConstraints { make in
             if #available(iOS 11.0, *) {
@@ -88,7 +91,12 @@ class HomescreenViewController: BaseViewController {
         stackScrollView.scrollView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(startRefresh), for: .valueChanged)
 
+        stackScrollView.addArrangedView(terminationView)
         stackScrollView.addArrangedView(headerView)
+
+        contentBackgroundView.snp.makeConstraints { make in
+            make.top.equalTo(headerView.snp.top)
+        }
 
         stackScrollView.addArrangedViewController(reportViewController, parent: self)
 
@@ -140,21 +148,20 @@ class HomescreenViewController: BaseViewController {
         }
     }
 
-    private func setupPersonView() {
-        let small = view.bounds.size.width <= 375
-
-        if view.bounds.size.width > 320 {
-            personImageView.image = UIImage(named: "person")?.ub_image(byScaling: small ? 0.65 : 0.95)
+    private func setupTerminationView() {
+        terminationView.buttonTouchUpCallback = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.presentTerminationPopup()
         }
+    }
 
-        view.insertSubview(personImageView, at: 0)
-
-        let padding = small ? Padding.medium : 2.0 * Padding.medium
-
-        personImageView.snp.makeConstraints { make in
-            make.bottom.greaterThanOrEqualTo(nonProductiveLabel.snp.top).offset(-padding).priority(.medium)
-            make.right.equalToSuperview().inset(Padding.medium + 8.0)
+    private func presentTerminationPopup() {
+        let vc = TerminationPopupViewController()
+        vc.moreInfoCallback = {
+            guard let url = URL(string: "app_termination_detail_url".ub_localized) else { return }
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
         }
+        present(vc, animated: true, completion: nil)
     }
 
     // MARK: - Check-In via AppClip
