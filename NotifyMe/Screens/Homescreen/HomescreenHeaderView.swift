@@ -44,8 +44,9 @@ class HomescreenHeaderView: UIView {
 
         addSubview(infoButton)
         infoButton.snp.makeConstraints { make in
-            make.top.bottom.equalToSuperview()
+            make.top.equalToSuperview().inset(Padding.small)
             make.right.equalToSuperview().inset(Padding.mediumSmall - (44.0 - image.size.width) * 0.5)
+            make.bottom.equalToSuperview()
         }
 
         addSubview(titleLabel)
