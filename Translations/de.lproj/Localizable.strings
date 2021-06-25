@@ -549,3 +549,14 @@ Die Demo QR-Codes sind jeweils nur an einem Tag gültig. Für QR-Codes mit dauer
 /*AppClip: Willkommen Text*/
 "appclip_welcome_text" = "Hier sind alle Informationen zu diesem Meeting oder Event";
 "web_generator_contact_button" = "Registrierung Nutzung NotifyMe";
+"web_upload_criticality_label" = "Kritikalität";
+
+/*Fuzzy*/
+"web_upload_criticality_low" = "Tief";
+"web_upload_criticality_high" = "Hoch";
+"app_termination_homescreen_button_title" = "Hinweis lesen";
+"app_termination_homescreen_text" = "NotifyMe wurde in SwissCovid integriert";
+"app_termination_title" = "NotifyMe wurde in die SwissCovid App integriert";
+"app_termination_text" = "Bitte benutzen Sie ab sofort die Check-in-Funktion der SwissCovid App. NotifyMe kann nur noch bis Ende August 2021 verwendet werden.<br><br><b>Achtung:</b> Bitte ersetzen Sie Ihre erstellten QR-Codes durch neue SwissCovid-QR-Codes.";
+"app_termination_button_title" = "Mehr erfahren";
+"app_termination_detail_url" = "https://www.bag.admin.ch/bag/de/home/krankheiten/ausbrueche-epidemien-pandemien/aktuelle-ausbrueche-epidemien/novel-cov/swisscovid-app-und-contact-tracing.html";

@@ -25,11 +25,13 @@ enum BigButtonStyle {
 enum BigButtonColorStyle {
     case purple
     case red
+    case redInverted
 
     var color: UIColor {
         switch self {
         case .red: return .ns_red
         case .purple: return .ns_purple
+        case .redInverted: return .white
         }
     }
 
@@ -37,6 +39,7 @@ enum BigButtonColorStyle {
         switch self {
         case .red: return .ns_redLight
         case .purple: return .ns_purpleLight
+        case .redInverted: return .ns_genericTouchState
         }
     }
 
@@ -44,6 +47,15 @@ enum BigButtonColorStyle {
         switch self {
         case .red: return .ns_redDark
         case .purple: return .ns_purpleDark
+        case .redInverted: return .ns_genericTouchState
+        }
+    }
+
+    var textColor: UIColor {
+        switch self {
+        case .red: return .white
+        case .purple: return .white
+        case .redInverted: return .ns_red
         }
     }
 }
@@ -98,6 +110,7 @@ class BigButton: UBButton {
 
         } else {
             setupIconAndText(icon: icon?.ub_image(with: .white), text: text)
+            label.textColor = colorStyle.textColor
             backgroundColor = colorStyle.color
             highlightedBackgroundColor = colorStyle.darkColor
         }

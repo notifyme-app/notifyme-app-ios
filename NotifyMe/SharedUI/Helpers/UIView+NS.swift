@@ -29,4 +29,36 @@ public extension UIView {
         setContentCompressionResistancePriority(.required, for: .horizontal)
         setContentCompressionResistancePriority(.required, for: .vertical)
     }
+
+    /// Sets a corner mask with support for iOS < 11.0
+    func ub_roundCorners(_ corners: CACornerMask, radius: CGFloat) {
+        if #available(iOS 11.0, *) {
+            layer.cornerRadius = radius
+            layer.maskedCorners = corners
+        } else {
+            layer.cornerRadius = 0
+            let mask = CAShapeLayer()
+            mask.frame = bounds
+
+            var cornerMask = UIRectCorner()
+            if corners.contains(.layerMinXMinYCorner) {
+                cornerMask.insert(.topLeft)
+            }
+            if corners.contains(.layerMaxXMinYCorner) {
+                cornerMask.insert(.topRight)
+            }
+            if corners.contains(.layerMinXMaxYCorner) {
+                cornerMask.insert(.bottomLeft)
+            }
+            if corners.contains(.layerMaxXMaxYCorner) {
+                cornerMask.insert(.bottomRight)
+            }
+            mask.path = UIBezierPath(
+                roundedRect: bounds,
+                byRoundingCorners:
+                cornerMask, cornerRadii: CGSize(width: radius, height: radius)
+            ).cgPath
+            layer.mask = mask
+        }
+    }
 }
